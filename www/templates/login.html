@@ -7,20 +7,20 @@
 
     <form id="login-form3" class="list">
       <ion-list>
-        <label class="item item-input lable-font item-floating-label">
-          <span class="input-label">Email</span>
+        <label class="item item-input login-label item-floating-label">
+          <span class="input-label lable-font-login">Email</span>
           <input type="text" placeholder="Email" ng-model="user.email">
         </label>
 
-        <label class="item item-input lable-font item-floating-label">
-          <span class="input-label">Password</span>
+        <label class="item item-input lable-font login-label item-floating-label">
+          <span class="input-label lable-font-login">Password</span>
           <input type="password" placeholder="Password" ng-model="user.password">
         </label>
       </ion-list>
       
       <div class="spacer" style="height: 40px;"></div>
 
-      <button ng-click="loginUser ()" class="button button-gold button-block">Log in</button>
+      <button ng-click="loginUser ()" class="button button-positive button-block">Log in</button>
 
       <a ui-sref="signup" id="login-button6" style="color:#FFFFFF;" class="button button-positive  button-block button-clear">Or create an account</a>
     </form>

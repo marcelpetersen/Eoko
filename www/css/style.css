@@ -1,6 +1,49 @@
 /* Empty. Add your own CSS if you like */
 
-#lable-font {
+
+/* Login Page */
+/*----------------*/
+
+.lable-font-login {
 	font-family: "San Francisco";
 	font-weight: 200;
+	color: white;
 }
+
+.login-label{
+	border: transparent;
+	border-bottom: 1px solid white;
+}
+
+textarea, 
+input[type="text"], 
+input[type="password"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="color"] {
+    display: block;
+    padding-top: 2px;
+    padding-left: 0;
+    height: 34px;
+    color: white;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.button.button-positive {
+    border-color: transparent;
+    background-color: #F57C00;
+    color: #fff;
+}.button.button-positive.active, .button.button-positive.activated {
+      border-color: #a2a2a2;
+      background-color: #FFCA28; }
