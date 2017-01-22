@@ -192,7 +192,6 @@ firebase.auth().signInWithEmailAndPassword($scope.user.email, $scope.user.passwo
                  $state.go('tabsController.connect');
             });
             
-            
         },
         function(error)
         {
