@@ -16,11 +16,22 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
-    "cordova-plugin-console",
     "cordova-plugin-statusbar",
+    "cordova-plugin-console",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard"
   ],
+<<<<<<< HEAD
   "cordovaPlatforms": []
+=======
+  "cordovaPlatforms": [
+    "ios",
+    {
+      "platform": "ios",
+      "version": "",
+      "locator": "ios"
+    }
+  ]
+>>>>>>> 383d10401a2875daa9828538b064c00d35344420
 }
