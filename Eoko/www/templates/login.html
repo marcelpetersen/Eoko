@@ -1,22 +1,29 @@
 <ion-view title="Login" hide-nav-bar="true" id="page10">
   <ion-content padding="true" style="background: url(img/5eOY4mPRxiewcxFsYGTp_Asset202404x.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding">
+    
     <div>
-      <img src="img/G9pY5qSTUegAN85oHap2_nexulogo.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+      <img src="/img/logo.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
+
     <form id="login-form3" class="list">
       <ion-list>
-        <label class="item item-input lable-font">
+        <label class="item item-input lable-font item-floating-label">
           <span class="input-label">Email</span>
-          <input type="text" placeholder="" ng-model="user.email">
+          <input type="text" placeholder="Email" ng-model="user.email">
         </label>
-        <label class="item item-input lable-font">
+
+        <label class="item item-input lable-font item-floating-label">
           <span class="input-label">Password</span>
-          <input type="password" placeholder="" ng-model="user.password">
+          <input type="password" placeholder="Password" ng-model="user.password">
         </label>
       </ion-list>
+      
       <div class="spacer" style="height: 40px;"></div>
-      <button ng-click="loginUser ()" class="button button-block" id="button-login-custom">Log in</button>
+
+      <button ng-click="loginUser ()" class="button button-orange button-block" color="#F57C00" data-ink-color="#F57C00" data-ink-opacity="1"> Log in </button>
+
       <a ui-sref="signup" id="login-button6" style="color:#FFFFFF;" class="button button-positive  button-block button-clear">Or create an account</a>
     </form>
+
   </ion-content>
 </ion-view>
