@@ -9,7 +9,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 
 .config(function($ionicConfigProvider, $sceDelegateProvider){
   
-
+  ionic.Platform.setPlatform('ios');
   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
 
 })
