@@ -10,7 +10,8 @@ angular.module('app.services', [])
             surveyCount: 0,
             major: "",
             avatar:"",
-            buildcode:""
+            buildcode:"",
+            description:"",
             };
                 
     return{
@@ -24,7 +25,8 @@ angular.module('app.services', [])
                 surveyCount: info.surveyCount,
                 major: info.major,
                 avatar: info.avatar,
-                buildcode: info.buildcode
+                buildcode: info.buildcode,
+                description: info.description
 			};
 				return true;
 			},
@@ -47,7 +49,8 @@ angular.module('app.services', [])
             surveyCount: 0,
             major: "",
             avatar:"",
-            buildcode:""
+            buildcode:"",
+            description:"",
             };
                 
     return{
@@ -61,7 +64,8 @@ angular.module('app.services', [])
                 surveyCount: info.surveyCount,
                 major: info.major,
                 avatar: info.avatar,
-                buildcode: info.buildcode
+                buildcode: info.buildcode,
+                description: info.description
 			};
 				return true;
 			},

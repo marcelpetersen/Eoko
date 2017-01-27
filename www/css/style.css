@@ -49,6 +49,24 @@ input[type="color"] {
 	  background-color: rgba(247, 124, 0, 0.8); }
 
 
-.centerFace{
-    
+.avatarImg{
+    border-radius: 50px;
+    background-size: cover;
+    background-position-x: 61%;
+    background-color:grey;
+    width: 12.5em;
+    height: 13em;
+    border-radius: 13em;
+    margin: 2em auto;
+}
+
+.descriptionBox{
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    width: 320px;
+    margin: 4em auto;
+    background-color: rgba(255, 255, 255, 0.61);
+    height: 10em;
+    resize: none;
 }

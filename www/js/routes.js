@@ -13,10 +13,10 @@ angular.module('app.routes', ['ionicUIRouter'])
 
   .state('tabsController.profile', {
     url: '/profilePage',
-	params: {
-		avatarClicked: "false"		
+    params: {
+    'avatarClicked': 'false'    
 },
-    views: {
+	    views: {
       'tab1': {
         templateUrl: 'templates/profile.html',
         controller: 'profileCtrl'
@@ -87,6 +87,42 @@ angular.module('app.routes', ['ionicUIRouter'])
     url: '/loginPage',
     templateUrl: 'templates/login.html',
     controller: 'loginCtrl'
+  })
+
+
+
+
+    .state('getNamePage', {
+    url: '/namePage',
+    templateUrl: 'templates/getNamePage.html',
+    controller: 'getNamePageCtrl'
+  })
+
+  .state('getCodePage', {
+    url: '/codePage',
+    params: {
+    userinfo: {firstname:"",lastname:"", email: "", password: "", buildcode: "" }    
+},
+    templateUrl: 'templates/getCodePage.html',
+    controller: 'getCodePageCtrl'
+  })
+
+  .state('getDescriptionPage', {
+    url: '/descriptionPage',
+    templateUrl: 'templates/getDescriptionPage.html',
+    controller: 'getDescriptionPageCtrl'
+  })
+
+  .state('getSocialPage', {
+    url: '/socialPage',
+    templateUrl: 'templates/getSocialPage.html',
+    controller: 'getSocialPageCtrl'
+  })
+
+  .state('getPicturePage', {
+    url: '/picturePage',
+    templateUrl: 'templates/getPicturePage.html',
+    controller: 'getPicturePageCtrl'
   })
 
 $urlRouterProvider.otherwise('/loginPage')
