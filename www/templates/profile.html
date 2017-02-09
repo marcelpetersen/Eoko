@@ -1,15 +1,18 @@
-<ion-view title="Profile" id="page2">
-  
-  <ion-content padding="true" class="has-header" style="background: url(img/5eOY4mPRxiewcxFsYGTp_Asset202404x.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding">
-
-    <ion-nav-buttons side="left" class="has-header">
-      <button class="button button-icon icon ion-android-search"></button>
-    </ion-nav-buttons>
-  
-    <ion-nav-buttons side="right" class="has-header">
-      <button class="button button-icon icon ion-ios-chatbubble"></button>
-    </ion-nav-buttons>
-
+<ion-view title="Profile" hide-nav-bar="true" hide-back-button="true" id="page2">
+    <ion-content padding="true" style="background: url(img/5eOY4mPRxiewcxFsYGTp_Asset202404x.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding">
+    <div>
+      <a class="button button-icon icon ion-ios-bell">
+        <div ng-if="friendR > 0" class="notificationNumber" ng-model="friendR">
+        {{friendR}}
+</div>
+      </a>
+      <button class="button button-icon icon ion-ios-gear" style="float: right"></button>
+    </div>
+    <div ng-click="uploadPicture()" style="background-image: url({{user.avatar}});margin:-2em auto" class="avatarImg">
+    </div>
+    <div class="spacer" style="width: 300px; height: 13px;"></div>
+    <h3 id="profile-heading3" style="color:#FFFFFF;text-align:center;">{{user.name}}</h3>
+    <h4 id="profile-heading4" style="color:#FFFFFF;text-align:center;">{{user.description}}</h4>
+    <div class="spacer" style="width: 300px; height: 27px;"></div>
   </ion-content>
-
 </ion-view>
