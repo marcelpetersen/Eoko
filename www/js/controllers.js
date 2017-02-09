@@ -5,23 +5,22 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, UserInfo, OtherInfo) {
 
-var data;
+$scope.user = "";
  $scope.$on('$ionicView.beforeEnter', function() //before anything runs
     {
-        
         console.log($stateParams.avatarClicked);
         if ($stateParams.avatarClicked == 'true')
         {
            console.log("other");
-            data = OtherInfo.getOtherInfo();
-            console.log(data); 
+            $scope.user = OtherInfo.getOtherInfo();
+            console.log($scope.user); 
         }  
         else
         {
             console.log("user");
-            data = UserInfo.getUserInfo();
-            console.log(data)
-            if(data.email == "")
+            $scope.user = UserInfo.getUserInfo();
+            console.log($scope.user)
+            if($scope.user.email == "")
             {
                 console.log("empty, pulling from database")
                 var usr = firebase.auth().currentUser;
@@ -31,7 +30,7 @@ var data;
                 {
                     console.log(snapshot.val());
                     UserInfo.setUserInfo(snapshot.val());
-                    data = UserInfo.getUserInfo();
+                    $scope.user = UserInfo.getUserInfo();
                 });
             }
         }
@@ -42,10 +41,90 @@ var data;
 
 }])
    
-.controller('eventsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $stateParams, UserInfo) {
+
+$scope.selection = {tab:"event", porb:"public"};
+$scope.event = {title:"",location:"",date:"",time:"",description:""};
+
+var weekday = new Array();
+weekday[0] =  "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+
+var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
+
+    $scope.selectEventTab = function()
+    {
+        $scope.selection.tab = "event";
+    };
+
+    $scope.selectCreateTab = function()
+    {
+        $scope.selection.tab = "create";
+    };
+
+    $scope.selectedPublic = function()
+    {
+        $scope.selection.porb = "public";
+    };
+
+    $scope.selectedPrivate = function()
+    {
+        $scope.selection.porb = "private";
+    };
+
+
+    $scope.createEvent = function(makeEventForm)
+    {
+       if(makeEventForm.$valid)
+       {
+            var postedEvent = {title: $scope.event.title,
+                location:$scope.event.location,
+                date:"",
+                time:"",
+                description:$scope.event.description};
+
+            var d = $scope.event.date;
+            postedEvent.date = weekday[d.getDay()]+", "+month[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();
+            postedEvent.time = $scope.event.time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            console.log(postedEvent);
+
+            var usr = UserInfo.getUserInfo();
+            var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
+
+            if($scope.selection.porb == "public")
+            {
+                ref.orderByKey().once("value").then(function(snapshot) {
+                    var val = snapshot.val();
+                    console.log(val);
+                    console.log(snapshot.key);
+                });
+            }
+
+        }
+        
+    };
+
+
 
 
 }])
@@ -70,22 +149,25 @@ if(usr.email == "")
         });
     }
 
-var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
-$scope.userList = [];
-ref.orderByKey().once("value").then(function(snapshot) {
-    
-    var val = snapshot.val();
-    $scope.userList= Object.keys(val).map(function (key) 
-    { 
-        if(val[key].email != usr.email)
-        {
-            return val[key]; 
-        }
-    });
+    var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
+    $scope.userList = [];
 
-$scope.$apply();
-});
+ 
+        ref.orderByKey().once("value").then(function(snapshot) {
+            
+            var val = snapshot.val();
+            //console.log(val);
+            $scope.userList= Object.keys(val).map(function (key) 
+            { 
+                if(val[key].email != usr.email)
+                {
+                    return val[key]; 
+                }
+            });
 
+
+        $scope.$apply();
+        });
 
 $scope.openProfile = function(clicked)
 {
@@ -149,7 +231,7 @@ function ($scope, $stateParams, $state, UserInfo) {
             {
                 console.log(snapshot.val());
                 UserInfo.setUserInfo(snapshot.val());
-                 $state.go('tabsController.connect');
+                 $state.go('tabsController.profile');
             });
             
         },

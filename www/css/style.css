@@ -70,3 +70,30 @@ input[type="color"] {
     height: 10em;
     resize: none;
 }
+
+
+.notificationNumber {
+    border-radius: 50px;
+    background-color: red;
+    font-size: 12px;
+    height: 16px;
+    width: 16px;
+    line-height: 16px;
+    position: relative;
+    bottom: 36px;
+    left: 13px;
+    color: white;
+}
+
+.n_avatarImg{
+        height: 80px;
+    width: 80px;
+    background-size: contain;
+    position: absolute;
+    left: 10px;
+    border-radius: 80px;
+}
+
+.privatePublic{
+    border-radius:14px;
+}
