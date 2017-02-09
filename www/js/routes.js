@@ -7,14 +7,14 @@ angular.module('app.routes', ['ionicUIRouter'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-  
+
+
 
 
   .state('tabsController.profile', {
     url: '/profilePage',
     params: {
-    'avatarClicked': 'false'    
+    'avatarClicked': 'false'
 },
 	    views: {
       'tab1': {
@@ -101,7 +101,7 @@ angular.module('app.routes', ['ionicUIRouter'])
   .state('getCodePage', {
     url: '/codePage',
     params: {
-    userinfo: {firstname:"",lastname:"", email: "", password: "", buildcode: "" }    
+    userinfo: {firstname:"",lastname:"", email: "", password: "", buildcode: "" }
 },
     templateUrl: 'templates/getCodePage.html',
     controller: 'getCodePageCtrl'
@@ -125,8 +125,8 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'getPicturePageCtrl'
   })
 
-$urlRouterProvider.otherwise('/loginPage')
+$urlRouterProvider.otherwise('/homePage')
 
-  
+
 
 });

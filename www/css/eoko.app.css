@@ -9799,45 +9799,40 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-/**
- * http://applemusic.tumblr.com/
- * https://jsfiddle.net/xq56dmrh/
- */
-/** Ultra Light */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 100;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff"); }
+.eoko-button, .eoko-button-block, .eoko-button-clear {
+  border-color: #F57C00;
+  background-color: #F57C00;
+  color: #FFFFFF;
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  padding: 0 12px;
+  min-width: 52px;
+  min-height: 47px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  vertical-align: top;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  line-height: 50px; }
+  .eoko-button:hover, .eoko-button-block:hover, .eoko-button-clear:hover {
+    background-color: #cc6700;
+    transition: all 0.3s ease; }
+  .eoko-button:active, .eoko-button-block:active, .eoko-button-clear:active, .eoko-button:activated, .eoko-button-block:activated, .eoko-button-clear:activated {
+    background-color: #763b00; }
 
-/** Thin */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 200;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff"); }
+.eoko-button-block, .eoko-button-clear {
+  display: block; }
 
-/** Regular */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 400;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff"); }
-
-/** Medium */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 500;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff"); }
-
-/** Semi Bold */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 600;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff"); }
-
-/** Bold */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 700;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff"); }
+.eoko-button-clear {
+  border-width: 1px;
+  border-color: #F57C00;
+  color: #F57C00;
+  border-style: solid;
+  background: none;
+  box-shadow: none; }
 
 .connectImg {
   width: 75px;
@@ -9848,17 +9843,3 @@ a.button {
   float: left;
   margin: 10px;
   background-color: grey; }
-
-#lable-font {
-  font-family: "San Francisco";
-  font-weight: 200; }
-
-#button-login-custom {
-  background-color: #f57c00;
-  padding: 2px 4px;
-  font-family: "San Francisco";
-  font-weight: 200;
-  text-decoration: none;
-  border: 1px solid #000;
-  border-color: #aaa #444 #444 #aaa;
-  color: #000; }

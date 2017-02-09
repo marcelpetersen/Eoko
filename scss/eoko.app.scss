@@ -1,5 +1,16 @@
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-@import "../www/lib/ionic/scss";
+
+@import
+  //Library
+  "../www/lib/ionic/scss/ionic",
+
+  //Variable
+  "eoko-mixins",
+  "eoko-variables",
+
+  //Button
+  "eoko-button";
+
 
 .connectImg {
 	width: 75px;

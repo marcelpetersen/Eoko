@@ -1,0 +1,19 @@
+
+// Button Mixins
+// --------------------------------------------------
+
+@mixin button-style($bg-color, $border-color, $active-bg-color, $active-border-color, $color) {
+  border-color: $border-color;
+  background-color: $bg-color;
+  color: $color;
+
+  // Give desktop users something to play with
+  &:hover {
+    background-color: darken($active-bg-color,8%);
+    transition: all 0.3s ease;
+  }
+  &:active,
+  &:activated {
+    background-color: darken($active-bg-color,25%);
+  }
+}
