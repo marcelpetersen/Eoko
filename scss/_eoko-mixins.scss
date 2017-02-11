@@ -56,17 +56,3 @@
 
 // Tab Mixins
 // --------------------------------------------------
-
-@mixin tab-style($bg-color, $border-color, $color) {
-  border-color: $border-color;
-  background-color: $bg-color;
-  background-image: linear-gradient(0deg, $border-color, $border-color 50%, transparent 50%);
-  color: $color;
-}
-
-@mixin tab-badge-style($bg-color, $color) {
-  .tab-item .badge {
-    background-color: $bg-color;
-    color: $color;
-  }
-}

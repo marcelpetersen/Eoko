@@ -1,18 +1,23 @@
 <ion-view title="Profile" hide-nav-bar="true" hide-back-button="true" id="page2">
-    <ion-content padding="true" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding">
+
+  <ion-content padding="true" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding">
     <div>
       <a class="button button-icon icon ion-ios-bell">
         <div ng-if="friendR > 0" class="notificationNumber" ng-model="friendR">
         {{friendR}}
-</div>
+        </div>
       </a>
       <button class="button button-icon icon ion-ios-gear" style="float: right"></button>
     </div>
-    <div ng-click="uploadPicture()" style="background-image: url({{user.avatar}});margin:-2em auto" class="avatarImg">
-    </div>
+
+    <div ng-click="uploadPicture()" style="background-image: url({{user.avatar}});margin:-2em auto" class="avatarImg"></div>
+
     <div class="spacer" style="width: 300px; height: 13px;"></div>
+
     <h3 id="profile-heading3" style="color:#FFFFFF;text-align:center;">{{user.name}}</h3>
     <h4 id="profile-heading4" style="color:#FFFFFF;text-align:center;">{{user.description}}</h4>
+
     <div class="spacer" style="width: 300px; height: 27px;"></div>
+
   </ion-content>
 </ion-view>

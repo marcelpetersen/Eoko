@@ -5,9 +5,107 @@
 // -------------------------------
 
 
-.eoko-tabs-stable > .eoko-tabs,
-.eoko-tabs.tabs-stable {
-  background: $orange;
-  //@include tab-style($orange, $orange, $white);
-  //@include tab-badge-style(none, $orange);
+.eoko-tabs-blur .tab-nav.tabs{
+  height: 70px;
+  background: url(../img/main_background.png) no-repeat;
+}
+
+.tab-item {
+  margin-top: 3px;
+}
+
+.profile-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/profile_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.action-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/action_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.people-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/people_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.event-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/event_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.info-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/info_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.profile-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/profile_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 40px;
+}
+
+.action-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/action_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 40px;
+}
+
+.people-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/people_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 40px;
+}
+
+.event-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/event_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 40px;
+}
+
+.info-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/info_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 40px;
+}
+
+.underline{
+  display: inline-block;
+  border-bottom:2px solid $orange;
+
 }
