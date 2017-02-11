@@ -9799,7 +9799,7 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.eoko-button, .eoko-button-block, .eoko-button-clear {
+.eoko-button, .eoko-button-block, .eoko-button-block-clear {
   border-color: #F57C00;
   background-color: #F57C00;
   color: #FFFFFF;
@@ -9817,22 +9817,64 @@ a.button {
   text-overflow: ellipsis;
   font-size: 16px;
   line-height: 50px; }
-  .eoko-button:hover, .eoko-button-block:hover, .eoko-button-clear:hover {
+  .eoko-button:hover, .eoko-button-block:hover, .eoko-button-block-clear:hover {
     background-color: #cc6700;
     transition: all 0.3s ease; }
-  .eoko-button:active, .eoko-button-block:active, .eoko-button-clear:active, .eoko-button:activated, .eoko-button-block:activated, .eoko-button-clear:activated {
+  .eoko-button:active, .eoko-button-block:active, .eoko-button-block-clear:active, .eoko-button:activated, .eoko-button-block:activated, .eoko-button-block-clear:activated {
     background-color: #763b00; }
 
-.eoko-button-block, .eoko-button-clear {
+.eoko-button-block, .eoko-button-block-clear {
   display: block; }
 
-.eoko-button-clear {
+.eoko-button-block-clear {
   border-width: 1px;
   border-color: #F57C00;
   color: #F57C00;
   border-style: solid;
   background: none;
   box-shadow: none; }
+
+.eoko-button-clear {
+  border-color: none;
+  background-color: none;
+  color: #FFFFFF;
+  margin: 13px;
+  font-size: 36px; }
+  .eoko-button-clear:hover {
+    background-color: #ebebeb;
+    transition: all 0.3s ease; }
+  .eoko-button-clear:active, .eoko-button-clear:activated {
+    background-color: #bfbfbf; }
+  .eoko-button-clear.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #F57C00; }
+  .eoko-button-clear.button-icon {
+    border-color: transparent;
+    background: none; }
+  .eoko-button-clear.button-outline {
+    border-color: #F57C00;
+    background: transparent;
+    color: #F57C00; }
+    .eoko-button-clear.button-outline.active, .eoko-button-clear.button-outline.activated {
+      background-color: #F57C00;
+      box-shadow: none;
+      color: #fff; }
+
+.eoko-text {
+  padding: 10px;
+  margin-bottom: 25px;
+  margin: 10px;
+  color: #FFFFFF; }
+
+.eoko-text-large {
+  color: #FFFFFF;
+  font-size: 15px; }
+
+.eoko-tabs-stable > .eoko-tabs,
+.eoko-tabs.tabs-stable {
+  background: #F57C00; }
 
 .connectImg {
   width: 75px;
@@ -9843,15 +9885,6 @@ a.button {
   float: left;
   margin: 10px;
   background-color: grey; }
-
-.lable-font-login {
-  font-family: "San Francisco";
-  font-weight: 200;
-  color: white; }
-
-.login-label {
-  border: transparent;
-  border-bottom: 1px solid white; }
 
 textarea,
 input[type="text"],

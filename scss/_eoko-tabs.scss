@@ -1,0 +1,13 @@
+// -------------------------------
+//
+// Tabs
+//
+// -------------------------------
+
+
+.eoko-tabs-stable > .eoko-tabs,
+.eoko-tabs.tabs-stable {
+  background: $orange;
+  //@include tab-style($orange, $orange, $white);
+  //@include tab-badge-style(none, $orange);
+}

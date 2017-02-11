@@ -33,7 +33,7 @@
   display: block;
 }
 
-.eoko-button-clear{
+.eoko-button-block-clear{
   @extend .eoko-button-block;
   border-width: $button-border-width;
   border-color: $orange;
@@ -42,3 +42,12 @@
   background: none;
   box-shadow: none;
 }
+
+.eoko-button-clear{
+  @include button-style(none, none, $white, $white, $white);
+  @include button-clear($orange);
+  @include button-outline($orange);
+  margin: 13px;
+  font-size: $button-font-size + 20px;
+}
+
