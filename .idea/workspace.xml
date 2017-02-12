@@ -2,25 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0410c821-3d83-41a9-8369-8abe907e4630" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/_eoko-icons.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/sanfrancisco/sanfrancisco-font.scss" afterPath="$PROJECT_DIR$/scss/sanfrancisco-font.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_eoko-button.scss" afterPath="$PROJECT_DIR$/scss/_eoko-button.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_eoko-mixins.scss" afterPath="$PROJECT_DIR$/scss/_eoko-mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_eoko-tabs.scss" afterPath="$PROJECT_DIR$/scss/_eoko-tabs.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_eoko-text.scss" afterPath="$PROJECT_DIR$/scss/_eoko-text.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_eoko-variables.scss" afterPath="$PROJECT_DIR$/scss/_eoko-variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/eoko.app.scss" afterPath="$PROJECT_DIR$/scss/eoko.app.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/eoko.app.css" afterPath="$PROJECT_DIR$/www/css/eoko.app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/eoko.app.min.css" afterPath="$PROJECT_DIR$/www/css/eoko.app.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/getCodePage.html" afterPath="$PROJECT_DIR$/www/templates/getCodePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/getDescriptionPage.html" afterPath="$PROJECT_DIR$/www/templates/getDescriptionPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/getNamePage.html" afterPath="$PROJECT_DIR$/www/templates/getNamePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/getPicturePage.html" afterPath="$PROJECT_DIR$/www/templates/getPicturePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/getSocialPage.html" afterPath="$PROJECT_DIR$/www/templates/getSocialPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/home.html" afterPath="$PROJECT_DIR$/www/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/login.html" afterPath="$PROJECT_DIR$/www/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/profile.html" afterPath="$PROJECT_DIR$/www/templates/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/buildingEvents.html" afterPath="$PROJECT_DIR$/www/templates/buildingEvents.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/connect.html" afterPath="$PROJECT_DIR$/www/templates/connect.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/events.html" afterPath="$PROJECT_DIR$/www/templates/events.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/info.html" afterPath="$PROJECT_DIR$/www/templates/info.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,7 +49,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="eoko.app.scss" pinned="false" current-in-tab="false">
+          <file leaf-file-name="eoko.app.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scss/eoko.app.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="420">
@@ -70,21 +59,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_eoko-text.scss" pinned="false" current-in-tab="true">
+          <file leaf-file-name="_eoko-text.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/scss/_eoko-text.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="28" column="78" lean-forward="false" selection-start-line="28" selection-start-column="78" selection-end-line="28" selection-end-column="78" />
+                <state relative-caret-position="825">
+                  <caret line="55" column="18" lean-forward="true" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_eoko-mixins.scss" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/scss/_eoko-mixins.scss">
+          <file leaf-file-name="_eoko-tabs.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/scss/_eoko-tabs.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="975">
-                  <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+                <state relative-caret-position="225">
+                  <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -97,8 +86,8 @@
           <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/templates/home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+                <state relative-caret-position="150">
+                  <caret line="8" column="53" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="53" />
                   <folding>
                     <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -111,18 +100,18 @@
           <file leaf-file-name="tabsController.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/templates/tabsController.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="22" lean-forward="true" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="profile.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/templates/profile.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+                <state relative-caret-position="240">
+                  <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -137,12 +126,37 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="events.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="events.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/templates/events.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="168" lean-forward="false" selection-start-line="1" selection-start-column="156" selection-end-line="1" selection-end-column="168" />
+                <state relative-caret-position="315">
+                  <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+                  <folding>
+                    <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="buildingEvents.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/www/templates/buildingEvents.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="77" lean-forward="false" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="77" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="connect.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/www/templates/connect.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+                  <folding>
+                    <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -191,11 +205,7 @@
         <option value="$PROJECT_DIR$/www/js/routes.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/templates/signup.html" />
-        <option value="$PROJECT_DIR$/www/templates/events.html" />
         <option value="$PROJECT_DIR$/www/templates/tabsController.html" />
-        <option value="$PROJECT_DIR$/www/templates/connect.html" />
-        <option value="$PROJECT_DIR$/www/templates/buildingEvents.html" />
-        <option value="$PROJECT_DIR$/www/templates/info.html" />
         <option value="$PROJECT_DIR$/www/templates/home.html" />
         <option value="$PROJECT_DIR$/scss/_eoko-button.scss" />
         <option value="$PROJECT_DIR$/scss/_eoko-tabs.scss" />
@@ -211,6 +221,10 @@
         <option value="$PROJECT_DIR$/www/templates/getSocialPage.html" />
         <option value="$PROJECT_DIR$/scss/_eoko-mixins.scss" />
         <option value="$PROJECT_DIR$/scss/_eoko-text.scss" />
+        <option value="$PROJECT_DIR$/www/templates/events.html" />
+        <option value="$PROJECT_DIR$/www/templates/buildingEvents.html" />
+        <option value="$PROJECT_DIR$/www/templates/info.html" />
+        <option value="$PROJECT_DIR$/www/templates/connect.html" />
         <option value="$PROJECT_DIR$/www/templates/profile.html" />
       </list>
     </option>
@@ -490,12 +504,12 @@
       <workItem from="1486617753220" duration="12217000" />
       <workItem from="1486791333361" duration="7000" />
       <workItem from="1486791358749" duration="22734000" />
-      <workItem from="1486878953133" duration="9522000" />
+      <workItem from="1486878953133" duration="10668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44480000" />
+    <option name="totallyTimeSpent" value="45626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="25" y="22" width="1895" height="1178" extended-state="6" />
@@ -714,30 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/buildingEvents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/connect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="60" lean-forward="false" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/lib/ionic/css/ionic.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -762,14 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_eoko-tabs.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scss/_eoko-button.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -782,14 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2563">
           <caret line="169" column="32" lean-forward="true" selection-start-line="169" selection-start-column="32" selection-end-line="169" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/eoko.app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -846,30 +820,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scss/sanfrancisco-font.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/events.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="168" lean-forward="false" selection-start-line="1" selection-start-column="156" selection-end-line="1" selection-end-column="168" />
           <folding />
         </state>
       </provider>
@@ -906,14 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tabsController.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scss/_eoko-mixins.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
@@ -922,18 +868,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_eoko-tabs.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scss/_eoko-text.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="78" lean-forward="false" selection-start-line="28" selection-start-column="78" selection-end-line="28" selection-end-column="78" />
+        <state relative-caret-position="825">
+          <caret line="55" column="18" lean-forward="true" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tabsController.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="22" lean-forward="true" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="8" column="53" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="67" lean-forward="false" selection-start-line="0" selection-start-column="67" selection-end-line="0" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/buildingEvents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="77" lean-forward="false" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/connect.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -944,6 +944,25 @@
             <element signature="n#style#0;n#h4#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/events.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/eoko.app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -9867,7 +9867,7 @@ a.button {
   font-weight: 100;
   color: #FFFFFF; }
 
-.eoko-text-light {
+.eoko-text-light, .eoko-text-button-nav {
   font-family: "San Francisco";
   font-weight: 200;
   color: #FFFFFF; }
@@ -9899,6 +9899,9 @@ a.button {
   padding: 10px;
   margin-bottom: 25px;
   margin: 10px; }
+
+.eoko-text-button-nav {
+  font-size: 30px; }
 
 .eoko-tabs-blur .tab-nav.tabs {
   height: 70px;
