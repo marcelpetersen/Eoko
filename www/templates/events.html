@@ -1,5 +1,5 @@
 <ion-view title="Events" hide-nav-bar="true" hide-back-button="true" id="page6">
-  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
+  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding eoko-content" scroll="false">
     <div class="button-bar">
       <button id="EventButton" class="button button-light  button-block button-clear" ng-click="selectEventTab()">Events</button>
       <button id="CreateEventButton" class="button button-light  button-block button-clear" ng-click="selectCreateTab()">Create Event</button>
@@ -47,7 +47,7 @@
 	          <input type="time" placeholder="Time" style="border-bottom: 1px solid white;text-align: center;" ng-model="event.time" required="">
 	        </label>
 	        </ion-list>
-	        
+
 	        <h4 style="text-align:center;color:white;">Description</h4>
 			<textarea style="margin:0 auto;height:8em;" placeholder="Short yet descriptive is best!" class="descriptionBox" name="descBox" ng-model="event.description" required=""></textarea>
 			<br>

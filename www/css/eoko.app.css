@@ -9870,11 +9870,11 @@ a.button {
 
 .eoko-text-large {
   color: #FFFFFF;
-  font-size: 15px; }
+  font-size: 13px; }
 
 .eoko-tabs-blur .tab-nav.tabs {
   height: 70px;
-  background: url(../img/main_background.png) no-repeat; }
+  background: transparent; }
 
 .tab-item {
   margin-top: 3px; }
@@ -9957,11 +9957,7 @@ a.button {
   background-size: contain;
   background-image: url("../img/info_icon_off.png");
   -webkit-transform: .5s;
-  padding-bottom: 40px; }
-
-.underline {
-  display: inline-block;
-  border-bottom: 2px solid #F57C00; }
+  padding-bottom: 35px; }
 
 .connectImg {
   width: 75px;
@@ -10039,3 +10035,8 @@ input[type="color"] {
 
 .privatePublic {
   border-radius: 14px; }
+
+.eoko-content {
+  min-height: 100% !important;
+  top: 0 !important;
+  bottom: 0 !important; }

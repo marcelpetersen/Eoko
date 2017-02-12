@@ -7,12 +7,19 @@
 
 .eoko-tabs-blur .tab-nav.tabs{
   height: 70px;
-  background: url(../img/main_background.png) no-repeat;
+  //background: url(../img/main_background.png) no-repeat;
+  background: transparent;
 }
 
 .tab-item {
   margin-top: 3px;
 }
+
+
+
+//
+// Tab icons
+// ------------------------------
 
 .profile-icon-on{
   background-repeat: no-repeat;
@@ -101,11 +108,5 @@
   background-size: contain;
   background-image: url('../img/info_icon_off.png');
   -webkit-transform: .5s;
-  padding-bottom: 40px;
-}
-
-.underline{
-  display: inline-block;
-  border-bottom:2px solid $orange;
-
+  padding-bottom: 35px;
 }
