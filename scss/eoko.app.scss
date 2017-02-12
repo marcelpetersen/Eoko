@@ -19,7 +19,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   "eoko-forms",
 
   //Tabs
-  "eoko-tabs";
+  "eoko-tabs",
+
+  //Icons
+  "eoko-icons",
+
+  //Font
+  "sanfrancisco-font";
 
 
 
@@ -109,9 +115,12 @@ input[type="color"] {
     border-radius:14px;
 }
 
+
+
 //for ion-content to overlay tab
 .eoko-content{
   min-height:100% !important;
   top:0 !important;
   bottom:0 !important;
 }
+

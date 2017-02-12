@@ -1,0 +1,126 @@
+// -------------------------------
+//
+// Icons
+//
+// -------------------------------
+
+
+
+//
+// Profile Page
+// -------------------------------
+
+.eoko-bell-left{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../img/notification_icon.png");
+  height: 40px;
+  width: 40px;
+  float: left;
+}
+
+.eoko-setting-right{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../img/setting_icon.png");
+  height: 40px;
+  width: 40px;
+  float: right;
+}
+
+
+//
+// Tab icons
+// ------------------------------
+
+.profile-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/profile_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.action-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/action_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.people-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/people_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.event-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/event_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.info-icon-on{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/info_icon_on.png');
+  -webkit-transform: .5s;
+  padding-bottom: 50px;
+}
+
+.profile-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/profile_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 40px;
+}
+
+.action-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/action_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 40px;
+}
+
+.people-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/people_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 40px;
+}
+
+.event-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/event_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 40px;
+}
+
+.info-icon-off{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/info_icon_off.png');
+  -webkit-transform: .5s;
+  padding-bottom: 35px;
+}

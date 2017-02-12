@@ -9862,15 +9862,43 @@ a.button {
       box-shadow: none;
       color: #fff; }
 
-.eoko-text {
-  padding: 10px;
-  margin-bottom: 25px;
-  margin: 10px;
+.eoko-text-ultralight {
+  font-family: "San Francisco";
+  font-weight: 100;
   color: #FFFFFF; }
 
-.eoko-text-large {
-  color: #FFFFFF;
-  font-size: 13px; }
+.eoko-text-light {
+  font-family: "San Francisco";
+  font-weight: 200;
+  color: #FFFFFF; }
+
+.eoko-text-regular, .eoko-text-input-form {
+  font-family: "San Francisco";
+  font-weight: 400;
+  color: #FFFFFF; }
+
+.eoko-text-medium, .eoko-text-login-header {
+  font-family: "San Francisco";
+  font-weight: 500;
+  color: #FFFFFF; }
+
+.eoko-text-semibold {
+  font-family: "San Francisco";
+  font-weight: 600;
+  color: #FFFFFF; }
+
+.eoko-text-bold {
+  font-family: "San Francisco";
+  font-weight: 700;
+  color: #FFFFFF; }
+
+.eoko-text-input-form {
+  padding-bottom: 20px; }
+
+.eoko-text-login-header {
+  padding: 10px;
+  margin-bottom: 25px;
+  margin: 10px; }
 
 .eoko-tabs-blur .tab-nav.tabs {
   height: 70px;
@@ -9878,6 +9906,24 @@ a.button {
 
 .tab-item {
   margin-top: 3px; }
+
+.eoko-bell-left {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../img/notification_icon.png");
+  height: 40px;
+  width: 40px;
+  float: left; }
+
+.eoko-setting-right {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../img/setting_icon.png");
+  height: 40px;
+  width: 40px;
+  float: right; }
 
 .profile-icon-on {
   background-repeat: no-repeat;
@@ -9958,6 +10004,42 @@ a.button {
   background-image: url("../img/info_icon_off.png");
   -webkit-transform: .5s;
   padding-bottom: 35px; }
+
+/** Ultra Light */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 100;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff"); }
+
+/** Thin */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 200;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff"); }
+
+/** Regular */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff"); }
+
+/** Medium */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 500;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff"); }
+
+/** Semi Bold */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 600;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff"); }
+
+/** Bold */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 700;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff"); }
 
 .connectImg {
   width: 75px;

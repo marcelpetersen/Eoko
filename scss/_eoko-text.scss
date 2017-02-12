@@ -4,15 +4,46 @@
 //
 // -------------------------------
 
-.eoko-text{
+
+.eoko-text-ultralight{
+  @include font-type($font-family-base-ultralight-weight, $eoko-text-default-color);
+}
+
+.eoko-text-light{
+  @include font-type($font-family-base-light-weight, $eoko-text-default-color);
+}
+
+.eoko-text-regular{
+  @include font-type($font-family-base-regular-weight, $eoko-text-default-color);
+}
+
+.eoko-text-medium{
+  @include font-type($font-family-base-medium-weight, $eoko-text-default-color);
+}
+
+.eoko-text-semibold{
+  @include font-type($font-family-base-semibold-weight, $eoko-text-default-color);
+}
+
+.eoko-text-bold{
+  @include font-type($font-family-base-bold-weight, $eoko-text-default-color);
+}
+
+
+
+// Login/Sign up
+// --------------------------------
+
+.eoko-text-input-form{
+  @extend .eoko-text-regular;
+  padding-bottom: 20px;
+}
+
+
+.eoko-text-login-header{
+  @extend .eoko-text-medium;
   padding: 10px;
   margin-bottom: 25px;
   margin: 10px;
-  color: $eoko-text-default-color;
-}
-
-.eoko-text-large{
-  color: $eoko-text-default-color;
-  font-size: 13px;
 }
 

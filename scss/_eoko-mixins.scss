@@ -54,5 +54,11 @@
 }
 
 
-// Tab Mixins
+// Font Mixins
 // --------------------------------------------------
+
+@mixin font-type($font-weight, $color){
+  font-family: $font-family-base;
+  font-weight: $font-weight;
+  color: $color;
+}

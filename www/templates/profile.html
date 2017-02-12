@@ -2,23 +2,33 @@
 
   <ion-content padding="true" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding eoko-content">
 
+    <!--notification and setting buttons-->
     <div>
-      <a class="button button-icon icon ion-ios-bell">
+      <a ui-sref="" class="eoko-button-clear eoko-bell-left">
         <div ng-if="friendR > 0" class="notificationNumber" ng-model="friendR">
-        {{friendR}}
+          {{friendR}}
         </div>
       </a>
-      <button class="button button-icon icon ion-ios-gear" style="float: right"></button>
+
+      <a ui-sref="" class="eoko-button-clear eoko-setting-right"></a>
     </div>
 
+
+    <div class="spacer" style="height: 60px;"></div>
+
+    <!--profile pic-->
     <div ng-click="uploadPicture()" style="background-image: url({{user.avatar}});margin:-2em auto" class="avatarImg"></div>
 
     <div class="spacer" style="width: 300px; height: 13px;"></div>
 
-    <h3 id="profile-heading3" style="color:#FFFFFF;text-align:center;">{{user.name}}</h3>
-    <h4 id="profile-heading4" style="color:#FFFFFF;text-align:center;">{{user.description}}</h4>
+    <!--user's name and description-->
+    <h3 class="eoko-text-ultralight" id="profile-heading3" style="font-size: 40px; text-align:center;">{{user.name}}</h3>
+    <h4 class="eoko-text-ultralight" style="font-size: 20px; text-align:center;">Points</h4>
+    <h4 class="eoko-text-ultralight" id="profile-heading4" style="font-size: 20px; text-align:center;">{{user.description}}</h4>
+
 
     <div class="spacer" style="width: 300px; height: 27px;"></div>
+
 
   </ion-content>
 </ion-view>
