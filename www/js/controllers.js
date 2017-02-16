@@ -41,13 +41,28 @@ $scope.user = "";
 
 }])
    
-.controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo','$firebaseArray',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, UserInfo) {
+function ($scope, $stateParams, UserInfo, $firebaseArray) {
+
+var usr = UserInfo.getUserInfo();
+var authUser = firebase.auth().currentUser;
+var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
 
 $scope.selection = {tab:"event", porb:"public"};
 $scope.event = {title:"",location:"",date:"",time:"",description:""};
+
+
+$scope.notifications = $firebaseArray(ref.child(authUser.uid + "/userEvents"));
+                $scope.notifications.$loaded().then(function(x)
+                 {
+                    x === $scope.notifications; // true
+                  })
+                  .catch(function(error) 
+                  {
+                    console.log("Error:", error);
+                  });
 
 var weekday = new Array();
 weekday[0] =  "Sunday";
@@ -101,23 +116,31 @@ month[11] = "December";
                 location:$scope.event.location,
                 date:"",
                 time:"",
-                description:$scope.event.description};
+                description:$scope.event.description,
+                avatar:usr.avatar};
 
             var d = $scope.event.date;
             postedEvent.date = weekday[d.getDay()]+", "+month[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();
             postedEvent.time = $scope.event.time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             console.log(postedEvent);
 
-            var usr = UserInfo.getUserInfo();
-            var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
-
-            if($scope.selection.porb == "public")
+//if public
+           if($scope.selection.porb == "public")
             {
                 ref.orderByKey().once("value").then(function(snapshot) {
-                    var val = snapshot.val();
-                    console.log(val);
-                    console.log(snapshot.key);
+                    snapshot.forEach(function(childSnapshot)
+                    {
+                        ref.child(childSnapshot.key + "/userEvents").push({
+                            'title': postedEvent.title,
+                            'location': postedEvent.location,
+                            'date': postedEvent.date,
+                            'time': postedEvent.time,
+                            'description': postedEvent.description,
+                            'avatar': postedEvent.avatar
+                        });
+                    });
                 });
+                $scope.selection.tab = "event";
             }
 
         }
@@ -129,10 +152,10 @@ month[11] = "December";
 
 }])
    
-.controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo','$firebaseArray', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $state, $stateParams, UserInfo, OtherInfo) {
+function ($scope, $state, $stateParams, UserInfo, OtherInfo,$firebaseArray) {
 
 var usr = UserInfo.getUserInfo();
 if(usr.email == "")
@@ -150,24 +173,18 @@ if(usr.email == "")
     }
 
     var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
-    $scope.userList = [];
 
  
-        ref.orderByKey().once("value").then(function(snapshot) {
-            
-            var val = snapshot.val();
-            //console.log(val);
-            $scope.userList= Object.keys(val).map(function (key) 
-            { 
-                if(val[key].email != usr.email)
-                {
-                    return val[key]; 
-                }
-            });
+$scope.userList = $firebaseArray(ref);
+                $scope.userList.$loaded().then(function(x)
+                 {
+                    x === $scope.userList; // true
+                  })
+                  .catch(function(error) 
+                  {
+                    console.log("Error:", error);
+                  });
 
-
-        $scope.$apply();
-        });
 
 $scope.openProfile = function(clicked)
 {
