@@ -2,11 +2,16 @@
 
   <ion-content padding="true" class="has-header eoko-content" style="background: url(img/main_background.png) no-repeat center;background-size:cover;">
 
-  	<div ng-model="userList" ng-repeat="user in userList" class="centerFace">
-  		<div ng-if="user.avatar" ng-click="openProfile(user)" style="background-image: url({{user.avatar}});" class="connectImg">
-  	</div>
+    <!--spacer-->
+    <div class="spacer" style="height: 60px;"></div>
 
 
-    </div>
+  	<ion-list ng-model="userList" ng-repeat="user in userList">
+
+      <ion-item ng-if="user.avatar" ng-click="openProfile(user)" style="background-image: url({{user.avatar}});" class="connectImg">
+
+  	  </ion-item>
+    </ion-list>
+
   </ion-content>
 </ion-view>

@@ -10045,14 +10045,13 @@ a.button {
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff"); }
 
 .connectImg {
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   border-radius: 50px;
   background-size: cover;
-  background-position-x: 61%;
-  float: left;
   margin: 10px;
-  background-color: grey; }
+  display: inline;
+  float: left; }
 
 textarea,
 input[type="text"],
