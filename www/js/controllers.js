@@ -46,23 +46,144 @@ $scope.user = "";
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams, UserInfo, $firebaseArray) {
 
-var usr = UserInfo.getUserInfo();
-var authUser = firebase.auth().currentUser;
-var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
+    var usr = UserInfo.getUserInfo();
+    var authUser = firebase.auth().currentUser;
+    var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/UserEvents");
+    var eventdone = true;
+    $scope.selection = {tab:"event", porb:"public"};
+    $scope.event = {title:"",location:"",date:"",time:"",description:""};
 
-$scope.selection = {tab:"event", porb:"public"};
-$scope.event = {title:"",location:"",date:"",time:"",description:""};
 
 
-$scope.notifications = $firebaseArray(ref.child(authUser.uid + "/userEvents"));
-                $scope.notifications.$loaded().then(function(x)
+
+
+function checkUser(item)
+{
+  
+  var removeit = true;
+  for(var i in item.rolecall)
+  {
+    console.log("rolecall", i);
+     if(i == authUser.uid)
+     {
+        console.log("FOUND!")
+        return true;
+        break;
+     }
+  }
+  if(removeit === true)
+  {
+    return false;
+  }
+   
+}
+
+
+
+
+$scope.notifications = [];
+
+ref.on('child_added', function(data) {
+  if(checkUser(data.val()))
+  {
+    $scope.notifications.push({info: data.val(), key: data.key});
+    console.log($scope.notifications);
+  }
+});
+
+
+ref.on('child_changed', function(data) {
+  var removeitem = true;
+  for(var i in data.val().rolecall)   //iterate over rolecall
+  {
+    if(i == authUser.uid)   //if user is in rolecall
+    {
+        removeitem = false;
+        var additem = true;
+        for(var i = 0; i < $scope.notifications.length; i++)   //check notification list
+        {
+            if($scope.notifications[i].key == data.key)  //if notification is there, do nothing
+            {
+                additem = false;
+                break;
+            }
+        }
+        if(additem === true)   //if not, push to notification stack
+        {
+            $scope.notifications.push({info: data.val(), key: data.key});
+            $scope.$apply();
+            break;
+        }
+        break;
+    }
+  }
+  if(removeitem === true)   //if user is not in rolecall
+  {
+    for(var i = 0; i < $scope.notifications.length; i++)  //check notification list
+      {
+        if($scope.notifications[i].key == data.key)      //if notification found, delete it
+        {
+            $scope.notifications.splice(i,1);
+            $scope.$apply();
+            break;
+        }
+      }
+  }
+ 
+});
+
+ref.on('child_removed', function(data) {
+  for(var i = 0; i < $scope.notifications.length; i++)
+  {
+    if($scope.notifications[i].key == data.key)
+    {
+        $scope.notifications.splice(i,1);
+        $scope.$apply();
+        break;
+    }
+  }
+});
+
+
+
+
+
+
+
+/*
+    var originData = $firebaseArray(ref.orderByChild('rolecall'));
+    originData.$loaded().then(function(x)
+     {
+        originData.$watch(function(event){
+            console.log("triggered", event);
+            $scope.notifications = originData;
+            for(var i = 0; i < $scope.notifications.length; i++)
+            {
+                var removeit = true;
+              for(var j in $scope.notifications[i].rolecall)
+              {
+                 if(j == authUser.uid)
                  {
-                    x === $scope.notifications; // true
-                  })
-                  .catch(function(error) 
-                  {
-                    console.log("Error:", error);
-                  });
+                    console.log("FOUND");
+                    removeit = false;
+                 }
+              }
+              if(removeit === true)
+              {
+                $scope.notifications.splice(i,1);
+              }
+            }
+            $scope.$apply();
+        });
+      })
+      .catch(function(error) {
+        console.log("Error:", error);
+      });
+
+*/
+
+
+
 
 var weekday = new Array();
 weekday[0] =  "Sunday";
@@ -124,22 +245,39 @@ month[11] = "December";
             postedEvent.time = $scope.event.time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             console.log(postedEvent);
 
+
+
 //if public
-           if($scope.selection.porb == "public")
+
+        if($scope.selection.porb == "public")
             {
-                ref.orderByKey().once("value").then(function(snapshot) {
-                    snapshot.forEach(function(childSnapshot)
-                    {
-                        ref.child(childSnapshot.key + "/userEvents").push({
-                            'title': postedEvent.title,
-                            'location': postedEvent.location,
-                            'date': postedEvent.date,
-                            'time': postedEvent.time,
-                            'description': postedEvent.description,
-                            'avatar': postedEvent.avatar
-                        });
-                    });
-                });
+                var rec = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
+
+                var everyone  = $firebaseArray(rec);
+                        everyone.$loaded().then(function(x)
+                         {
+                            var rolecall = {};
+                            for(var i = 0; i < everyone.length; i++)
+                            {
+                                rolecall[everyone[i].$id] = {'going': false};
+                            }
+                           var eventpost = ref.push({
+                                'title': postedEvent.title,
+                                'location': postedEvent.location,
+                                'date': postedEvent.date,
+                                'time': postedEvent.time,
+                                'description': postedEvent.description,
+                                'avatar': postedEvent.avatar,
+                                'rolecall': rolecall
+                            });
+                             
+                          })
+                          .catch(function(error) 
+                          {
+                            console.log("Error:", error);
+                          });
+                
+                  
                 $scope.selection.tab = "event";
             }
 
