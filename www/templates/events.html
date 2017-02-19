@@ -1,6 +1,6 @@
 <ion-view title="Events" hide-nav-bar="true" hide-back-button="true" id="page6">
 
-  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding eoko-content" scroll="false">
+  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;filter: blur({{blurry.behind}});" class="manual-ios-statusbar-padding eoko-content" scroll="false">
 
     <div class="button-bar">
       <button id="EventButton" class="button button-light  button-block button-clear eoko-text-button-nav" ng-click="selectEventTab()">Actions</button>
@@ -16,11 +16,52 @@
       <ion-item ng-repeat="notify in notifications" class="item-thumbnail-left" style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
         <div class="n_avatarImg" style="background-image: url({{notify.info.avatar}});"></div>
         <h2 style="color:white;">{{notify.info.title}}</h2>
-        <p style="color:white;">{{notify.info.location}}
+        <p style="color:white;display: inline;">{{notify.info.location}}
           <br>{{notify.info.date}}
-          <br>{{notify.info.time}}</p>
+          <br>{{notify.info.time}}
+        </p>
+        <button ng-click="openPopover($event, notify)" class="eoko-button-eventjoin">{{notify.attend}}</button>
+
       </ion-item>
     </ion-list>
+
+
+    <script id="eventFullView.html" type="text/ng-template">
+          <div ng-click="closePopover()" class="popup-container popup-showing active" ng-class="cssClass">
+            <div class="popup" style="background-color: rgba(0,0,0,0);">
+
+               <div>
+                  <div class="item item-body" style="background-color: rgba(245, 124, 0, 0.4);">
+                   <div class="eventViewAvatar" style="background-image: url({{modalOpen.info.avatar}});height:80px;width:80px;border-radius:80px;"></div>
+                    <div style="color: white;text-align: center;">
+                      <p style="color: white;
+                    text-align: center;font-size:20px;
+                    font-weight: bold;">{{modalOpen.info.title}}</p>
+                      <p style="color:white;text-align:center;">{{modalOpen.info.location}}
+                        <br>{{modalOpen.info.date}}
+                        <br>{{modalOpen.info.time}}</p>
+                      <p style="color:white;">{{modalOpen.info.description}}</p>
+
+                      <div style="text-align:left;">Going</div>
+
+                    </div>
+                    <ul ng-model="goingList" class="family-icon-scroller" style="margin-top: 0px">
+                      <div ng-if="goingList.length == 0" style="color:white;">Nobody confirmed Yet!</div>
+                      <li class="systemContainer" ng-repeat="going in goingList">
+                        <div class="eventViewAvatar" style="background-image: url({{going.info.avatar}});">
+                        </div>
+                      </li>
+
+                    </ul>
+                    <button style="float: right;border-radius: 20px;margin-right: 5px;padding: 0 33px;" class="button button-stable">Join</button>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+      </script>
+
+
 
     <div ng-if="selection.tab == 'create'">
 	    <div class="button-bar" ng-if="selection.porb == 'public'">
@@ -31,10 +72,10 @@
       <div class="button-bar" ng-if="selection.porb == 'private'">
 			  <button ng-click="selectedPublic()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block button-outline">Public</button>
 			  <button ng-click="selectedPrivate()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block">Private</button>
-		</div>
+		  </div>
 
 
-		<form name="makeEventForm">
+		  <form name="makeEventForm">
 
       <ion-list>
 			<label class="item item-input login-label" style="background-color: rgba(0,0,0,0);margin: 0 20px;border-bottom: 0px;" name="eventTitle">
@@ -68,7 +109,7 @@
       <button ng-if="selection.porb == 'public'" type="submit" ng-disabled="makeEventForm.$invalid" ng-click="createEvent(makeEventForm)" style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Make Public Event</button>
 
       <button ng-if="selection.porb == 'private'" type="submit" ng-disabled="makeEventForm.$invalid" ng-click="createEvent(makeEventForm)" style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Make Private Event</button>
-		</form>
+		  </form>
 
 	</div>
 

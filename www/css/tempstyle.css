@@ -5,3 +5,55 @@
 .item{
 	border-color: rgba(0,0,0,0);
 }
+
+.eoko-button-eventjoin {
+    border-radius: 10px;
+    background-color: #F57C00;
+    padding: 2px 10px;
+    border: 1px solid #F57C00;
+    color: white;
+    font-size: 14px;
+    float: right;
+}
+
+.eoko-button-eventjoin:active {
+    border-radius: 10px;
+    background-color: #dc6f00;
+    padding: 2px 10px;
+    border: 1px solid #dc6f00;
+    color: white;
+    font-size: 14px;
+    float: right;
+}
+
+
+.card, .list-inset{
+    background-color: rgba(0,0,0,0);
+}
+
+.family-icon-scroller {
+    -webkit-overflow-scrolling: touch;
+    padding: 5px 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    list-style: none;
+    margin-top: -80px;
+    position: relative;
+}
+
+
+.systemContainer {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    margin: 0 2px;
+}
+
+.eventViewAvatar{
+        height: 61px;
+    width: 61px;
+    background-size: contain;
+    border-radius: 61px;
+    margin: 0 auto;
+}
