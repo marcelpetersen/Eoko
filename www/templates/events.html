@@ -9,7 +9,7 @@
     </div>
 
     <!--spacer-->
-    <div class="spacer" style="height: 35px;"></div>
+    <div class="spacer" style="height: 10px;"></div>
 
 
     <ion-list ng-if="selection.tab == 'event' " id="actionList">
@@ -27,7 +27,7 @@
 
 
     <script id="eventFullView.html" type="text/ng-template">
-          <div ng-click="closePopover()" class="popup-container popup-showing active" ng-class="cssClass">
+          <div ng-click="checkHit($event)" class="popup-container popup-showing active" ng-class="cssClass">
             <div class="popup" style="background-color: rgba(0,0,0,0);">
 
                <div>
@@ -53,7 +53,7 @@
                       </li>
 
                     </ul>
-                    <button style="float: right;border-radius: 20px;margin-right: 5px;padding: 0 33px;" class="button button-stable">Join</button>
+                    <button style="float: right;border-radius: 20px;margin-right: 5px;padding: 0 33px;" ng-click="joinEvent(modalOpen)" class="button button-stable">{{modalOpen.attend}}</button>
                   </div>
                 </div>
 
@@ -63,7 +63,7 @@
 
 
 
-    <div ng-if="selection.tab == 'create'">
+    <div ng-if="selection.tab == 'create' && selection.privstep == 1">
 	    <div class="button-bar" ng-if="selection.porb == 'public'">
 			  <button ng-click="selectedPublic()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block">Public</button>
 			  <button ng-click="selectedPrivate()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block button-outline">Private</button>
@@ -108,10 +108,24 @@
 
       <button ng-if="selection.porb == 'public'" type="submit" ng-disabled="makeEventForm.$invalid" ng-click="createEvent(makeEventForm)" style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Make Public Event</button>
 
-      <button ng-if="selection.porb == 'private'" type="submit" ng-disabled="makeEventForm.$invalid" ng-click="createEvent(makeEventForm)" style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Make Private Event</button>
+      <button ng-if="selection.porb == 'private'" type="submit" ng-disabled="makeEventForm.$invalid" ng-click="PrivateNextStep()" style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Invite</button>
 		  </form>
 
 	</div>
 
+
+    <div ng-if="selection.tab == 'create' && selection.privstep == 2">
+        <a ui-sref="tabsController.events" class="button button-light  button-clear icon ion-ios-arrow-left"></a>
+          <ion-list >
+            <ion-item class="row" ng-repeat="rows in userList">
+              <ion-item ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" ng-click="selectUser(user)" style="background-image: url({{user.avatar}});" class="span4 connectImg" ng-class="privateRoll.hasOwnProperty(user.$id) ? 'userSelected' : 'userDeselected'">
+                </ion-item>
+            </ion-item>
+          </ion-list>
+        <button ng-if="selection.porb == 'private'" ng-click="createEvent(makeEventForm)" style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Make Private Event</button>
+    </div>
+
   </ion-content>
 </ion-view>
+
+(user.$id in privateRoll) ? 'userSelected' : 'userDeselected'

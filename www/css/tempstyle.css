@@ -4,6 +4,7 @@
 
 .item{
 	border-color: rgba(0,0,0,0);
+	background-color:rgba(0,0,0,0);
 }
 
 .eoko-button-eventjoin {
@@ -56,4 +57,12 @@
     background-size: contain;
     border-radius: 61px;
     margin: 0 auto;
+}
+
+.userDeselected{
+	opacity: 0.33;
+}
+
+.userSelected{
+	opacity: 1;
 }

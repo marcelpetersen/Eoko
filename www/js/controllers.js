@@ -51,7 +51,7 @@ function ($scope, $stateParams, UserInfo, $firebaseArray, $ionicPopover) {
     var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/UserEvents");
     var eventdone = true;
 
-    $scope.selection = {tab:"event", porb:"public"};
+    $scope.selection = {tab:"event", porb:"public", privstep: 1};
     $scope.event = {title:"",location:"",date:"",time:"",description:""};
     $scope.goingList = [];
 
@@ -143,7 +143,13 @@ function findgoing()
 }
 
 
-
+$scope.checkHit = function(event)
+{
+    if(event.target.className.includes("popup-container popup-showing"))
+    {
+        $scope.closePopover();
+    }
+};
 
 $scope.openPopover = function($event, notify) {
     $scope.blurry.behind = "5px";
@@ -170,14 +176,17 @@ $scope.openPopover = function($event, notify) {
     makeblurry();
   });
 
-/*
+
 $scope.joinEvent = function(notify)
 {
     ref.child(notify.key + "/rolecall/" + authUser.uid).set({
         'going' : true
+    }).then(function()
+    {
+        $scope.closePopover();
     });
 };
-*/
+
 
 $scope.notifications = [];
 //var writeAttend = data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join';
@@ -209,6 +218,8 @@ ref.on('child_changed', function(data) {
             {
                 additem = false;
                 $scope.notifications[i].attend = data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join';
+                $scope.notifications[i].info = data.val();
+                console.log("checking attend:", $scope.notifications[i].attend);
                 break;
             }
         }
@@ -275,6 +286,15 @@ month[9] = "October";
 month[10] = "November";
 month[11] = "December";
 
+
+function chunk(arr, size) {
+  var newArr = [];
+  for (var i=0; i<arr.length; i+=size) {
+    newArr.push(arr.slice(i, i+size));
+  }
+  return newArr;
+}
+
     $scope.selectEventTab = function()
     {
         $scope.selection.tab = "event";
@@ -293,24 +313,56 @@ month[11] = "December";
     $scope.selectedPrivate = function()
     {
         $scope.selection.porb = "private";
+        $scope.selection.privstep = 1;
     };
 
+    $scope.PrivateNextStep = function()
+    {
+        $scope.selection.privstep = 2;
+
+        var req = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
+        $scope.owning = {avatar : usr.avatar};
+        $scope.userList = $firebaseArray(req);
+
+        $scope.userList.$loaded().then(function(x)
+         {
+             $scope.userList = chunk(x, 3);
+             console.log($scope.userList);
+          })
+          .catch(function(error) 
+          {
+            console.log("Error:", error);
+          });
+    };
+
+    $scope.privateRoll = {};
+    $scope.selectUser = function(selected)
+    {
+        $scope.privateRoll[authUser.uid] = {'going': false};
+        if(selected.$id in $scope.privateRoll)
+        {
+            delete $scope.privateRoll[selected.$id];
+        }
+        else
+        {
+            $scope.privateRoll[selected.$id] = {'going': false};
+        }
+        
+    };
 
     $scope.createEvent = function(makeEventForm)
     {
-       if(makeEventForm.$valid)
-       {
-            var postedEvent = {title: $scope.event.title,
-                location:$scope.event.location,
-                date:"",
-                time:"",
-                description:$scope.event.description,
-                avatar:usr.avatar};
+        var postedEvent = {title: $scope.event.title,
+            location:$scope.event.location,
+            date:"",
+            time:"",
+            description:$scope.event.description,
+            avatar:usr.avatar};
 
-            var d = $scope.event.date;
-            postedEvent.date = weekday[d.getDay()]+", "+month[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();
-            postedEvent.time = $scope.event.time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            console.log(postedEvent);
+        var d = $scope.event.date;
+        postedEvent.date = weekday[d.getDay()]+", "+month[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();
+        postedEvent.time = $scope.event.time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        console.log(postedEvent);
 
 
 
@@ -347,8 +399,21 @@ month[11] = "December";
                   
                 $scope.selection.tab = "event";
             }
+            else if($scope.selection.porb == "private")
+            {
+                var eventpost = ref.push({
+                    'title': postedEvent.title,
+                    'location': postedEvent.location,
+                    'date': postedEvent.date,
+                    'time': postedEvent.time,
+                    'description': postedEvent.description,
+                    'avatar': postedEvent.avatar,
+                    'rolecall': $scope.privateRoll
+                });
 
-        }
+                $scope.selection.tab = "event";
+                $scope.selection.privstep = 1;
+            }
         
     };
 
@@ -379,16 +444,29 @@ if(usr.email == "")
 
     var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
 
- 
+
+function chunk(arr, size) {
+  var newArr = [];
+  for (var i=0; i<arr.length; i+=size) {
+    newArr.push(arr.slice(i, i+size));
+  }
+  return newArr;
+}
+
+ $scope.owning = {avatar : usr.avatar};
 $scope.userList = $firebaseArray(ref);
                 $scope.userList.$loaded().then(function(x)
                  {
-                    x === $scope.userList; // true
+                    $scope.userList = chunk(x, 3);
                   })
                   .catch(function(error) 
                   {
                     console.log("Error:", error);
                   });
+
+
+
+
 
 
 $scope.openProfile = function(clicked)
