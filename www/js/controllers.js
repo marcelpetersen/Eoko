@@ -41,21 +41,27 @@ $scope.user = "";
 
 }])
    
-.controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo','$firebaseArray',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo','$firebaseArray','$ionicPopover',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, UserInfo, $firebaseArray) {
+function ($scope, $stateParams, UserInfo, $firebaseArray, $ionicPopover) {
 
     var usr = UserInfo.getUserInfo();
     var authUser = firebase.auth().currentUser;
     var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/UserEvents");
     var eventdone = true;
+
     $scope.selection = {tab:"event", porb:"public"};
     $scope.event = {title:"",location:"",date:"",time:"",description:""};
+    $scope.goingList = [];
 
 
-
-
+$scope.blurry = {behind : "0px"};
+$scope.modalOpen = {
+                info: "",
+                key: "",
+                attend: ""
+            };
 
 function checkUser(item)
 {
@@ -63,7 +69,6 @@ function checkUser(item)
   var removeit = true;
   for(var i in item.rolecall)
   {
-    console.log("rolecall", i);
      if(i == authUser.uid)
      {
         console.log("FOUND!")
@@ -79,15 +84,113 @@ function checkUser(item)
 }
 
 
+ // .fromTemplateUrl() method
+  $ionicPopover.fromTemplateUrl('eventFullView.html',{
+    scope: $scope,
+    backdropClickToClose: true,
+    hardwareBackButtonClose: true
+})
+  .then(function(popover) 
+  {
+    $scope.popover = popover;
+  });
 
+
+function makeblurry()
+{
+    if($scope.popover.isShown())
+    {
+        console.log("blur background");
+        $scope.blurry = {behind : "5px"};
+    }
+    else
+    {
+        console.log("clear up");
+         $scope.blurry = {behind : "0px"};
+    }
+}
+
+function findgoing()
+{
+    $scope.goingList = [];
+    var selectedlist = [];
+    for(i in $scope.modalOpen.info.rolecall)
+    {
+        console.log("checking: ", $scope.modalOpen.info.rolecall[i].going);
+        if($scope.modalOpen.info.rolecall[i].going === true)
+        {
+            console.log("true!,", i);
+            selectedlist.push(i);
+        }
+    }
+    console.log("list has ", selectedlist.length);
+    console.log("list is: ", selectedlist);
+    if(selectedlist.length > 0)
+    {
+        var req = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
+        for(var i = 0; i < selectedlist.length; i++)
+        {
+            req.child(selectedlist[i]).once('value').then(function(snap)
+            {
+                $scope.goingList.push({info: snap.val()});
+                console.log("record: ", snap.val());
+                $scope.$apply();
+            });
+            
+        }
+
+    }
+}
+
+
+
+
+$scope.openPopover = function($event, notify) {
+    $scope.blurry.behind = "5px";
+    $scope.modalOpen = {
+                info: notify.info,
+                key: notify.key,
+                attend: notify.attend
+            };
+    findgoing();
+    $scope.popover.show($event);
+    makeblurry();
+  };
+
+  $scope.closePopover = function() {
+    $scope.blurry.behind = "0px";
+    $scope.popover.hide();
+    makeblurry();
+    
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.blurry.behind = "0px";
+    $scope.popover.remove();
+    makeblurry();
+  });
+
+/*
+$scope.joinEvent = function(notify)
+{
+    ref.child(notify.key + "/rolecall/" + authUser.uid).set({
+        'going' : true
+    });
+};
+*/
 
 $scope.notifications = [];
+//var writeAttend = data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join';
 
 ref.on('child_added', function(data) {
   if(checkUser(data.val()))
   {
-    $scope.notifications.push({info: data.val(), key: data.key});
-    console.log($scope.notifications);
+    $scope.notifications.push({
+        info: data.val(),
+        key: data.key,
+        attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
+    });
+    $scope.$apply();
   }
 });
 
@@ -105,13 +208,17 @@ ref.on('child_changed', function(data) {
             if($scope.notifications[i].key == data.key)  //if notification is there, do nothing
             {
                 additem = false;
+                $scope.notifications[i].attend = data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join';
                 break;
             }
         }
         if(additem === true)   //if not, push to notification stack
         {
-            $scope.notifications.push({info: data.val(), key: data.key});
-            $scope.$apply();
+            $scope.notifications.push({
+                info: data.val(),
+                key: data.key,
+                attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
+            });
             break;
         }
         break;
@@ -129,6 +236,7 @@ ref.on('child_changed', function(data) {
         }
       }
   }
+  $scope.$apply();
  
 });
 
@@ -143,47 +251,6 @@ ref.on('child_removed', function(data) {
     }
   }
 });
-
-
-
-
-
-
-
-/*
-    var originData = $firebaseArray(ref.orderByChild('rolecall'));
-    originData.$loaded().then(function(x)
-     {
-        originData.$watch(function(event){
-            console.log("triggered", event);
-            $scope.notifications = originData;
-            for(var i = 0; i < $scope.notifications.length; i++)
-            {
-                var removeit = true;
-              for(var j in $scope.notifications[i].rolecall)
-              {
-                 if(j == authUser.uid)
-                 {
-                    console.log("FOUND");
-                    removeit = false;
-                 }
-              }
-              if(removeit === true)
-              {
-                $scope.notifications.splice(i,1);
-              }
-            }
-            $scope.$apply();
-        });
-      })
-      .catch(function(error) {
-        console.log("Error:", error);
-      });
-
-*/
-
-
-
 
 var weekday = new Array();
 weekday[0] =  "Sunday";
