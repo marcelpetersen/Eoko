@@ -6,11 +6,11 @@
     <div class="spacer" style="height: 60px;"></div>
 
 
-  	<ion-list ng-model="userList" ng-repeat="user in userList">
-
-      <ion-item ng-if="user.avatar" ng-click="openProfile(user)" style="background-image: url({{user.avatar}});" class="connectImg">
-
-  	  </ion-item>
+  	<ion-list >
+	  	<ion-item class="row" ng-repeat="rows in userList">
+	  		<ion-item ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" ng-click="openProfile(user)" style="background-image: url({{user.avatar}});" class="span4 connectImg">
+	  	  	</ion-item>
+	  	</ion-item>
     </ion-list>
 
   </ion-content>
