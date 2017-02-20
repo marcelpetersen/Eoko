@@ -68,7 +68,7 @@ input[type="color"] {
     border-radius: 50px;
     background-size: cover;
     background-position-x: 61%;
-    background-color:grey;
+    background-color:rgba(255, 255, 255, 0.61);
     width: 12.5em;
     height: 13em;
     border-radius: 13em;
@@ -107,6 +107,7 @@ input[type="color"] {
     position: absolute;
     left: 10px;
     border-radius: 80px;
+    background-color:rgba(255, 255, 255, 0.61)
 }
 
 .privatePublic{

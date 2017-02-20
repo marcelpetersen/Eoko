@@ -58,11 +58,19 @@
     border-radius: 61px;
     margin: 0 auto;
 }
-
+1
 .userDeselected{
 	opacity: 0.33;
 }
 
 .userSelected{
 	opacity: 1;
+}
+
+
+.platform-android .header-item.title {
+    transition-duration: 0ms;
+}
+.platform-android .header-item.buttons {
+    transition-duration: 0ms;
 }

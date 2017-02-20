@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','firebase','firebaseConfig',])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','firebase','firebaseConfig','ionic.ion.imageCacheFactory','ionic-native-transitions',])
 
 .config(function($ionicConfigProvider, $sceDelegateProvider){
   
@@ -14,8 +14,38 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 
 })
 
+.config(function($ionicNativeTransitionsProvider){
+  $ionicNativeTransitionsProvider.setDefaultOptions({
+    duration: 300, // in milliseconds (ms), default 400, 
+    slowdownfactor: 10, // overlap views (higher number is more) or no overlap (1), default 4 
+    iosdelay: 100, // ms to wait for the iOS webview to update before animation kicks in, default -1 
+    androiddelay: 100, // same as above but for Android, default -1 
+    winphonedelay: 100, // same as above but for Windows Phone, default -1, 
+    fixedPixelsTop: 0, // the number of pixels of your fixed header, default 0 (iOS and Android) 
+    fixedPixelsBottom: 0, // the number of pixels of your fixed footer (f.i. a tab bar), default 0 (iOS and Android) 
+    triggerTransitionEvent: '$ionicView.beforeEnter', // internal ionic-native-transitions option 
+    backInOppositeDirection: false // Takes over default back transition and state back transition to use the opposite direction transition to go back 
+  });
+})
+
+.config(function($ionicNativeTransitionsProvider){
+    $ionicNativeTransitionsProvider.setDefaultTransition({
+        type: 'fade'
+    });
+})
+
+.config(function($ionicNativeTransitionsProvider){
+    $ionicNativeTransitionsProvider.setDefaultBackTransition({
+        type: 'fade'
+    });
+})
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+
+    setTimeout(function() {
+        navigator.splashscreen.hide();
+    }, 100);
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -28,6 +58,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     }
   });
 })
+
 
 /*
   This directive is used to disable the "drag to open" functionality of the Side-Menu

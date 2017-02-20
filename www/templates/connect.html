@@ -8,7 +8,7 @@
 
   	<ion-list >
 	  	<ion-item class="row" ng-repeat="rows in userList">
-	  		<ion-item ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" ng-click="openProfile(user)" style="background-image: url({{user.avatar}});" class="span4 connectImg">
+	  		<ion-item ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" ng-click="openProfile(user)" style="background-color:rgba(255, 255, 255, 0.61);background-image: url({{user.avatar}});" class="span4 connectImg">
 	  	  	</ion-item>
 	  	</ion-item>
     </ion-list>
