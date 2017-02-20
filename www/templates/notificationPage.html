@@ -1,18 +1,43 @@
 <ion-view title="Notification Page" hide-nav-bar="true" hide-back-button="true" id="page16">
+
   <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
+
     <a ui-sref="tabsController.profile" class="button button-light  button-clear icon ion-ios-arrow-left"></a>
-    <div id="notificationPage-button-bar2" class="button-bar">
-      <button id="notificationPage-button27" class="button button-light  button-block button-clear">Notification</button>
-      <button id="notificationPage-button28" class="button button-light  button-block button-clear">Your Actions</button>
+
+    <div class="button-bar">
+      <button id="NotificationButton" class="button button-light  button-block button-clear eoko-text-button-nav" ng-click="selectNotificationTab()">Notification</button>
+
+      <button id="YourActionButton" class="button button-light  button-block button-clear eoko-text-button-nav" ng-click="selectYourActionTab()">Your Actions</button>
     </div>
-    <ion-list id="notificationPage-list7">
-      <ion-item class="item-thumbnail-left" style="background-color:rgba(0,0,0,0);">
-        <div class="n_avatarImg" ng-click="uploadPicture()" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/mycommunity-a33e4.appspot.com/o/default-avatar.png?alt=media&amp;token=39dc28f9-e9c1-404e-98f1-8266dda61bb2);"></div>
-        <h2 style="color:white;">Lunch at Chipolte</h2>
-        <p style="color:white;">Chipolte
-          <br>Friday, January 17, 2017
-          <br>12 PM</p>
+   
+    <!--spacer-->
+    <div class="spacer" style="height: 10px;"></div>
+
+    <ion-list ng-if="selection.tab == 'notifications' " id="notifyList">
+      <ion-item ng-repeat="notify in notifications" class="item-thumbnail-left" style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;" direction="x" on-swipe-left="onSwipeLeft(notify)">
+        <div class="n_avatarImg" style="background-image: url({{notify.info.avatar}});"></div>
+        <h2 style="color:white;">{{notify.info.title}}</h2>
+        <p style="color:white;display: inline;">{{notify.info.location}}
+          <br>{{notify.info.date}}
+          <br>{{notify.info.time}}
+        </p>
+        <!-- <button ng-click="openPopover($event, notify)" class="eoko-button-eventjoin">{{notify.attend}}</button> -->
+
       </ion-item>
     </ion-list>
+
+    <ion-list ng-if="selection.tab == 'yourevents' " id="notifyList">
+      <ion-item ng-repeat="actions in youractions" class="item-thumbnail-left" style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
+        <div class="n_avatarImg" style="background-image: url({{actions.info.avatar}});"></div>
+        <h2 style="color:white;">{{actions.info.title}}</h2>
+        <p style="color:white;display: inline;">{{actions.info.location}}
+          <br>{{actions.info.date}}
+          <br>{{actions.info.time}}
+        </p>
+        <!-- <button ng-click="openPopover($event, actions)" class="eoko-button-eventjoin">{{actions.attend}}</button> -->
+
+      </ion-item>
+    </ion-list>
+
   </ion-content>
 </ion-view>

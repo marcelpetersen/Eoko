@@ -125,6 +125,12 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'getPicturePageCtrl'
   })
 
+  .state('notificationPage', {
+    url: '/notifications',
+    templateUrl: 'templates/notificationPage.html',
+    controller: 'notificationPageCtrl'
+  })
+
 $urlRouterProvider.otherwise('/homePage')
 
 
