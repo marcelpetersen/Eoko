@@ -1,11 +1,12 @@
 angular.module('app.controllers', [])
   
-.controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, UserInfo, OtherInfo) {
+function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject) {
 
 $scope.user = "";
+var usr; 
  $scope.$on('$ionicView.beforeEnter', function() //before anything runs
     {
         console.log($stateParams.avatarClicked);
@@ -17,20 +18,23 @@ $scope.user = "";
         }  
         else
         {
-            console.log("user");
-            $scope.user = UserInfo.getUserInfo();
-            console.log($scope.user)
-            if($scope.user.email == "")
-            {
-                console.log("empty, pulling from database")
-                var usr = firebase.auth().currentUser;
-                var ref = firebase.database().ref("Buildings").child(usr.displayName + "/Users");
-                    
-                ref.child(usr.uid).once("value").then(function(snapshot)
-                {
-                    console.log(snapshot.val());
-                    UserInfo.setUserInfo(snapshot.val());
-                    $scope.user = UserInfo.getUserInfo();
+           if(usr == undefined)
+           {
+                firebase.auth().onAuthStateChanged(function(user) {
+                    usr = firebase.auth().currentUser;
+                
+                    console.log(usr.displayName);
+                    var ref = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
+                    $scope.user = $firebaseObject(ref);
+                    $scope.user.$loaded().then(function(x)
+                     {
+                        UserInfo.setUserInfo($scope.user);
+                        console.log($scope.user)
+                      })
+                      .catch(function(error) 
+                      {
+                        console.log("Error:", error);
+                      });
                 });
             }
         }
@@ -41,10 +45,10 @@ $scope.user = "";
 
 }])
    
-.controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo','$firebaseArray','$ionicPopover',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo','$firebaseArray','$firebaseObject','$ionicPopover',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, UserInfo, $firebaseArray, $ionicPopover) {
+function ($scope, $stateParams, UserInfo, $firebaseArray, $firebaseObject, $ionicPopover) {
 
     var usr = UserInfo.getUserInfo();
     var authUser = firebase.auth().currentUser;
@@ -54,6 +58,37 @@ function ($scope, $stateParams, UserInfo, $firebaseArray, $ionicPopover) {
     $scope.selection = {tab:"event", porb:"public", privstep: 1};
     $scope.event = {title:"",location:"",date:"",time:"",description:""};
     $scope.goingList = [];
+    $scope.notifications = [];
+
+    $scope.$on('$ionicView.beforeEnter', function() //before anything runs
+    {
+        if($scope.notifications.length == 0 && authUser == undefined)
+        {
+            console.log("Why yes it is!");
+            firebase.auth().onAuthStateChanged(function(user) {
+                    authUser = firebase.auth().currentUser;
+                    var rez = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
+                    var loadit = $firebaseObject(rez);
+                    loadit.$loaded().then(function(x)
+                     {
+                        UserInfo.setUserInfo(x);
+                        usr = UserInfo.getUserInfo();
+                        ref = firebase.database().ref("Buildings").child(usr.buildcode + "/UserEvents");
+                        refActivate();
+
+                      })
+                      .catch(function(error) 
+                      {
+                        console.log("Error:", error);
+                      });
+                });
+        }
+        else
+        {
+            refActivate();
+        }
+
+    });
 
 
 $scope.blurry = {behind : "0px"};
@@ -188,80 +223,93 @@ $scope.joinEvent = function(notify)
 };
 
 
-$scope.notifications = [];
+
 //var writeAttend = data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join';
-
-ref.on('child_added', function(data) {
-  if(checkUser(data.val()))
-  {
-    $scope.notifications.push({
-        info: data.val(),
-        key: data.key,
-        attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
-    });
-    $scope.$apply();
-  }
-});
-
-
-ref.on('child_changed', function(data) {
-  var removeitem = true;
-  for(var i in data.val().rolecall)   //iterate over rolecall
-  {
-    if(i == authUser.uid)   //if user is in rolecall
-    {
-        removeitem = false;
-        var additem = true;
-        for(var i = 0; i < $scope.notifications.length; i++)   //check notification list
-        {
-            if($scope.notifications[i].key == data.key)  //if notification is there, do nothing
-            {
-                additem = false;
-                $scope.notifications[i].attend = data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join';
-                $scope.notifications[i].info = data.val();
-                console.log("checking attend:", $scope.notifications[i].attend);
-                break;
-            }
-        }
-        if(additem === true)   //if not, push to notification stack
-        {
-            $scope.notifications.push({
-                info: data.val(),
-                key: data.key,
-                attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
+var refActivate = (function()
+{
+    var executed = false;
+    return function () {
+        if (!executed) {
+            executed = true;
+            console.log("ACTIVATE REF!!!");
+            ref.on('child_added', function(data) {
+                console.log("child_added triggered");
+              if(checkUser(data.val()))
+              {
+                $scope.notifications.push({
+                    info: data.val(),
+                    key: data.key,
+                    attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
+                });
+                $scope.$apply();
+              }
             });
-            break;
-        }
-        break;
-    }
-  }
-  if(removeitem === true)   //if user is not in rolecall
-  {
-    for(var i = 0; i < $scope.notifications.length; i++)  //check notification list
-      {
-        if($scope.notifications[i].key == data.key)      //if notification found, delete it
-        {
-            $scope.notifications.splice(i,1);
-            $scope.$apply();
-            break;
-        }
-      }
-  }
-  $scope.$apply();
- 
-});
 
-ref.on('child_removed', function(data) {
-  for(var i = 0; i < $scope.notifications.length; i++)
-  {
-    if($scope.notifications[i].key == data.key)
-    {
-        $scope.notifications.splice(i,1);
-        $scope.$apply();
-        break;
-    }
-  }
-});
+
+            ref.on('child_changed', function(data) {
+                console.log("child_changed triggered");
+              var removeitem = true;
+              for(var i in data.val().rolecall)   //iterate over rolecall
+              {
+                if(i == authUser.uid)   //if user is in rolecall
+                {
+                    removeitem = false;
+                    var additem = true;
+                    for(var i = 0; i < $scope.notifications.length; i++)   //check notification list
+                    {
+                        if($scope.notifications[i].key == data.key)  //if notification is there, do nothing
+                        {
+                            additem = false;
+                            $scope.notifications[i].attend = data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join';
+                            $scope.notifications[i].info = data.val();
+                            console.log("checking attend:", $scope.notifications[i].attend);
+                            break;
+                        }
+                    }
+                    if(additem === true)   //if not, push to notification stack
+                    {
+                        $scope.notifications.push({
+                            info: data.val(),
+                            key: data.key,
+                            attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
+                        });
+                        break;
+                    }
+                    break;
+                }
+              }
+              if(removeitem === true)   //if user is not in rolecall
+              {
+                for(var i = 0; i < $scope.notifications.length; i++)  //check notification list
+                  {
+                    if($scope.notifications[i].key == data.key)      //if notification found, delete it
+                    {
+                        $scope.notifications.splice(i,1);
+                        $scope.$apply();
+                        break;
+                    }
+                  }
+              }
+              $scope.$apply();
+             
+            });
+
+            ref.on('child_removed', function(data) {
+                console.log("child_removed triggered");
+              for(var i = 0; i < $scope.notifications.length; i++)
+              {
+                if($scope.notifications[i].key == data.key)
+                {
+                    $scope.notifications.splice(i,1);
+                    $scope.$apply();
+                    break;
+                }
+              }
+            });
+        }
+    };
+
+})();
 
 var weekday = new Array();
 weekday[0] =  "Sunday";
@@ -352,6 +400,7 @@ function chunk(arr, size) {
 
     $scope.createEvent = function(makeEventForm)
     {
+        var rec = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
         var postedEvent = {title: $scope.event.title,
             location:$scope.event.location,
             date:"",
@@ -370,8 +419,6 @@ function chunk(arr, size) {
 
         if($scope.selection.porb == "public")
             {
-                var rec = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
-
                 var everyone  = $firebaseArray(rec);
                         everyone.$loaded().then(function(x)
                          {
@@ -389,6 +436,34 @@ function chunk(arr, size) {
                                 'avatar': postedEvent.avatar,
                                 'rolecall': rolecall
                             });
+
+                           rec.child(authUser.uid + "/notifications").push({
+                                'title': postedEvent.title,
+                                'location': postedEvent.location,
+                                'date': postedEvent.date,
+                                'time': postedEvent.time,
+                                'description': postedEvent.description,
+                                'avatar': postedEvent.avatar,
+                                'rolecall': rolecall
+                           });
+
+                           rec.child(authUser.uid + "/yourEvents").push({
+                                'title': postedEvent.title,
+                                'location': postedEvent.location,
+                                'date': postedEvent.date,
+                                'time': postedEvent.time,
+                                'description': postedEvent.description,
+                                'avatar': postedEvent.avatar,
+                                'rolecall': rolecall
+                           });
+
+                           rec.child(authUser.uid+ "/eventCount").transaction(function(counts)
+                            {
+                                if (counts) {
+                                    counts = counts + 1;
+                                }
+                                return (counts || 0) + 1;
+                            });
                              
                           })
                           .catch(function(error) 
@@ -399,6 +474,7 @@ function chunk(arr, size) {
                   
                 $scope.selection.tab = "event";
             }
+//if private
             else if($scope.selection.porb == "private")
             {
                 var eventpost = ref.push({
@@ -409,6 +485,35 @@ function chunk(arr, size) {
                     'description': postedEvent.description,
                     'avatar': postedEvent.avatar,
                     'rolecall': $scope.privateRoll
+                });
+
+
+               rec.child(authUser.uid + "/notifications").push({
+                    'title': postedEvent.title,
+                    'location': postedEvent.location,
+                    'date': postedEvent.date,
+                    'time': postedEvent.time,
+                    'description': postedEvent.description,
+                    'avatar': postedEvent.avatar,
+                    'rolecall': $scope.privateRoll
+               });
+
+               rec.child(authUser.uid + "/yourEvents").push({
+                    'title': postedEvent.title,
+                    'location': postedEvent.location,
+                    'date': postedEvent.date,
+                    'time': postedEvent.time,
+                    'description': postedEvent.description,
+                    'avatar': postedEvent.avatar,
+                    'rolecall': $scope.privateRoll
+               });
+
+               rec.child(authUser.uid+ "/eventCount").transaction(function(counts)
+                {
+                    if (counts) {
+                        counts = counts + 1;
+                    }
+                    return (counts || 0) + 1;
                 });
 
                 $scope.selection.tab = "event";
@@ -422,27 +527,54 @@ function chunk(arr, size) {
 
 }])
    
-.controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo','$firebaseArray', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo','$firebaseArray', '$firebaseObject',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $state, $stateParams, UserInfo, OtherInfo,$firebaseArray) {
+function ($scope, $state, $stateParams, UserInfo, OtherInfo,$firebaseArray,$firebaseObject) {
 
 var usr = UserInfo.getUserInfo();
-if(usr.email == "")
-    {
-        console.log("empty, pulling from database")
-        var usor = firebase.auth().currentUser;
-        var ref = firebase.database().ref("Buildings").child(usor.displayName + "/Users");
-            
-        ref.child(usor.uid).once("value").then(function(snapshot)
-        {
-            console.log(snapshot.val());
-            UserInfo.setUserInfo(snapshot.val());
-            usr = UserInfo.getUserInfo();
-        });
-    }
+var usor = firebase.auth().currentUser;
+var ref;
 
-    var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
+$scope.$on('$ionicView.beforeEnter', function() //before anything runs
+    {
+        if(usor == undefined)
+           {
+                console.log('running once!')
+                firebase.auth().onAuthStateChanged(function(user) {
+                    usor = firebase.auth().currentUser;
+                    ref = firebase.database().ref("Buildings").child(usor.displayName + "/Users");
+            
+                    var tempdata = $firebaseObject(ref.child(usor.uid));
+                    tempdata.$loaded().then(function(x)
+                     {
+                        UserInfo.setUserInfo(tempdata);
+                        console.log(tempdata);
+                        usr = UserInfo.getUserInfo();
+
+                        console.log(usr);
+                        $scope.userList = $firebaseArray(ref);
+                        $scope.userList.$loaded().then(function(x)
+                         {
+                            $scope.userList = chunk(x, 3);
+                          })
+                          .catch(function(error) 
+                          {
+                            console.log("Error:", error);
+                          });
+
+                        $scope.owning = {avatar : usr.avatar};
+                        console.log($scope.owning);
+
+
+                      })
+                      .catch(function(error) 
+                      {
+                        console.log("Error:", error);
+                      });
+                });
+           }
+    });
 
 
 function chunk(arr, size) {
@@ -452,21 +584,6 @@ function chunk(arr, size) {
   }
   return newArr;
 }
-
- $scope.owning = {avatar : usr.avatar};
-$scope.userList = $firebaseArray(ref);
-                $scope.userList.$loaded().then(function(x)
-                 {
-                    $scope.userList = chunk(x, 3);
-                  })
-                  .catch(function(error) 
-                  {
-                    console.log("Error:", error);
-                  });
-
-
-
-
 
 
 $scope.openProfile = function(clicked)
