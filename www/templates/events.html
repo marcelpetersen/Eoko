@@ -9,35 +9,40 @@
     </div>
 
     <!--spacer-->
-    <div class="spacer" style="height: 10px;"></div>
+    <div class="spacer" style="height: 20px;"></div>
 
+    <!--list of actions-->
     <ion-scroll ng-if="selection.tab == 'event' " style="height: calc(100% - 11em)">
       <ion-list id="actionList">
         <div ng-if="notifications.length == 0" style="margin-left:33px;">
           <p style="color:#FFFFFF;font-size:16px;">No Actions to display.</p>
         </div>
         <ion-item ng-repeat="notify in notifications" class="item-thumbnail-left" style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
+
           <div class="n_avatarImg" style="background-image: url({{notify.info.avatar}});"></div>
-          <h2 style="color:white;">{{notify.info.title}}</h2>
-          <p style="color:white;display: inline;">{{notify.info.location}}
+          <h2 class="eoko-text-regular" style="font-size: 25px">{{notify.info.title}}</h2>
+          <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+            {{notify.info.location}}
             <br>{{notify.info.date}}
             <br>{{notify.info.time}}
           </p>
-          <button ng-click="openPopover($event, notify)" class="eoko-button-eventjoin">{{notify.attend}}</button>
+          <button ng-click="openPopover($event, notify)" class="eoko-button-event-join eoko-text-light">{{notify.attend}}</button>
 
         </ion-item>
       </ion-list>
     </ion-scroll>
 
+
+    <!--create your action-->
     <div ng-if="selection.tab == 'create' && selection.privstep == 1">
 	    <div class="button-bar" ng-if="selection.porb == 'public'">
-			  <button ng-click="selectedPublic()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block">Public</button>
-			  <button ng-click="selectedPrivate()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block button-outline">Private</button>
+			  <button ng-click="selectedPublic()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block eoko-text-light">Public</button>
+			  <button ng-click="selectedPrivate()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block button-outline eoko-text-light">Private</button>
 		  </div>
 
       <div class="button-bar" ng-if="selection.porb == 'private'">
-			  <button ng-click="selectedPublic()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block button-outline">Public</button>
-			  <button ng-click="selectedPrivate()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block">Private</button>
+			  <button ng-click="selectedPublic()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block button-outline eoko-text-light">Public</button>
+			  <button ng-click="selectedPrivate()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block eoko-text-light">Private</button>
 		  </div>
 
 
@@ -134,4 +139,3 @@
 </ion-view>
 
 
-    

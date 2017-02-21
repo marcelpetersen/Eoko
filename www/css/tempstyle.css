@@ -7,26 +7,6 @@
 	background-color:rgba(0,0,0,0);
 }
 
-.eoko-button-eventjoin {
-    border-radius: 10px;
-    background-color: #F57C00;
-    padding: 2px 10px;
-    border: 1px solid #F57C00;
-    color: white;
-    font-size: 14px;
-    float: right;
-}
-
-.eoko-button-eventjoin:active {
-    border-radius: 10px;
-    background-color: #dc6f00;
-    padding: 2px 10px;
-    border: 1px solid #dc6f00;
-    color: white;
-    font-size: 14px;
-    float: right;
-}
-
 
 .card, .list-inset{
     background-color: rgba(0,0,0,0);
@@ -73,4 +53,56 @@
 }
 .platform-android .header-item.buttons {
     transition-duration: 0ms;
+}
+
+
+
+.avatarImg{
+  border-radius: 50px;
+  background-size: cover;
+  background-position-x: 61%;
+  background-color:rgba(255, 255, 255, 0.61);
+  width: 12.5em;
+  height: 13em;
+  border-radius: 13em;
+  margin: 2em auto;
+}
+
+.descriptionBox{
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  width: 320px;
+  margin: 4em auto;
+  background-color: rgba(255, 255, 255, 0.61);
+  height: 10em;
+  resize: none;
+}
+
+
+.notificationNumber {
+  border-radius: 50px;
+  background-color: red;
+  font-size: 12px;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  position: relative;
+  left: 25px;
+  color: white;
+  text-align: center;
+}
+
+.n_avatarImg{
+  height: 80px;
+  width: 80px;
+  background-size: contain;
+  position: absolute;
+  left: 10px;
+  border-radius: 80px;
+  background-color:rgba(255, 255, 255, 0.61)
+}
+
+.privatePublic{
+  border-radius:14px;
 }

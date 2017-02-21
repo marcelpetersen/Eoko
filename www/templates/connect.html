@@ -5,13 +5,15 @@
     <!--spacer-->
     <div class="spacer" style="height: 60px;"></div>
 
-
-  	<ion-list >
-	  	<ion-item class="row" ng-repeat="rows in userList">
-	  		<ion-item ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" ng-click="openProfile(user)" style="background-color:rgba(255, 255, 255, 0.61);background-image: url({{user.avatar}});" class="span4 connectImg">
-	  	  	</ion-item>
-	  	</ion-item>
-    </ion-list>
+    <div ng-repeat="rows in userList" style="text-align: center">
+      <span href="#" ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" ng-click="openProfile(user)" style="display: inline-block; padding-bottom: 10px;">
+        <figure>
+          <img class="eoko-connect-image" ng-src={{user.avatar}}/>
+          <figcaption class="eoko-text-ultralight" style="font-size: 18px;">{{user.name}}</figcaption>
+        </figure>
+      </span>
+    </div>
 
   </ion-content>
+
 </ion-view>

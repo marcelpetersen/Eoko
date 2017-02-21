@@ -28,16 +28,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   "sanfrancisco-font";
 
 
-.connectImg {
-    border-radius: 50px;
-    background-size: cover;
-    margin: 1em auto;
-    display: inline;
-    float: left;
-    width: 5em;
-    height: 5em;
-}
-
 textarea,
 input[type="text"],
 input[type="password"],
@@ -61,57 +51,6 @@ input[type="color"] {
     vertical-align: middle;
     font-size: 14px;
     line-height: 16px;
-}
-
-
-.avatarImg{
-    border-radius: 50px;
-    background-size: cover;
-    background-position-x: 61%;
-    background-color:rgba(255, 255, 255, 0.61);
-    width: 12.5em;
-    height: 13em;
-    border-radius: 13em;
-    margin: 2em auto;
-}
-
-.descriptionBox{
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
-    width: 320px;
-    margin: 4em auto;
-    background-color: rgba(255, 255, 255, 0.61);
-    height: 10em;
-    resize: none;
-}
-
-
-.notificationNumber {
-    border-radius: 50px;
-    background-color: red;
-    font-size: 12px;
-    height: 20px;
-    width: 20px;
-    line-height: 20px;
-    position: relative;
-    left: 25px;
-    color: white;
-    text-align: center;
-}
-
-.n_avatarImg{
-        height: 80px;
-    width: 80px;
-    background-size: contain;
-    position: absolute;
-    left: 10px;
-    border-radius: 80px;
-    background-color:rgba(255, 255, 255, 0.61)
-}
-
-.privatePublic{
-    border-radius:14px;
 }
 
 
