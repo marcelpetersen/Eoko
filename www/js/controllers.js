@@ -29,7 +29,8 @@ var usr;
                     $scope.user.$loaded().then(function(x)
                      {
                         UserInfo.setUserInfo($scope.user);
-                        console.log($scope.user)
+                        console.log($scope.user);
+                        $scope.friendR = Object.keys($scope.user.notifications).length;
                       })
                       .catch(function(error) 
                       {
@@ -945,10 +946,10 @@ function ($scope, $stateParams,$state,$timeout) {
 }])
  
 
-.controller('notificationPageCtrl', ['$scope', '$stateParams','UserInfo','$firebaseObject','$timeout', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('notificationPageCtrl', ['$scope', '$stateParams','UserInfo','$firebaseObject','$timeout','$ionicScrollDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams,UserInfo,$firebaseObject,$timeout) {
+function ($scope, $stateParams,UserInfo,$firebaseObject,$timeout,$ionicScrollDelegate) {
 
 
 var usr = UserInfo.getUserInfo();
@@ -990,7 +991,23 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
 
 });
 
+$scope.$on('$ionicView.afterEnter', function(){ //after all loads
+    for(var i in $scope.youractions)
+    {
+        var listdate = $scope.youractions[i].info.date;
+        var listtime = $scope.youractions[i].info.time;
+        console.log($scope.youractions[i].info.date); //Thursday, March 4, 123   2:34 PM
 
+        var splitted = listdate.split(" ");
+        var resultingDate;
+        for(var i in splitted )
+        {
+            splitted[i].replace(/,/g, '')
+
+        }
+
+    }
+});
 
 function checkUser(item)
 {
@@ -1184,13 +1201,37 @@ $scope.selectYourActionTab = function()
 };
 
 
+$scope.draggedStyle = {};
+
+$scope.onDrag = function(event)
+{
+    $ionicScrollDelegate.$getByHandle('mainScroll').freezeScroll(true);
+    $scope.draggedStyle = {
+        "transform": "translate(" + event.gesture.deltaX + "px)",
+        "-webkit-transform": "translate(" + event.gesture.deltaX + "px)"
+    };
+};
+
+$scope.onRelease = function(event)
+{
+    $ionicScrollDelegate.$getByHandle('mainScroll').freezeScroll(false);
+    $scope.draggedStyle = {
+        "transform": "translate(" + 0 + "px)",
+        "-webkit-transition": "transform 0.61s",
+        "-moz-transition": "transform 0.61s",
+        "-ms-transition": "transform 0.61s",
+        "-o-transition": "transform 0.61s",
+        "transition": "transform 0.61s"
+    };
+};
+
 $scope.onSwipeLeft = function(notify)
 {
     console.log("Swiped left, remove object",notify);
-    ref.child('notifications/'+notify.key).remove().then(function()
+    /*ref.child('notifications/'+notify.key).remove().then(function()
     {
         console.log("object removed from database");
-    })
+    })*/
 };
 
 }])
