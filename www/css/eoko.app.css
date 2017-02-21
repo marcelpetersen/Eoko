@@ -9901,7 +9901,15 @@ a.button {
   margin: 10px; }
 
 .eoko-text-button-nav {
-  font-size: 30px; }
+  font-size: 2.11em;
+  font-size: 25px;
+  font-size: 7vw; }
+  @media (max-width: 285.71429px) {
+    .eoko-text-button-nav {
+      font-size: 20px; } }
+  @media (min-width: 428.57143px) {
+    .eoko-text-button-nav {
+      font-size: 30px; } }
 
 .eoko-tabs-blur .tab-nav.tabs {
   height: 70px;
@@ -10101,13 +10109,13 @@ input[type="color"] {
   border-radius: 50px;
   background-color: red;
   font-size: 12px;
-  height: 16px;
-  width: 16px;
-  line-height: 16px;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
   position: relative;
-  bottom: 36px;
-  left: 13px;
-  color: white; }
+  left: 25px;
+  color: white;
+  text-align: center; }
 
 .n_avatarImg {
   height: 80px;
