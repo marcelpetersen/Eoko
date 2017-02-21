@@ -30,7 +30,16 @@ var usr;
                      {
                         UserInfo.setUserInfo($scope.user);
                         console.log($scope.user);
-                        $scope.friendR = Object.keys($scope.user.notifications).length;
+
+                        if($scope.user.notifications)
+                        {
+                            $scope.friendR = Object.keys($scope.user.notifications).length;
+                        }
+                        else
+                        {
+                            $scope.friendR = 0;
+                        }
+                        
                       })
                       .catch(function(error) 
                       {
@@ -40,7 +49,14 @@ var usr;
             }
             else
             {
-                $scope.friendR = Object.keys($scope.user.notifications).length;
+                if($scope.user.notifications)
+                {
+                    $scope.friendR = Object.keys($scope.user.notifications).length;
+                }
+                else
+                {
+                    $scope.friendR = 0;
+                }
             }
         }
 

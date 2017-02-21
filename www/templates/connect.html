@@ -1,19 +1,45 @@
 <ion-view title="Connect" hide-nav-bar="true" hide-back-button="true" id="page5">
 
-  <ion-content padding="true" class="has-header eoko-content" style="background: url(img/main_background.png) no-repeat center;background-size:cover;">
+  <ion-content padding="true" class="has-header eoko-content" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" scroll="false">
 
     <!--spacer-->
     <div class="spacer" style="height: 60px;"></div>
 
-    <div ng-repeat="rows in userList" style="text-align: center">
+    <ion-scroll style="height: calc(100% - 11em)">
+      <ion-list>
+        <ion-item class="row" ng-repeat="rows in userList">
+        <figure ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" class="span4 eoko-connect-image" >
+          <ion-item ng-click="openProfile(user)" style="background-image: url({{user.avatar}});margin:0px;" class="span4 eoko-connect-image"></ion-item>
+            <figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">{{user.name}}</figcaption>
+            </figure>
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
+
+
+  </ion-content>
+</ion-view>
+
+
+
+
+<!--     <div ng-repeat="rows in userList" style="text-align: center">
       <span href="#" ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" ng-click="openProfile(user)" style="display: inline-block; padding-bottom: 10px;">
         <figure>
-          <img class="eoko-connect-image" ng-src={{user.avatar}}/>
+          <img class="span4 eoko-connect-image" ng-src={{user.avatar}}>
           <figcaption class="eoko-text-ultralight" style="font-size: 18px;">{{user.name}}</figcaption>
         </figure>
       </span>
     </div>
+ -->
 
-  </ion-content>
-
-</ion-view>
+<!-- <div ng-if="selection.tab == 'create' && selection.privstep == 2">
+        <a ui-sref="tabsController.events" class="button button-light  button-clear icon ion-ios-arrow-left"></a>
+          <ion-list >
+            <ion-item class="row" ng-repeat="rows in userList">
+              <ion-item ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" ng-click="selectUser(user)" style="background-image: url({{user.avatar}});" class="span4 connectImg" ng-class="privateRoll.hasOwnProperty(user.$id) ? 'userSelected' : 'userDeselected'">
+                </ion-item>
+            </ion-item>
+          </ion-list>
+        <button ng-if="selection.porb == 'private'" ng-click="createEvent(makeEventForm)" style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Make Private Event</button>
+    </div> -->
