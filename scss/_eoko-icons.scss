@@ -45,6 +45,27 @@
     height: 5.5em;
 }
 
+
+.eoko-searchbar-left{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../img/notification_icon.png");
+  height: 40px;
+  width: 40px;
+  float: left;
+}
+
+.eoko-chatbox-right{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../img/setting_icon.png");
+  height: 40px;
+  width: 40px;
+  float: right;
+}
+
 //
 // Tab icons
 // ------------------------------

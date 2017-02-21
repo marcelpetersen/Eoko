@@ -1,9 +1,17 @@
 <ion-view title="Connect" hide-nav-bar="true" hide-back-button="true" id="page5">
 
-  <ion-content padding="true" class="has-header eoko-content" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" scroll="false">
+  <ion-content padding="false" class="has-header eoko-content" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" scroll="false">
 
-    <!--spacer-->
-    <div class="spacer" style="height: 60px;"></div>
+   <div class="button-bar">
+      <a ui-sref="notificationPage" class="eoko-searchbar-clear eoko-bell-left"></a>
+
+      <button id="EveryoneButton" class="button button-light  button-block button-clear eoko-text-button-nav" ng-click="selectNotificationTab()">Everyone</button>
+
+      <button id="FriendsButton" class="button button-light  button-block button-clear eoko-text-button-nav" ng-click="selectYourActionTab()">Friends</button>
+
+      <a class="eoko-button-clear eoko-chatbox-right"></a>
+    </div>
+
 
     <ion-scroll style="height: calc(100% - 11em)">
       <ion-list>
@@ -19,7 +27,6 @@
 
   </ion-content>
 </ion-view>
-
 
 
 
