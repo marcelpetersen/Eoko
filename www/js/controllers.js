@@ -38,6 +38,10 @@ var usr;
                       });
                 });
             }
+            else
+            {
+                $scope.friendR = Object.keys($scope.user.notifications).length;
+            }
         }
 
     });
@@ -1200,38 +1204,87 @@ $scope.selectYourActionTab = function()
     $scope.selection.tab = "yourevents";
 };
 
+function getIonWidth(curr) 
+{
+    if(curr.hasClass('item-thumbnail-left'))
+    {
+        return curr[0];
+    }
+    else
+    {
+        return getIonWidth(curr.parent());
+    }
+}
 
 $scope.draggedStyle = {};
+var swiped;
 
-$scope.onDrag = function(event)
-{
+$scope.onDrag = function(event, index)
+{    
+    swiped = false;
     $ionicScrollDelegate.$getByHandle('mainScroll').freezeScroll(true);
-    $scope.draggedStyle = {
+    $scope.draggedStyle[index] = {
         "transform": "translate(" + event.gesture.deltaX + "px)",
         "-webkit-transform": "translate(" + event.gesture.deltaX + "px)"
     };
 };
 
-$scope.onRelease = function(event)
+$scope.onRelease = function(event, index, notify)
 {
     $ionicScrollDelegate.$getByHandle('mainScroll').freezeScroll(false);
-    $scope.draggedStyle = {
-        "transform": "translate(" + 0 + "px)",
+    if(swiped === false)
+    {
+        var ionitem = getIonWidth(angular.element(event.srcElement));
+
+        if(event.gesture.deltaX < (ionitem.offsetWidth*0.618)*-1)
+        {
+            $scope.onSwipeLeft(notify, index);
+        }
+        else
+        {
+            $scope.draggedStyle[index] = {
+            "transform": "translate(" + 0 + "px)",
+            "-webkit-transition": "transform 0.61s",
+            "-moz-transition": "transform 0.61s",
+            "-ms-transition": "transform 0.61s",
+            "-o-transition": "transform 0.61s",
+            "transition": "transform 0.61s"
+             };
+        }
+        
+    }
+};
+
+$scope.onSwipeLeft = function(notify, index)
+{
+    console.log(index);
+    swiped = true;
+    $scope.draggedStyle[index] = {
+        "transform": "translate(" + -100 + "%)",
         "-webkit-transition": "transform 0.61s",
         "-moz-transition": "transform 0.61s",
         "-ms-transition": "transform 0.61s",
         "-o-transition": "transform 0.61s",
         "transition": "transform 0.61s"
     };
-};
+    $timeout(function(){
+        console.log("Swiped left, remove object");
+        
 
-$scope.onSwipeLeft = function(notify)
-{
-    console.log("Swiped left, remove object",notify);
-    /*ref.child('notifications/'+notify.key).remove().then(function()
-    {
-        console.log("object removed from database");
-    })*/
+        delete $scope.draggedStyle[index];
+        //$scope.draggedStyle[index] = {};
+        $scope.notifications.splice(index,1);
+        console.log(index);
+
+        
+        ref.child('notifications/'+notify.key).remove().then(function()
+        {
+            console.log("object removed from database");
+        });
+
+    }, 610);
+    
+    /**/
 };
 
 }])
