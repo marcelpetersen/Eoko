@@ -32,7 +32,7 @@
 
 
 //
-// Avatar
+// Connect Page
 // ------------------------------
 
 .eoko-connect-image {
@@ -45,12 +45,11 @@
     height: 5.5em;
 }
 
-
 .eoko-searchbar-left{
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  background-image: url("../img/notification_icon.png");
+  background-image: url("../img/search_icon.png");
   height: 40px;
   width: 40px;
   float: left;
@@ -60,7 +59,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  background-image: url("../img/setting_icon.png");
+  background-image: url("../img/chat_icon.png");
   height: 40px;
   width: 40px;
   float: right;

@@ -1,11 +1,24 @@
 <ion-view title="Building Events" hide-nav-bar="true" hide-back-button="true" id="page3">
 
-  <ion-nav-buttons side="right" class="has-header">
-    <button class="button button-icon icon ion-trophy"></button>
-  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header eoko-content"
+               style="background: url(img/main_background.png) no-repeat center;background-size:cover;">
 
-  <ion-content padding="true" class="has-header eoko-content" style="background: url(img/main_background.png) no-repeat center;background-size:cover;">
-    <button id="buildingEvents-button7" ng-click="search()" class="button button-positive  button-block">Tap me!</button>
+    <div class="button-bar">
+
+      <button id="BuildingEventButton" class="button button-light button-block button-clear eoko-text-button-nav"
+              ng-click="selectBuildingEventTab()">Event
+      </button>
+
+      <button id="FeedBackButton" class="button button-light button-block button-clear eoko-text-button-nav"
+              ng-click="selectFeedbackTab()">Feedback
+      </button>
+
+      <button id="RankingButton" class="button button-light button-block button-clear eoko-text-button-nav"
+              ng-click="selectRankingTab()">Ranking
+      </button>
+
+    </div>
+
   </ion-content>
 
 </ion-view>

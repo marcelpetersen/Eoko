@@ -38,7 +38,7 @@
     border-radius: 61px;
     margin: 0 auto;
 }
-1
+
 .userDeselected{
 	opacity: 0.33;
 }
@@ -69,12 +69,11 @@
 }
 
 .descriptionBox{
-  color: black;
   padding: 10px;
   border-radius: 5px;
   width: 320px;
   margin: 4em auto;
-  background-color: rgba(255, 255, 255, 0.61);
+  background-color: rgba(255, 255, 255, 0.3);
   height: 10em;
   resize: none;
 }
@@ -108,5 +107,5 @@
 }
 
 .item p{
-  
+
 }
