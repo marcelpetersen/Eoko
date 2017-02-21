@@ -54,5 +54,5 @@
 .eoko-text-button-nav{
   @extend .eoko-text-light;
   font-size: 2.11em;
-  @include responsive-font(7vw, 20px, 30px, 25px);
+  @include responsive-font(6vw, 20px, 30px, 25px);
 }

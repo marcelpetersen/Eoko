@@ -9918,11 +9918,11 @@ a.button {
 .eoko-text-button-nav {
   font-size: 2.11em;
   font-size: 25px;
-  font-size: 7vw; }
-  @media (max-width: 285.71429px) {
+  font-size: 6vw; }
+  @media (max-width: 333.33333px) {
     .eoko-text-button-nav {
       font-size: 20px; } }
-  @media (min-width: 428.57143px) {
+  @media (min-width: 500px) {
     .eoko-text-button-nav {
       font-size: 30px; } }
 
@@ -9955,11 +9955,10 @@ a.button {
   text-align: center;
   border-radius: 50px;
   background-size: cover;
+  background-position-x: 50%;
   margin: 1em auto;
-  display: inline;
-  float: left;
-  width: 7em;
-  height: 7em; }
+  width: 5.5em;
+  height: 5.5em; }
 
 .profile-icon-on {
   background-repeat: no-repeat;
