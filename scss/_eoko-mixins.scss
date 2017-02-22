@@ -8,12 +8,12 @@
   color: $color;
 
   // Give desktop users something to play with
-  &:hover {
+  &.hover {
     background-color: darken($active-bg-color,8%);
     transition: all 0.3s ease;
   }
-  &:active,
-  &:activated {
+  &.active,
+  &.activated {
     background-color: darken($active-bg-color,25%);
   }
 }
@@ -34,6 +34,12 @@
     border-color: transparent;
     background: none;
   }
+  &.active,
+  &.activated{
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+
 }
 
 @mixin button-outline($color, $text-color:"") {

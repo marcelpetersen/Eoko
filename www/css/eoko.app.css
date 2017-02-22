@@ -9817,10 +9817,10 @@ a.button {
   text-overflow: ellipsis;
   font-size: 16px;
   line-height: 50px; }
-  .eoko-button:hover, .eoko-button-block:hover, .eoko-button-block-clear:hover {
+  .eoko-button.hover, .hover.eoko-button-block, .hover.eoko-button-block-clear {
     background-color: #cc6700;
     transition: all 0.3s ease; }
-  .eoko-button:active, .eoko-button-block:active, .eoko-button-block-clear:active, .eoko-button:activated, .eoko-button-block:activated, .eoko-button-block-clear:activated {
+  .eoko-button.active, .active.eoko-button-block, .active.eoko-button-block-clear, .eoko-button.activated, .activated.eoko-button-block, .activated.eoko-button-block-clear {
     background-color: #763b00; }
 
 .eoko-button-block, .eoko-button-block-clear {
@@ -9835,24 +9835,20 @@ a.button {
   box-shadow: none; }
 
 .eoko-button-clear {
-  border-color: none;
-  background-color: none;
   color: #FFFFFF;
   margin: 13px;
   font-size: 36px; }
-  .eoko-button-clear:hover {
-    background-color: #ebebeb;
-    transition: all 0.3s ease; }
-  .eoko-button-clear:active, .eoko-button-clear:activated {
-    background-color: #bfbfbf; }
   .eoko-button-clear.button-clear {
     border-color: transparent;
     background: none;
     box-shadow: none;
-    color: #F57C00; }
+    color: #FFFFFF; }
   .eoko-button-clear.button-icon {
     border-color: transparent;
     background: none; }
+  .eoko-button-clear.active, .eoko-button-clear.activated {
+    opacity: 0.6;
+    transition: all 0.3s ease; }
   .eoko-button-clear.button-outline {
     border-color: #F57C00;
     background: transparent;
@@ -9871,10 +9867,10 @@ a.button {
   padding: 2px 10px;
   font-size: 20px;
   float: right; }
-  .eoko-button-event-join:hover {
+  .eoko-button-event-join.hover {
     background-color: #cc6700;
     transition: all 0.3s ease; }
-  .eoko-button-event-join:active, .eoko-button-event-join:activated {
+  .eoko-button-event-join.active, .eoko-button-event-join.activated {
     background-color: #763b00; }
 
 .eoko-text-ultralight {
@@ -10103,16 +10099,21 @@ a.button {
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff"); }
 
 .eoko-notification-number {
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #FF5722;
+  color: #FFFFFF;
   font-size: 20px;
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   line-height: 20px;
   position: relative;
   left: 25px;
-  color: #FFFFFF;
   text-align: center; }
+
+.eoko-content {
+  min-height: 100% !important;
+  top: 0 !important;
+  bottom: 0 !important; }
 
 textarea,
 input[type="text"],
