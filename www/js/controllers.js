@@ -502,6 +502,56 @@ angular.module('app.controllers', [])
 
     }])
 
+<<<<<<< HEAD
+}])
+   
+.controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo','$firebaseArray', '$firebaseObject','$ionicPopover','orderByFilter', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $state, $stateParams, UserInfo, OtherInfo,$firebaseArray,$firebaseObject,$ionicPopover,orderByFilter) {
+
+var usr = UserInfo.getUserInfo();
+var usor = firebase.auth().currentUser;
+var ref;
+
+$scope.$on('$ionicView.beforeEnter', function() //before anything runs
+    {
+        if(usor == undefined)
+           {
+                console.log('running once!')
+                firebase.auth().onAuthStateChanged(function(user) {
+                    usor = firebase.auth().currentUser;
+                    ref = firebase.database().ref("Buildings").child(usor.displayName + "/Users");
+            
+                    var tempdata = $firebaseObject(ref.child(usor.uid));
+                    tempdata.$loaded().then(function(x)
+                     {
+                        UserInfo.setUserInfo(tempdata);
+                        console.log(tempdata);
+                        usr = UserInfo.getUserInfo();
+
+                        console.log(usr);
+                        $scope.userList = $firebaseArray(ref);
+                        $scope.userList.$loaded().then(function(x)
+                         {
+                            $scope.userList = chunk(x, 3);
+                          })
+                          .catch(function(error) 
+                          {
+                            console.log("Error:", error);
+                          });
+
+                        $scope.owning = {id : tempdata.$id};
+                        console.log($scope.owning);
+                        console.log($scope.userList);
+
+
+                      })
+                      .catch(function(error) 
+                      {
+                        console.log("Error:", error);
+                      });
+=======
   .controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -532,6 +582,7 @@ angular.module('app.controllers', [])
               })
                 .catch(function (error) {
                   console.log("Error:", error);
+>>>>>>> BaoDev
                 });
 
               $scope.owning = {id: tempdata.$id};
@@ -559,8 +610,16 @@ angular.module('app.controllers', [])
           $scope.owning = {avatar: usr.avatar};
           console.log($scope.owning);
 
+<<<<<<< HEAD
+$scope.onHold = function(clicked)
+{
+
+};
+
+=======
         }
       });
+>>>>>>> BaoDev
 
 
       function chunk(arr, size) {
@@ -580,9 +639,100 @@ angular.module('app.controllers', [])
       };
 
 
+<<<<<<< HEAD
+// .fromTemplateUrl() method
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+//$scope.blurry = $scope.popover.isShown() ? $scope.blurry = {behind : "5px"} : $scope.blurry = {behind : "0px"};
+ $scope.blurry = {behind : "0px"};
+
+  function makeblurry()
+{
+    if($scope.popover.isShown())
+    {
+        console.log("blur background");
+        $scope.blurry = {behind : "5px"};
+    }
+    else
+    {
+        console.log("clear up");
+         $scope.blurry = {behind : "0px"};
+    }
+}
+
+$scope.checkHit = function(event)
+{
+    if(event.target.className.includes("popup-container popup-showing"))
+    {
+        $scope.closePopover();
+    }
+};
+
+var messageUser;
+$scope.createMessage = function()
+{
+    var combino = orderByFilter([{
+                eyed: usor.uid
+            }, {
+                eyed: messageUser.$id
+            }], 'eyed');
+    var uniqueMessageID = combino[0].eyed + '_' + combino[1].eyed;
+    console.log(uniqueMessageID);
+
+    var res = firebase.database().ref("Buildings").child(usor.displayName + "/Chats/" + uniqueMessageID);
+
+    res.set({
+        'chatTitle': "",
+        'chatIDs': [usor.uid,messageUser.$id]
+    }).then(function()
+    {
+        $scope.closePopover();
+        $state.go('chatTab');
+    });
+    
+};
+
+$scope.openPopover = function($event,notify) {
+    $scope.blurry.behind = "5px";
+    messageUser = notify;
+    $scope.popover.show($event);
+    makeblurry();
+  };
+
+  $scope.closePopover = function() {
+    $scope.blurry.behind = "0px";
+    $scope.popover.hide();
+    //$scope.popover.remove();
+  };
+
+   //Cleanup the popover when we're done with it!
+   $scope.$on('$destroy', function() {
+      $scope.popover.remove();
+   });
+
+   // Execute action on hide popover
+   $scope.$on('popover.hidden', function() {
+      makeblurry();
+   });
+
+   // Execute action on remove popover
+   $scope.$on('popover.removed', function() {
+      makeblurry();
+   });
+
+
+}])
+   
+.controller('buildingEventsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+=======
     }])
 
   .controller('buildingEventsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+>>>>>>> BaoDev
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams) {
@@ -1222,6 +1372,74 @@ angular.module('app.controllers', [])
     }])
 
 
+<<<<<<< HEAD
+.controller('chatTabCtrl', ['$scope', '$stateParams','$firebaseObject','UserInfo','$firebaseArray', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams,$firebaseObject,UserInfo,$firebaseArray) {
+
+var usr = UserInfo.getUserInfo();
+var authUser = firebase.auth().currentUser;
+var ref;
+
+$scope.$on('$ionicView.beforeEnter', function() //before anything runs
+    {
+        if(authUser == undefined)
+           {
+                console.log('running once!')
+                firebase.auth().onAuthStateChanged(function(user) {
+                    authUser = firebase.auth().currentUser;
+                    ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Chats");
+                    reds = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
+            
+                    var tempdata = $firebaseObject(reds);
+                    tempdata.$loaded().then(function(x)
+                     {
+                        UserInfo.setUserInfo(tempdata);
+                        usr = UserInfo.getUserInfo();
+
+                        var allchat = $firebaseArray(ref);
+                        allchat.$loaded().then(function(x)
+                         {
+                            getMyConvos(x);
+                          })
+                          .catch(function(error) 
+                          {
+                            console.log("Error:", error);
+                          });
+                      })
+                      .catch(function(error) 
+                      {
+                        console.log("Error:", error);
+                      });
+                });
+           }
+           else
+           {
+                ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Chats");
+                console.log(usr);
+                var allchat = $firebaseArray(ref);
+                allchat.$loaded().then(function(x)
+                 {
+                    getMyConvos(x);
+                  })
+                  .catch(function(error) 
+                  {
+                    console.log("Error:", error);
+                  });
+           }
+    });
+    
+    function getMyConvos(info)
+    {
+        $scope.conversations = [];
+        for(var i = 0; i < info.length; i++)
+        {
+            var convopush = {};
+            if (info[i].chatIDs.indexOf(authUser.uid) > -1)   //one of my convos
+            {
+                console.log(info[i]);
+=======
   .controller('chatTabCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -1280,12 +1498,50 @@ angular.module('app.controllers', [])
 
         }
       });
+>>>>>>> BaoDev
+
+                if(info[i].chatTitle == "")   //two way talk
+                {
+                    var partner = (info[i].chatIDs.indexOf(authUser.uid) == 0) ? info[i].chatIDs[1] : info[i].chatIDs[0];
+                    console.log(partner);
+
+<<<<<<< HEAD
+                    var rec = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + partner);
+                    rec.on('value',function(snap)
+                    {
+                        console.log(snap.val().avatar,snap.val().name);
+                        convopush['avatar'] = snap.val().avatar;
+                        convopush['name'] = snap.val().name;
+                        $scope.conversations.push(convopush);
+
+                    });
+                }
+            } 
+        }
+    }
+
+    $scope.newConversation = function()
+    {
 
 
+    };
+
+
+}])
+
+
+.controller('chatPageCtrl', ['$scope', '$stateParams','$firebaseObject','UserInfo','$firebaseArray', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams,$firebaseObject,UserInfo,$firebaseArray) {
+
+
+=======
       $scope.newConversation = function () {
 
 
       };
+>>>>>>> BaoDev
 
 
     }])

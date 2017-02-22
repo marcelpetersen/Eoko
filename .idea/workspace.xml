@@ -6,14 +6,6 @@
 =======
     <list default="true" id="0410c821-3d83-41a9-8369-8abe907e4630" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_eoko-icons.scss" afterPath="$PROJECT_DIR$/scss/_eoko-icons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/eoko.app.scss" afterPath="$PROJECT_DIR$/scss/eoko.app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/eoko.app.css" afterPath="$PROJECT_DIR$/www/css/eoko.app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/eoko.app.min.css" afterPath="$PROJECT_DIR$/www/css/eoko.app.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/tempstyle.css" afterPath="$PROJECT_DIR$/www/css/tempstyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/buildingEvents.html" afterPath="$PROJECT_DIR$/www/templates/buildingEvents.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/connect.html" afterPath="$PROJECT_DIR$/www/templates/connect.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/events.html" afterPath="$PROJECT_DIR$/www/templates/events.html" />
     </list>
 >>>>>>> master
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -38,6 +30,10 @@
             <entry file="file://$PROJECT_DIR$/scss/_eoko-button.scss">
               <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+                <state relative-caret-position="315">
+                  <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <state relative-caret-position="315">
                   <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
@@ -47,6 +43,7 @@
                 <state relative-caret-position="345">
                   <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
 >>>>>>> master
+>>>>>>> BaoDev
                   <folding />
                 </state>
               </provider>
@@ -124,8 +121,8 @@
           <file leaf-file-name="buildingEvents.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/templates/buildingEvents.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+                <state relative-caret-position="210">
+                  <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                   </folding>
@@ -141,6 +138,10 @@
             <entry file="file://$PROJECT_DIR$/www/templates/home.html">
               <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+                <state relative-caret-position="105">
+                  <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <state relative-caret-position="240">
                   <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
@@ -152,6 +153,7 @@
                 <state relative-caret-position="135">
                   <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
 >>>>>>> master
+>>>>>>> BaoDev
                   <folding>
                     <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -189,6 +191,11 @@
           <file leaf-file-name="connect.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/templates/connect.html">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+                <state relative-caret-position="405">
+                  <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+                  <folding />
+=======
                 <state relative-caret-position="465">
                   <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
 >>>>>>> master
@@ -198,6 +205,7 @@
                     <element signature="n#style#0;n#ion-item#0;n#figure#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#figcaption#0;n#figure#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                   </folding>
+>>>>>>> BaoDev
                 </state>
               </provider>
             </entry>
@@ -205,6 +213,10 @@
           <file leaf-file-name="events.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/templates/events.html">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+                <state relative-caret-position="705">
+                  <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
                 <state relative-caret-position="975">
@@ -217,12 +229,12 @@
                 <state relative-caret-position="690">
                   <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
 >>>>>>> master
+>>>>>>> BaoDev
                   <folding>
                     <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#p#0;n#div#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#p#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -261,6 +273,10 @@
             <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
               <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+                <state relative-caret-position="12330">
+                  <caret line="822" column="9" lean-forward="false" selection-start-line="822" selection-start-column="9" selection-end-line="822" selection-end-column="9" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <state relative-caret-position="675">
                   <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
@@ -272,6 +288,7 @@
                 <state relative-caret-position="12525">
                   <caret line="822" column="11" lean-forward="true" selection-start-line="822" selection-start-column="11" selection-end-line="822" selection-end-column="11" />
 >>>>>>> master
+>>>>>>> BaoDev
                   <folding />
                 </state>
               </provider>
@@ -388,7 +405,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
       <pane id="Scope" />
+>>>>>>> BaoDev
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -543,6 +563,10 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+      <pane id="Scope" />
+=======
+>>>>>>> BaoDev
       <pane id="Scratches" />
     </panes>
   </component>
@@ -646,14 +670,23 @@
       <workItem from="1487732034107" duration="4000" />
 =======
       <workItem from="1487694470537" duration="6640000" />
+<<<<<<< HEAD
+      <workItem from="1487731777941" duration="84000" />
+      <workItem from="1487732081755" duration="1000" />
+      <workItem from="1487732394532" duration="4000" />
+=======
 >>>>>>> master
 =======
       <workItem from="1487694470537" duration="6640000" />
 >>>>>>> master
+>>>>>>> BaoDev
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="75167000" />
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="60178000" />
@@ -663,10 +696,11 @@
 =======
     <option name="totallyTimeSpent" value="75078000" />
 >>>>>>> master
+>>>>>>> BaoDev
   </component>
   <component name="ToolWindowManager">
     <frame x="25" y="22" width="1895" height="1178" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10026385" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -680,7 +714,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
 =======
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 =======
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -689,8 +722,11 @@
 >>>>>>> master
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
+=======
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
 >>>>>>> master
+>>>>>>> BaoDev
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -914,8 +950,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="484" column="51" lean-forward="true" selection-start-line="484" selection-start-column="3" selection-end-line="484" selection-end-column="51" />
+<<<<<<< HEAD
+=======
           <folding />
 >>>>>>> master
+>>>>>>> BaoDev
         </state>
       </provider>
     </entry>
@@ -923,7 +962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -931,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
           <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,8 +1020,11 @@
 >>>>>>> master
         <state relative-caret-position="360">
           <caret line="8938" column="13" lean-forward="false" selection-start-line="8938" selection-start-column="13" selection-end-line="8938" selection-end-column="13" />
+<<<<<<< HEAD
+=======
           <folding />
 >>>>>>> master
+>>>>>>> BaoDev
         </state>
       </provider>
     </entry>
@@ -992,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,6 +1045,10 @@
     <entry file="file://$PROJECT_DIR$/scss/_eoko-button.scss">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="315">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
@@ -1015,6 +1058,7 @@
         <state relative-caret-position="345">
           <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
 >>>>>>> master
+>>>>>>> BaoDev
           <folding />
         </state>
       </provider>
@@ -1023,16 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-          <folding>
-            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h3#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h4#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h4#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,11 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1052,7 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1067,8 +1095,11 @@
 >>>>>>> master
         <state relative-caret-position="517">
           <caret line="59" column="7" lean-forward="false" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
+<<<<<<< HEAD
+=======
           <folding />
 >>>>>>> master
+>>>>>>> BaoDev
         </state>
       </provider>
     </entry>
@@ -1097,12 +1128,15 @@
 =======
         <state relative-caret-position="180">
           <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+<<<<<<< HEAD
+=======
 >>>>>>> master
 =======
         <state relative-caret-position="180">
           <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
 >>>>>>> master
           <folding />
+>>>>>>> BaoDev
         </state>
       </provider>
     </entry>
@@ -1117,18 +1151,22 @@
 >>>>>>> master
         <state relative-caret-position="2385">
           <caret line="159" column="1" lean-forward="false" selection-start-line="159" selection-start-column="1" selection-end-line="159" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="105">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+=======
         <state relative-caret-position="135">
           <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
 <<<<<<< HEAD
 >>>>>>> master
 =======
 >>>>>>> master
+>>>>>>> BaoDev
           <folding>
             <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -1140,6 +1178,10 @@
     <entry file="file://$PROJECT_DIR$/www/templates/buildingEvents.html">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="675">
           <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
@@ -1148,6 +1190,7 @@
 >>>>>>> master
         <state relative-caret-position="255">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+>>>>>>> BaoDev
           <folding>
             <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
@@ -1156,12 +1199,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="12330">
+          <caret line="822" column="9" lean-forward="false" selection-start-line="822" selection-start-column="9" selection-end-line="822" selection-end-column="9" />
+=======
         <state relative-caret-position="12525">
           <caret line="822" column="11" lean-forward="true" selection-start-line="822" selection-start-column="11" selection-end-line="822" selection-end-column="11" />
 <<<<<<< HEAD
 >>>>>>> master
 =======
 >>>>>>> master
+>>>>>>> BaoDev
           <folding />
         </state>
       </provider>
@@ -1195,6 +1243,11 @@
     <entry file="file://$PROJECT_DIR$/www/templates/connect.html">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+        <state relative-caret-position="405">
+          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding />
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -1212,11 +1265,16 @@
             <element signature="n#style#0;n#ion-item#0;n#figure#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#figcaption#0;n#figure#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
+>>>>>>> BaoDev
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/events.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="705">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="975">
@@ -1229,12 +1287,12 @@
         <state relative-caret-position="690">
           <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
 >>>>>>> master
+>>>>>>> BaoDev
           <folding>
             <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />

@@ -68,3 +68,12 @@
 .privatePublic{
   border-radius:14px;
 }
+<<<<<<< HEAD
+
+.platform-ios .popover-arrow:after{
+  background-color:rgba(255, 188, 0, 0.44);
+  border-color:rgba(255, 188, 0, 0.44);
+}
+
+=======
+>>>>>>> BaoDev

@@ -1,6 +1,6 @@
 <ion-view title="Connect" hide-nav-bar="true" hide-back-button="true" id="page5">
 
-  <ion-content padding="true" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding eoko-content" scroll="false">
+  <ion-content padding="true" style="background: url(img/main_background.png) no-repeat center;background-size:cover;filter: blur({{blurry.behind}});" class="manual-ios-statusbar-padding eoko-content" scroll="false">
 
    <div class="button-bar">
       <a ui-sref="notificationPage" class="eoko-button-clear eoko-searchbar-left"></a>
@@ -16,13 +16,25 @@
     <ion-scroll style="height: calc(100% - 11em)">
       <ion-list>
         <ion-item class="row" ng-repeat="rows in userList">
+<<<<<<< HEAD
+        <figure ng-repeat="user in rows" ng-if="user.$id != owning.id" class="span4 eoko-connect-image" >
+          <ion-item ng-click="openProfile(user)" on-hold="openPopover($event,user)" style="background-image: url({{user.avatar}});margin:0px;" class="span4 eoko-connect-image"></ion-item>
+=======
         <figure ng-repeat="user in rows" ng-if="user.$id != owning.id" class="span4 eoko-connect-avatar" >
           <ion-item ng-click="openProfile(user)" style="background-image: url({{user.avatar}});margin:0px;" class="span4 eoko-connect-avatar"></ion-item>
+>>>>>>> BaoDev
             <figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">{{user.name}}</figcaption>
             </figure>
         </ion-item>
       </ion-list>
     </ion-scroll>
+
+
+        <script id="my-popover.html" type="text/ng-template">
+        <ion-popover-view style="height:67px;background-color:rgba(255, 188, 0, 0.44);" >
+         <button id="EveryoneButton" class="button button-light  button-block button-clear eoko-text-button-nav" ng-click="createMessage()" style="color:white;">Message</button>
+        </ion-popover-view>
+      </script>
 
 
   </ion-content>
