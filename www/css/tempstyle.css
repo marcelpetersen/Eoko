@@ -68,12 +68,20 @@
 .privatePublic{
   border-radius:14px;
 }
-<<<<<<< HEAD
+
 
 .platform-ios .popover-arrow:after{
   background-color:rgba(255, 188, 0, 0.44);
   border-color:rgba(255, 188, 0, 0.44);
 }
 
-=======
->>>>>>> BaoDev
+.avatarImg{
+    border-radius: 50px;
+    background-size: cover;
+    background-position-x: 61%;
+    background-color:grey;
+    width: 12.5em;
+    height: 13em;
+    border-radius: 13em;
+    margin: 2em auto;
+}

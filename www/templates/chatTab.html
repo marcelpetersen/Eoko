@@ -25,7 +25,7 @@
       <ion-list id="actionList">
         <div ng-if="conversations.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Messages to Display</div>
 
-        <ion-item ng-repeat="convo in conversations track by $index" class="item-thumbnail-left"
+        <ion-item ng-repeat="convo in conversations" class="item-thumbnail-left"
                   style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
 
           <!-- <div class="n_avatarImg" style="background-image: url({{notify.info.avatar}});"></div>
@@ -36,11 +36,14 @@
             <br>{{notify.info.time}}
           </p> -->
 
-          <div class="n_avatarImg" style="background-image: url({{convo.avatar}});"></div>
+          <div class="eoko-notification-avatar" style="background-image: url({{convo.avatar}});"></div>
           <p class="eoko-text-light" style="color: white;font-size: 25px">{{convo.name}}</p>
           <br>
-          <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
-            some messagae that he just sent
+          <p ng-if="convo.messages == undefined || convo.messages == null" class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+            Send the first message!
+          </p>
+          <p ng-if="convo.messages != undefined || convo.messages != null" class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+            {{convo.messages.text}}
           </p>
 
         </ion-item>
