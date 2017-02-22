@@ -1,8 +1,8 @@
 <ion-view title="Chat Tab" hide-nav-bar="true" hide-back-button="true">
   <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" scroll="false">
     
-   <!--  <div class="button-bar"> -->
-  		<a ui-sref="tabsController.connect" class="button-clear ion-chevron-left"></a>
+   <div class="button-bar">
+  		<a ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left"></a>
 
   		<!-- <form class="list">
       <div>
@@ -13,28 +13,35 @@
       </div>
     </form> -->
 
-  	<!-- </div> -->
+  	</div>
 
-  	<button ng-click="newConversation()"></button>
+ <!--  	<button ng-click="newConversation()" style="font-size: 20px; border-radius: 33px;margin: 0 22px;padding: 5px;"
+                class="button button-energized button-inline-block eoko-text-light">New Message
+    </button>
+  -->
 
     
   	<ion-scroll style="height: calc(100% - 11em)">
       <ion-list id="actionList">
-        <div ng-if="notifications.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Messages to Display</div>
+        <div ng-if="conversations.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Messages to Display</div>
 
-        <ion-item ng-repeat="notify in notifications" class="item-thumbnail-left"
+        <ion-item ng-repeat="convo in conversations track by $index" class="item-thumbnail-left"
                   style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
 
-          <div class="n_avatarImg" style="background-image: url({{notify.info.avatar}});"></div>
+          <!-- <div class="n_avatarImg" style="background-image: url({{notify.info.avatar}});"></div>
           <p class="eoko-text-light" style="color: white;font-size: 25px">{{notify.info.title}}</p>
           <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
             {{notify.info.location}}
             <br>{{notify.info.date}}
             <br>{{notify.info.time}}
+          </p> -->
+
+          <div class="n_avatarImg" style="background-image: url({{convo.avatar}});"></div>
+          <p class="eoko-text-light" style="color: white;font-size: 25px">{{convo.name}}</p>
+          <br>
+          <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+            some messagae that he just sent
           </p>
-          <button ng-click="openPopover($event, notify)" class="eoko-button-event-join eoko-text-light">
-            {{notify.attend}}
-          </button>
 
         </ion-item>
       </ion-list>
