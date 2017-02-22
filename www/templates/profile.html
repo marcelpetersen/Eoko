@@ -5,14 +5,14 @@
 
     <div>
       <!--notification buttons-->
-      <a ui-sref="notificationPage" class="eoko-button-clear eoko-bell-left">
+      <a ui-sref="notificationPage" class="eoko-button-clear eoko-bell-left" nav-transition="ios" nav-direction="back">
         <div ng-if="friendR > 0" class="eoko-notification-number" ng-model="friendR">
           {{friendR}}
         </div>
       </a>
 
       <!--setting button-->
-      <a class="eoko-button-clear eoko-setting-right"></a>
+      <a class="eoko-button-clear eoko-setting-right" nav-transition="ios" nav-direction="forward"></a>
     </div>
 
     <!--spacer-->
@@ -22,7 +22,7 @@
     <ion-scroll style="height: calc(100% - 9em)">
       <!--profile pic-->
       <div ng-click="uploadPicture()" style="background-image: url({{user.avatar}});"
-           class="eoko-profile-image"></div>
+           class="eoko-profile-avatar"></div>
 
       <!--user's name and description-->
       <h3 class="eoko-text-ultralight" id="profile-heading3" style="font-size: 40px; text-align:center;">

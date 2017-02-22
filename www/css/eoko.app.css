@@ -9947,7 +9947,7 @@ a.button {
   width: 40px;
   float: right; }
 
-.eoko-profile-image {
+.eoko-profile-avatar {
   border-radius: 90px;
   width: 12em;
   height: 12em;
@@ -9955,7 +9955,7 @@ a.button {
   background-position-x: 50%;
   background-size: cover; }
 
-.eoko-connect-image {
+.eoko-connect-avatar {
   border-radius: 50px;
   width: 5.5em;
   height: 5.5em;
@@ -9963,6 +9963,16 @@ a.button {
   background-position-x: 50%;
   background-size: cover;
   text-align: center; }
+
+.eoko-notification-avatar {
+  border-radius: 80px;
+  width: 80px;
+  height: 80px;
+  margin: 0em auto;
+  background-position-x: 50%;
+  background-size: cover;
+  position: absolute;
+  left: 10px; }
 
 .eoko-searchbar-left {
   background-repeat: no-repeat;

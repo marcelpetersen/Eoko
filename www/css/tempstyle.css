@@ -65,17 +65,6 @@
   resize: none;
 }
 
-
-.n_avatarImg{
-  height: 80px;
-  width: 80px;
-  background-size: contain;
-  position: absolute;
-  left: 10px;
-  border-radius: 80px;
-  background-color:rgba(255, 255, 255, 0.61)
-}
-
 .privatePublic{
   border-radius:14px;
 }

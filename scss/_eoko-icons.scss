@@ -32,16 +32,23 @@
 
 
 //
-// Connect Page
+// Avatar
 // ------------------------------
 
-.eoko-profile-image{
+.eoko-profile-avatar{
   @include avatar-format(90px, 12em, 12em, 1em, 50%);
 }
 
-.eoko-connect-image {
+.eoko-connect-avatar {
   @include avatar-format(50px, 5.5em, 5.5em, 1em, 50%);
   text-align: center;
+}
+
+.eoko-notification-avatar{
+  @include avatar-format(80px, 80px, 80px, 0em, 50%);
+  //background-size: contain;
+  position: absolute;
+  left: 10px;
 }
 
 .eoko-searchbar-left{
