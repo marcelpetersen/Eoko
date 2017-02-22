@@ -28,16 +28,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   "sanfrancisco-font";
 
 
-.connectImg {
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
-	background-size: cover;
-  margin: 10px;
-  display: inline;
-  float: left;
-}
-
 textarea,
 input[type="text"],
 input[type="password"],
@@ -64,56 +54,6 @@ input[type="color"] {
 }
 
 
-.avatarImg{
-    border-radius: 50px;
-    background-size: cover;
-    background-position-x: 61%;
-    background-color:grey;
-    width: 12.5em;
-    height: 13em;
-    border-radius: 13em;
-    margin: 2em auto;
-}
-
-.descriptionBox{
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
-    width: 320px;
-    margin: 4em auto;
-    background-color: rgba(255, 255, 255, 0.61);
-    height: 10em;
-    resize: none;
-}
-
-
-.notificationNumber {
-    border-radius: 50px;
-    background-color: red;
-    font-size: 12px;
-    height: 16px;
-    width: 16px;
-    line-height: 16px;
-    position: relative;
-    bottom: 36px;
-    left: 13px;
-    color: white;
-}
-
-.n_avatarImg{
-        height: 80px;
-    width: 80px;
-    background-size: contain;
-    position: absolute;
-    left: 10px;
-    border-radius: 80px;
-}
-
-.privatePublic{
-    border-radius:14px;
-}
-
-
 
 //for ion-content to overlay tab
 .eoko-content{
@@ -121,4 +61,3 @@ input[type="color"] {
   top:0 !important;
   bottom:0 !important;
 }
-

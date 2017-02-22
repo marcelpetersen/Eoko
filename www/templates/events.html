@@ -1,80 +1,196 @@
 <ion-view title="Events" hide-nav-bar="true" hide-back-button="true" id="page6">
 
-  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding eoko-content" scroll="false">
+  <ion-content padding="false"
+               style="background: url(img/main_background.png) no-repeat center;background-size:cover;filter: blur({{blurry.behind}});"
+               class="manual-ios-statusbar-padding eoko-content" scroll="false">
 
     <div class="button-bar">
-      <button id="EventButton" class="button button-light  button-block button-clear eoko-text-button-nav" ng-click="selectEventTab()">Actions</button>
+      <button id="EventButton" class="button button-light  button-block button-clear eoko-text-button-nav"
+              ng-click="selectEventTab()">Actions
+      </button>
 
-      <button id="CreateEventButton" class="button button-light  button-block button-clear eoko-text-button-nav" ng-click="selectCreateTab()">Create</button>
+      <button id="CreateEventButton" class="button button-light  button-block button-clear eoko-text-button-nav"
+              ng-click="selectCreateTab()">Create
+      </button>
     </div>
 
     <!--spacer-->
-    <div class="spacer" style="height: 35px;"></div>
+    <div class="spacer" style="height: 20px;"></div>
 
 
-    <ion-list ng-if="selection.tab == 'event' " id="actionList">
-      <ion-item class="item-thumbnail-left" style="background-color:rgba(0,0,0,0);">
-        <div class="n_avatarImg" ng-click="uploadPicture()" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/mycommunity-a33e4.appspot.com/o/default-avatar.png?alt=media&amp;token=39dc28f9-e9c1-404e-98f1-8266dda61bb2);"></div>
-        <h2 style="color:white;">Lunch at Chipolte</h2>
-        <p style="color:white;">Chipolte
-          <br>Friday, January 17, 2017
-          <br>12 PM</p>
-      </ion-item>
-    </ion-list>
+    <!--list of actions-->
+    <ion-scroll ng-if="selection.tab == 'event' " style="height: calc(100% - 11em)">
+      <ion-list id="actionList">
+        <div ng-if="notifications.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Actions to display</div>
 
-    <div ng-if="selection.tab == 'create'">
-	    <div class="button-bar" ng-if="selection.porb == 'public'">
-			  <button ng-click="selectedPublic()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block">Public</button>
-			  <button ng-click="selectedPrivate()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block button-outline">Private</button>
-		  </div>
+        <ion-item ng-repeat="notify in notifications" class="item-thumbnail-left"
+                  style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
+
+          <div class="n_avatarImg" style="background-image: url({{notify.info.avatar}});"></div>
+          <p class="eoko-text-light" style="color: white;font-size: 25px">{{notify.info.title}}</p>
+          <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+            {{notify.info.location}}
+            <br>{{notify.info.date}}
+            <br>{{notify.info.time}}
+          </p>
+          <button ng-click="openPopover($event, notify)" class="eoko-button-event-join eoko-text-light">
+            {{notify.attend}}
+          </button>
+
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
+
+
+    <!--create your action-->
+
+    <!--Public and Private button-->
+    <div ng-if="selection.tab == 'create' && selection.privstep == 1">
+      <div class="button-bar" ng-if="selection.porb == 'public'">
+        <button ng-click="selectedPublic()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;"
+                class="button button-energized button-block eoko-text-light">Public
+        </button>
+        <button ng-click="selectedPrivate()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;"
+                class="button button-energized button-block button-outline eoko-text-light">Private
+        </button>
+      </div>
 
       <div class="button-bar" ng-if="selection.porb == 'private'">
-			  <button ng-click="selectedPublic()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block button-outline">Public</button>
-			  <button ng-click="selectedPrivate()" style="border-radius: 33px;margin: 0 22px;padding: 0px;" class="button button-energized button-block">Private</button>
-		</div>
+        <button ng-click="selectedPublic()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;"
+                class="button button-energized button-block button-outline eoko-text-light">Public
+        </button>
+        <button ng-click="selectedPrivate()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;"
+                class="button button-energized button-block eoko-text-light">Private
+        </button>
+      </div>
 
 
-		<form name="makeEventForm">
+      <form name="makeEventForm">
 
+        <ion-list>
+
+          <!--Action Catagory-->
+          <label class="item item-input login-label"
+                 style="background-color: rgba(0,0,0,0);margin: 0 20px;border-bottom: 0px;" name="eventCatagory">
+            <span class="input-label lable-font-login" aria-label="Title" id="ed_labelCatagory"
+                  style="width: 20%;">Catagory</span>
+            <input type="text" placeholder="" style="border-bottom: 1px solid white;" ng-model="event.catagory"
+                   required="">
+          </label>
+
+          <!--Action title-->
+          <label class="item item-input login-label"
+                 style="background-color: rgba(0,0,0,0);margin: 0 20px;border-bottom: 0px;" name="eventTitle">
+            <span class="input-label lable-font-login" aria-label="Title" id="ed_labelTitle"
+                  style="width: 20%;">Title</span>
+            <input type="text" placeholder="" style="border-bottom: 1px solid white;" ng-model="event.title"
+                   required="">
+          </label>
+
+          <!--Action Location-->
+          <label class="item item-input login-label"
+                 style="background-color: rgba(0,0,0,0);margin: 0 10px;border-bottom: 0px;" name="eventLocation">
+            <span class="input-label lable-font-login" aria-label="Location" id="ed_labelLocation" style="width: 20%;">Location</span>
+            <input type="text" placeholder="e.g. Room #, Address, Name of Place" style="border-bottom: 1px solid white;"
+                   ng-model="event.location" required="">
+          </label>
+
+          <!--Action Date-->
+          <label class="item item-input login-label"
+                 style="background-color: rgba(0,0,0,0);width: 61%;margin: 0 auto;border-bottom: 0px;" name="eventDate">
+            <span class="input-label lable-font-login" aria-label="Date" id="ed_labelD"
+                  style="text-align: center;">Date</span>
+            <input type="date" placeholder="Date" style="border-bottom: 1px solid white;text-align: center;"
+                   ng-model="event.date" required="">
+          </label>
+
+          <!--Action time-->
+          <label class="item item-input login-label"
+                 style="background-color: rgba(0,0,0,0);width: 61%;margin: 0 auto;border-bottom: 0px;" name="eventTime">
+            <span class="input-label lable-font-login" aria-label="Time" id="ed_labelT"
+                  style="text-align: center;">Time</span>
+            <input type="time" placeholder="Time" style="border-bottom: 1px solid white;text-align: center;"
+                   ng-model="event.time" required="">
+          </label>
+        </ion-list>
+
+        <!--spacer-->
+        <div class="spacer" style="height: 20px;"></div>
+
+        <!--Action Desciption-->
+        <textarea style="margin:0 auto;height:8em;" placeholder="What is your event about? Make it short" class="descriptionBox"
+                  name="descBox" ng-model="event.description" required=""></textarea>
+
+        <br>
+
+        <button ng-if="selection.porb == 'public'" type="submit" ng-disabled="makeEventForm.$invalid"
+                ng-click="createEvent(makeEventForm)" style="float:right;border-radius:20px;margin-right:5px;"
+                class="button button-energized">Done
+        </button>
+
+        <button ng-if="selection.porb == 'private'" type="submit" ng-disabled="makeEventForm.$invalid"
+                ng-click="PrivateNextStep()" style="float:right;border-radius:20px;margin-right:5px;"
+                class="button button-energized">Invite Friends
+        </button>
+      </form>
+
+    </div>
+
+
+    <div ng-if="selection.tab == 'create' && selection.privstep == 2">
+      <a ui-sref="tabsController.events" class="button button-light  button-clear icon ion-ios-arrow-left"></a>
       <ion-list>
-			<label class="item item-input login-label" style="background-color: rgba(0,0,0,0);margin: 0 20px;border-bottom: 0px;" name="eventTitle">
-        <span class="input-label lable-font-login" aria-label="Title" id="ed_labelTitle" style="width: 20%;">Title</span>
-        <input type="text" placeholder="" style="border-bottom: 1px solid white;" ng-model="event.title" required="">
-      </label>
-
-      <label class="item item-input login-label" style="background-color: rgba(0,0,0,0);margin: 0 10px;border-bottom: 0px;" name="eventLocation">
-        <span class="input-label lable-font-login" aria-label="Location" id="ed_labelLocation" style="width: 20%;">Location</span>
-        <input type="text" placeholder="e.g. Room #, Address, Name of Place" style="border-bottom: 1px solid white;" ng-model="event.location" required="">
-      </label>
-
-
-      <label class="item item-input login-label" style="background-color: rgba(0,0,0,0);width: 61%;margin: 0 auto;border-bottom: 0px;" name="eventDate">
-        <span class="input-label lable-font-login" aria-label="Date" id="ed_labelD" style="text-align: center;">Date</span>
-        <input type="date" placeholder="Date" style="border-bottom: 1px solid white;text-align: center;" ng-model="event.date" required="">
-      </label>
-
-      <label class="item item-input login-label" style="background-color: rgba(0,0,0,0);width: 61%;margin: 0 auto;border-bottom: 0px;" name="eventTime">
-        <span class="input-label lable-font-login" aria-label="Time" id="ed_labelT" style="text-align: center;">Time</span>
-        <input type="time" placeholder="Time" style="border-bottom: 1px solid white;text-align: center;" ng-model="event.time" required="">
-      </label>
+        <ion-item class="row" ng-repeat="rows in userList">
+          <ion-item ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" ng-click="selectUser(user)"
+                    style="background-image: url({{user.avatar}});" class="span4 connectImg"
+                    ng-class="privateRoll.hasOwnProperty(user.$id) ? 'userSelected' : 'userDeselected'">
+          </ion-item>
+        </ion-item>
       </ion-list>
+      <button ng-if="selection.porb == 'private'" ng-click="createEvent(makeEventForm)"
+              style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Done
+      </button>
+    </div>
 
-      <h4 style="text-align:center;color:white;">Description</h4>
 
-      <textarea style="margin:0 auto;height:8em;" placeholder="Short yet descriptive is best!" class="descriptionBox" name="descBox" ng-model="event.description" required=""></textarea>
+    <script id="eventFullView.html" type="text/ng-template">
+      <div ng-click="checkHit($event)" class="popup-container popup-showing active" ng-class="cssClass">
+        <div class="popup" style="background-color: rgba(0,0,0,0);">
 
-      <br>
+          <div>
+            <div class="item item-body" style="background-color: rgba(245, 124, 0, 0.4);">
+              <div class="eventViewAvatar"
+                   style="background-image: url({{modalOpen.info.avatar}});height:80px;width:80px;border-radius:80px;"></div>
+              <div style="color: white;text-align: center;">
+                <p style="color: white;
+                    text-align: center;font-size:20px;
+                    font-weight: bold;">{{modalOpen.info.title}}</p>
+                <p style="color:white;text-align:center;">{{modalOpen.info.location}}
+                  <br>{{modalOpen.info.date}}
+                  <br>{{modalOpen.info.time}}</p>
+                <p style="color:white;">{{modalOpen.info.description}}</p>
 
-      <div ng-if="selection.porb == 'private'">
-				<!-- modal and nametags -->
-			</div>
+                <div style="text-align:left;">Going</div>
 
-      <button ng-if="selection.porb == 'public'" type="submit" ng-disabled="makeEventForm.$invalid" ng-click="createEvent(makeEventForm)" style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Make Public Event</button>
+              </div>
+              <ul ng-model="goingList" class="family-icon-scroller" style="margin-top: 0px">
+                <div ng-if="goingList.length == 0" style="color:white;">Nobody confirmed Yet!</div>
+                <li class="systemContainer" ng-repeat="going in goingList">
+                  <div class="eventViewAvatar" style="background-image: url({{going.info.avatar}});">
+                  </div>
+                </li>
 
-      <button ng-if="selection.porb == 'private'" type="submit" ng-disabled="makeEventForm.$invalid" ng-click="createEvent(makeEventForm)" style="float:right;border-radius:20px;margin-right:5px;" class="button button-energized">Make Private Event</button>
-		</form>
+              </ul>
+              <button style="float: right;border-radius: 20px;margin-right: 5px;padding: 0 33px;"
+                      ng-click="joinEvent(modalOpen)" class="button button-stable">{{modalOpen.attend}}
+              </button>
+            </div>
+          </div>
 
-	</div>
+        </div>
+      </div>
+    </script>
+
 
   </ion-content>
 </ion-view>

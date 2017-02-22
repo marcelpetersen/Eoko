@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
@@ -14,6 +15,7 @@
 
     <!-- compiled css output -->
     <link href="css/eoko.app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/tempstyle.css">
 
 
     <style type="text/css">
@@ -52,15 +54,17 @@
 
     <script src="js/directives.js"></script>
 
+    <script src="js/ionic-native-transitions.js"></script>
+
     <script src="js/services.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+    <script src="js/firebase.js"></script>
 
-    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script src="js/angularfire.min.js"></script>
 
     <script src="js/firebase.init.js"></script>
 
-
+    <script src="js/ionic.ion.imagecachefactory.js"></script>
 
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
 

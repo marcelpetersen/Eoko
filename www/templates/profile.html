@@ -1,16 +1,16 @@
 <ion-view title="Profile" hide-nav-bar="true" hide-back-button="true" id="page2">
 
-  <ion-content padding="true" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding eoko-content">
+  <ion-content padding="true" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding eoko-content" scroll="false">
 
     <!--notification and setting buttons-->
     <div>
-      <a ui-sref="" class="eoko-button-clear eoko-bell-left">
+      <a ui-sref="notificationPage" class="eoko-button-clear eoko-bell-left">
         <div ng-if="friendR > 0" class="notificationNumber" ng-model="friendR">
           {{friendR}}
         </div>
       </a>
 
-      <a ui-sref="" class="eoko-button-clear eoko-setting-right"></a>
+      <a class="button-clear eoko-setting-right"></a>
     </div>
 
 

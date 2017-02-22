@@ -1,0 +1,111 @@
+.input-label {
+	color: white;
+}
+
+.item{
+	border-color: rgba(0,0,0,0);
+	background-color:rgba(0,0,0,0);
+}
+
+
+.card, .list-inset{
+    background-color: rgba(0,0,0,0);
+}
+
+.family-icon-scroller {
+    -webkit-overflow-scrolling: touch;
+    padding: 5px 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    list-style: none;
+    margin-top: -80px;
+    position: relative;
+}
+
+
+.systemContainer {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    margin: 0 2px;
+}
+
+.eventViewAvatar{
+        height: 61px;
+    width: 61px;
+    background-size: contain;
+    border-radius: 61px;
+    margin: 0 auto;
+}
+
+.userDeselected{
+	opacity: 0.33;
+}
+
+.userSelected{
+	opacity: 1;
+}
+
+
+.platform-android .header-item.title {
+    transition-duration: 0ms;
+}
+.platform-android .header-item.buttons {
+    transition-duration: 0ms;
+}
+
+
+
+.avatarImg{
+  border-radius: 50px;
+  background-size: cover;
+  background-position-x: 61%;
+  background-color:rgba(255, 255, 255, 0.61);
+  width: 12.5em;
+  height: 13em;
+  border-radius: 13em;
+  margin: 2em auto;
+}
+
+.descriptionBox{
+  padding: 10px;
+  border-radius: 5px;
+  width: 320px;
+  margin: 4em auto;
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 10em;
+  resize: none;
+}
+
+
+.notificationNumber {
+  border-radius: 50px;
+  background-color: red;
+  font-size: 12px;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  position: relative;
+  left: 25px;
+  color: white;
+  text-align: center;
+}
+
+.n_avatarImg{
+  height: 80px;
+  width: 80px;
+  background-size: contain;
+  position: absolute;
+  left: 10px;
+  border-radius: 80px;
+  background-color:rgba(255, 255, 255, 0.61)
+}
+
+.privatePublic{
+  border-radius:14px;
+}
+
+.item p{
+
+}
