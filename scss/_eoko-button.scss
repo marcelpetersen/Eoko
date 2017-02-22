@@ -44,9 +44,9 @@
 }
 
 .eoko-button-clear{
-  @include button-style(none, none, $white, $white, $white);
-  @include button-clear($orange);
+  @include button-clear($white);
   @include button-outline($orange);
+  color: $white;
   margin: 13px;
   font-size: $button-font-size + 20px;
 }

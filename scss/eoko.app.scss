@@ -25,7 +25,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   "eoko-icons",
 
   //Font
-  "sanfrancisco-font";
+  "sanfrancisco-font",
+
+  //Nav Components
+  "eoko-nav";
 
 
 textarea,
@@ -53,11 +56,3 @@ input[type="color"] {
     line-height: 16px;
 }
 
-
-
-//for ion-content to overlay tab
-.eoko-content{
-  min-height:100% !important;
-  top:0 !important;
-  bottom:0 !important;
-}
