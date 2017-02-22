@@ -69,22 +69,34 @@
   $responsive-unitless: $responsive / ($responsive - $responsive + 1);
   $dimension: if(unit($responsive) == 'vh', 'height', 'width');
   $min-breakpoint: $min / $responsive-unitless * 100;
-  
+
   @media (max-#{$dimension}: #{$min-breakpoint}) {
     font-size: $min;
   }
-  
+
   @if $max {
     $max-breakpoint: $max / $responsive-unitless * 100;
-    
+
     @media (min-#{$dimension}: #{$max-breakpoint}) {
       font-size: $max;
     }
   }
-  
+
   @if $fallback {
     font-size: $fallback;
   }
-  
+
   font-size: $responsive;
+}
+
+// Avatar Mixins
+// --------------------------------------------------
+
+@mixin avatar-format($border-radius, $width, $height, $margin, $position-x){
+  border-radius: $border-radius;
+  width: $width;
+  height: $height;
+  margin: $margin auto;
+  background-position-x: $position-x;
+  background-size: cover;
 }

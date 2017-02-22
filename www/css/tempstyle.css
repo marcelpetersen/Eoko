@@ -55,19 +55,6 @@
     transition-duration: 0ms;
 }
 
-
-
-.avatarImg{
-  border-radius: 50px;
-  background-size: cover;
-  background-position-x: 61%;
-  background-color:rgba(255, 255, 255, 0.61);
-  width: 12.5em;
-  height: 13em;
-  border-radius: 13em;
-  margin: 2em auto;
-}
-
 .descriptionBox{
   padding: 10px;
   border-radius: 5px;
@@ -78,19 +65,6 @@
   resize: none;
 }
 
-
-.notificationNumber {
-  border-radius: 50px;
-  background-color: red;
-  font-size: 12px;
-  height: 20px;
-  width: 20px;
-  line-height: 20px;
-  position: relative;
-  left: 25px;
-  color: white;
-  text-align: center;
-}
 
 .n_avatarImg{
   height: 80px;
@@ -104,8 +78,4 @@
 
 .privatePublic{
   border-radius:14px;
-}
-
-.item p{
-
 }

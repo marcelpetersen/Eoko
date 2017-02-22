@@ -35,14 +35,13 @@
 // Connect Page
 // ------------------------------
 
+.eoko-profile-image{
+  @include avatar-format(90px, 12em, 12em, 1em, 50%);
+}
+
 .eoko-connect-image {
-    text-align: center;
-    border-radius: 50px;
-    background-size: cover;
-    background-position-x: 50%;
-    margin: 1em auto;
-    width: 5.5em;
-    height: 5.5em;
+  @include avatar-format(50px, 5.5em, 5.5em, 1em, 50%);
+  text-align: center;
 }
 
 .eoko-searchbar-left{

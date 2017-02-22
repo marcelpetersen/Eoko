@@ -9951,14 +9951,22 @@ a.button {
   width: 40px;
   float: right; }
 
-.eoko-connect-image {
-  text-align: center;
-  border-radius: 50px;
-  background-size: cover;
-  background-position-x: 50%;
+.eoko-profile-image {
+  border-radius: 90px;
+  width: 12em;
+  height: 12em;
   margin: 1em auto;
+  background-position-x: 50%;
+  background-size: cover; }
+
+.eoko-connect-image {
+  border-radius: 50px;
   width: 5.5em;
-  height: 5.5em; }
+  height: 5.5em;
+  margin: 1em auto;
+  background-position-x: 50%;
+  background-size: cover;
+  text-align: center; }
 
 .eoko-searchbar-left {
   background-repeat: no-repeat;
@@ -10094,6 +10102,18 @@ a.button {
   font-weight: 700;
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff"); }
 
+.eoko-notification-number {
+  border-radius: 20px;
+  background-color: #FF5722;
+  font-size: 20px;
+  height: 30px;
+  width: 30px;
+  line-height: 20px;
+  position: relative;
+  left: 25px;
+  color: #FFFFFF;
+  text-align: center; }
+
 textarea,
 input[type="text"],
 input[type="password"],
@@ -10117,8 +10137,3 @@ input[type="color"] {
   vertical-align: middle;
   font-size: 14px;
   line-height: 16px; }
-
-.eoko-content {
-  min-height: 100% !important;
-  top: 0 !important;
-  bottom: 0 !important; }
