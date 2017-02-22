@@ -1,9 +1,9 @@
 angular.module('app.controllers', [])
  
-.controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject','$ionicTabsDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject) {
+function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject,$ionicTabsDelegate) {
 
 $scope.user = "";
 var usr; 
@@ -13,6 +13,7 @@ var usr;
         if ($stateParams.avatarClicked == 'true')
         {
            console.log("other");
+           $ionicTabsDelegate.showBar(false);
             $scope.user = OtherInfo.getOtherInfo();
             console.log($scope.user); 
         }  
@@ -585,8 +586,9 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                             console.log("Error:", error);
                           });
 
-                        $scope.owning = {avatar : usr.avatar};
+                        $scope.owning = {id : tempdata.$id};
                         console.log($scope.owning);
+                        console.log($scope.userList);
 
 
                       })
@@ -1302,5 +1304,83 @@ $scope.onSwipeLeft = function(notify, index)
     
     /**/
 };
+
+}])
+
+
+.controller('chatTabCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+var usr = UserInfo.getUserInfo();
+var authUser = firebase.auth().currentUser;
+var ref;
+
+$scope.$on('$ionicView.beforeEnter', function() //before anything runs
+    {
+        if(authUser == undefined)
+           {
+                console.log('running once!')
+                firebase.auth().onAuthStateChanged(function(user) {
+                    authUser = firebase.auth().currentUser;
+                    ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Users");
+            
+                    var tempdata = $firebaseObject(ref.child(authUser.uid));
+                    tempdata.$loaded().then(function(x)
+                     {
+                        UserInfo.setUserInfo(tempdata);
+                        console.log(tempdata);
+                        usr = UserInfo.getUserInfo();
+
+                        console.log(usr);
+                        $scope.userList = $firebaseArray(ref);
+                        $scope.userList.$loaded().then(function(x)
+                         {
+                            $scope.userList = chunk(x, 3);
+                          })
+                          .catch(function(error) 
+                          {
+                            console.log("Error:", error);
+                          });
+
+                        $scope.owning = {avatar : usr.avatar};
+                        console.log($scope.owning);
+
+
+                      })
+                      .catch(function(error) 
+                      {
+                        console.log("Error:", error);
+                      });
+                });
+           }
+           else
+           {
+                ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Users");
+                console.log(usr);
+                $scope.userList = $firebaseArray(ref);
+                $scope.userList.$loaded().then(function(x)
+                 {
+                    $scope.userList = chunk(x, 3);
+                  })
+                  .catch(function(error) 
+                  {
+                    console.log("Error:", error);
+                  });
+
+                $scope.owning = {avatar : usr.avatar};
+                console.log($scope.owning);
+
+           }
+    });
+
+
+$scope.newConversation = function()
+{
+
+
+};
+
 
 }])
