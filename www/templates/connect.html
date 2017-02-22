@@ -9,14 +9,14 @@
 
       <button id="FriendsButton" class="button button-light  button-block button-clear eoko-text-button-nav" ng-click="selectYourActionTab()">Friends</button>
 
-      <a class="eoko-button-clear eoko-chatbox-right"></a>
+      <a ui-sref="chatTab" class="eoko-button-clear eoko-chatbox-right"></a>
     </div>
 
 
     <ion-scroll style="height: calc(100% - 11em)">
       <ion-list>
         <ion-item class="row" ng-repeat="rows in userList">
-        <figure ng-repeat="user in rows" ng-if="user.avatar != owning.avatar" class="span4 eoko-connect-image" >
+        <figure ng-repeat="user in rows" ng-if="user.$id != owning.id" class="span4 eoko-connect-image" >
           <ion-item ng-click="openProfile(user)" style="background-image: url({{user.avatar}});margin:0px;" class="span4 eoko-connect-image"></ion-item>
             <figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">{{user.name}}</figcaption>
             </figure>

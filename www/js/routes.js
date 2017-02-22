@@ -176,6 +176,15 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'notificationPageCtrl'
   })
 
+  .state('chatTab', {
+    url: '/chatTab',
+    nativeTransitions: {
+        type: "fade"
+    },
+    templateUrl: 'templates/chatTab.html',
+    controller: 'chatTabCtrl'
+  })
+
 $urlRouterProvider.otherwise('/homePage')
 
 
