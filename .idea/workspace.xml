@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0410c821-3d83-41a9-8369-8abe907e4630" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/events.html" afterPath="$PROJECT_DIR$/www/templates/events.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/getCodePage.html" afterPath="$PROJECT_DIR$/www/templates/getCodePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/getNamePage.html" afterPath="$PROJECT_DIR$/www/templates/getNamePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/login.html" afterPath="$PROJECT_DIR$/www/templates/login.html" />
-    </list>
+    <list default="true" id="0410c821-3d83-41a9-8369-8abe907e4630" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -527,12 +521,12 @@
       <workItem from="1487030113392" duration="668000" />
       <workItem from="1487189373235" duration="13505000" />
       <workItem from="1487732034107" duration="4000" />
-      <workItem from="1487799480746" duration="15362000" />
+      <workItem from="1487799480746" duration="15816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75540000" />
+    <option name="totallyTimeSpent" value="75994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="25" y="22" width="1895" height="1178" extended-state="6" />
