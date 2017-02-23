@@ -23,31 +23,24 @@
     
   	<ion-scroll style="height: calc(100% - 11em)">
       <ion-list id="actionList">
-        <div ng-if="conversations.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Messages to Display</div>
 
-        <ion-item ng-repeat="convo in conversations" class="item-thumbnail-left"
+        <ion-item ng-repeat="convo in conversations" ng-if="convo.name" class="item-thumbnail-left"
                   style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
-
-          <!-- <div class="n_avatarImg" style="background-image: url({{notify.info.avatar}});"></div>
-          <p class="eoko-text-light" style="color: white;font-size: 25px">{{notify.info.title}}</p>
-          <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
-            {{notify.info.location}}
-            <br>{{notify.info.date}}
-            <br>{{notify.info.time}}
-          </p> -->
-
           <div class="eoko-notification-avatar" style="background-image: url({{convo.avatar}});"></div>
           <p class="eoko-text-light" style="color: white;font-size: 25px">{{convo.name}}</p>
+          <span style="color:white;font-size:12px">{{convo.lasttime}}</span>
           <br>
-          <p ng-if="convo.messages == undefined || convo.messages == null" class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+          <p ng-if="!convo.messages" class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
             Send the first message!
           </p>
-          <p ng-if="convo.messages != undefined || convo.messages != null" class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
-            {{convo.messages.text}}
+          <p ng-if="convo.messages" class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+            {{convo.lastmessage}}
           </p>
+          <a ui-sref="chatPage({otherID: convo.partnerID, convoID: convo.chatID})" class="eoko-button-clear ion-chevron-right" nav-transition="ios" nav-direction="forward" style="float:right;margin-top: -20px;"></a>
 
         </ion-item>
       </ion-list>
+
     </ion-scroll>
 
 

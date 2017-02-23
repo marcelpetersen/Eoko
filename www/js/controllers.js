@@ -1,15 +1,14 @@
 angular.module('app.controllers', [])
 
-  .controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate','$timeout', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject, $ionicTabsDelegate) {
+    function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject, $ionicTabsDelegate,$timeout) {
 
-      $scope.user = "";
-      var usr;
+      var usr = UserInfo.getUserInfo();
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
-        console.log($stateParams.avatarClicked);
+         $scope.user = UserInfo.getUserInfo();
         if ($stateParams.avatarClicked == 'true') {
           console.log("other");
           $ionicTabsDelegate.showBar(false);
@@ -17,7 +16,8 @@ angular.module('app.controllers', [])
           console.log($scope.user);
         }
         else {
-          if (usr == undefined) {
+          if (usr == undefined || usr.email=="") {
+            console.log("undefined usr");
             firebase.auth().onAuthStateChanged(function (user) {
               usr = firebase.auth().currentUser;
 
@@ -42,6 +42,8 @@ angular.module('app.controllers', [])
             });
           }
           else {
+            console.log("userinfo is:", UserInfo.getUserInfo());
+            $scope.user = UserInfo.getUserInfo();
             if ($scope.user.notifications) {
               $scope.friendR = Object.keys($scope.user.notifications).length;
             }
@@ -50,7 +52,7 @@ angular.module('app.controllers', [])
             }
           }
         }
-
+        $timeout(function () {$scope.$apply();});
       });
 
 
@@ -73,8 +75,10 @@ angular.module('app.controllers', [])
 
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
-        console.log("working?");
-        if ($scope.notifications.length == 0 && authUser == undefined) {
+        usr = UserInfo.getUserInfo();
+        console.log("working?",UserInfo.getUserInfo());
+        if ($scope.notifications.length == 0 && authUser == undefined || usr.email=="")
+         {
           console.log("Why yes it is!");
           firebase.auth().onAuthStateChanged(function (user) {
             authUser = firebase.auth().currentUser;
@@ -92,7 +96,8 @@ angular.module('app.controllers', [])
               });
           });
         }
-        else {
+        else
+         {
           refActivate();
         }
 
@@ -162,9 +167,7 @@ angular.module('app.controllers', [])
             req.child(selectedlist[i]).once('value').then(function (snap) {
               $scope.goingList.push({info: snap.val()});
               console.log("record: ", snap.val());
-              $timeout(function () {
-                $scope.$apply();
-              });
+              $timeout(function () {$scope.$apply();});
             });
 
           }
@@ -305,6 +308,8 @@ angular.module('app.controllers', [])
 
       })();
 
+
+
       var weekday = new Array();
       weekday[0] = "Sunday";
       weekday[1] = "Monday";
@@ -362,7 +367,6 @@ angular.module('app.controllers', [])
         $scope.selection.porb = "private";
         $scope.selection.privstep = 1;
       };
-
 
       $scope.PrivateNextStep = function () {
         $scope.selection.privstep = 2;
@@ -513,10 +517,11 @@ angular.module('app.controllers', [])
     }])
 
 
-  .controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject', '$ionicPopover', 'orderByFilter', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+
+  .controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject','$ionicPopover','orderByFilter', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $state, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject, $ionicPopover, orderByFilter) {
+    function ($scope, $state, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject,$ionicPopover,orderByFilter) {
 
       var usr = UserInfo.getUserInfo();
       var usor = firebase.auth().currentUser;
@@ -572,13 +577,23 @@ angular.module('app.controllers', [])
           console.log($scope.owning);
 
 
-          $scope.onHold = function (clicked) {
-
-          };
-
-
         }
       });
+
+
+      $scope.selectEveryoneTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("EveryoneButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("FriendsButton").className = "eoko-button-text eoko-text-button-nav";
+        $scope.selection.tab = "everyone";
+      };
+
+      $scope.selectFriendsTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("EveryoneButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("FriendsButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        $scope.selection.tab = "friends";
+      };
 
 
       function chunk(arr, size) {
@@ -598,85 +613,117 @@ angular.module('app.controllers', [])
       };
 
 
+
 // .fromTemplateUrl() method
-      $ionicPopover.fromTemplateUrl('my-popover.html', {
-        scope: $scope
-      }).then(function (popover) {
-        $scope.popover = popover;
-      });
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
 
 //$scope.blurry = $scope.popover.isShown() ? $scope.blurry = {behind : "5px"} : $scope.blurry = {behind : "0px"};
-      $scope.blurry = {behind: "0px"};
+ $scope.blurry = {behind : "0px"};
 
-      function makeblurry() {
-        if ($scope.popover.isShown()) {
-          console.log("blur background");
-          $scope.blurry = {behind: "5px"};
+  function makeblurry()
+{
+    if($scope.popover.isShown())
+    {
+        console.log("blur background");
+        $scope.blurry = {behind : "5px"};
+    }
+    else
+    {
+        console.log("clear up");
+         $scope.blurry = {behind : "0px"};
+    }
+}
+
+$scope.checkHit = function(event)
+{
+    if(event.target.className.includes("popup-container popup-showing"))
+    {
+        $scope.closePopover();
+    }
+};
+
+var messageUser;
+$scope.createMessage = function()
+{
+    var combino = orderByFilter([{
+                eyed: usor.uid
+            }, {
+                eyed: messageUser.$id
+            }], 'eyed');
+    var uniqueMessageID = combino[0].eyed + '_' + combino[1].eyed;
+    console.log(uniqueMessageID);
+
+    var res = firebase.database().ref("Buildings").child(usor.displayName + "/Chats");
+
+    res.child(uniqueMessageID).once('value', function(snapshot) {
+        if(snapshot.val() !== null)
+        {
+            $scope.closePopover();
+            $state.go('chatPage', {
+              'otherID': messageUser.$id,
+              'convoID': uniqueMessageID
+            });
         }
-        else {
-          console.log("clear up");
-          $scope.blurry = {behind: "0px"};
+        else
+        {
+            res.child(uniqueMessageID).set({
+            'chatTitle': "",
+            'chatIDs': [usor.uid,messageUser.$id]
+            }).then(function()
+            {
+                $scope.closePopover();
+                $state.go('chatPage', {
+                  'otherID': messageUser.$id,
+                  'convoID': uniqueMessageID
+                });
+            });
         }
-      }
-
-      $scope.checkHit = function (event) {
-        if (event.target.className.includes("popup-container popup-showing")) {
-          $scope.closePopover();
-        }
-      };
-
-      var messageUser;
-      $scope.createMessage = function () {
-        var combino = orderByFilter([{
-          eyed: usor.uid
-        }, {
-          eyed: messageUser.$id
-        }], 'eyed');
-        var uniqueMessageID = combino[0].eyed + '_' + combino[1].eyed;
-        console.log(uniqueMessageID);
-
-        var res = firebase.database().ref("Buildings").child(usor.displayName + "/Chats/" + uniqueMessageID);
-
-        res.set({
-          'chatTitle': "",
-          'chatIDs': [usor.uid, messageUser.$id]
-        }).then(function () {
-          $scope.closePopover();
-          $state.go('chatTab');
-        });
-
-      };
-
-      $scope.openPopover = function ($event, notify) {
-        $scope.blurry.behind = "5px";
-        messageUser = notify;
-        $scope.popover.show($event);
-        makeblurry();
-      };
-
-      $scope.closePopover = function () {
-        $scope.blurry.behind = "0px";
-        $scope.popover.hide();
-        //$scope.popover.remove();
-      };
-
-      //Cleanup the popover when we're done with it!
-      $scope.$on('$destroy', function () {
-        $scope.popover.remove();
-      });
-
-      // Execute action on hide popover
-      $scope.$on('popover.hidden', function () {
-        makeblurry();
-      });
-
-      // Execute action on remove popover
-      $scope.$on('popover.removed', function () {
-        makeblurry();
-      });
+    });
 
 
-    }])
+        
+
+    
+    
+    
+    
+};
+
+$scope.openPopover = function($event,notify) {
+    $scope.blurry.behind = "5px";
+    messageUser = notify;
+    $scope.popover.show($event);
+    makeblurry();
+  };
+
+  $scope.closePopover = function() {
+    $scope.blurry.behind = "0px";
+    $scope.popover.hide();
+    //$scope.popover.remove();
+  };
+
+   //Cleanup the popover when we're done with it!
+   $scope.$on('$destroy', function() {
+      $scope.popover.remove();
+   });
+
+   // Execute action on hide popover
+   $scope.$on('popover.hidden', function() {
+      makeblurry();
+   });
+
+   // Execute action on remove popover
+   $scope.$on('popover.removed', function() {
+      makeblurry();
+   });
+
+
+}])
+   
 
 
   .controller('buildingEventsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -981,11 +1028,11 @@ angular.module('app.controllers', [])
 
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
-        var usr = firebase.auth().currentUser;
-        var ref = firebase.database().ref("Buildings").child(usr.displayName + "/Users");
-        ref.child(usr.uid + "/avatar").set($scope.user.image, function (success) {
+          var usr = firebase.auth().currentUser;
+            var ref = firebase.database().ref("Buildings").child(usr.displayName + "/Users");
+            ref.child(usr.uid + "/avatar").set($scope.user.image, function (success) {
+            });
         });
-      });
 
       $scope.submitAvatar = function () {
         usr = firebase.auth().currentUser;
@@ -1243,7 +1290,7 @@ angular.module('app.controllers', [])
       })();
 
 
-      $scope.selectNotificationTab = function () {
+     $scope.selectNotificationTab = function () {
         //change css class to udnerline the selected tab
         document.getElementById("NotificationButton").className = "eoko-button-text-selected eoko-text-button-nav";
         document.getElementById("YourActionButton").className = "eoko-button-text eoko-text-button-nav";
@@ -1333,90 +1380,183 @@ angular.module('app.controllers', [])
     }])
 
 
-  .controller('chatTabCtrl', ['$scope', '$stateParams', '$firebaseObject', 'UserInfo', '$firebaseArray', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+
+.controller('chatTabCtrl', ['$scope', '$stateParams','$firebaseObject','UserInfo','$firebaseArray','$timeout', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $firebaseObject, UserInfo, $firebaseArray) {
+function ($scope, $stateParams,$firebaseObject,UserInfo,$firebaseArray,$timeout) {
 
-      var usr = UserInfo.getUserInfo();
-      var authUser = firebase.auth().currentUser;
-      var ref;
+var usr = UserInfo.getUserInfo();
+var authUser = firebase.auth().currentUser;
+var ref;
 
-      $scope.$on('$ionicView.beforeEnter', function () //before anything runs
-      {
-        if (authUser == undefined) {
-          console.log('running once!')
-          firebase.auth().onAuthStateChanged(function (user) {
-            authUser = firebase.auth().currentUser;
-            ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Chats");
-            reds = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
+$scope.$on('$ionicView.beforeEnter', function() //before anything runs
+    {
+        if(authUser == undefined)
+           {
+                console.log('running once!')
+                firebase.auth().onAuthStateChanged(function(user) {
+                    authUser = firebase.auth().currentUser;
+                    ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Chats");
+                    reds = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
+            
+                    var objs = $firebaseObject(reds);
+                    objs.$loaded().then(function(x)
+                     {
+                        UserInfo.setUserInfo(x);
+                        usr = UserInfo.getUserInfo();
 
-            var objs = $firebaseObject(reds);
-            objs.$loaded().then(function (x) {
-              UserInfo.setUserInfo(x);
-              usr = UserInfo.getUserInfo();
+                        $scope.conversations = $firebaseArray(ref);
+                        $scope.conversations.$loaded().then(function(x)
+                         {
+                            getInfo(x);
 
-              $scope.conversations = $firebaseArray(ref);
-              $scope.conversations.$loaded().then(function (x) {
-                getInfo(x);
-
-              })
-                .catch(function (error) {
-                  console.log("Error:", error);
+                          })
+                          .catch(function(error) 
+                          {
+                            console.log("Error:", error);
+                          });
+                      })
+                      .catch(function(error) 
+                      {
+                        console.log("Error:", error);
+                      });
                 });
-            })
-              .catch(function (error) {
-                console.log("Error:", error);
-              });
-          });
-        }
-        else {
-          ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Chats");
-          console.log(usr);
-          $scope.conversations = $firebaseArray(ref);
-          $scope.conversations.$loaded().then(function (x) {
-            getInfo(x);
+           }
+           else
+           {
+                ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Chats");
+                console.log(usr);
+                $scope.conversations = $firebaseArray(ref);
+                $scope.conversations.$loaded().then(function(x)
+                 {
+                    getInfo(x);
+                    
+                  })
+                  .catch(function(error) 
+                  {
+                    console.log("Error:", error);
+                  });
+           }
+    
+    });
 
-          })
-            .catch(function (error) {
-              console.log("Error:", error);
-            });
-        }
-      });
 
-      function getInfo(x) {
-        var rec = firebase.database().ref("Buildings").child(authUser.displayName + "/Users");
-        rec.once('value').then(function (snap) {
-          for (var i = 0; i < $scope.conversations.length; i++) {
-            if (x[i].chatIDs.indexOf(authUser.uid) > -1)   //one of my convos
+
+            function getInfo(x)
             {
-              if (x[i].chatTitle == "")   //two way talk
-              {
-                //console.log($scope.conversations[i]);
-                var partner = (x[i].chatIDs.indexOf(authUser.uid) == 0) ? x[i].chatIDs[1] : x[i].chatIDs[0];
-                $scope.conversations[i].avatar = snap.val()[partner].avatar;
-                $scope.conversations[i].name = snap.val()[partner].name;
-                //$scope.conversations[i].messages = snap.val()[partner].name;
-              }
+                var rec = firebase.database().ref("Buildings").child(authUser.displayName + "/Users");
+                rec.once('value').then(function(snap){
+                    for(var i = 0; i < $scope.conversations.length; i++)
+                    {
+                        //console.log();
+                        if (x[i].chatIDs.indexOf(authUser.uid) > -1)   //one of my convos
+                        {
+
+                            if(x[i].chatTitle == "")   //two way talk
+                            {
+                                console.log("innerfor");
+                                var lastmessage = "";
+                                var lasttime = "";
+                                for(var j in x[i].messages)
+                                {
+                                    lastmessage = x[i].messages[j].text;
+                                    lasttime = x[i].messages[j].time;
+                                }
+
+                                partner = (x[i].chatIDs.indexOf(authUser.uid) == 0) ? x[i].chatIDs[1] : x[i].chatIDs[0];
+
+                                $scope.conversations[i].avatar = snap.val()[partner].avatar;
+                                $scope.conversations[i].name = snap.val()[partner].name;
+                                $scope.conversations[i].partnerID = partner;
+                                $scope.conversations[i].chatID = x[i].$id;
+                                $scope.conversations[i].lastmessage = lastmessage;
+                                $scope.conversations[i].lasttime = lasttime;
+                            }
+                        }
+                    }
+                    $timeout(function () {$scope.$apply();});
+                }); 
             }
-          }
+
+}])
+
+
+
+.controller('chatPageCtrl', ['$scope', '$stateParams','$firebaseObject','UserInfo','$firebaseArray','$ionicScrollDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams,$firebaseObject,UserInfo,$firebaseArray,$ionicScrollDelegate) {
+
+    var authUser = firebase.auth().currentUser;
+    $scope.myId = authUser.uid;
+    var ref = firebase.database().ref("Buildings").child(authUser.displayName);
+    var partnerID = $stateParams.otherID;
+    var convoID = $stateParams.convoID;
+    var currentnum = 0;
+
+    $scope.$on('$ionicView.beforeEnter', function() //before anything runs
+    {
+        ref.child('Chats').child(convoID).once("value").then(function(snap)
+        {
+            console.log("the whole chat", snap.val());
+            $scope.chatObj = snap.val();
         });
 
-      }
+        ref.child('Users').child(partnerID).once("value").then(function(snap)
+        {
+            console.log("the partner", snap.val());
+            $scope.partner = snap.val();
+        });
 
-    }])
-
-
-  .controller('chatPageCtrl', ['$scope', '$stateParams', '$firebaseObject', 'UserInfo', '$firebaseArray', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $firebaseObject, UserInfo, $firebaseArray) {
+    });
 
 
-      $scope.newConversation = function () {
+    $scope.$on('$ionicView.afterEnter', function() //before anything runs
+    {
+        console.log("ref is:" , ref);
+        $ionicScrollDelegate.scrollBottom();
+        $scope.messages = $firebaseArray(ref.child('Chats').child(convoID + '/messages'));
+        $scope.messages.$loaded()
+          .then(function(x) {
+            console.log("messages are loaded", x)
+            currentnum =  Object.keys($scope.messages).length;
+          })
+          .catch(function(error) {
+            console.log("Error:", error);
+          });
+      });
 
 
-      };
+$scope.data ={messageText : ""};
+
+
+
+
+       $scope.sendMessage = function() {
+            console.log("starting messagesend");
+            var d = new Date();
+            d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+            console.log("message:", $scope.data.messageText );
+            console.log("toadded: ", $scope.messages);
+
+                 $scope.messages.$add({
+                  userId: authUser.uid,
+                  text: $scope.data.messageText,
+                  time: d
+                 
+                });
+            $scope.data.messageText  = "";
+            $ionicScrollDelegate.scrollBottom();
+            
+           
+        };
+
+       $scope.closeKeyboard = function()
+       {
+
+       };
+
 
 
     }])
