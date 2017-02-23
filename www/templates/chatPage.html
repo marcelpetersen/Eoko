@@ -1,32 +1,28 @@
-<ion-view ng-model="titleTag" title="{{titleTag}}" hide-back-button="true">
-    
-	<ion-nav-buttons side="left" scroll="false" class="has-header">
-        <a ui-sref="tabsController.chatTab" class="button button-icon button-light icon ion-ios-arrow-back"></a>
-    </ion-nav-buttons>
-	
-	<ion-content padding="true" style="background: url(img/ggeo_background.png) no-repeat center;background-size:cover;" class="has-header" scroll="false">
-        <div>
-            <ion-content direction="y" scroll="true" has-bouncing="true" class="topbar" scrollbar-y="true">
+<ion-view title="Connect" hide-nav-bar="true" hide-back-button="true" id="page5">
+  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding eoko-content" scroll="false">
+
+  <div class="button-bar">
+        <a ui-sref="chatTab" class="eoko-button-clear ion-chevron-left"></a>
+    </div>
+
+    <ion-scroll style="height: calc(100% - 11em)">
                 <div ng-repeat="message in messages track by $index" ng-class="{other: message.userId == myId}" class="messages" >
-
                     <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}" style="height:auto;">
-                        <span>{{ message.text }}
+                        <span class="eoko-text-ultralight">{{ message.text }}
                             <div class="time" ng-class="{'slide-right': hideTime, '': !hideTime}">{{message.time}}</div>
-
                         </span>
                     </div>
-
                 </div>
-            </ion-content>
-        </div>
+        </ion-scroll>
+
         <ion-footer-bar keyboard-attach="" class="item-input-inset chatBar">
-            <label class="entryField item-input-wrapper" style="border-bottom-style: none;">
-                <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="closeKeyboard()">
+            <label class="item-input-wrapper" style="border-bottom-style: none;background-color: rgba(255, 255, 255, 0);">
+              <input style="color:white;" type="text" placeholder="Type your message" ng-model="data.messageText">
             </label>
-            <button class="button button-outline chatSend" style="border-right-style: none; padding-left: 16px;" ng-click="sendMessage()" type="submit" ng-submit="sendMessage()">
-                Send
-            </button>
+            <a class="button button-outline chatSend" style="border-right-style: none; padding-left: 16px;" ng-click="sendMessage()">Send</a>
         </ion-footer-bar>
 
     </ion-content>
 </ion-view>
+
+

@@ -190,6 +190,10 @@ angular.module('app.routes', ['ionicUIRouter'])
     nativeTransitions: {
         type: "fade"
     },
+    params: {
+    otherID: "",
+    convoID: ""
+},
     templateUrl: 'templates/chatPage.html',
     controller: 'chatPageCtrl'
   })
