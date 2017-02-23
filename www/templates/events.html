@@ -4,22 +4,29 @@
                style="background: url(img/main_background.png) no-repeat center;background-size:cover;filter: blur({{blurry.behind}});"
                class="manual-ios-statusbar-padding eoko-content" scroll="false">
 
-    <div class="button-bar">
-      <button id="EventButton" class="button button-light  button-block button-clear eoko-text-button-nav"
-              ng-click="selectEventTab()">Actions
-      </button>
 
-      <button id="CreateEventButton" class="button button-light  button-block button-clear eoko-text-button-nav"
+    <!--spacer-->
+    <div class="spacer" style="height: 20px;"></div>
+
+
+    <!--top nav bar-->
+    <div class="button-bar">
+      <a id="EventButton" class="eoko-button-text-selected eoko-text-button-nav"
+              ng-click="selectEventTab()">Actions
+      </a>
+      <a id="CreateEventButton" class="eoko-button-text eoko-text-button-nav"
               ng-click="selectCreateTab()">Create
-      </button>
+      </a>
     </div>
+
+
 
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
 
 
     <!--list of actions-->
-    <ion-scroll ng-if="selection.tab == 'event' " style="height: calc(100% - 11em);" scrollbar-x="false" scrollbar-y="false">
+    <ion-scroll ng-if="selection.tab == 'event' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
       <ion-list id="actionList">
         <div ng-if="notifications.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Actions to display</div>
 
@@ -41,29 +48,25 @@
       </ion-list>
     </ion-scroll>
 
+    <!--spacer-->
+    <div class="spacer" style="height: 20px;"></div>
 
     <!--create your action-->
 
     <!--Public and Private button-->
-    <div ng-if="selection.tab == 'create' && selection.privstep == 1">
-      <div class="button-bar" ng-if="selection.porb == 'public'">
-        <button ng-click="selectedPublic()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;"
+    <ion-scroll ng-if="selection.tab == 'create' && selection.privstep == 1" style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
+
+      <div class="button-bar">
+        <button id="PublicButton" ng-click="selectedPublic()" style="font-size: 25px; border-radius: 50px; margin: 0 22px;padding: 0px;"
                 class="button button-energized button-block eoko-text-light">Public
         </button>
-        <button ng-click="selectedPrivate()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;"
+        <button id="PrivateButton"ng-click="selectedPrivate()" style="font-size: 25px; border-radius: 50px;margin: 0 22px;padding: 0px;"
                 class="button button-energized button-block button-outline eoko-text-light">Private
         </button>
       </div>
 
-      <div class="button-bar" ng-if="selection.porb == 'private'">
-        <button ng-click="selectedPublic()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;"
-                class="button button-energized button-block button-outline eoko-text-light">Public
-        </button>
-        <button ng-click="selectedPrivate()" style="font-size: 30px; border-radius: 33px;margin: 0 22px;padding: 0px;"
-                class="button button-energized button-block eoko-text-light">Private
-        </button>
-      </div>
-
+      <!--spacer-->
+      <div class="spacer" style="height: 10px;"></div>
 
       <form name="makeEventForm">
 
@@ -134,7 +137,7 @@
         </button>
       </form>
 
-    </div>
+    </ion-scroll>
 
 
     <div ng-if="selection.tab == 'create' && selection.privstep == 2">
