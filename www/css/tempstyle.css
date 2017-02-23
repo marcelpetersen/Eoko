@@ -1,74 +1,111 @@
 .input-label {
-  color: white;
+	color: white;
 }
 
-.item {
-  border-color: rgba(0, 0, 0, 0);
-  background-color: rgba(0, 0, 0, 0);
+.item{
+	border-color: rgba(0,0,0,0);
+	background-color:rgba(0,0,0,0);
 }
 
-.card, .list-inset {
-  background-color: rgba(0, 0, 0, 0);
+
+.card, .list-inset{
+    background-color: rgba(0,0,0,0);
 }
 
 .family-icon-scroller {
-  -webkit-overflow-scrolling: touch;
-  padding: 5px 15px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  list-style: none;
-  margin-top: -80px;
-  position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding: 5px 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    list-style: none;
+    margin-top: -80px;
+    position: relative;
 }
+
 
 .systemContainer {
-  display: inline-block;
-  vertical-align: top;
-  white-space: normal;
-  margin: 0 2px;
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    margin: 0 2px;
 }
 
-.eventViewAvatar {
-  height: 61px;
-  width: 61px;
-  background-size: contain;
-  border-radius: 61px;
-  margin: 0 auto;
+.eventViewAvatar{
+        height: 61px;
+    width: 61px;
+    background-size: contain;
+    border-radius: 61px;
+    margin: 0 auto;
 }
 
-.userDeselected {
-  opacity: 0.33;
+.userDeselected{
+	opacity: 0.33;
 }
 
-.userSelected {
-  opacity: 1;
+.userSelected{
+	opacity: 1;
 }
+
 
 .platform-android .header-item.title {
-  transition-duration: 0ms;
+    transition-duration: 0ms;
 }
-
 .platform-android .header-item.buttons {
-  transition-duration: 0ms;
+    transition-duration: 0ms;
 }
 
-.privatePublic {
-  border-radius: 14px;
+.descriptionBox{
+  padding: 10px;
+  border-radius: 5px;
+  width: 320px;
+  margin: 4em auto;
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 10em;
+  resize: none;
 }
 
-.platform-ios .popover-arrow:after {
-  background-color: rgba(255, 188, 0, 0.44);
-  border-color: rgba(255, 188, 0, 0.44);
+.privatePublic{
+  border-radius:14px;
 }
 
-.avatarImg {
-  border-radius: 50px;
-  background-size: cover;
-  background-position-x: 61%;
-  background-color: grey;
-  width: 12.5em;
-  height: 13em;
-  border-radius: 13em;
-  margin: 2em auto;
+
+.platform-ios .popover-arrow:after{
+  background-color:rgba(255, 188, 0, 0.44);
+  border-color:rgba(255, 188, 0, 0.44);
+}
+
+.avatarImg{
+    border-radius: 50px;
+    background-size: cover;
+    background-position-x: 61%;
+    background-color:grey;
+    width: 12.5em;
+    height: 13em;
+    border-radius: 13em;
+    margin: 2em auto;
+}
+
+.bar{
+  background-color: rgba(255, 255, 255, 0.32);
+}
+
+
+.messages.other {
+  position: relative;
+  text-align: right;
+}
+
+.messages span {
+  background-color: #c2b3ad;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 12px;
+  margin: 10px;
+  max-width: 93%;
+  color: white;
+}
+
+.messages.other span {
+  background-color: #b66f31;
 }
