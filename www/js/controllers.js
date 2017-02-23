@@ -343,18 +343,27 @@ angular.module('app.controllers', [])
       }
 
       $scope.selectEventTab = function () {
+        document.getElementById("EventButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("CreateEventButton").className = "eoko-button-text eoko-text-button-nav";
         $scope.selection.tab = "event";
       };
 
       $scope.selectCreateTab = function () {
+        document.getElementById("EventButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("CreateEventButton").className = "eoko-button-text-selected eoko-text-button-nav";
         $scope.selection.tab = "create";
       };
 
+
       $scope.selectedPublic = function () {
+        document.getElementById("PublicButton").className = "button button-energized button-block eoko-text-light";
+        document.getElementById("PrivateButton").className = "button button-energized button-block button-outline eoko-text-light";
         $scope.selection.porb = "public";
       };
 
       $scope.selectedPrivate = function () {
+        document.getElementById("PublicButton").className = "button button-energized button-block button-outline eoko-text-light";
+        document.getElementById("PrivateButton").className = "button button-energized button-block eoko-text-light";
         $scope.selection.porb = "private";
         $scope.selection.privstep = 1;
       };
@@ -571,6 +580,20 @@ angular.module('app.controllers', [])
         }
       });
 
+
+      $scope.selectEveryoneTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("EveryoneButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("FriendsButton").className = "eoko-button-text eoko-text-button-nav";
+        $scope.selection.tab = "everyone";
+      };
+
+      $scope.selectFriendsTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("EveryoneButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("FriendsButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        $scope.selection.tab = "friends";
+      };
 
 
       function chunk(arr, size) {
@@ -1267,11 +1290,17 @@ $scope.openPopover = function($event,notify) {
       })();
 
 
-      $scope.selectNotificationTab = function () {
+     $scope.selectNotificationTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("NotificationButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("YourActionButton").className = "eoko-button-text eoko-text-button-nav";
         $scope.selection.tab = "notifications";
       };
 
       $scope.selectYourActionTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("NotificationButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("YourActionButton").className = "eoko-button-text-selected eoko-text-button-nav";
         $scope.selection.tab = "yourevents";
       };
 
