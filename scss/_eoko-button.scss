@@ -51,6 +51,29 @@
   font-size: $button-font-size + 20px;
 }
 
+.eoko-button-text{
+  display: inline-block;
+  margin: auto;
+  padding-bottom: 10px;
+  text-decoration: none;
+  border-bottom-width: 0;
+}
+
+.eoko-button-text-selected {
+  @extend .eoko-button-text;
+  @extend .eoko-text-regular;
+
+  padding-bottom: 10px;
+  border-style: solid;
+  border-bottom-width: 0.1em;
+  border-bottom-color: $orange;
+
+  transition: width 0.3s;
+  -webkit-transition: width 0.3s;
+}
+
+
+
 .eoko-button-event-join {
   @include button-style($orange, none, $orange, none, $white);
   border: none;
