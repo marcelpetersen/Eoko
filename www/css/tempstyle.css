@@ -53,16 +53,6 @@
   transition-duration: 0ms;
 }
 
-.descriptionBox {
-  padding: 10px;
-  border-radius: 5px;
-  width: 320px;
-  margin: 4em auto;
-  background-color: rgba(255, 255, 255, 0.3);
-  height: 10em;
-  resize: none;
-}
-
 .privatePublic {
   border-radius: 14px;
 }

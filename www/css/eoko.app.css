@@ -9937,6 +9937,33 @@ a.button {
     .eoko-text-button-nav {
       font-size: 30px; } }
 
+.eoko-input {
+  text-align: center;
+  padding-bottom: 10px;
+  background: none; }
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+  margin: 0.3em;
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+  opacity: 1; }
+
+.eoko-text-area {
+  padding: 10px;
+  border-radius: 5px;
+  width: calc(100% - 6em);
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.15);
+  height: 10em;
+  resize: none; }
+
+input, textarea::-webkit-input-placeholder {
+  color: #FFFFFF;
+  opacity: 0.6; }
+
 .eoko-tabs-blur .tab-nav.tabs {
   height: 70px;
   background: transparent; }

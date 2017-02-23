@@ -12,10 +12,10 @@
     <!--top nav bar-->
     <div class="button-bar">
       <a id="EventButton" class="eoko-button-text-selected eoko-text-button-nav"
-              ng-click="selectEventTab()">Actions
+         ng-click="selectEventTab()">Actions
       </a>
       <a id="CreateEventButton" class="eoko-button-text eoko-text-button-nav"
-              ng-click="selectCreateTab()">Create
+         ng-click="selectCreateTab()">Create
       </a>
     </div>
 
@@ -24,11 +24,13 @@
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
 
-
     <!--list of actions-->
-    <ion-scroll ng-if="selection.tab == 'event' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
+    <ion-scroll ng-if="selection.tab == 'event' " style="height: calc(100% - 10em);" scrollbar-x="false"
+                scrollbar-y="false">
       <ion-list id="actionList">
-        <div ng-if="notifications.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Actions to display</div>
+        <div ng-if="notifications.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Actions to
+          display
+        </div>
 
         <ion-item ng-repeat="notify in notifications" class="item-thumbnail-left"
                   style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
@@ -48,81 +50,78 @@
       </ion-list>
     </ion-scroll>
 
+
+
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
 
     <!--create your action-->
 
     <!--Public and Private button-->
-    <ion-scroll ng-if="selection.tab == 'create' && selection.privstep == 1" style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
+    <ion-scroll ng-if="selection.tab == 'create' && selection.privstep == 1" style="height: calc(100% - 11.5em);"
+                scrollbar-x="false" scrollbar-y="false">
 
       <div class="button-bar">
-        <button id="PublicButton" ng-click="selectedPublic()" style="font-size: 25px; border-radius: 50px; margin: 0 22px;padding: 0px;"
+        <button id="PublicButton" ng-click="selectedPublic()"
+                style="font-size: 25px; border-radius: 50px; margin: 0 22px;padding: 0px;"
                 class="button button-energized button-block eoko-text-light">Public
         </button>
-        <button id="PrivateButton"ng-click="selectedPrivate()" style="font-size: 25px; border-radius: 50px;margin: 0 22px;padding: 0px;"
+        <button id="PrivateButton" ng-click="selectedPrivate()"
+                style="font-size: 25px; border-radius: 50px;margin: 0 22px;padding: 0px;"
                 class="button button-energized button-block button-outline eoko-text-light">Private
         </button>
       </div>
 
       <!--spacer-->
-      <div class="spacer" style="height: 10px;"></div>
+      <div class="spacer" style="height: 20px;"></div>
 
       <form name="makeEventForm">
 
         <ion-list>
 
           <!--Action Catagory-->
-          <label class="item item-input login-label"
-                 style="background-color: rgba(0,0,0,0);margin: 0 20px;border-bottom: 0px;" name="eventCatagory">
-            <span class="input-label lable-font-login" aria-label="Title" id="ed_labelCatagory"
-                  style="width: 20%;">Catagory</span>
-            <input type="text" placeholder="" style="border-bottom: 1px solid white;" ng-model="event.catagory"
+          <label class="item item-input " name="eventCatagory">
+            <input id="ed_labelCatagory" type="text" placeholder="Catagory" style="font-size: 1.6em"
+                   class="eoko-input eoko-text-light" ng-model="event.catagory"
                    required="">
           </label>
 
           <!--Action title-->
-          <label class="item item-input login-label"
-                 style="background-color: rgba(0,0,0,0);margin: 0 20px;border-bottom: 0px;" name="eventTitle">
-            <span class="input-label lable-font-login" aria-label="Title" id="ed_labelTitle"
-                  style="width: 20%;">Title</span>
-            <input type="text" placeholder="" style="border-bottom: 1px solid white;" ng-model="event.title"
+          <label class="item item-input" name="eventTitle">
+            <input id="ed_labelTitle" type="text" placeholder="Action Name" style="font-size: 1.6em;"
+                   class="eoko-input eoko-text-light" ng-model="event.title"
                    required="">
           </label>
 
           <!--Action Location-->
-          <label class="item item-input login-label"
-                 style="background-color: rgba(0,0,0,0);margin: 0 10px;border-bottom: 0px;" name="eventLocation">
-            <span class="input-label lable-font-login" aria-label="Location" id="ed_labelLocation" style="width: 20%;">Location</span>
-            <input type="text" placeholder="e.g. Room #, Address, Name of Place" style="border-bottom: 1px solid white;"
+          <label class="item item-input" name="eventLocation">
+            <input id="ed_labelLocation" type="text" placeholder="Location" style="font-size: 1.6em"
+                   class="eoko-input eoko-text-light"
                    ng-model="event.location" required="">
           </label>
 
-          <!--Action Date-->
+
+          <!--Action Date/Time-->
           <label class="item item-input login-label"
-                 style="background-color: rgba(0,0,0,0);width: 61%;margin: 0 auto;border-bottom: 0px;" name="eventDate">
-            <span class="input-label lable-font-login" aria-label="Date" id="ed_labelD"
-                  style="text-align: center;">Date</span>
-            <input type="date" placeholder="Date" style="border-bottom: 1px solid white;text-align: center;"
-                   ng-model="event.date" required="">
+                 style="" name="eventDateTime">
+            <input id="ed_labelD" type="date" placeholder="Date" style="font-size: 1em"
+                   class="eoko-input eoko-text-light" ng-model="event.date" required="">
+
+            <input id="ed_labelT" type="time" placeholder="Time" style="font-size: 1em"
+                   class="eoko-input eoko-text-light" ng-model="event.time" required="">
           </label>
 
-          <!--Action time-->
-          <label class="item item-input login-label"
-                 style="background-color: rgba(0,0,0,0);width: 61%;margin: 0 auto;border-bottom: 0px;" name="eventTime">
-            <span class="input-label lable-font-login" aria-label="Time" id="ed_labelT"
-                  style="text-align: center;">Time</span>
-            <input type="time" placeholder="Time" style="border-bottom: 1px solid white;text-align: center;"
-                   ng-model="event.time" required="">
-          </label>
         </ion-list>
+
 
         <!--spacer-->
         <div class="spacer" style="height: 20px;"></div>
 
         <!--Action Desciption-->
-        <textarea style="margin:0 auto;height:8em;" placeholder="What is your event about? Make it short" class="descriptionBox"
+        <textarea placeholder="What is your event about? Make it short"
+                  class="eoko-text-area"
                   name="descBox" ng-model="event.description" required=""></textarea>
+
 
         <br>
 
@@ -156,6 +155,7 @@
     </div>
 
 
+    <!--action detail pop up-->
     <script id="eventFullView.html" type="text/ng-template">
       <div ng-click="checkHit($event)" class="popup-container popup-showing active" ng-class="cssClass">
         <div class="popup" style="background-color: rgba(0,0,0,0);">
