@@ -13,12 +13,12 @@ angular.module('app.routes', ['ionicUIRouter'])
 
   .state('tabsController.profile', {
     url: '/profilePage',
+    params: {
+        aprofile: ''
+},
     nativeTransitions: {
         type: "fade"
     },
-    params: {
-    'avatarClicked': 'false'
-},
 	    views: {
       'tab1': {
         templateUrl: 'templates/profile.html',

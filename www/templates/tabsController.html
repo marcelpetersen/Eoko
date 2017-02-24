@@ -2,7 +2,8 @@
 
   <ion-tabs class="eoko-tabs-blur" id="tabsController-tabs1">
 
-    <ion-tab icon-on="profile-icon-on" icon-off="profile-icon-off" ui-sref="tabsController.profile({'avatarClicked': 'false'})" id="tabsController-tab1">
+    <ion-tab icon-on="profile-icon-on" icon-off="profile-icon-off" href="#/page1/profilePage"  id="tabsController-tab1"> 
+    <!-- ui-sref="tabsController.profile({aprofile: false})" id="tabsController-tab1"> -->
       <ion-nav-view name="tab1"></ion-nav-view>
     </ion-tab>
 
@@ -18,9 +19,9 @@
       <ion-nav-view name="tab4"></ion-nav-view>
     </ion-tab>
 
-    <ion-tab icon-on="info-icon-on" icon-off="info-icon-off" href="#/page1/infoPage" id="tabsController-tab5">
+    <!-- <ion-tab icon-on="info-icon-on" icon-off="info-icon-off" href="#/page1/infoPage" id="tabsController-tab5">
       <ion-nav-view name="tab5"></ion-nav-view>
-    </ion-tab>
+    </ion-tab> -->
 
   </ion-tabs>
 
