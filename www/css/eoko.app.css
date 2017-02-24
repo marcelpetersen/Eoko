@@ -9916,7 +9916,7 @@ a.button {
   vertical-align: middle;
   text-align: center;
   text-overflow: ellipsis;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 29px; }
   .eoko-button-action-event-list.hover {
     background-color: rgba(235, 235, 235, 0.2);
@@ -10207,37 +10207,37 @@ input, textarea::-webkit-input-placeholder {
 @font-face {
   font-family: "San Francisco Display";
   font-weight: 100;
-  src: url("../www/fonts/sanfranciscodisplay-ultralight.woff"); }
+  src: url("../fonts/sanfranciscodisplay-ultralight.woff"); }
 
 /** Thin */
 @font-face {
   font-family: "San Francisco Display";
   font-weight: 200;
-  src: url("../www/fonts/sanfranciscodisplay-thin.woff"); }
+  src: url("../fonts/sanfranciscodisplay-thin.woff"); }
 
 /** Regular */
 @font-face {
   font-family: "San Francisco Display";
   font-weight: 400;
-  src: url("../www/fonts/sanfranciscodisplay-regular.woff"); }
+  src: url("../fonts/sanfranciscodisplay-regular.woff"); }
 
 /** Medium */
 @font-face {
   font-family: "San Francisco Display";
   font-weight: 500;
-  src: url("../www/fonts/sanfranciscodisplay-medium.woff"); }
+  src: url("../fonts/sanfranciscodisplay-medium.woff"); }
 
 /** Semi Bold */
 @font-face {
   font-family: "San Francisco Display";
   font-weight: 600;
-  src: url("../www/fonts/sanfranciscodisplay-semibold.woff"); }
+  src: url("../fonts/sanfranciscodisplay-semibold.woff"); }
 
 /** Bold */
 @font-face {
   font-family: "San Francisco Display";
   font-weight: 700;
-  src: url("../www/fonts/sanfranciscodisplay-bold.woff"); }
+  src: url("../fonts/sanfranciscodisplay-bold.woff"); }
 
 .eoko-notification-number {
   border-radius: 10px;
@@ -10259,8 +10259,7 @@ input, textarea::-webkit-input-placeholder {
 .eoko-action-popup {
   width: calc(100% - 4.5em);
   height: calc(100% - 8.8em);
-  position: absolute;
-  top: 7%;
+  margin-bottom: 20px;
   background-color: rgba(245, 124, 0, 0.4);
   display: -webkit-box;
   display: -webkit-flex;
