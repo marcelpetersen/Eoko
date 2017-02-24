@@ -1,0 +1,18 @@
+// -------------------------------
+//
+// Pop Up
+//
+// -------------------------------
+
+.eoko-action-popup{
+  width: calc(100% - 4.5em);
+  height: calc(100% - 8.8em);
+
+  position: absolute;
+  top: 7%;
+
+  background-color: rgba(245, 124, 0, 0.4);
+
+  @include display-flex();
+  @include flex-direction(column);
+}

@@ -20,7 +20,6 @@
     </div>
 
 
-
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
 
@@ -42,14 +41,13 @@
             <br>{{notify.info.date}}
             <br>{{notify.info.time}}
           </p>
-          <button ng-click="openPopover($event, notify)" class="eoko-button-event-join eoko-text-light">
+          <button ng-click="openPopover($event, notify)" class="eoko-button-action-event-join eoko-text-light">
             {{notify.attend}}
           </button>
 
         </ion-item>
       </ion-list>
     </ion-scroll>
-
 
 
     <!--spacer-->
@@ -100,14 +98,12 @@
                    ng-model="event.location" required="">
           </label>
 
-
           <!--Action Date/Time-->
           <label class="item item-input" name="eventDateTime">
-              <input id="ed_labelD" type="date" placeholder="Date" style="font-size: 1em;"
-                     class="eoko-input eoko-text-light" ng-model="event.date" required="">
-
-              <input id="ed_labelT" type="time" placeholder="Time" style="font-size: 1em"
-                     class="eoko-input eoko-text-light" ng-model="event.time" required="">
+            <input id="ed_labelD" type="date" placeholder="Date" style="font-size: 1.1em;"
+                   class="eoko-input eoko-text-light" ng-model="event.date" required="">
+            <input id="ed_labelT" type="time" placeholder="Time" style="font-size: 1.1em;"
+                   class="eoko-input eoko-text-light" ng-model="event.time" required="">
           </label>
 
         </ion-list>
@@ -156,39 +152,93 @@
 
     <!--action detail pop up-->
     <script id="eventFullView.html" type="text/ng-template">
+
       <div ng-click="checkHit($event)" class="popup-container popup-showing active" ng-class="cssClass">
-        <div class="popup" style="background-color: rgba(0,0,0,0);">
 
-          <div>
-            <div class="item item-body" style="background-color: rgba(245, 124, 0, 0.4);">
-              <div class="eventViewAvatar"
-                   style="background-image: url({{modalOpen.info.avatar}});height:80px;width:80px;border-radius:80px;"></div>
-              <div style="color: white;text-align: center;">
-                <p style="color: white;
-                    text-align: center;font-size:20px;
-                    font-weight: bold;">{{modalOpen.info.title}}</p>
-                <p style="color:white;text-align:center;">{{modalOpen.info.location}}
-                  <br>{{modalOpen.info.date}}
-                  <br>{{modalOpen.info.time}}</p>
-                <p style="color:white;">{{modalOpen.info.description}}</p>
+        <div class="eoko-action-popup">
+          <div class="item-body" style="text-align: center">
 
-                <div style="text-align:left;">Going</div>
+            <!--action avatar-->
+            <div class="eoko-action-avatar"
+                 style="background-image: url({{modalOpen.info.avatar}}); margin-bottom: 0">
+            </div>
+
+
+            <div>
+              <!--action title-->
+              <h2 class="eoko-text-action-popup-title eoko-text-medium" style="margin-bottom: 0%">
+                {{modalOpen.info.title}}</h2>
+
+              <!--action hosted by-->
+              <div>
+                <h4 class="eoko-text-action-popup-title2 eoko-text-light" style="margin-bottom: 0">Hosted by</h4>
+                <a ng-click="openProfile(user)" class="eoko-button-clear eoko-text-action-popup-title eoko-text-regular"
+                   style="margin-bottom: 0">Bao Pham{{modalOpen.info.name}}</a>
+              </div>
+
+              <!--action location-->
+              <div>
+                <a class="eoko-icon-location"></a>
+                <h4 class="eoko-text-action-popup-title eoko-text-light" style="margin-bottom: 0">
+                  {{modalOpen.info.location}}
+                </h4>
 
               </div>
-              <ul ng-model="goingList" class="family-icon-scroller" style="margin-top: 0px">
-                <div ng-if="goingList.length == 0" style="color:white;">Nobody confirmed Yet!</div>
-                <li class="systemContainer" ng-repeat="going in goingList">
-                  <div class="eventViewAvatar" style="background-image: url({{going.info.avatar}});">
-                  </div>
-                </li>
 
-              </ul>
-              <button style="float: right;border-radius: 20px;margin-right: 5px;padding: 0 33px;"
-                      ng-click="joinEvent(modalOpen)" class="button button-stable">{{modalOpen.attend}}
-              </button>
+              <!--action date/time-->
+              <div>
+                <a class="eoko-icon-date-time"></a>
+                <a class="eoko-text-action-popup-title2 eoko-text-light" style="margin-bottom: 0; font-size: 18px">
+                  {{modalOpen.info.date}}
+                </a>
+                <a class="eoko-text-action-popup-title2 eoko-text-light" style="margin-bottom: 15px;">
+                  @ {{modalOpen.info.time}}
+                </a>
+              </div>
+
+              <!--action descriptions-->
+              <ion-scroll class="eoko-text-light" style="min-height: 0; max-height: 100px; font-size: 20px;"
+                          scrollbar-x="false" scrollbar-y="false">
+                {{modalOpen.info.description}}
+              </ion-scroll>
             </div>
-          </div>
 
+
+            <!--type of lists button-->
+            <div>
+              <a class="eoko-button-action-event-list eoko-text-light">
+                12 <br/> Going
+              </a>
+              <a class="eoko-button-action-event-list eoko-text-light">
+                12 <br/> Maybe
+              </a>
+              <a class="eoko-button-action-event-list eoko-text-light" style="padding-right: 0;
+  padding-left: 0;">
+                12 <br/> Declined
+              </a>
+              <a class="eoko-button-action-event-list eoko-text-light">
+                12 <br/> Invited
+              </a>
+            </div>
+
+            <!--Join button-->
+            <button ng-click="joinEvent(modalOpen)" class="eoko-button-action-event-popup-join">
+              {{modalOpen.attend}}
+            </button>
+
+
+            <!--list of people are going-->
+            <ul ng-model="goingList" class="family-icon-scroller" style="margin-top: 0px">
+
+              <div ng-if="goingList.length == 0" style="color:white;">Nobody confirmed Yet!</div>
+
+              <li class="systemContainer" ng-repeat="going in goingList">
+                <div class="eventViewAvatar" style="background-image: url({{going.info.avatar}});">
+                </div>
+              </li>
+            </ul>
+
+          </div>
         </div>
       </div>
     </script>

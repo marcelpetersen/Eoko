@@ -58,3 +58,17 @@
 }
 
 
+// Action Popup
+// ------------------------------
+
+.eoko-text-action-popup-title{
+  text-align: center;
+  display: inline-block;
+  @include responsive-font(8vw, 20px, 30px, 25px);
+
+}
+
+.eoko-text-action-popup-title2{
+  @extend .eoko-text-action-popup-title;
+  font-size: 1.6em;
+}
