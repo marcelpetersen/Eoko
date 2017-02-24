@@ -9,8 +9,8 @@
   @include font-type($font-family-base-ultralight-weight, $eoko-text-default-color);
 }
 
-.eoko-text-light{
-  @include font-type($font-family-base-light-weight, $eoko-text-default-color);
+.eoko-text-thin{
+  @include font-type($font-family-base-thin-weight, $eoko-text-default-color);
 }
 
 .eoko-text-regular{
@@ -52,7 +52,7 @@
 // ------------------------------
 
 .eoko-text-button-nav{
-  @extend .eoko-text-light;
+  @extend .eoko-text-thin;
   font-size: 2.11em;
   @include responsive-font(6vw, 20px, 30px, 25px);
 }

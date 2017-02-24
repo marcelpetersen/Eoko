@@ -35,13 +35,13 @@
                   style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
 
           <div class="eoko-notification-avatar" style="background-image: url({{notify.info.avatar}});"></div>
-          <h2 class="eoko-text-light" style="color: white;font-size: 25px">{{notify.info.title}}</h2>
+          <h2 class="eoko-text-thin" style="color: white;font-size: 25px">{{notify.info.title}}</h2>
           <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
             {{notify.info.location}}
             <br>{{notify.info.date}}
             <br>{{notify.info.time}}
           </p>
-          <button ng-click="openPopover($event, notify)" class="eoko-button-action-event-join eoko-text-light">
+          <button ng-click="openPopover($event, notify)" class="eoko-button-action-event-join eoko-text-thin">
             {{notify.attend}}
           </button>
 
@@ -62,11 +62,11 @@
       <div class="button-bar">
         <button id="PublicButton" ng-click="selectedPublic()"
                 style="font-size: 25px; border-radius: 50px; margin: 0 22px;padding: 0px;"
-                class="button button-energized button-block eoko-text-light">Public
+                class="button button-energized button-block eoko-text-thin">Public
         </button>
         <button id="PrivateButton" ng-click="selectedPrivate()"
                 style="font-size: 25px; border-radius: 50px;margin: 0 22px;padding: 0px;"
-                class="button button-energized button-block button-outline eoko-text-light">Private
+                class="button button-energized button-block button-outline eoko-text-thin">Private
         </button>
       </div>
 
@@ -80,30 +80,30 @@
           <!--Action Catagory-->
           <label class="item item-input " name="eventCatagory">
             <input id="ed_labelCatagory" type="text" placeholder="Catagory" style="font-size: 1.6em"
-                   class="eoko-input eoko-text-light" ng-model="event.catagory"
+                   class="eoko-input eoko-text-thin" ng-model="event.catagory"
                    required="">
           </label>
 
           <!--Action title-->
           <label class="item item-input" name="eventTitle">
             <input id="ed_labelTitle" type="text" placeholder="Action Name" style="font-size: 1.6em;"
-                   class="eoko-input eoko-text-light" ng-model="event.title"
+                   class="eoko-input eoko-text-thin" ng-model="event.title"
                    required="">
           </label>
 
           <!--Action Location-->
           <label class="item item-input" name="eventLocation">
             <input id="ed_labelLocation" type="text" placeholder="Location" style="font-size: 1.6em"
-                   class="eoko-input eoko-text-light"
+                   class="eoko-input eoko-text-thin"
                    ng-model="event.location" required="">
           </label>
 
           <!--Action Date/Time-->
           <label class="item item-input" name="eventDateTime">
             <input id="ed_labelD" type="date" placeholder="Date" style="font-size: 1.1em;"
-                   class="eoko-input eoko-text-light" ng-model="event.date" required="">
+                   class="eoko-input eoko-text-thin" ng-model="event.date" required="">
             <input id="ed_labelT" type="time" placeholder="Time" style="font-size: 1.1em;"
-                   class="eoko-input eoko-text-light" ng-model="event.time" required="">
+                   class="eoko-input eoko-text-thin" ng-model="event.time" required="">
           </label>
 
         </ion-list>
@@ -171,7 +171,7 @@
 
               <!--action hosted by-->
               <div>
-                <h4 class="eoko-text-action-popup-title2 eoko-text-light" style="margin-bottom: 0">Hosted by</h4>
+                <h4 class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 0">Hosted by</h4>
                 <a ng-click="openProfile(user)" class="eoko-button-clear eoko-text-action-popup-title eoko-text-regular"
                    style="margin-bottom: 0">Bao Pham{{modalOpen.info.name}}</a>
               </div>
@@ -179,7 +179,7 @@
               <!--action location-->
               <div>
                 <a class="eoko-icon-location"></a>
-                <h4 class="eoko-text-action-popup-title eoko-text-light" style="margin-bottom: 0">
+                <h4 class="eoko-text-action-popup-title eoko-text-thin" style="margin-bottom: 0">
                   {{modalOpen.info.location}}
                 </h4>
 
@@ -188,16 +188,16 @@
               <!--action date/time-->
               <div>
                 <a class="eoko-icon-date-time"></a>
-                <a class="eoko-text-action-popup-title2 eoko-text-light" style="margin-bottom: 0; font-size: 18px">
+                <a class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 0; font-size: 18px">
                   {{modalOpen.info.date}}
                 </a>
-                <a class="eoko-text-action-popup-title2 eoko-text-light" style="margin-bottom: 15px;">
+                <a class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 15px;">
                   @ {{modalOpen.info.time}}
                 </a>
               </div>
 
               <!--action descriptions-->
-              <ion-scroll class="eoko-text-light" style="min-height: 0; max-height: 100px; font-size: 20px;"
+              <ion-scroll class="eoko-text-thin" style="min-height: 0; max-height: 100px; font-size: 20px;"
                           scrollbar-x="false" scrollbar-y="false">
                 {{modalOpen.info.description}}
               </ion-scroll>
@@ -206,17 +206,17 @@
 
             <!--type of lists button-->
             <div>
-              <a class="eoko-button-action-event-list eoko-text-light">
+              <a class="eoko-button-action-event-list eoko-text-thin">
                 12 <br/> Going
               </a>
-              <a class="eoko-button-action-event-list eoko-text-light">
+              <a class="eoko-button-action-event-list eoko-text-thin">
                 12 <br/> Maybe
               </a>
-              <a class="eoko-button-action-event-list eoko-text-light" style="padding-right: 0;
-  padding-left: 0;">
+              <a class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0;
+  padding-left: 0; font-size: 19px;">
                 12 <br/> Declined
               </a>
-              <a class="eoko-button-action-event-list eoko-text-light">
+              <a class="eoko-button-action-event-list eoko-text-thin">
                 12 <br/> Invited
               </a>
             </div>

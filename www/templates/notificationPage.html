@@ -37,13 +37,13 @@
                   on-release="onRelease($event, $index, notify)" on-swipe-left="onSwipeLeft(notify, $index)">
 
           <div class="eoko-notification-avatar" style="background-image: url({{notify.info.avatar}});"></div>
-          <h2 class="eoko-text-light" style="color: white;font-size: 25px">{{notify.info.title}}</h2>
+          <h2 class="eoko-text-thin" style="color: white;font-size: 25px">{{notify.info.title}}</h2>
           <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
             {{notify.info.location}}
             <br>{{notify.info.date}}
             <br>{{notify.info.time}}
           </p>
-          <button ng-click="openPopover($event, notify)" class="eoko-button-action-event-join eoko-text-light">
+          <button ng-click="openPopover($event, notify)" class="eoko-button-action-event-join eoko-text-thin">
             {{notify.attend}}
           </button>
 
@@ -59,13 +59,13 @@
                   style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
 
           <div class="eoko-notification-avatar" style="background-image: url({{actions.info.avatar}});"></div>
-          <h2 class="eoko-text-light" style="color: white;font-size: 25px">{{actions.info.title}}</h2>
+          <h2 class="eoko-text-thin" style="color: white;font-size: 25px">{{actions.info.title}}</h2>
           <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
             {{actions.info.location}}
             <br>{{actions.info.date}}
             <br>{{actions.info.time}}
           </p>
-          <button ng-click="openPopover($event, actions)" class="eoko-button-action-event-join eoko-text-light">
+          <button ng-click="openPopover($event, actions)" class="eoko-button-action-event-join eoko-text-thin">
             <!--{{actions.attend}}-->
             Look
           </button>
