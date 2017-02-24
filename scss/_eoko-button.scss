@@ -73,8 +73,11 @@
 }
 
 
+//
+// Join/Apply button
+// ---------------------------------------
 
-.eoko-button-event-join {
+.eoko-button-action-event-join {
   @include button-style($orange, none, $orange, none, $white);
   border: none;
   border-radius: 20px;
@@ -82,3 +85,61 @@
   font-size: 20px;
   float: right;
 }
+
+.eoko-button-action-event-popup-join{
+  @extend .eoko-button-action-event-join;
+  @include button-style($white, none, $white, none, $orange);
+  height: $button-height - 2px;
+}
+
+
+
+
+//
+// Going/Maybe/Decline/Invited List Button
+// ---------------------------------------
+
+.eoko-button-action-event-list{
+  @include button-style(rgba(255, 255, 255, 0.4), $transparent, rgba(255, 255, 255, 0.2), $transparent, $eoko-button-default-text);
+
+  position: relative;
+  display: inline-block;
+
+  margin-top: 15px;
+  margin-right: 2px;
+  margin-bottom: 10px;
+
+  padding-right: 5px;
+  padding-left: 5px;
+
+  width: $button-height + 32px;
+  height: $button-height + 28px;
+
+  border: none;
+
+  vertical-align: middle;
+  text-align: center;
+
+  text-overflow: ellipsis;
+  font-size: 19px;
+  line-height: $button-height - 13px;
+
+}
+
+@media only screen and (max-width: 320px) {
+
+  .eoko-button-action-event-list {
+    width: $button-height + 9px;
+    height: $button-height + 9px;
+
+    border: none;
+
+    vertical-align: middle;
+    text-align: center;
+
+    text-overflow: ellipsis;
+    font-size: 13px;
+    line-height: $button-height - 20px;
+  }
+}
+

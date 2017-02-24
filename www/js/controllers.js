@@ -343,18 +343,27 @@ angular.module('app.controllers', [])
       }
 
       $scope.selectEventTab = function () {
+        document.getElementById("EventButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("CreateEventButton").className = "eoko-button-text eoko-text-button-nav";
         $scope.selection.tab = "event";
       };
 
       $scope.selectCreateTab = function () {
+        document.getElementById("EventButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("CreateEventButton").className = "eoko-button-text-selected eoko-text-button-nav";
         $scope.selection.tab = "create";
       };
 
+
       $scope.selectedPublic = function () {
+        document.getElementById("PublicButton").className = "button button-energized button-block eoko-text-light";
+        document.getElementById("PrivateButton").className = "button button-energized button-block button-outline eoko-text-light";
         $scope.selection.porb = "public";
       };
 
       $scope.selectedPrivate = function () {
+        document.getElementById("PublicButton").className = "button button-energized button-block button-outline eoko-text-light";
+        document.getElementById("PrivateButton").className = "button button-energized button-block eoko-text-light";
         $scope.selection.porb = "private";
         $scope.selection.privstep = 1;
       };
@@ -572,6 +581,20 @@ angular.module('app.controllers', [])
       });
 
 
+      $scope.selectEveryoneTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("EveryoneButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("FriendsButton").className = "eoko-button-text eoko-text-button-nav";
+        $scope.selection.tab = "everyone";
+      };
+
+      $scope.selectFriendsTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("EveryoneButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("FriendsButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        $scope.selection.tab = "friends";
+      };
+
 
       function chunk(arr, size) {
         var newArr = [];
@@ -662,12 +685,12 @@ $scope.createMessage = function()
     });
 
 
-        
 
-    
-    
-    
-    
+
+
+
+
+
 };
 
 $scope.openPopover = function($event,notify) {
@@ -700,7 +723,7 @@ $scope.openPopover = function($event,notify) {
 
 
 }])
-   
+
 
 
   .controller('buildingEventsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -1267,11 +1290,17 @@ $scope.openPopover = function($event,notify) {
       })();
 
 
-      $scope.selectNotificationTab = function () {
+     $scope.selectNotificationTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("NotificationButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("YourActionButton").className = "eoko-button-text eoko-text-button-nav";
         $scope.selection.tab = "notifications";
       };
 
       $scope.selectYourActionTab = function () {
+        //change css class to udnerline the selected tab
+        document.getElementById("NotificationButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("YourActionButton").className = "eoko-button-text-selected eoko-text-button-nav";
         $scope.selection.tab = "yourevents";
       };
 
@@ -1370,7 +1399,7 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                     authUser = firebase.auth().currentUser;
                     ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Chats");
                     reds = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
-            
+
                     var objs = $firebaseObject(reds);
                     objs.$loaded().then(function(x)
                      {
@@ -1383,12 +1412,12 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                             getInfo(x);
 
                           })
-                          .catch(function(error) 
+                          .catch(function(error)
                           {
                             console.log("Error:", error);
                           });
                       })
-                      .catch(function(error) 
+                      .catch(function(error)
                       {
                         console.log("Error:", error);
                       });
@@ -1402,14 +1431,14 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                 $scope.conversations.$loaded().then(function(x)
                  {
                     getInfo(x);
-                    
+
                   })
-                  .catch(function(error) 
+                  .catch(function(error)
                   {
                     console.log("Error:", error);
                   });
            }
-    
+
     });
 
 
@@ -1447,7 +1476,7 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                         }
                     }
                     $timeout(function () {$scope.$apply();});
-                }); 
+                });
             }
 
 }])
@@ -1515,12 +1544,12 @@ $scope.data ={messageText : ""};
                   userId: authUser.uid,
                   text: $scope.data.messageText,
                   time: d
-                 
+
                 });
             $scope.data.messageText  = "";
             $ionicScrollDelegate.scrollBottom();
-            
-           
+
+
         };
 
        $scope.closeKeyboard = function()

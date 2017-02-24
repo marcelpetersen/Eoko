@@ -1,6 +1,6 @@
 <ion-view title="Chat Tab" hide-nav-bar="true" hide-back-button="true">
   <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" scroll="false">
-    
+
    <div class="button-bar">
   		<a ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left"></a>
 
@@ -20,14 +20,14 @@
     </button>
   -->
 
-    
+
   	<ion-scroll style="height: calc(100% - 11em)">
       <ion-list id="actionList">
 
         <ion-item ng-repeat="convo in conversations" ng-if="convo.name" class="item-thumbnail-left"
                   style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
           <div class="eoko-notification-avatar" style="background-image: url({{convo.avatar}});"></div>
-          <p class="eoko-text-light" style="color: white;font-size: 25px">{{convo.name}}</p>
+          <p class="eoko-text-thin" style="color: white;font-size: 25px">{{convo.name}}</p>
           <span style="color:white;font-size:12px">{{convo.lasttime}}</span>
           <br>
           <p ng-if="!convo.messages" class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">

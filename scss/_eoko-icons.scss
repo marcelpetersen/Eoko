@@ -44,6 +44,11 @@
   text-align: center;
 }
 
+.eoko-action-avatar{
+  @include avatar-format(10061px, 8em, 8em, 0, 50%)
+}
+
+
 .eoko-notification-avatar{
   @include avatar-format(80px, 80px, 80px, 0em, 50%);
   //background-size: contain;
@@ -51,7 +56,12 @@
   left: 10px;
 }
 
-.eoko-searchbar-left{
+
+//
+// Small icons
+// ------------------------------
+
+.eoko-icon-searchbar-left{
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -61,7 +71,7 @@
   float: left;
 }
 
-.eoko-chatbox-right{
+.eoko-icon-chatbox-right{
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -70,6 +80,28 @@
   width: 30px;
   float: right;
 }
+
+.eoko-icon-location{
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  background-image: url("../img/location_icon.png");
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
+
+.eoko-icon-date-time{
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  background-image: url("../img/dateTime_icon.png");
+  height: 23px;
+  width: 23px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
 
 //
 // Tab icons
