@@ -16,6 +16,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 })
 
 
+
 .config(function($ionicNativeTransitionsProvider){
   $ionicNativeTransitionsProvider.setDefaultOptions({
     duration: 300, // in milliseconds (ms), default 400, 
@@ -65,6 +66,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     }
   });
 })
+
+
 
 
 /*

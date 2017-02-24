@@ -24,7 +24,7 @@
   	<ion-scroll style="height: calc(100% - 11em)">
       <ion-list id="actionList">
 
-        <ion-item ng-repeat="convo in conversations" ng-if="convo.name" class="item-thumbnail-left"
+        <ion-item ng-repeat="convo in conversations | reverseAnything" ng-if="convo.name" class="item-thumbnail-left"
                   style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
           <div class="eoko-notification-avatar" style="background-image: url({{convo.avatar}});"></div>
           <p class="eoko-text-light" style="color: white;font-size: 25px">{{convo.name}}</p>
