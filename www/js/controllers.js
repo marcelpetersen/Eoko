@@ -685,12 +685,12 @@ $scope.createMessage = function()
     });
 
 
-        
 
-    
-    
-    
-    
+
+
+
+
+
 };
 
 $scope.openPopover = function($event,notify) {
@@ -723,7 +723,7 @@ $scope.openPopover = function($event,notify) {
 
 
 }])
-   
+
 
 
   .controller('buildingEventsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -1399,7 +1399,7 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                     authUser = firebase.auth().currentUser;
                     ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Chats");
                     reds = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
-            
+
                     var objs = $firebaseObject(reds);
                     objs.$loaded().then(function(x)
                      {
@@ -1412,12 +1412,12 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                             getInfo(x);
 
                           })
-                          .catch(function(error) 
+                          .catch(function(error)
                           {
                             console.log("Error:", error);
                           });
                       })
-                      .catch(function(error) 
+                      .catch(function(error)
                       {
                         console.log("Error:", error);
                       });
@@ -1431,14 +1431,14 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                 $scope.conversations.$loaded().then(function(x)
                  {
                     getInfo(x);
-                    
+
                   })
-                  .catch(function(error) 
+                  .catch(function(error)
                   {
                     console.log("Error:", error);
                   });
            }
-    
+
     });
 
 
@@ -1476,7 +1476,7 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                         }
                     }
                     $timeout(function () {$scope.$apply();});
-                }); 
+                });
             }
 
 }])
@@ -1544,12 +1544,12 @@ $scope.data ={messageText : ""};
                   userId: authUser.uid,
                   text: $scope.data.messageText,
                   time: d
-                 
+
                 });
             $scope.data.messageText  = "";
             $ionicScrollDelegate.scrollBottom();
-            
-           
+
+
         };
 
        $scope.closeKeyboard = function()
