@@ -5,14 +5,16 @@
 
     <div>
       <!--notification buttons-->
-      <a ui-sref="notificationPage" class="eoko-button-clear eoko-bell-left" native-transitions nav-direction="back">
+      <a ng-if="alcick == false" ui-sref="notificationPage" class="eoko-button-clear eoko-bell-left" native-transitions nav-direction="back">
         <div ng-if="friendR > 0" class="eoko-notification-number" ng-model="friendR">
           {{friendR}}
         </div>
       </a>
 
+      <a ng-if="alcick == true" ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left"></a>
+
       <!--setting button-->
-      <a class="eoko-button-clear eoko-setting-right" nav-transition="ios" nav-direction="forward"></a>
+      <a ng-if="alcick == false" class="eoko-button-clear eoko-setting-right" nav-transition="ios" nav-direction="forward"></a>
     </div>
 
     <!--spacer-->
@@ -30,8 +32,19 @@
       <h4 class="eoko-text-ultralight" style="font-size: 20px; text-align:center;">Points</h4>
       <h4 class="eoko-text-ultralight" id="profile-heading4" style="font-size: 20px; text-align:center;">
         {{user.description}}</h4>
-    </ion-scroll>
+    
 
+    <button class="btn btn-primary form-control"
+          ng-click="load.init()">
+          Retrieve
+        </button>
+
+      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="item in ngInstafeedModel.data">
+        <img ng-if="item.images.standard_resolution.url != 'https://instagramstatic-a.akamaihd.net/null.jpg'" ng-src="{{item.images.standard_resolution.url}}" 
+          style="max-width:100%;" />
+    </div>
+
+</ion-scroll>
 
     <div class="spacer" style="width: 300px; height: 27px;"></div>
   </ion-content>
