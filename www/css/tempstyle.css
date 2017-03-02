@@ -67,17 +67,6 @@
   border-color:rgba(255, 188, 0, 0.44);
 }
 
-.avatarImg{
-    border-radius: 50px;
-    background-size: cover;
-    background-position-x: 61%;
-    background-color:grey;
-    width: 12.5em;
-    height: 13em;
-    border-radius: 13em;
-    margin: 2em auto;
-}
-
 .bar{
   background-color: rgba(255, 255, 255, 0.32);
 }
