@@ -143,3 +143,12 @@
   }
 }
 
+
+.eoko-button-event-join {
+  @include button-style($orange, none, $orange, none, $white);
+  border: none;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 20px;
+  float: right;
+}
