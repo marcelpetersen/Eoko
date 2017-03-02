@@ -2,7 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0410c821-3d83-41a9-8369-8abe907e4630" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/templates.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/instafeed.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/templates.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/instafeed.js/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/instafeed.js/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/instafeed.js/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/instafeed.js/instafeed.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/instafeed.js/instafeed.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngInstafeed/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngInstafeed/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngInstafeed/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngInstafeed/demo/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngInstafeed/demo/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngInstafeed/demo/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngInstafeed/ng-instafeed.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngInstafeed/src/ng-instafeed.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/routes.js" afterPath="$PROJECT_DIR$/www/js/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services.js" afterPath="$PROJECT_DIR$/www/js/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/buildingEvents.html" afterPath="$PROJECT_DIR$/www/templates/buildingEvents.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/chatTab.html" afterPath="$PROJECT_DIR$/www/templates/chatTab.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/events.html" afterPath="$PROJECT_DIR$/www/templates/events.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/profile.html" afterPath="$PROJECT_DIR$/www/templates/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tabsController.html" afterPath="$PROJECT_DIR$/www/templates/tabsController.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,8 +52,8 @@
           <file leaf-file-name="_eoko-button.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scss/_eoko-button.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="97">
-                  <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+                <state relative-caret-position="540">
+                  <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -56,7 +83,7 @@
             <entry file="file://$PROJECT_DIR$/scss/_eoko-popup.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="255">
-                  <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+                  <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -66,7 +93,7 @@
             <entry file="file://$PROJECT_DIR$/scss/_eoko-icons.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="915">
-                  <caret line="61" column="33" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="61" selection-end-column="33" />
+                  <caret line="61" column="33" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="61" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
@@ -76,7 +103,7 @@
             <entry file="file://$PROJECT_DIR$/scss/_eoko-text.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="120">
-                  <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+                  <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
                   <folding />
                 </state>
               </provider>
@@ -89,8 +116,8 @@
           <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2850">
-                  <caret line="190" column="9" lean-forward="true" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
+                <state relative-caret-position="2160">
+                  <caret line="144" column="0" lean-forward="true" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -99,8 +126,8 @@
           <file leaf-file-name="events.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/templates/events.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="367">
-                  <caret line="114" column="32" lean-forward="true" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+                <state relative-caret-position="442">
+                  <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
                   <folding>
                     <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -116,6 +143,7 @@
                     <element signature="n#style#0;n#input#0;n#label#2;n#ion-list#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#input#0;n#label#3;n#ion-list#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#input#1;n#label#3;n#ion-list#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#button#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#button#1;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#ion-item#0;n#ion-item#0;n#ion-list#0;n#div#4;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -151,7 +179,7 @@
             <entry file="file://$PROJECT_DIR$/www/lib/ionic/scss/_popup.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="210">
-                  <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+                  <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -160,8 +188,8 @@
           <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/templates/login.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="16" />
+                <state relative-caret-position="330">
+                  <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
                   <folding>
                     <element signature="n#style#0;n#input#0;n#label#0;n#ion-list#0;n#form#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#input#0;n#label#1;n#ion-list#0;n#form#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -243,9 +271,9 @@
         <option value="$PROJECT_DIR$/scss/_eoko-text.scss" />
         <option value="$PROJECT_DIR$/scss/_eoko-variables.scss" />
         <option value="$PROJECT_DIR$/scss/_eoko-popup.scss" />
-        <option value="$PROJECT_DIR$/www/templates/events.html" />
         <option value="$PROJECT_DIR$/scss/_eoko-button.scss" />
         <option value="$PROJECT_DIR$/scss/sanfrancisco-font.scss" />
+        <option value="$PROJECT_DIR$/www/templates/events.html" />
       </list>
     </option>
   </component>
@@ -284,8 +312,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -496,13 +524,12 @@
       <workItem from="1487732034107" duration="4000" />
       <workItem from="1487799480746" duration="15928000" />
       <workItem from="1488210002649" duration="421000" />
-      <workItem from="1488311192544" duration="2000" />
-      <workItem from="1488311241985" duration="3000" />
+      <workItem from="1488348162931" duration="1000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99476000" />
+    <option name="totallyTimeSpent" value="99744000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="25" y="22" width="1895" height="1178" extended-state="6" />
@@ -788,8 +815,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2850">
-          <caret line="190" column="9" lean-forward="true" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
+        <state relative-caret-position="2160">
+          <caret line="144" column="0" lean-forward="true" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -809,7 +836,7 @@
     <entry file="file://$PROJECT_DIR$/www/lib/ionic/scss/_popup.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -833,15 +860,15 @@
     <entry file="file://$PROJECT_DIR$/scss/_eoko-text.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="16" />
+        <state relative-caret-position="330">
+          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#input#0;n#label#0;n#ion-list#0;n#form#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#label#1;n#ion-list#0;n#form#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -862,7 +889,7 @@
     <entry file="file://$PROJECT_DIR$/scss/_eoko-popup.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -893,23 +920,23 @@
     <entry file="file://$PROJECT_DIR$/scss/_eoko-icons.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
-          <caret line="61" column="33" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="61" selection-end-column="33" />
+          <caret line="61" column="33" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="61" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scss/_eoko-button.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+        <state relative-caret-position="540">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/events.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="114" column="32" lean-forward="true" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+        <state relative-caret-position="442">
+          <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -925,6 +952,7 @@
             <element signature="n#style#0;n#input#0;n#label#2;n#ion-list#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#label#3;n#ion-list#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#label#3;n#ion-list#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#form#0;n#ion-scroll#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ion-item#0;n#ion-item#0;n#ion-list#0;n#div#4;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
