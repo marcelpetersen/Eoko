@@ -5,7 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+<<<<<<< HEAD
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','firebase','firebaseConfig','ionic.ion.imageCacheFactory','ionic-native-transitions','ngInstafeed','templates',])
+=======
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','firebase','firebaseConfig','ionic.ion.imageCacheFactory','ionic-native-transitions','ngInstafeed',])
+>>>>>>> refs/remotes/origin/MilordDev
 
 .config(function($ionicConfigProvider, $sceDelegateProvider){
   
@@ -47,7 +51,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       ngInstafeedProvider.setAccessToken('3085788730.1677ed0.d1d536d1a92f40cab51717419d4cdcbb');
   })
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/MilordDev
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 

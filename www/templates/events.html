@@ -173,7 +173,7 @@
               <div>
                 <h4 class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 0">Hosted by</h4>
                 <a ng-click="openProfile(user)" class="eoko-button-clear eoko-text-action-popup-title eoko-text-regular"
-                   style="margin-bottom: 0">Bao Pham{{modalOpen.info.name}}</a>
+                   style="margin-bottom: 0">{{modalOpen.info.name}}</a>
               </div>
 
               <!--action location-->
@@ -206,18 +206,17 @@
 
             <!--type of lists button-->
             <div>
-              <a class="eoko-button-action-event-list eoko-text-thin">
-                12 <br/> Going
+              <a class="eoko-button-action-event-list eoko-text-thin" style="font-size:4vw;">
+                {{goingList.length}} <br/> Going
               </a>
-              <a class="eoko-button-action-event-list eoko-text-thin">
-                12 <br/> Maybe
+              <a class="eoko-button-action-event-list eoko-text-thin" style="font-size:4vw;">
+                0 <br/> Maybe
               </a>
-              <a class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0;
-  padding-left: 0;">
-                12 <br/> Declined
+              <a class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0;padding-left: 0;font-size:4vw;">
+                0 <br/> Declined
               </a>
-              <a class="eoko-button-action-event-list eoko-text-thin">
-                12 <br/> Invited
+              <a class="eoko-button-action-event-list eoko-text-thin" style="font-size:4vw;">
+                {{modalOpen.rolenumber}} <br/> Invited
               </a>
             </div>
 
@@ -228,7 +227,7 @@
 
 
             <!--list of people are going-->
-            <ul ng-model="goingList" class="family-icon-scroller" style="margin-top: 0px">
+            <!-- <ul ng-model="goingList" class="family-icon-scroller" style="margin-top: 0px">
 
               <div ng-if="goingList.length == 0" style="color:white;">Nobody confirmed Yet!</div>
 
@@ -236,7 +235,7 @@
                 <div class="eventViewAvatar" style="background-image: url({{going.info.avatar}});">
                 </div>
               </li>
-            </ul>
+            </ul> -->
 
           </div>
         </div>

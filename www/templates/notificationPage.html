@@ -37,15 +37,30 @@
                   on-release="onRelease($event, $index, notify)" on-swipe-left="onSwipeLeft(notify, $index)">
 
           <div class="eoko-notification-avatar" style="background-image: url({{notify.info.avatar}});"></div>
-          <h2 class="eoko-text-thin" style="color: white;font-size: 25px">{{notify.info.title}}</h2>
-          <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+
+          <h2 class="eoko-text-thin" ng-if="!notify.friendrequest" style="color: white;font-size: 25px">{{notify.info.title}}</h2>
+           <h2 class="eoko-text-thin" ng-if="notify.friendrequest" style="color: white;font-size: 25px">Friend Request</h2>
+          <p class="eoko-text-ultralight" ng-if="!notify.friendrequest" style="color: white;display: inline; font-size: 15px;">
             {{notify.info.location}}
             <br>{{notify.info.date}}
             <br>{{notify.info.time}}
           </p>
-          <button ng-click="openPopover($event, notify)" class="eoko-button-action-event-join eoko-text-thin">
+
+          <p class="eoko-text-ultralight" ng-if="notify.friendrequest" style="color: white;display: inline; font-size: 15px;">
+            <span style="font-weight:bolder;">{{notify.info.name}}</span> sent you a friend <br> request!
+          </p>
+
+          <button ng-click="openPopover($event, notify)" ng-if="!notify.friendrequest" class="eoko-button-action-event-join eoko-text-thin">
             {{notify.attend}}
           </button>
+
+          <button ng-click="denyRequest()" ng-if="notify.friendrequest" class="eoko-button-action-event-join eoko-text-thin" style="margin-left:5px;">
+            Decline
+          </button>
+           <button ng-click="acceptRequest(notify.info)" ng-if="notify.friendrequest" class="eoko-button-action-event-join eoko-text-thin">
+            Accept
+          </button>
+          
 
         </ion-item>
       </ion-list>

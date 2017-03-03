@@ -1,5 +1,6 @@
 angular.module('app.controllers', [])
 
+<<<<<<< HEAD
   .controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate','$timeout','ProfilePress','ngInstafeed', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -7,6 +8,15 @@ angular.module('app.controllers', [])
 
       var usr = UserInfo.getUserInfo();
 
+=======
+  .controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate','$timeout','ngInstafeed', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+    function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject, $ionicTabsDelegate,$timeout,ngInstafeed) {
+
+      var usr;
+
+>>>>>>> refs/remotes/origin/MilordDev
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
          $scope.user = UserInfo.getUserInfo();
@@ -18,7 +28,23 @@ angular.module('app.controllers', [])
           $ionicTabsDelegate.showBar(false);
           $scope.user = OtherInfo.getOtherInfo();
           console.log($scope.user);
+<<<<<<< HEAD
           ProfilePress.setState(false);
+=======
+
+          selfUser = UserInfo.getUserInfo();
+          $scope.isFriend = false;
+          for(property in selfUser.friendlist)
+          {
+            console.log(property, $scope.user.id)
+            if(property == $scope.user.id)
+            {
+              $scope.isFriend = true;
+              $timeout(function () {$scope.$apply();});
+              break;
+            }
+          }
+>>>>>>> refs/remotes/origin/MilordDev
         }
         else {
             $scope.alcick = false;
@@ -27,13 +53,18 @@ angular.module('app.controllers', [])
             console.log("undefined usr");
             firebase.auth().onAuthStateChanged(function (user) {
               usr = firebase.auth().currentUser;
-
+              $scope.isFriend = true;
               console.log(usr.displayName);
               var ref = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
               $scope.user = $firebaseObject(ref);
               $scope.user.$loaded().then(function (x) {
+<<<<<<< HEAD
                 UserInfo.setUserInfo($scope.user);
                 console.log("userinfo:",$scope.user);
+=======
+                UserInfo.setUserInfo($scope.user,usr.uid);
+                console.log($scope.user);
+>>>>>>> refs/remotes/origin/MilordDev
 
                 if ($scope.user.notifications) {
                   $scope.friendR = Object.keys($scope.user.notifications).length;
@@ -49,7 +80,12 @@ angular.module('app.controllers', [])
             });
           }
           else {
+<<<<<<< HEAD
             console.log("userinfo", UserInfo.getUserInfo());
+=======
+            $scope.isFriend = true;
+            console.log("userinfo is:", UserInfo.getUserInfo());
+>>>>>>> refs/remotes/origin/MilordDev
             $scope.user = UserInfo.getUserInfo();
             if ($scope.user.notifications) {
               $scope.friendR = Object.keys($scope.user.notifications).length;
@@ -63,8 +99,11 @@ angular.module('app.controllers', [])
       });
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> refs/remotes/origin/MilordDev
       $scope.data = {
             userId: '3085788730',
         };
@@ -95,7 +134,92 @@ angular.module('app.controllers', [])
             }   
         };
 
+<<<<<<< HEAD
       
+=======
+  $scope.addFriend = function(info)
+  {
+    var myself = UserInfo.getUserInfo();
+    usr = firebase.auth().currentUser;
+    console.log("adding friend", info);
+    var ress = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
+    ress.child('friendlist').child(info.id).set({confirmed: false});
+    var rsp = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + info.id);
+    rsp.child('notifications').push({friendrequest: true, person: myself});
+              var u = $firebaseObject(ress);
+              u.$loaded().then(function (x) {
+                UserInfo.setUserInfo(u,usr.uid);
+              });
+  };
+
+//upload new picture
+
+        function b64toBlob(b64Data, contentType, sliceSize) { //blobs galore
+        contentType = contentType || '';
+        sliceSize = sliceSize || 512;
+
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
+
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+          var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+          var byteNumbers = new Array(slice.length);
+          for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+          }
+
+          var byteArray = new Uint8Array(byteNumbers);
+
+          byteArrays.push(byteArray);
+        }
+
+        var blob = new Blob(byteArrays, {
+          type: contentType
+        });
+        return blob;
+      }
+
+
+      var randID = "";
+
+      $scope.uploadPic = function () {
+        console.log("upload picture");
+
+        var options = {
+          quality: 75,
+          destinationType: 0, //URL = 0, URI = 1;
+          sourceType: 0,
+          allowEdit: true,
+          encodingType: 0,
+          targetWidth: 500,
+          targetHeight: 500,
+          saveToPhotoAlbum: false
+        };
+
+        $cordovaCamera.getPicture(options).then(function (imageData) {
+          console.log(imageData);
+          var contentType = 'image/jpeg';
+          var blob = b64toBlob(imageData, contentType);
+          console.log("a new blob, ", blob);
+          console.log("blobs URL, ", $scope.user.image);
+
+          randID = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
+          firebase.storage().ref().child('profilePics/' + randID + ".jpg").put(blob).then(function (snapshot) {
+            console.log('Uploaded a blob !');
+            $scope.user.avatar = snapshot.downloadURL;
+            var ress = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
+            ress.set({avatar: snapshot.downloadURL});
+            $timeout(function () {
+              $scope.$apply();
+            });
+          });
+
+
+        });
+      };
+
+>>>>>>> refs/remotes/origin/MilordDev
 
 
     }])
@@ -127,7 +251,7 @@ angular.module('app.controllers', [])
             var rez = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
             var loadit = $firebaseObject(rez);
             loadit.$loaded().then(function (x) {
-              UserInfo.setUserInfo(x);
+              UserInfo.setUserInfo(x,authUser.uid);
               usr = UserInfo.getUserInfo();
               ref = firebase.database().ref("Buildings").child(usr.buildcode + "/UserEvents");
               refActivate();
@@ -233,9 +357,11 @@ angular.module('app.controllers', [])
         $scope.modalOpen = {
           info: notify.info,
           key: notify.key,
-          attend: notify.attend
+          attend: notify.attend,
+          rolenumber: Object.keys(notify.info.rolecall).length
         };
         findgoing();
+        console.log("ntoify",notify);
         $scope.popover.show($event);
         makeblurry();
       };
@@ -450,7 +576,11 @@ angular.module('app.controllers', [])
           time: "",
           description: $scope.event.description,
           avatar: usr.avatar,
+<<<<<<< HEAD
           creatorID: authUser.uid
+=======
+          name: usr.name
+>>>>>>> refs/remotes/origin/MilordDev
         };
 
         var d = $scope.event.date;
@@ -476,7 +606,8 @@ angular.module('app.controllers', [])
               'time': postedEvent.time,
               'description': postedEvent.description,
               'avatar': postedEvent.avatar,
-              'rolecall': rolecall
+              'rolecall': rolecall,
+              'name' : postedEvent.name
             });
 
             rec.child(authUser.uid + "/notifications").push({
@@ -487,7 +618,8 @@ angular.module('app.controllers', [])
               'time': postedEvent.time,
               'description': postedEvent.description,
               'avatar': postedEvent.avatar,
-              'rolecall': rolecall
+              'rolecall': rolecall,
+              'name' : postedEvent.name
             });
 
             rec.child(authUser.uid + "/yourEvents").push({
@@ -498,7 +630,8 @@ angular.module('app.controllers', [])
               'time': postedEvent.time,
               'description': postedEvent.description,
               'avatar': postedEvent.avatar,
-              'rolecall': rolecall
+              'rolecall': rolecall,
+              'name' : postedEvent.name
             });
 
             rec.child(authUser.uid + "/eventCount").transaction(function (counts) {
@@ -526,7 +659,8 @@ angular.module('app.controllers', [])
             'time': postedEvent.time,
             'description': postedEvent.description,
             'avatar': postedEvent.avatar,
-            'rolecall': $scope.privateRoll
+            'rolecall': $scope.privateRoll,
+            'name' : postedEvent.name
           });
 
 
@@ -538,7 +672,8 @@ angular.module('app.controllers', [])
             'time': postedEvent.time,
             'description': postedEvent.description,
             'avatar': postedEvent.avatar,
-            'rolecall': $scope.privateRoll
+            'rolecall': $scope.privateRoll,
+            'name' : postedEvent.name
           });
 
           rec.child(authUser.uid + "/yourEvents").push({
@@ -549,7 +684,8 @@ angular.module('app.controllers', [])
             'time': postedEvent.time,
             'description': postedEvent.description,
             'avatar': postedEvent.avatar,
-            'rolecall': $scope.privateRoll
+            'rolecall': $scope.privateRoll,
+            'name' : postedEvent.name
           });
 
           rec.child(authUser.uid + "/eventCount").transaction(function (counts) {
@@ -590,7 +726,7 @@ angular.module('app.controllers', [])
 
             var tempdata = $firebaseObject(ref.child(usor.uid));
             tempdata.$loaded().then(function (x) {
-              UserInfo.setUserInfo(tempdata);
+              UserInfo.setUserInfo(tempdata,usor.uid);
               console.log(tempdata);
               usr = UserInfo.getUserInfo();
 
@@ -659,9 +795,17 @@ angular.module('app.controllers', [])
 
 
       $scope.openProfile = function (clicked) {
+<<<<<<< HEAD
         OtherInfo.setOtherInfo(clicked);
         ProfilePress.setState(true);
         $state.go('tabsController.profile');//, {'aprofile': true},{reload: true});*/
+=======
+        OtherInfo.setOtherInfo(clicked, clicked.$id);
+        console.log(clicked.$id);
+        $state.go('tabsController.profile', {
+          'avatarClicked': 'true'
+        });
+>>>>>>> refs/remotes/origin/MilordDev
       };
 
 
@@ -853,7 +997,7 @@ $scope.openPopover = function($event,notify) {
             var ref = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
             var youser = $firebaseObject(ref);
             youser.$loaded().then(function (x) {
-              UserInfo.setUserInfo(youser);
+              UserInfo.setUserInfo(youser,usr.uid);
               console.log(youser);
               $state.go('tabsController.profile');
             })
@@ -897,7 +1041,7 @@ $scope.openPopover = function($event,notify) {
 
             ref.child(usr.uid).once("value").then(function (snapshot) {
               console.log(snapshot.val());
-              UserInfo.setUserInfo(snapshot.val());
+              UserInfo.setUserInfo(snapshot.val(),usr.uid);
               $state.go('tabsController.profile');
             });
 
@@ -969,7 +1113,7 @@ $scope.openPopover = function($event,notify) {
                 };
                 ref.child(usr.uid).set(userInfo);
 
-                UserInfo.setUserInfo(userInfo);
+                UserInfo.setUserInfo(userInfo,usr.uid);
 
                 console.log("User Logged in!");
                 $state.go('getPicturePage');
@@ -1147,7 +1291,7 @@ $scope.openPopover = function($event,notify) {
             ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
             var loadit = $firebaseObject(ref);
             loadit.$loaded().then(function (x) {
-              UserInfo.setUserInfo(x);
+              UserInfo.setUserInfo(x,authUser.uid);
               usr = UserInfo.getUserInfo();
               refActivate();
 
@@ -1203,15 +1347,24 @@ $scope.openPopover = function($event,notify) {
 
             ref.child('notifications').on('child_added', function (data) {
               console.log("child_added notify triggered");
-              if (checkUser(data.val())) {
-                $scope.notifications.push({
-                  info: data.val(),
-                  key: data.key,
-                  attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
-                });
-                $timeout(function () {
-                  $scope.$apply();
-                });
+                if(data.val().friendrequest == true){
+                  $scope.notifications.push({
+                    info: data.val().person,
+                    key: data.key,
+                    friendrequest: true
+                  });
+                }
+                else{
+                  if (checkUser(data.val())) {
+                  $scope.notifications.push({
+                    info: data.val(),
+                    key: data.key,
+                    attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
+                  });
+                }
+                  $timeout(function () {
+                    $scope.$apply();
+                  });
               }
             });
 
@@ -1252,11 +1405,22 @@ $scope.openPopover = function($event,notify) {
                   }
                   if (additem === true)   //if not, push to notification stack
                   {
-                    $scope.notifications.push({
-                      info: data.val(),
-                      key: data.key,
-                      attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
-                    });
+                    if(data.val().friendrequest == true)
+                    {
+                      $scope.notifications.push({
+                        info: data.val().person,
+                        key: data.key,
+                        friendrequest: true
+                      });
+                    }
+                    else
+                    {
+                      $scope.notifications.push({
+                        info: data.val(),
+                        key: data.key,
+                        attend: data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join'
+                      });
+                    }
                     break;
                   }
                   break;
@@ -1429,6 +1593,8 @@ $scope.openPopover = function($event,notify) {
         }
       };
 
+      //vorixo is the best ever!
+
       $scope.onSwipeLeft = function (notify, index) {
         console.log(index);
         swiped = true;
@@ -1459,6 +1625,17 @@ $scope.openPopover = function($event,notify) {
         /**/
       };
 
+      $scope.acceptRequest = function(info)
+      {
+        console.log("accept friend request");
+      };
+
+      $scope.denyRequest = function()
+      {
+        console.log("deny friend request");
+      };
+
+
     }])
 
 
@@ -1485,7 +1662,7 @@ $scope.$on('$ionicView.beforeEnter', function() //before anything runs
                     var objs = $firebaseObject(reds);
                     objs.$loaded().then(function(x)
                      {
-                        UserInfo.setUserInfo(x);
+                        UserInfo.setUserInfo(x,authUser.uid);
                         usr = UserInfo.getUserInfo();
 
                         $scope.conversations = $firebaseArray(ref);
