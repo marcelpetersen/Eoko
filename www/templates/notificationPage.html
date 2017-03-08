@@ -4,6 +4,9 @@
                class="manual-ios-statusbar-padding" scroll="false">
 
     <div class="button-bar">
+      <!--back button-->
+      <a ui-sref="tabsController.profile" class="eoko-button-clear ion-chevron-left" nav-transition="ios"
+         nav-direction="back"></a>
       <!--Notifications-->
       <a id="NotificationButton" class="eoko-button-text-selected eoko-text-button-nav"
          ng-click="selectNotificationTab()">Notification
@@ -12,9 +15,6 @@
       <a id="YourActionButton" class="eoko-button-text eoko-text-button-nav "
          ng-click="selectYourActionTab()">Your Actions
       </a>
-      <!--back button-->
-      <a ui-sref="tabsController.profile" class="eoko-button-clear ion-chevron-right" nav-transition="ios"
-         nav-direction="forward"></a>
     </div>
 
 
