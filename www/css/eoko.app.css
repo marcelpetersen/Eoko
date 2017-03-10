@@ -9892,6 +9892,8 @@ a.button {
   border-color: none;
   background-color: #FFFFFF;
   color: #F57C00;
+  padding: 2px 10px;
+  float: right;
   height: 40px; }
   .eoko-button-action-event-popup-join.hover {
     background-color: #ebebeb;
@@ -10273,6 +10275,35 @@ input, textarea::-webkit-input-placeholder {
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
+
+.eoko-hide {
+  overflow: hidden;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  transition-property: all;
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+
+.eoko-show {
+  max-height: 300px;
+  transition-property: all;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
 
 textarea,
 input[type="text"],

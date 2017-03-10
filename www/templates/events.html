@@ -149,7 +149,6 @@
       </button>
     </div>
 
-
     <!--action detail pop up-->
     <script id="eventFullView.html" type="text/ng-template">
 
@@ -163,17 +162,18 @@
                  style="background-image: url({{modalOpen.info.avatar}}); margin-bottom: 0">
             </div>
 
+            <!--action title-->
+            <h2 class="eoko-text-action-popup-title eoko-text-medium" style="margin-bottom: 0%">
+              {{modalOpen.info.title}}
+            </h2>
 
-            <div>
-              <!--action title-->
-              <h2 class="eoko-text-action-popup-title eoko-text-medium" style="margin-bottom: 0%">
-                {{modalOpen.info.title}}</h2>
 
+            <div id="actionDetail" class="eoko-show">
               <!--action hosted by-->
               <div>
                 <h4 class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 0">Hosted by</h4>
                 <a ng-click="openProfile(user)" class="eoko-button-clear eoko-text-action-popup-title eoko-text-regular"
-                   style="margin-bottom: 0">Bao Pham{{modalOpen.info.name}}</a>
+                   style="margin-bottom: 0">"NAME"{{modalOpen.info.name}}</a>
               </div>
 
               <!--action location-->
@@ -206,41 +206,46 @@
 
             <!--type of lists button-->
             <div>
-              <a class="eoko-button-action-event-list eoko-text-thin">
-                12 <br/> Going
+              <a ng-click="showAttendants('goingButton')" id="goingButton" class="eoko-button-action-event-list eoko-text-thin">
+                {{goingList.length}} <br/> Going
               </a>
-              <a class="eoko-button-action-event-list eoko-text-thin">
+              <a ng-click="showAttendants('maybeButton')" id="maybeButton" class="eoko-button-action-event-list eoko-text-thin">
                 12 <br/> Maybe
               </a>
-              <a class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0;
-  padding-left: 0;">
+              <a ng-click="showAttendants('declinedButton')" id="declinedButton" class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0; padding-left: 0;">
                 12 <br/> Declined
               </a>
-              <a class="eoko-button-action-event-list eoko-text-thin">
+              <a ng-click="showAttendants('invitedButton')" id="invitedButton" class="eoko-button-action-event-list eoko-text-thin">
                 12 <br/> Invited
               </a>
+            </div>
+
+            <!--show people who are going/maybe/declined/invited-->
+            <div id="attendents">
+              <!--<ion-list>-->
+                <!--<ion-item class="row" ng-repeat="rows in userList">-->
+
+                  <!--<figure ng-repeat="user in rows" ng-if="user.$id != owning.id" class="span4 eoko-connect-avatar">-->
+                    <!--<ion-item ng-click="openProfile(user)" on-hold="openPopover($event,user)"-->
+                              <!--style="background-image: url({{user.avatar}});margin:0px;"-->
+                              <!--class="span4 eoko-connect-avatar"></ion-item>-->
+
+                    <!--<figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">{{user.name}}-->
+                    <!--</figcaption>-->
+                  <!--</figure>-->
+                <!--</ion-item>-->
+              <!--</ion-list>-->
             </div>
 
             <!--Join button-->
             <button ng-click="joinEvent(modalOpen)" class="eoko-button-action-event-popup-join">
               {{modalOpen.attend}}
             </button>
-
-
-            <!--list of people are going-->
-            <ul ng-model="goingList" class="family-icon-scroller" style="margin-top: 0px">
-
-              <div ng-if="goingList.length == 0" style="color:white;">Nobody confirmed Yet!</div>
-
-              <li class="systemContainer" ng-repeat="going in goingList">
-                <div class="eventViewAvatar" style="background-image: url({{going.info.avatar}});">
-                </div>
-              </li>
-            </ul>
-
           </div>
+
         </div>
       </div>
+
     </script>
 
 

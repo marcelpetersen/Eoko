@@ -169,9 +169,7 @@ angular.module('app.controllers', [])
               console.log("record: ", snap.val());
               $timeout(function () {$scope.$apply();});
             });
-
           }
-
         }
       }
 
@@ -215,6 +213,52 @@ angular.module('app.controllers', [])
           $scope.closePopover();
         });
       };
+
+
+      //store the selected button for showAttendants()
+      var selected = "";
+      //showing attendants of the action in poppu
+      $scope.showAttendants = function (button){
+
+
+        //change the selected button to orange and hide details
+        document.getElementById(button).style.background = "#F57C00";
+        document.getElementById("actionDetail").className = "eoko-hide";
+
+        //change other buttons to normal color
+        switch (button){
+          case "goingButton":
+            document.getElementById("maybeButton").style.background = "rgba(255, 255, 255, 0.4)";
+            document.getElementById("declinedButton").style.background = "rgba(255, 255, 255, 0.4)";
+            document.getElementById("invitedButton").style.background = "rgba(255, 255, 255, 0.4)";
+            break;
+          case "maybeButton":
+            document.getElementById("goingButton").style.background = "rgba(255, 255, 255, 0.4)";
+            document.getElementById("declinedButton").style.background = "rgba(255, 255, 255, 0.4)";
+            document.getElementById("invitedButton").style.background = "rgba(255, 255, 255, 0.4)";
+            break;
+          case "declinedButton":
+            document.getElementById("goingButton").style.background = "rgba(255, 255, 255, 0.4)";
+            document.getElementById("maybeButton").style.background = "rgba(255, 255, 255, 0.4)";
+            document.getElementById("invitedButton").style.background = "rgba(255, 255, 255, 0.4)";
+            break;
+          case "invitedButton":
+            document.getElementById("goingButton").style.background = "rgba(255, 255, 255, 0.4)";
+            document.getElementById("maybeButton").style.background = "rgba(255, 255, 255, 0.4)";
+            document.getElementById("declinedButton").style.background = "rgba(255, 255, 255, 0.4)";
+            break;
+        }
+
+        //deselect a button
+        if(selected === button){
+          document.getElementById(button).style.background = "rgba(255, 255, 255, 0.4)";
+          document.getElementById("actionDetail").className = "eoko-show";
+          selected = "";
+        }else{
+          selected = button;
+        }
+      };
+
 
 
 //var writeAttend = data.val().rolecall[authUser.uid].going ? 'Joined' : 'Join';

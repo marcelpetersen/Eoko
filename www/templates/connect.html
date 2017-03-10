@@ -22,7 +22,6 @@
       <ion-list>
         <ion-item class="row" ng-repeat="rows in userList">
 
-
           <figure ng-repeat="user in rows" ng-if="user.$id != owning.id" class="span4 eoko-connect-avatar">
             <ion-item ng-click="openProfile(user)" on-hold="openPopover($event,user)"
                       style="background-image: url({{user.avatar}});margin:0px;"
