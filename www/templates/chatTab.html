@@ -1,27 +1,33 @@
 <ion-view title="Chat Tab" hide-nav-bar="true" hide-back-button="true">
-  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" scroll="false">
+  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;"
+               scroll="false">
 
-   <div class="button-bar">
-  		<a ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left"></a>
+    <!--spacer-->
+    <div class="spacer" style="height: 20px;"></div>
 
-  		<!-- <form class="list">
-      <div>
-        <label class="item item-input" style="border: 1px solid white; border-radius: 20px;    padding: 1px 15px;">
-          <i class="icon ion-search placeholder-icon"></i>
-          <input type="search" placeholder="Search by name" ng-model="search.text" ng-model-options="{ debounce: 0618 }" ng-change="searchName()">
-        </label>
-      </div>
-    </form> -->
+    <div class="button-bar">
+      <a ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left"></a>
 
-  	</div>
+      <form class="list">
+        <div>
+          <label class="item item-input" style="border: 1px solid white; border-radius: 20px;    padding: 1px 15px;">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="search" placeholder="Search by name" ng-model="search.text"
+                   ng-model-options="{ debounce: 0618 }" ng-change="searchName()">
+          </label>
+        </div>
+      </form>
 
- <!--  	<button ng-click="newConversation()" style="font-size: 20px; border-radius: 33px;margin: 0 22px;padding: 5px;"
-                class="button button-energized button-inline-block eoko-text-light">New Message
-    </button>
-  -->
+      <button ng-click="newConversation()" style="font-size: 20px; border-radius: 33px;margin: 0 22px;padding: 5px;"
+              class="button button-energized button-inline-block eoko-text-light">New Message
+      </button>
+    </div>
 
 
-  	<ion-scroll style="height: calc(100% - 11em)">
+    <!--spacer-->
+    <div class="spacer" style="height: 20px;"></div>
+
+    <ion-scroll style="height: calc(100% - 11em)">
       <ion-list id="actionList">
 
         <ion-item ng-repeat="convo in conversations" ng-if="convo.name" class="item-thumbnail-left"
@@ -30,13 +36,16 @@
           <p class="eoko-text-thin" style="color: white;font-size: 25px">{{convo.name}}</p>
           <span style="color:white;font-size:12px">{{convo.lasttime}}</span>
           <br>
-          <p ng-if="!convo.messages" class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+          <p ng-if="!convo.messages" class="eoko-text-ultralight"
+             style="color: white;display: inline; font-size: 15px;">
             Send the first message!
           </p>
           <p ng-if="convo.messages" class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
             {{convo.lastmessage}}
           </p>
-          <a ui-sref="chatPage({otherID: convo.partnerID, convoID: convo.chatID})" class="eoko-button-clear ion-chevron-right" nav-transition="ios" nav-direction="forward" style="float:right;margin-top: -20px;"></a>
+          <a ui-sref="chatPage({otherID: convo.partnerID, convoID: convo.chatID})"
+             class="eoko-button-clear ion-chevron-right" nav-transition="ios" nav-direction="forward"
+             style="float:right;margin-top: -20px;"></a>
 
         </ion-item>
       </ion-list>

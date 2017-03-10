@@ -172,7 +172,7 @@
               <!--action hosted by-->
               <div>
                 <h4 class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 0">Hosted by</h4>
-                <a ng-click="openProfile(user)" class="eoko-button-clear eoko-text-action-popup-title eoko-text-regular"
+                <a ng-click="openProfile(modalOpen.info)" class="eoko-button-clear eoko-text-action-popup-title eoko-text-regular"
                    style="margin-bottom: 0">"NAME"{{modalOpen.info.name}}</a>
               </div>
 
@@ -206,16 +206,20 @@
 
             <!--type of lists button-->
             <div>
-              <a ng-click="showAttendants('goingButton')" id="goingButton" class="eoko-button-action-event-list eoko-text-thin">
+              <a ng-click="showAttendants('goingButton')" id="goingButton"
+                 class="eoko-button-action-event-list eoko-text-thin">
                 {{goingList.length}} <br/> Going
               </a>
-              <a ng-click="showAttendants('maybeButton')" id="maybeButton" class="eoko-button-action-event-list eoko-text-thin">
+              <a ng-click="showAttendants('maybeButton')" id="maybeButton"
+                 class="eoko-button-action-event-list eoko-text-thin">
                 12 <br/> Maybe
               </a>
-              <a ng-click="showAttendants('declinedButton')" id="declinedButton" class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0; padding-left: 0;">
+              <a ng-click="showAttendants('declinedButton')" id="declinedButton"
+                 class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0; padding-left: 0;">
                 12 <br/> Declined
               </a>
-              <a ng-click="showAttendants('invitedButton')" id="invitedButton" class="eoko-button-action-event-list eoko-text-thin">
+              <a ng-click="showAttendants('invitedButton')" id="invitedButton"
+                 class="eoko-button-action-event-list eoko-text-thin">
                 12 <br/> Invited
               </a>
             </div>
@@ -223,16 +227,20 @@
             <!--show people who are going/maybe/declined/invited-->
             <div id="attendants" class="eoko-hide">
               <ion-scroll ng-model="goingList" class="eoko-display-action-attendents">
-                <div ng-if="goingList.length == 0" class="eoko-text-medium" style="font-size: 20px;">Nobody confirmed Yet!</div>
+                <div ng-if="goingList.length == 0" class="eoko-text-medium" style="font-size: 20px;">Nobody confirmed
+                  Yet!
+                </div>
 
                 <ion-list>
-                  <ion-item class="row" >
+                  <ion-item class="row">
                     <figure ng-repeat="going in goingList" class="eoko-action-attendants-avatar">
-                      <ion-item ng-click="openProfile(going)" on-hold="openPopover($event,user)"
+                      <ion-item ng-click="openProfile(going.info)" on-hold="openMessagePopover($event,going)"
                                 style="background-image: url({{going.info.avatar}}});margin:0px;"
                                 class="span4 eoko-connect-avatar"></ion-item>
 
-                      <figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">{{going.info.name}}</figcaption>
+                      <figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">
+                        {{going.info.name}}
+                      </figcaption>
                     </figure>
 
                   </ion-item>
