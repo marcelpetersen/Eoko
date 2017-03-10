@@ -9893,7 +9893,11 @@ a.button {
   background-color: #FFFFFF;
   color: #F57C00;
   padding: 2px 10px;
-  float: right;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 10px;
+  width: 200px;
   height: 40px; }
   .eoko-button-action-event-popup-join.hover {
     background-color: #ebebeb;
@@ -10077,6 +10081,15 @@ input, textarea::-webkit-input-placeholder {
   margin: 0 auto;
   background-position-x: 50%;
   background-size: cover; }
+
+.eoko-action-attendants-avatar {
+  border-radius: 50px;
+  width: 5.5em;
+  height: 5.5em;
+  margin: 1em auto;
+  background-position-x: 50%;
+  background-size: cover;
+  text-align: center; }
 
 .eoko-notification-avatar {
   border-radius: 80px;
@@ -10275,6 +10288,9 @@ input, textarea::-webkit-input-placeholder {
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
+
+.eoko-display-action-attendents {
+  min-height: 400px; }
 
 .eoko-hide {
   overflow: hidden;

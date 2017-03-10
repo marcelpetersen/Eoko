@@ -48,6 +48,10 @@
   @include avatar-format(10061px, 8em, 8em, 0, 50%)
 }
 
+.eoko-action-attendants-avatar{
+  @include avatar-format(50px, 5.5em, 5.5em, 1em, 50%);
+  text-align: center;
+}
 
 .eoko-notification-avatar{
   @include avatar-format(80px, 80px, 80px, 0em, 50%);

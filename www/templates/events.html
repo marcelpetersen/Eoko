@@ -154,7 +154,7 @@
 
       <div ng-click="checkHit($event)" class="popup-container popup-showing active" ng-class="cssClass">
 
-        <div class="eoko-action-popup">
+        <div id="actionPopUp" class="eoko-action-popup">
           <div class="item-body" style="text-align: center">
 
             <!--action avatar-->
@@ -221,28 +221,30 @@
             </div>
 
             <!--show people who are going/maybe/declined/invited-->
-            <div id="attendents">
-              <!--<ion-list>-->
-                <!--<ion-item class="row" ng-repeat="rows in userList">-->
+            <div id="attendants" class="eoko-hide">
+              <ion-scroll ng-model="goingList" class="eoko-display-action-attendents">
+                <div ng-if="goingList.length == 0" class="eoko-text-medium" style="font-size: 20px;">Nobody confirmed Yet!</div>
 
-                  <!--<figure ng-repeat="user in rows" ng-if="user.$id != owning.id" class="span4 eoko-connect-avatar">-->
-                    <!--<ion-item ng-click="openProfile(user)" on-hold="openPopover($event,user)"-->
-                              <!--style="background-image: url({{user.avatar}});margin:0px;"-->
-                              <!--class="span4 eoko-connect-avatar"></ion-item>-->
+                <ion-list>
+                  <ion-item class="row" >
+                    <figure ng-repeat="going in goingList" class="eoko-action-attendants-avatar">
+                      <ion-item ng-click="openProfile(going)" on-hold="openPopover($event,user)"
+                                style="background-image: url({{going.info.avatar}}});margin:0px;"
+                                class="span4 eoko-connect-avatar"></ion-item>
 
-                    <!--<figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">{{user.name}}-->
-                    <!--</figcaption>-->
-                  <!--</figure>-->
-                <!--</ion-item>-->
-              <!--</ion-list>-->
+                      <figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">{{going.info.name}}</figcaption>
+                    </figure>
+
+                  </ion-item>
+                </ion-list>
+              </ion-scroll>
             </div>
 
-            <!--Join button-->
-            <button ng-click="joinEvent(modalOpen)" class="eoko-button-action-event-popup-join">
-              {{modalOpen.attend}}
-            </button>
           </div>
-
+          <!--Join button-->
+          <button ng-click="joinEvent(modalOpen)" class="eoko-button-action-event-popup-join">
+            {{modalOpen.attend}}
+          </button>
         </div>
       </div>
 

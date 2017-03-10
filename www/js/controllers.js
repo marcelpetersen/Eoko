@@ -224,6 +224,7 @@ angular.module('app.controllers', [])
         //change the selected button to orange and hide details
         document.getElementById(button).style.background = "#F57C00";
         document.getElementById("actionDetail").className = "eoko-hide";
+        document.getElementById("attendants").className = "eoko-show";
 
         //change other buttons to normal color
         switch (button){
@@ -253,6 +254,7 @@ angular.module('app.controllers', [])
         if(selected === button){
           document.getElementById(button).style.background = "rgba(255, 255, 255, 0.4)";
           document.getElementById("actionDetail").className = "eoko-show";
+          document.getElementById("attendants").className = "eoko-hide";
           selected = "";
         }else{
           selected = button;
