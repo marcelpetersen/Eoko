@@ -12,25 +12,6 @@
     background-color: rgba(0,0,0,0);
 }
 
-.family-icon-scroller {
-    -webkit-overflow-scrolling: touch;
-    padding: 5px 15px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    list-style: none;
-    margin-top: -80px;
-    position: relative;
-}
-
-
-.systemContainer {
-    display: inline-block;
-    vertical-align: top;
-    white-space: normal;
-    margin: 0 2px;
-}
-
 .userDeselected{
 	opacity: 0.33;
 }
@@ -47,16 +28,6 @@
     transition-duration: 0ms;
 }
 
-.descriptionBox{
-  padding: 10px;
-  border-radius: 5px;
-  width: 320px;
-  margin: 4em auto;
-  background-color: rgba(255, 255, 255, 0.3);
-  height: 10em;
-  resize: none;
-}
-
 .privatePublic{
   border-radius:14px;
 }
@@ -65,17 +36,6 @@
 .platform-ios .popover-arrow:after{
   background-color:rgba(255, 188, 0, 0.44);
   border-color:rgba(255, 188, 0, 0.44);
-}
-
-.avatarImg{
-    border-radius: 50px;
-    background-size: cover;
-    background-position-x: 61%;
-    background-color:grey;
-    width: 12.5em;
-    height: 13em;
-    border-radius: 13em;
-    margin: 2em auto;
 }
 
 .bar{

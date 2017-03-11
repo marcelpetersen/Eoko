@@ -54,10 +54,10 @@
             {{notify.attend}}
           </button>
 
-          <button ng-click="denyRequest()" ng-if="notify.friendrequest" class="eoko-button-action-event-join eoko-text-thin" style="margin-left:5px;">
+          <button ng-click="denyRequest(notify,$index)" ng-if="notify.friendrequest" class="eoko-button-action-event-join eoko-text-thin" style="margin-left:5px;">
             Decline
           </button>
-           <button ng-click="acceptRequest(notify.info)" ng-if="notify.friendrequest" class="eoko-button-action-event-join eoko-text-thin">
+           <button ng-click="acceptRequest(notify.info, notify, $index)" ng-if="notify.friendrequest" class="eoko-button-action-event-join eoko-text-thin">
             Accept
           </button>
           

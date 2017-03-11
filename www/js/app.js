@@ -5,26 +5,19 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-<<<<<<< HEAD
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','firebase','firebaseConfig','ionic.ion.imageCacheFactory','ionic-native-transitions','ngInstafeed','templates',])
-=======
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','firebase','firebaseConfig','ionic.ion.imageCacheFactory','ionic-native-transitions','ngInstafeed',])
->>>>>>> refs/remotes/origin/MilordDev
 
 .config(function($ionicConfigProvider, $sceDelegateProvider){
   
   ionic.Platform.setPlatform('ios');
   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
-  //$ionicConfigProvider.scrolling.jsScrolling(false);
 
 })
-
-
 
 .config(function($ionicNativeTransitionsProvider){
   $ionicNativeTransitionsProvider.setDefaultOptions({
     duration: 300, // in milliseconds (ms), default 400, 
-    slowdownfactor: 1, // overlap views (higher number is more) or no overlap (1), default 4 
+    slowdownfactor: 10, // overlap views (higher number is more) or no overlap (1), default 4 
     iosdelay: 100, // ms to wait for the iOS webview to update before animation kicks in, default -1 
     androiddelay: 100, // same as above but for Android, default -1 
     winphonedelay: 100, // same as above but for Windows Phone, default -1, 
@@ -51,10 +44,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       ngInstafeedProvider.setAccessToken('3085788730.1677ed0.d1d536d1a92f40cab51717419d4cdcbb');
   })
 
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/MilordDev
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 
@@ -73,8 +62,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     }
   });
 })
-
-
 
 
 /*

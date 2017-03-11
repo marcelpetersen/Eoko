@@ -89,6 +89,12 @@
 .eoko-button-action-event-popup-join{
   @extend .eoko-button-action-event-join;
   @include button-style($white, none, $white, none, $orange);
+  padding: 2px 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 10px;
+  width: 200px;
   height: $button-height - 2px;
 }
 
