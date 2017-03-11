@@ -33,6 +33,17 @@
       <h4 class="eoko-text-ultralight" style="font-size: 20px; text-align:center;">Points</h4>
       <h4 class="eoko-text-ultralight" id="profile-heading4" style="font-size: 20px; text-align:center;">
         {{user.description}}</h4>
+
+        <button class="btn btn-primary form-control"
+          ng-click="load.init()">
+          Retrieve
+        </button>
+
+      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="item in ngInstafeedModel.data">
+        <img ng-if="item.images.standard_resolution.url != 'https://instagramstatic-a.akamaihd.net/null.jpg'" ng-src="{{item.images.standard_resolution.url}}" 
+          style="max-width:100%;" />
+    </div>
+
     </ion-scroll>
 
 
