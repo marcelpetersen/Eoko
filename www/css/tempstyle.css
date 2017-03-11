@@ -61,11 +61,3 @@
 .messages.other span {
   background-color: #b66f31;
 }
-
-.eventViewAvatar{
-        height: 61px;
-    width: 61px;
-    background-size: contain;
-    border-radius: 61px;
-    margin: 0 auto;
-}
