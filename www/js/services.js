@@ -85,6 +85,33 @@ angular.module('app.services', [])
 
   }])
 
+
+   .factory('ProfilePress', [function () {
+    var aprofile = false;
+
+    return {
+      setState: function (info) {
+        aprofile = info;
+        return true;
+      },
+
+      getState: function () {
+        return aprofile;
+      }
+    };
+
+  }])
+
+
+
+
+
+
+
+
+
+
+
   .service('BlankService', [function () {
 
   }]);

@@ -1,16 +1,17 @@
 angular.module('app.controllers', [])
 
-.controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate', '$timeout', 'ngInstafeed', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate', '$timeout', 'ngInstafeed','ProfilePress', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject, $ionicTabsDelegate, $timeout, ngInstafeed) {
+    function($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject, $ionicTabsDelegate, $timeout, ngInstafeed,ProfilePress) {
 
         var usr;
 
         $scope.$on('$ionicView.beforeEnter', function() //before anything runs
             {
                 $scope.user = UserInfo.getUserInfo();
-                if ($stateParams.avatarClicked == 'true') {
+                if (ProfilePress.getState() == true) {
+                    $scope.alcick = true;
                     console.log("other");
                     $ionicTabsDelegate.showBar(false);
                     $scope.user = OtherInfo.getOtherInfo();
@@ -28,7 +29,9 @@ angular.module('app.controllers', [])
                             break;
                         }
                     }
+                    ProfilePress.setState(false);
                 } else {
+                    $scope.alcick = false;
                     if (usr == undefined || usr.email == "") {
                         console.log("undefined usr");
                         firebase.auth().onAuthStateChanged(function(user) {
@@ -690,10 +693,10 @@ angular.module('app.controllers', [])
 
 
 
-.controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject', '$ionicPopover', 'orderByFilter', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject', '$ionicPopover', 'orderByFilter','$ionicTabsDelegate','ProfilePress', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function($scope, $state, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject, $ionicPopover, orderByFilter) {
+    function($scope, $state, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject, $ionicPopover, orderByFilter,$ionicTabsDelegate,ProfilePress) {
 
         var usr = UserInfo.getUserInfo();
         var usor = firebase.auth().currentUser;
@@ -701,6 +704,7 @@ angular.module('app.controllers', [])
 
         $scope.$on('$ionicView.beforeEnter', function() //before anything runs
             {
+                $ionicTabsDelegate.showBar(true);
                 if (usor == undefined) {
                     console.log('running once!')
                     firebase.auth().onAuthStateChanged(function(user) {
@@ -782,6 +786,7 @@ angular.module('app.controllers', [])
 
         $scope.openProfile = function(clicked) {
             OtherInfo.setOtherInfo(clicked, clicked.$id);
+            ProfilePress.setState(true);
             console.log(clicked.$id);
             $state.go('tabsController.profile', {
                 'avatarClicked': 'true'

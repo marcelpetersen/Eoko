@@ -173,7 +173,7 @@
               <div>
                 <h4 class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 0">Hosted by</h4>
                 <a ng-click="openProfile(modalOpen.info)" class="eoko-button-clear eoko-text-action-popup-title eoko-text-regular"
-                   style="margin-bottom: 0">"NAME"{{modalOpen.info.name}}</a>
+                   style="margin-bottom: 0">{{modalOpen.info.name}}</a>
               </div>
 
               <!--action location-->
@@ -207,21 +207,22 @@
             <!--type of lists button-->
             <div>
               <a ng-click="showAttendants('goingButton')" id="goingButton"
-                 class="eoko-button-action-event-list eoko-text-thin">
+                 class="eoko-button-action-event-list eoko-text-thin" style="font-size:4vw;">
                 {{goingList.length}} <br/> Going
               </a>
               <a ng-click="showAttendants('maybeButton')" id="maybeButton"
-                 class="eoko-button-action-event-list eoko-text-thin">
-                12 <br/> Maybe
+                 class="eoko-button-action-event-list eoko-text-thin" style="font-size:4vw;">
+                0 <br/> Maybe
               </a>
               <a ng-click="showAttendants('declinedButton')" id="declinedButton"
-                 class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0; padding-left: 0;">
-                12 <br/> Declined
+                 class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0; padding-left: 0;font-size:4vw;">
+                0 <br/> Declined
               </a>
               <a ng-click="showAttendants('invitedButton')" id="invitedButton"
-                 class="eoko-button-action-event-list eoko-text-thin">
-                12 <br/> Invited
+                 class="eoko-button-action-event-list eoko-text-thin" style="font-size:4vw;">
+                {{modalOpen.rolenumber}} <br/> Invited
               </a>
+
             </div>
 
             <!--show people who are going/maybe/declined/invited-->
