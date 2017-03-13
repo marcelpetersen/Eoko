@@ -2,6 +2,7 @@ angular.module('app.services', [])
 
   .factory('UserInfo', [function () {
     var userData = {
+      id:"",
       name: "",
       email: "",
       birthday: "",
@@ -12,12 +13,13 @@ angular.module('app.services', [])
       avatar: "",
       buildcode: "",
       description: "",
-      notifications: ""
+      friendlist: []
     };
 
     return {
-      setUserInfo: function (info) {
+      setUserInfo: function (info,uid) {
         userData = {
+          id: uid,
           name: info.name,
           email: info.email,
           birthday: info.birthday,
@@ -28,7 +30,7 @@ angular.module('app.services', [])
           avatar: info.avatar,
           buildcode: info.buildcode,
           description: info.description,
-          notifications:info.notifications
+          friendlist: info.friendlist
         };
         return true;
       },
@@ -43,6 +45,7 @@ angular.module('app.services', [])
 
   .factory('OtherInfo', [function () {
     var userData = {
+       id:"",
       name: "",
       email: "",
       birthday: "",
@@ -53,11 +56,13 @@ angular.module('app.services', [])
       avatar: "",
       buildcode: "",
       description: "",
+      friendlist: []
     };
 
     return {
-      setOtherInfo: function (info) {
+      setOtherInfo: function (info, uid) {
         userData = {
+           id: uid,
           name: info.name,
           email: info.email,
           birthday: info.birthday,
@@ -67,7 +72,8 @@ angular.module('app.services', [])
           major: info.major,
           avatar: info.avatar,
           buildcode: info.buildcode,
-          description: info.description
+          description: info.description,
+          friendlist: info.friendlist
         };
         return true;
       },
@@ -80,7 +86,7 @@ angular.module('app.services', [])
   }])
 
 
-    .factory('ProfilePress', [function () {
+   .factory('ProfilePress', [function () {
     var aprofile = false;
 
     return {
@@ -98,29 +104,14 @@ angular.module('app.services', [])
 
 
 
-.factory('openAction', [function () {
-    var act = false;
-
-    return {
-      setAction: function (info) {
-        act = info;
-        return true;
-      },
-
-      getAction: function () {
-        return act;
-      }
-    };
-
-  }])
 
 
-.filter('reverseAnything', function() {
-  return function(items) {
-    console.log("REVERSE ANYTHING!!");
-    if(typeof items === 'undefined') { return; }
-    return angular.isArray(items) ? 
-      items.slice().reverse() : // If it is an array, split and reverse it
-      (items + '').split('').reverse().join(''); // else make it a string (if it isn't already), and reverse it
-  };
-})
+
+
+
+
+
+
+  .service('BlankService', [function () {
+
+  }]);
