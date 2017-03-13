@@ -2,6 +2,7 @@ angular.module('app.services', [])
 
   .factory('UserInfo', [function () {
     var userData = {
+      id:"",
       name: "",
       email: "",
       birthday: "",
@@ -12,11 +13,13 @@ angular.module('app.services', [])
       avatar: "",
       buildcode: "",
       description: "",
+      friendlist: []
     };
 
     return {
-      setUserInfo: function (info) {
+      setUserInfo: function (info,uid) {
         userData = {
+          id: uid,
           name: info.name,
           email: info.email,
           birthday: info.birthday,
@@ -26,7 +29,8 @@ angular.module('app.services', [])
           major: info.major,
           avatar: info.avatar,
           buildcode: info.buildcode,
-          description: info.description
+          description: info.description,
+          friendlist: info.friendlist
         };
         return true;
       },
@@ -41,6 +45,7 @@ angular.module('app.services', [])
 
   .factory('OtherInfo', [function () {
     var userData = {
+       id:"",
       name: "",
       email: "",
       birthday: "",
@@ -51,11 +56,13 @@ angular.module('app.services', [])
       avatar: "",
       buildcode: "",
       description: "",
+      friendlist: []
     };
 
     return {
-      setOtherInfo: function (info) {
+      setOtherInfo: function (info, uid) {
         userData = {
+           id: uid,
           name: info.name,
           email: info.email,
           birthday: info.birthday,
@@ -65,7 +72,8 @@ angular.module('app.services', [])
           major: info.major,
           avatar: info.avatar,
           buildcode: info.buildcode,
-          description: info.description
+          description: info.description,
+          friendlist: info.friendlist
         };
         return true;
       },
@@ -76,6 +84,33 @@ angular.module('app.services', [])
     };
 
   }])
+
+
+   .factory('ProfilePress', [function () {
+    var aprofile = false;
+
+    return {
+      setState: function (info) {
+        aprofile = info;
+        return true;
+      },
+
+      getState: function () {
+        return aprofile;
+      }
+    };
+
+  }])
+
+
+
+
+
+
+
+
+
+
 
   .service('BlankService', [function () {
 

@@ -11,7 +11,6 @@ plugins
 .bowerrc
 .editorconfig
 bower.json
-config.xml
 gulpfile.js
 ionic.config.json
 package.json

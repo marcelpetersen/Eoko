@@ -1,22 +1,29 @@
 angular.module('app.controllers', [])
 
-  .controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate', '$timeout', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate','$timeout','ProfilePress','ngInstafeed', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject, $ionicTabsDelegate, $timeout) {
+    function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject, $ionicTabsDelegate,$timeout,ProfilePress,ngInstafeed) {
 
       var usr = UserInfo.getUserInfo();
+
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
-        $scope.user = UserInfo.getUserInfo();
-        if ($stateParams.avatarClicked == 'true') {
+         $scope.user = UserInfo.getUserInfo();
+         console.log("STATE PARAMS:",ProfilePress.getState);
+
+        if (ProfilePress.getState() == true) {
+            $scope.alcick = true;
           console.log("other");
           $ionicTabsDelegate.showBar(false);
           $scope.user = OtherInfo.getOtherInfo();
           console.log($scope.user);
+          ProfilePress.setState(false);
         }
         else {
-          if (usr == undefined || usr.email == "") {
+            $scope.alcick = false;
+           $ionicTabsDelegate.showBar(true);
+          if (usr == undefined || usr.email=="") {
             console.log("undefined usr");
             firebase.auth().onAuthStateChanged(function (user) {
               usr = firebase.auth().currentUser;
@@ -26,7 +33,7 @@ angular.module('app.controllers', [])
               $scope.user = $firebaseObject(ref);
               $scope.user.$loaded().then(function (x) {
                 UserInfo.setUserInfo($scope.user);
-                console.log($scope.user);
+                console.log("userinfo: ",$scope.user);
 
                 if ($scope.user.notifications) {
                   $scope.friendR = Object.keys($scope.user.notifications).length;
@@ -42,7 +49,7 @@ angular.module('app.controllers', [])
             });
           }
           else {
-            console.log("userinfo is:", UserInfo.getUserInfo());
+            console.log("userinfo: ", UserInfo.getUserInfo());
             $scope.user = UserInfo.getUserInfo();
             if ($scope.user.notifications) {
               $scope.friendR = Object.keys($scope.user.notifications).length;
@@ -56,6 +63,41 @@ angular.module('app.controllers', [])
           $scope.$apply();
         });
       });
+
+
+
+
+      $scope.data = {
+            userId: '3085788730',
+        };
+        $scope.model = null;
+        $scope.ngInstafeedModel = ngInstafeed.model;
+        $scope.ngInstafeedState = ngInstafeed.state;
+
+        $scope.load = {
+            more: function() {
+                ngInstafeed.more(function(err, res) {
+                    if(err) { throw err; }
+                    else {
+                        console.log(res);
+                    }
+                });
+            },
+            init: function() {
+                ngInstafeed.get({
+                    get: 'user',
+                    userId: $scope.data.userId
+                }, function(err, res) {
+                    if(err) { throw err; }
+                    else {
+                        console.log(res);
+                        $scope.model = res;
+                    }
+                });
+            }
+        };
+
+
 
 
     }])
@@ -101,6 +143,10 @@ angular.module('app.controllers', [])
         }
 
       });
+
+      $scope.$on('$ionicView.loaded', function () {
+        console.log("THE PAGE HAS FULLY LOADED, EXECUTE ORDER NUMBER 66!");
+        });
 
       $scope.blurry = {behind: "0px"};
       $scope.modalOpen = {
@@ -462,12 +508,14 @@ angular.module('app.controllers', [])
       $scope.createEvent = function (makeEventForm) {
         var rec = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
         var postedEvent = {
+          category: $scope.event.category,
           title: $scope.event.title,
           location: $scope.event.location,
           date: "",
           time: "",
           description: $scope.event.description,
-          avatar: usr.avatar
+          avatar: usr.avatar,
+          creatorID: authUser.uid
         };
 
         var d = $scope.event.date;
@@ -486,6 +534,7 @@ angular.module('app.controllers', [])
               rolecall[everyone[i].$id] = {'going': false};
             }
             var eventpost = ref.push({
+              'category': $scope.event.category,
               'title': postedEvent.title,
               'location': postedEvent.location,
               'date': postedEvent.date,
@@ -496,6 +545,7 @@ angular.module('app.controllers', [])
             });
 
             rec.child(authUser.uid + "/notifications").push({
+              'category': $scope.event.category,
               'title': postedEvent.title,
               'location': postedEvent.location,
               'date': postedEvent.date,
@@ -506,6 +556,7 @@ angular.module('app.controllers', [])
             });
 
             rec.child(authUser.uid + "/yourEvents").push({
+              'category': $scope.event.category,
               'title': postedEvent.title,
               'location': postedEvent.location,
               'date': postedEvent.date,
@@ -533,6 +584,7 @@ angular.module('app.controllers', [])
 //if private
         else if ($scope.selection.porb == "private") {
           var eventpost = ref.push({
+            'category': $scope.event.category,
             'title': postedEvent.title,
             'location': postedEvent.location,
             'date': postedEvent.date,
@@ -544,6 +596,7 @@ angular.module('app.controllers', [])
 
 
           rec.child(authUser.uid + "/notifications").push({
+            'category': $scope.event.category,
             'title': postedEvent.title,
             'location': postedEvent.location,
             'date': postedEvent.date,
@@ -554,6 +607,7 @@ angular.module('app.controllers', [])
           });
 
           rec.child(authUser.uid + "/yourEvents").push({
+            'category': $scope.event.category,
             'title': postedEvent.title,
             'location': postedEvent.location,
             'date': postedEvent.date,
@@ -580,17 +634,19 @@ angular.module('app.controllers', [])
     }])
 
 
-  .controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject', '$ionicPopover', 'orderByFilter', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+
+  .controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject','$ionicPopover','orderByFilter','$ionicTabsDelegate','ProfilePress', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $state, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject, $ionicPopover, orderByFilter) {
+    function ($scope, $state, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject,$ionicPopover,orderByFilter,$ionicTabsDelegate,ProfilePress) {
 
       var usr = UserInfo.getUserInfo();
       var usor = firebase.auth().currentUser;
       var ref;
-
+      $scope.selection = {tab:""};
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
+        $ionicTabsDelegate.showBar(true);
         if (usor == undefined) {
           console.log('running once!')
           firebase.auth().onAuthStateChanged(function (user) {
@@ -669,9 +725,8 @@ angular.module('app.controllers', [])
 
       $scope.openProfile = function (clicked) {
         OtherInfo.setOtherInfo(clicked);
-        $state.go('tabsController.profile', {
-          'avatarClicked': 'true'
-        });
+        ProfilePress.setState(true);
+        $state.go('tabsController.profile');//, {'aprofile': true},{reload: true});*/
       };
 
 
@@ -776,6 +831,30 @@ angular.module('app.controllers', [])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams) {
+
+        $scope.selection = {tab:""};
+
+        $scope.selectBuildingEventTab = function () {
+        document.getElementById("BuildingEventButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("FeedBackButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("RankingButton").className = "eoko-button-text eoko-text-button-nav";
+        $scope.selection.tab = "bevents";
+      };
+
+      $scope.selectFeedbackTab = function () {
+        document.getElementById("FeedBackButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("BuildingEventButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("RankingButton").className = "eoko-button-text eoko-text-button-nav";
+        $scope.selection.tab = "feedback";
+      };
+
+      $scope.selectRankingTab = function () {
+        document.getElementById("RankingButton").className = "eoko-button-text-selected eoko-text-button-nav";
+        document.getElementById("BuildingEventButton").className = "eoko-button-text eoko-text-button-nav";
+        document.getElementById("FeedBackButton").className = "eoko-button-text eoko-text-button-nav";
+        $scope.selection.tab = "ranking";
+      };
+
 
     }])
 
@@ -1092,10 +1171,10 @@ angular.module('app.controllers', [])
     }])
 
 
-  .controller('notificationPageCtrl', ['$scope', '$stateParams', 'UserInfo', '$firebaseObject', '$timeout', '$ionicScrollDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('notificationPageCtrl', ['$scope', '$stateParams', 'UserInfo', '$firebaseObject', '$timeout', '$ionicScrollDelegate','openAction', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, UserInfo, $firebaseObject, $timeout, $ionicScrollDelegate) {
+    function ($scope, $stateParams, UserInfo, $firebaseObject, $timeout, $ionicScrollDelegate,openAction) {
 
 
       var usr = UserInfo.getUserInfo();
@@ -1347,6 +1426,12 @@ angular.module('app.controllers', [])
         document.getElementById("NotificationButton").className = "eoko-button-text eoko-text-button-nav";
         document.getElementById("YourActionButton").className = "eoko-button-text-selected eoko-text-button-nav";
         $scope.selection.tab = "yourevents";
+      };
+
+
+      $scope.goToAction = function(action)
+      {
+        console.log("GOTOACTION:" ,action);
       };
 
       function getIonWidth(curr) {
