@@ -10055,7 +10055,9 @@ input, textarea::-webkit-input-placeholder {
   background-image: url("../img/setting_icon.png");
   height: 40px;
   width: 40px;
-  float: right; }
+  float: right;
+  position: absolute;
+  right: 0; }
 
 .eoko-profile-avatar {
   border-radius: 90px;
@@ -10320,6 +10322,16 @@ input, textarea::-webkit-input-placeholder {
   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+
+.eoko-horizontal-scroll {
+  overflow: scroll;
+  white-space: nowrap; }
+
+.eoko-horizontal-scroll-item {
+  display: inline;
+  width: 40%;
+  padding: 8px;
+  border-radius: 25px; }
 
 textarea,
 input[type="text"],

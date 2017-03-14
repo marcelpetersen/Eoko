@@ -1,55 +1,59 @@
 <ion-view title="Profile" hide-nav-bar="true" hide-back-button="true" id="page2">
 
-  <ion-content padding="true" style="background: url(img/main_background.png) no-repeat center;background-size:cover;"
+  <ion-content padding="false"
+               style="background: url(img/main_background.png) no-repeat center;background-size:cover;"
                class="manual-ios-statusbar-padding eoko-content" scroll="false">
 
+    <!--spacer-->
+    <div class="spacer" style="height: 20px;"></div>
+
+    <div class="button-bar">
       <!--notification buttons-->
-    <a ui-sref="notificationPage" class="eoko-button-clear eoko-bell-left" native-transitions nav-direction="forward">
+      <a ui-sref="notificationPage" class="eoko-button-clear eoko-bell-left" native-transitions nav-direction="forward">
         <div ng-if="friendR > 0" class="eoko-notification-number" ng-model="friendR">
           {{friendR}}
         </div>
       </a>
-
       <a ng-if="alcick == true" ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left"></a>
 
       <!--setting button-->
       <a class="eoko-button-clear eoko-setting-right" native-transitions nav-direction="forward"></a>
     </div>
 
-    <!--spacer-->
-    <div class="spacer" style="height: 60px;"></div>
-
     <!--profile information-->
-    <ion-scroll style="height: calc(100% - 9em)">
+    <ion-scroll style="height: calc(100% - 11.5em);" scrollbar-x="false" scrollbar-y="false">
+
       <!--profile pic-->
       <div ng-click="uploadPic()" style="background-image: url({{user.avatar}});" class="eoko-profile-avatar">
-             <div ng-if="isFriend == false" ng-click="addFriend(user); $event.stopPropagation();" class="addFriendButton">+</div>
-       </div>
+        <div ng-if="isFriend == false" ng-click="addFriend(user); $event.stopPropagation();" class="addFriendButton">+
+        </div>
+      </div>
 
       <!--user's name and description-->
       <h3 class="eoko-text-ultralight" id="profile-heading3" style="font-size: 40px; text-align:center;">
         {{user.name}}</h3>
-      <h4 class="eoko-text-ultralight" style="font-size: 20px; text-align:center;">Points {{user.points}}</h4>
+      <h4 class="eoko-text-ultralight" style="font-size: 20px; text-align:center;">{{user.points}} Points</h4>
       <h4 class="eoko-text-ultralight" id="profile-heading4" style="font-size: 20px; text-align:center;">
-        {{user.description}}</h4>
+        {{user.description}}
+      </h4>
 
+      <br><br>
 
-        <!-- This is the instagram functionality -->
-        <button class="btn btn-primary form-control"
-          ng-click="load.init()">
-          Retrieve
-        </button>
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="item in ngInstafeedModel.data">
-        <img ng-if="item.images.standard_resolution.url != 'https://instagramstatic-a.akamaihd.net/null.jpg'" ng-src="{{item.images.standard_resolution.url}}"
-          style="max-width:100%;" />
-    </div>
-
-
+      <!-- This is the instagram functionality -->
+      <h4 class="eoko-text-thin" style="font-size: 20px; padding-left: 30px">
+        Instagram photos
+      </h4>
+      <ion-scroll direction="x" class="eoko-horizontal-scroll" scrollbar-x="false" scrollbar-y="false">
+        <img class="eoko-horizontal-scroll-item" ng-repeat="item in ngInstafeedModel.data"
+             ng-if="item.images.standard_resolution.url != 'https://instagramstatic-a.akamaihd.net/null.jpg'"
+             ng-src="{{item.images.standard_resolution.url}}"/>
+      </ion-scroll>
 
     </ion-scroll>
 
 
     <div class="spacer" style="width: 300px; height: 27px;"></div>
+
   </ion-content>
 
 </ion-view>

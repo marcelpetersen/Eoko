@@ -1,5 +1,7 @@
 <ion-view title="Chat Tab" hide-nav-bar="true" hide-back-button="true">
-  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;"
+
+  <ion-content padding="false"
+               style="background: url(img/main_background.png) no-repeat center;background-size:cover;"
                scroll="false">
 
     <!--spacer-->
@@ -27,7 +29,7 @@
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
 
-    <ion-scroll style="height: calc(100%)">
+    <ion-scroll style="height: calc(100%); padding: 0px;">
       <ion-list id="actionList">
 
         <ion-item ng-repeat="convo in conversations" ng-if="convo.name" class="item-thumbnail-left"

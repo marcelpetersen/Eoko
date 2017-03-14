@@ -62,9 +62,11 @@ angular.module('app.controllers', [])
         $timeout(function () {
           $scope.$apply();
         });
+        $scope.load.init();
       });
 
 
+      //Instagram feed
       $scope.data = {
         userId: '3085788730',
       };
