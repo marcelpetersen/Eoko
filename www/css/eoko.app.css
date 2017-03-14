@@ -10112,6 +10112,16 @@ input, textarea::-webkit-input-placeholder {
   width: 30px;
   float: left; }
 
+.eoko-icon-searchbar-small {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../img/search_icon.png");
+  opacity: 0.5;
+  height: 20px;
+  width: 20px;
+  float: left; }
+
 .eoko-icon-chatbox-right {
   background-repeat: no-repeat;
   background-position: center;
@@ -10139,6 +10149,16 @@ input, textarea::-webkit-input-placeholder {
   width: 23px;
   display: inline-block;
   margin-right: 5px; }
+
+.eoko-icon-new-message {
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  background-image: url("../img/new_icon.png");
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 0; }
 
 .profile-icon-on {
   background-repeat: no-repeat;
@@ -10272,6 +10292,9 @@ input, textarea::-webkit-input-placeholder {
   min-height: 100% !important;
   top: 0 !important;
   bottom: 0 !important; }
+
+.eoko-nav-searchbar {
+  background: none; }
 
 .eoko-action-popup {
   width: calc(100% - 4.5em);
