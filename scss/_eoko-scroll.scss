@@ -1,0 +1,18 @@
+// -------------------------------
+//
+// Scroll
+//
+// -------------------------------
+
+
+.eoko-horizontal-scroll {
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.eoko-horizontal-scroll-item{
+  display: inline;
+  width: 40%;
+  padding: 8px;
+  border-radius: 25px;
+}

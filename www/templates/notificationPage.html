@@ -4,6 +4,10 @@
                class="manual-ios-statusbar-padding" scroll="false">
 
     <div class="button-bar">
+      <!--back button-->
+      <a ui-sref="tabsController.profile" class="eoko-button-clear ion-chevron-left" nav-transition="ios" nav-direction="back">
+
+      </a>
       <!--Notifications-->
       <a id="NotificationButton" class="eoko-button-text-selected eoko-text-button-nav"
          ng-click="selectNotificationTab()">Notification
@@ -12,9 +16,6 @@
       <a id="YourActionButton" class="eoko-button-text eoko-text-button-nav "
          ng-click="selectYourActionTab()">Your Actions
       </a>
-      <!--back button-->
-      <a ui-sref="tabsController.profile" class="eoko-button-clear ion-chevron-right" nav-transition="ios"
-         nav-direction="forward"></a>
     </div>
 
 
@@ -23,7 +24,7 @@
 
 
     <!--Notification content-->
-    <ion-scroll ng-if="selection.tab == 'notifications' " style="height: calc(100% - 11em)"
+    <ion-scroll ng-if="selection.tab == 'notifications' " style="height: calc(100%)"
                 delegate-handle="mainScroll">
       <ion-list id="notifyList">
 
@@ -68,7 +69,7 @@
 
 
     <!--Your Actions content-->
-    <ion-scroll ng-if="selection.tab == 'yourevents' " style="height: calc(100% - 11em)">
+    <ion-scroll ng-if="selection.tab == 'yourevents' " style="height: calc(100%)">
       <ion-list id="notifyList">
         <ion-item ng-repeat="actions in youractions" class="item-thumbnail-left"
                   style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">

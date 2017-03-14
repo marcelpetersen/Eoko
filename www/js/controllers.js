@@ -1,19 +1,19 @@
 angular.module('app.controllers', [])
 
-  .controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate','$timeout','ProfilePress','ngInstafeed', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('profileCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseObject', '$ionicTabsDelegate', '$timeout', 'ProfilePress', 'ngInstafeed', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject, $ionicTabsDelegate,$timeout,ProfilePress,ngInstafeed) {
+    function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseObject, $ionicTabsDelegate, $timeout, ProfilePress, ngInstafeed) {
 
       var usr = UserInfo.getUserInfo();
 
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
-         $scope.user = UserInfo.getUserInfo();
-         console.log("STATE PARAMS:",ProfilePress.getState);
+        $scope.user = UserInfo.getUserInfo();
+        console.log("STATE PARAMS:", ProfilePress.getState);
 
         if (ProfilePress.getState() == true) {
-            $scope.alcick = true;
+          $scope.alcick = true;
           console.log("other");
           $ionicTabsDelegate.showBar(false);
           $scope.user = OtherInfo.getOtherInfo();
@@ -21,9 +21,9 @@ angular.module('app.controllers', [])
           ProfilePress.setState(false);
         }
         else {
-            $scope.alcick = false;
-           $ionicTabsDelegate.showBar(true);
-          if (usr == undefined || usr.email=="") {
+          $scope.alcick = false;
+          $ionicTabsDelegate.showBar(true);
+          if (usr == undefined || usr.email == "") {
             console.log("undefined usr");
             firebase.auth().onAuthStateChanged(function (user) {
               usr = firebase.auth().currentUser;
@@ -33,7 +33,7 @@ angular.module('app.controllers', [])
               $scope.user = $firebaseObject(ref);
               $scope.user.$loaded().then(function (x) {
                 UserInfo.setUserInfo($scope.user);
-                console.log("userinfo: ",$scope.user);
+                console.log("userinfo: ", $scope.user);
 
                 if ($scope.user.notifications) {
                   $scope.friendR = Object.keys($scope.user.notifications).length;
@@ -62,42 +62,44 @@ angular.module('app.controllers', [])
         $timeout(function () {
           $scope.$apply();
         });
+        $scope.load.init();
       });
 
 
-
-
+      //Instagram feed
       $scope.data = {
-            userId: '3085788730',
-        };
-        $scope.model = null;
-        $scope.ngInstafeedModel = ngInstafeed.model;
-        $scope.ngInstafeedState = ngInstafeed.state;
+        userId: '3085788730',
+      };
+      $scope.model = null;
+      $scope.ngInstafeedModel = ngInstafeed.model;
+      $scope.ngInstafeedState = ngInstafeed.state;
 
-        $scope.load = {
-            more: function() {
-                ngInstafeed.more(function(err, res) {
-                    if(err) { throw err; }
-                    else {
-                        console.log(res);
-                    }
-                });
-            },
-            init: function() {
-                ngInstafeed.get({
-                    get: 'user',
-                    userId: $scope.data.userId
-                }, function(err, res) {
-                    if(err) { throw err; }
-                    else {
-                        console.log(res);
-                        $scope.model = res;
-                    }
-                });
+      $scope.load = {
+        more: function () {
+          ngInstafeed.more(function (err, res) {
+            if (err) {
+              throw err;
             }
-        };
-
-
+            else {
+              console.log(res);
+            }
+          });
+        },
+        init: function () {
+          ngInstafeed.get({
+            get: 'user',
+            userId: $scope.data.userId
+          }, function (err, res) {
+            if (err) {
+              throw err;
+            }
+            else {
+              console.log(res);
+              $scope.model = res;
+            }
+          });
+        }
+      };
 
 
     }])
@@ -146,7 +148,7 @@ angular.module('app.controllers', [])
 
       $scope.$on('$ionicView.loaded', function () {
         console.log("THE PAGE HAS FULLY LOADED, EXECUTE ORDER NUMBER 66!");
-        });
+      });
 
       $scope.blurry = {behind: "0px"};
       $scope.modalOpen = {
@@ -634,16 +636,15 @@ angular.module('app.controllers', [])
     }])
 
 
-
-  .controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject','$ionicPopover','orderByFilter','$ionicTabsDelegate','ProfilePress', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('connectCtrl', ['$scope', '$state', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject', '$ionicPopover', 'orderByFilter', '$ionicTabsDelegate', 'ProfilePress', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $state, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject,$ionicPopover,orderByFilter,$ionicTabsDelegate,ProfilePress) {
+    function ($scope, $state, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject, $ionicPopover, orderByFilter, $ionicTabsDelegate, ProfilePress) {
 
       var usr = UserInfo.getUserInfo();
       var usor = firebase.auth().currentUser;
       var ref;
-      $scope.selection = {tab:""};
+      $scope.selection = {tab: ""};
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
         $ionicTabsDelegate.showBar(true);
@@ -832,9 +833,9 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams) {
 
-        $scope.selection = {tab:""};
+      $scope.selection = {tab: ""};
 
-        $scope.selectBuildingEventTab = function () {
+      $scope.selectBuildingEventTab = function () {
         document.getElementById("BuildingEventButton").className = "eoko-button-text-selected eoko-text-button-nav";
         document.getElementById("FeedBackButton").className = "eoko-button-text eoko-text-button-nav";
         document.getElementById("RankingButton").className = "eoko-button-text eoko-text-button-nav";
@@ -1171,10 +1172,10 @@ angular.module('app.controllers', [])
     }])
 
 
-  .controller('notificationPageCtrl', ['$scope', '$stateParams', 'UserInfo', '$firebaseObject', '$timeout', '$ionicScrollDelegate','openAction', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('notificationPageCtrl', ['$scope', '$stateParams', 'UserInfo', '$firebaseObject', '$timeout', '$ionicScrollDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, UserInfo, $firebaseObject, $timeout, $ionicScrollDelegate,openAction) {
+    function ($scope, $stateParams, UserInfo, $firebaseObject, $timeout, $ionicScrollDelegate) {
 
 
       var usr = UserInfo.getUserInfo();
@@ -1429,9 +1430,8 @@ angular.module('app.controllers', [])
       };
 
 
-      $scope.goToAction = function(action)
-      {
-        console.log("GOTOACTION:" ,action);
+      $scope.goToAction = function (action) {
+        console.log("GOTOACTION:", action);
       };
 
       function getIonWidth(curr) {

@@ -13,15 +13,14 @@
 
       <!--everyone button-->
       <a id="EveryoneButton" class="eoko-button-text-selected eoko-text-button-nav" ng-click="selectEveryoneTab()">Everyone</a>
-
       <!--friends button-->
       <a id="FriendsButton" class="eoko-button-text eoko-text-button-nav" ng-click="selectFriendsTab()">Friends</a>
       <!--chat button-->
-      <a ui-sref="chatTab" class="eoko-button-clear eoko-icon-chatbox-right"></a>
+      <a ui-sref="chatTab" class="eoko-button-clear eoko-icon-chatbox-right" native-transitions nav-direction="forward"></a>
     </div>
 
 
-    <ion-scroll style="height: calc(100% - 11em)">
+    <ion-scroll style="height: calc(100% - 11em)" scrollbar-x="false" scrollbar-y="false">
       <ion-list>
         <ion-item class="row" ng-repeat="rows in userList">
 

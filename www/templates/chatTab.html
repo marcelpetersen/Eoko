@@ -1,12 +1,14 @@
 <ion-view title="Chat Tab" hide-nav-bar="true" hide-back-button="true">
-  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;"
+
+  <ion-content padding="false"
+               style="background: url(img/main_background.png) no-repeat center;background-size:cover;"
                scroll="false">
 
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
 
     <div class="button-bar">
-      <a ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left"></a>
+      <a ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left" nav-transition="ios" nav-direction="back"></a>
 
       <form class="list">
         <div>
@@ -27,7 +29,7 @@
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
 
-    <ion-scroll style="height: calc(100% - 11em)">
+    <ion-scroll style="height: calc(100%); padding: 0px;">
       <ion-list id="actionList">
 
         <ion-item ng-repeat="convo in conversations" ng-if="convo.name" class="item-thumbnail-left"
