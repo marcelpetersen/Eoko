@@ -644,6 +644,7 @@ angular.module('app.controllers', [])
       var usr = UserInfo.getUserInfo();
       var usor = firebase.auth().currentUser;
       var ref;
+
       $scope.selection = {tab: ""};
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
@@ -694,8 +695,6 @@ angular.module('app.controllers', [])
 
           $scope.owning = {avatar: usr.avatar};
           console.log($scope.owning);
-
-
         }
       });
 
@@ -794,6 +793,7 @@ angular.module('app.controllers', [])
 
 
       };
+
 
       $scope.openPopover = function ($event, notify) {
         $scope.blurry.behind = "5px";
@@ -1167,8 +1167,6 @@ angular.module('app.controllers', [])
         });
 
       };
-
-
     }])
 
 
@@ -1176,7 +1174,6 @@ angular.module('app.controllers', [])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, UserInfo, $firebaseObject, $timeout, $ionicScrollDelegate) {
-
 
       var usr = UserInfo.getUserInfo();
       var authUser = firebase.auth().currentUser;
@@ -1199,7 +1196,6 @@ angular.module('app.controllers', [])
               UserInfo.setUserInfo(x);
               usr = UserInfo.getUserInfo();
               refActivate();
-
             })
               .catch(function (error) {
                 console.log("Error:", error);
@@ -1210,7 +1206,6 @@ angular.module('app.controllers', [])
           ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
           refActivate();
         }
-
       });
 
       $scope.$on('$ionicView.afterEnter', function () { //after all loads
@@ -1223,9 +1218,7 @@ angular.module('app.controllers', [])
           var resultingDate;
           for (var i in splitted) {
             splitted[i].replace(/,/g, '')
-
           }
-
         }
       });
 
@@ -1421,6 +1414,7 @@ angular.module('app.controllers', [])
         document.getElementById("YourActionButton").className = "eoko-button-text eoko-text-button-nav";
         $scope.selection.tab = "notifications";
       };
+
 
       $scope.selectYourActionTab = function () {
         //change css class to udnerline the selected tab
