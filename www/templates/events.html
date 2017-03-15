@@ -24,9 +24,33 @@
     <div class="spacer" style="height: 20px;"></div>
 
 
-    <!--list of actions-->
-    <ion-scroll ng-if="selection.tab == 'event' " style="height: calc(100% - 10em);" scrollbar-x="false"
+    <!--filter-->
+    <ion-scroll ng-if="selection.tab == 'event' " direction="x" class="eoko-horizontal-scroll" scrollbar-x="false"
                 scrollbar-y="false">
+      <button ng-click="selectFilter('fitnessFilter')" id="fitnessFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+        Fitness
+      </button>
+      <button ng-click="selectFilter('foodFilter')" id="foodFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+        Food
+      </button>
+      <button ng-click="selectFilter('meetupFilter')" id="meetupFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+        Meet Up
+      </button>
+      <button ng-click="selectFilter('gameFilter')" id="gameFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+        Game
+      </button>
+      <button ng-click="selectFilter('partyFilter')" id="partyFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+        Party
+      </button>
+    </ion-scroll>
+
+    <!--spacer-->
+    <div class="spacer" style="height: 20px;"></div>
+
+    <!--list of actions-->
+    <ion-scroll ng-if="selection.tab == 'event' " style="height: calc(100% - 15.5em);" scrollbar-x="false"
+                scrollbar-y="false">
+
       <ion-list id="actionList">
         <div ng-if="notifications.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Actions to
           display
@@ -57,7 +81,7 @@
     <!--create your action-->
 
     <!--Public and Private button-->
-    <ion-scroll ng-if="selection.tab == 'create' && selection.privstep == 1" style="height: calc(100% - 11.5em);"
+    <ion-scroll ng-if="selection.tab == 'create' && selection.privstep == 1" style="height: calc(100% - 13.5em);"
                 scrollbar-x="false" scrollbar-y="false">
 
       <div class="button-bar">

@@ -10356,6 +10356,32 @@ input, textarea::-webkit-input-placeholder {
   padding: 8px;
   border-radius: 25px; }
 
+.eoko-horizontal-scroll-button {
+  border-color: #F57C00;
+  background: transparent;
+  border-radius: 25px;
+  border-width: 1px;
+  border-style: solid;
+  width: 100px;
+  padding: 8px;
+  margin-left: 1px;
+  margin-right: 1px;
+  font-size: 20px;
+  color: #F57C00; }
+
+.eoko-horizontal-scroll-button-selected {
+  border-color: #F57C00;
+  background: #F57C00;
+  border-radius: 25px;
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 1px;
+  margin-right: 1px;
+  width: 100px;
+  padding: 8px;
+  font-size: 20px;
+  color: white; }
+
 textarea,
 input[type="text"],
 input[type="password"],

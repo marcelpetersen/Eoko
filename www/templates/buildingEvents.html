@@ -1,30 +1,45 @@
 <ion-view title="Building Events" hide-nav-bar="true" hide-back-button="true" id="page3">
 
-  <ion-content padding="true" class="has-header eoko-content"
-               style="background: url(img/main_background.png) no-repeat center;background-size:cover;">
+  <ion-content padding="false" class="manual-ios-statusbar-padding eoko-content"
+               style="background: url(img/main_background.png) no-repeat center;background-size:cover;" scroll="false">
 
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
 
     <div class="button-bar">
+      <a id="BuildingEventButton" class="eoko-button-text-selected eoko-text-button-nav"
+              ng-click="selectBuildingEventTab()">Event</a>
 
-      <button id="BuildingEventButton" class="button button-light button-block button-clear eoko-text-button-nav"
-              ng-click="selectBuildingEventTab()">Event
-      </button>
+      <a id="FeedBackButton" class="eoko-button-text eoko-text-button-nav"
+              ng-click="selectFeedbackTab()">Feedback</a>
 
-      <button id="FeedBackButton" class="button button-light button-block button-clear eoko-text-button-nav"
-              ng-click="selectFeedbackTab()">Feedback
-      </button>
-
-      <button id="RankingButton" class="button button-light button-block button-clear eoko-text-button-nav"
-              ng-click="selectRankingTab()">Ranking
-      </button>
-
+      <a id="RankingButton" class="eoko-button-text eoko-text-button-nav"
+              ng-click="selectRankingTab()">Ranking</a>
     </div>
 
 
     <ion-scroll ng-if="selection.tab == 'bevents' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
-    events tab
+      <ion-list id="actionList">
+        <div ng-if="notifications.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Actions to
+          display
+        </div>
+
+        <ion-item ng-repeat="notify in notifications" class="item-thumbnail-left"
+                  style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
+
+          <div class="eoko-notification-avatar" style="background-image: url({{notify.info.avatar}});"></div>
+          <h2 class="eoko-text-thin" style="color: white;font-size: 25px">{{notify.info.title}}</h2>
+          <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+            {{notify.info.location}}
+            <br>{{notify.info.date}}
+            <br>{{notify.info.time}}
+          </p>
+          <button ng-click="openPopover($event, notify)" class="eoko-button-action-event-join eoko-text-thin">
+            {{notify.attend}}
+          </button>
+
+        </ion-item>
+      </ion-list>
     </ion-scroll>
 
 

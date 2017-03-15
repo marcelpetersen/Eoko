@@ -157,8 +157,19 @@ angular.module('app.controllers', [])
         attend: ""
       };
 
-      function checkUser(item) {
+      
+      //select filter
+      $scope.selectFilter = function (elementId){
+        var elementClass = document.getElementById(elementId).className;
+        if(elementClass == "eoko-horizontal-scroll-button eoko-text-thin activated"){
+          document.getElementById(elementId).className = "eoko-horizontal-scroll-button-selected eoko-text-thin";
+        }else{
+          document.getElementById(elementId).className = "eoko-horizontal-scroll-button eoko-text-thin";
+        }
+      }
 
+
+      function checkUser(item) {
         var removeit = true;
         for (var i in item.rolecall) {
           if (i == authUser.uid) {
@@ -833,7 +844,7 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams) {
 
-      $scope.selection = {tab: ""};
+      $scope.selection = {tab: "bevents"};
 
       $scope.selectBuildingEventTab = function () {
         document.getElementById("BuildingEventButton").className = "eoko-button-text-selected eoko-text-button-nav";
