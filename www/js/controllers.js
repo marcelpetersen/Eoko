@@ -157,7 +157,7 @@ angular.module('app.controllers', [])
         attend: ""
       };
 
-      
+
       //select filter
       $scope.selectFilter = function (elementId){
         var elementClass = document.getElementById(elementId).className;
@@ -1631,7 +1631,6 @@ angular.module('app.controllers', [])
         });
 
       });
-
 
       $scope.$on('$ionicView.afterEnter', function () //before anything runs
       {
