@@ -12,6 +12,7 @@ angular.module('app.controllers', [])
         $scope.user = UserInfo.getUserInfo();
         console.log("STATE PARAMS:", ProfilePress.getState);
 
+        //going from connect Page to view other profile
         if (ProfilePress.getState() == true) {
           $scope.alcick = true;
           console.log("other");
@@ -19,10 +20,12 @@ angular.module('app.controllers', [])
           $scope.user = OtherInfo.getOtherInfo();
           console.log($scope.user);
           ProfilePress.setState(false);
+          document.getElementById("profileScroll").style = "height: 100%;";
         }
         else {
           $scope.alcick = false;
           $ionicTabsDelegate.showBar(true);
+          document.getElementById("profileScroll").style = "height: calc(100% - 11.5em);";
           if (usr == undefined || usr.email == "") {
             console.log("undefined usr");
             firebase.auth().onAuthStateChanged(function (user) {
@@ -866,6 +869,10 @@ angular.module('app.controllers', [])
         document.getElementById("FeedBackButton").className = "eoko-button-text eoko-text-button-nav";
         $scope.selection.tab = "ranking";
       };
+
+
+
+
 
 
     }])

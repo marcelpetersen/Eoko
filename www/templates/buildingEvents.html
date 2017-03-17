@@ -1,7 +1,9 @@
 <ion-view title="Building Events" hide-nav-bar="true" hide-back-button="true" id="page3">
 
-  <ion-content padding="false" class="manual-ios-statusbar-padding eoko-content"
-               style="background: url(img/main_background.png) no-repeat center;background-size:cover;" scroll="false">
+  <ion-content padding="false"
+               style="background: url(img/main_background.png) no-repeat center;background-size:cover; filter: blur({{blurry.behind}});"
+               class="manual-ios-statusbar-padding eoko-content" scroll="false">
+
 
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
@@ -16,6 +18,7 @@
       <a id="RankingButton" class="eoko-button-text eoko-text-button-nav"
               ng-click="selectRankingTab()">Ranking</a>
     </div>
+
 
 
     <ion-scroll ng-if="selection.tab == 'bevents' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
@@ -44,13 +47,13 @@
 
 
      <ion-scroll ng-if="selection.tab == 'feedback' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
-     feed back
+
     </ion-scroll>
 
 
 
      <ion-scroll ng-if="selection.tab == 'ranking' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
-     ranking
+
     </ion-scroll>
 
 

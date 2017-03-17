@@ -7,21 +7,27 @@
     <!--spacer-->
     <div class="spacer" style="height: 20px;"></div>
 
-    <div class="button-bar">
+
+    <div ng-if="alcick != true" class="button-bar">
       <!--notification buttons-->
       <a ui-sref="notificationPage" class="eoko-button-clear eoko-bell-left" native-transitions nav-direction="forward">
         <div ng-if="friendR > 0" class="eoko-notification-number" ng-model="friendR">
           {{friendR}}
         </div>
       </a>
-      <a ng-if="alcick == true" ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left"></a>
-
       <!--setting button-->
       <a class="eoko-button-clear eoko-setting-right" native-transitions nav-direction="forward"></a>
     </div>
 
+
+    <!--back to connect page when viewing other profile-->
+    <div ng-if="alcick == true" class="button-bar">
+      <a ui-sref="tabsController.connect" class="eoko-button-clear ion-chevron-left"></a>
+    </div>
+
+
     <!--profile information-->
-    <ion-scroll style="height: calc(100% - 11.5em);" scrollbar-x="false" scrollbar-y="false">
+    <ion-scroll id="profileScroll" style="height: calc(100% - 11.5em);" scrollbar-x="false" scrollbar-y="false">
 
       <!--profile pic-->
       <div ng-click="uploadPic()" style="background-image: url({{user.avatar}});" class="eoko-profile-avatar">
@@ -54,6 +60,6 @@
 
     <div class="spacer" style="width: 300px; height: 27px;"></div>
 
-  </ion-content>
 
+  </ion-content>
 </ion-view>
