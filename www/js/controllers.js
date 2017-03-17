@@ -12,6 +12,7 @@ angular.module('app.controllers', [])
         $scope.user = UserInfo.getUserInfo();
         console.log("STATE PARAMS:", ProfilePress.getState);
 
+        //going from connect Page to view other profile
         if (ProfilePress.getState() == true) {
           $scope.alcick = true;
           console.log("other");
@@ -19,10 +20,12 @@ angular.module('app.controllers', [])
           $scope.user = OtherInfo.getOtherInfo();
           console.log($scope.user);
           ProfilePress.setState(false);
+          document.getElementById("profileScroll").style = "height: 100%;";
         }
         else {
           $scope.alcick = false;
           $ionicTabsDelegate.showBar(true);
+          document.getElementById("profileScroll").style = "height: calc(100% - 11.5em);";
           if (usr == undefined || usr.email == "") {
             console.log("undefined usr");
             firebase.auth().onAuthStateChanged(function (user) {
@@ -157,8 +160,19 @@ angular.module('app.controllers', [])
         attend: ""
       };
 
-      function checkUser(item) {
 
+      //select filter
+      $scope.selectFilter = function (elementId){
+        var elementClass = document.getElementById(elementId).className;
+        if(elementClass == "eoko-horizontal-scroll-button eoko-text-thin activated"){
+          document.getElementById(elementId).className = "eoko-horizontal-scroll-button-selected eoko-text-thin";
+        }else{
+          document.getElementById(elementId).className = "eoko-horizontal-scroll-button eoko-text-thin";
+        }
+      }
+
+
+      function checkUser(item) {
         var removeit = true;
         for (var i in item.rolecall) {
           if (i == authUser.uid) {
@@ -644,6 +658,7 @@ angular.module('app.controllers', [])
       var usr = UserInfo.getUserInfo();
       var usor = firebase.auth().currentUser;
       var ref;
+
       $scope.selection = {tab: ""};
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
@@ -694,8 +709,6 @@ angular.module('app.controllers', [])
 
           $scope.owning = {avatar: usr.avatar};
           console.log($scope.owning);
-
-
         }
       });
 
@@ -795,6 +808,7 @@ angular.module('app.controllers', [])
 
       };
 
+
       $scope.openPopover = function ($event, notify) {
         $scope.blurry.behind = "5px";
         messageUser = notify;
@@ -833,7 +847,7 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams) {
 
-      $scope.selection = {tab: ""};
+      $scope.selection = {tab: "bevents"};
 
       $scope.selectBuildingEventTab = function () {
         document.getElementById("BuildingEventButton").className = "eoko-button-text-selected eoko-text-button-nav";
@@ -855,6 +869,10 @@ angular.module('app.controllers', [])
         document.getElementById("FeedBackButton").className = "eoko-button-text eoko-text-button-nav";
         $scope.selection.tab = "ranking";
       };
+
+
+
+
 
 
     }])
@@ -929,10 +947,10 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('loginCtrl', ['$scope', '$stateParams', '$state', 'UserInfo', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('loginCtrl', ['$scope', '$stateParams', '$state', 'UserInfo', '$ionicPopup',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $state, UserInfo) {
+    function ($scope, $stateParams, $state, UserInfo, $ionicPopup) {
 
 
       $scope.user = {email: "", password: ""};
@@ -952,8 +970,21 @@ angular.module('app.controllers', [])
 
           },
           function (error) {
+            showAlert("Incorrect username and/or password.");
             console.log(error);
           });
+      };
+
+      function showAlert(message) {
+        var alertPopup = $ionicPopup.alert({
+          title: 'Login Error',
+          cssClass: 'eoko-alert-pop-up',
+          template: message
+        });
+
+        alertPopup.then(function(res) {
+          console.log('Invalid username/password logging!');
+        });
       };
 
     }])
@@ -1167,16 +1198,31 @@ angular.module('app.controllers', [])
         });
 
       };
-
-
     }])
+
+
+
+  .controller('settingPageCtrl', ['$scope', '$state', function($scope, $state){
+
+    //signing out current users
+    $scope.signoutUser = function(){
+      firebase.auth().signOut().then(function (resolve) {
+        console.log("Current user signout out!");
+        $state.go('home');
+      }),
+        function(error){
+          console.log("Signing out error: ");
+          console.log(error);
+        }
+    }
+
+  }])
 
 
   .controller('notificationPageCtrl', ['$scope', '$stateParams', 'UserInfo', '$firebaseObject', '$timeout', '$ionicScrollDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, UserInfo, $firebaseObject, $timeout, $ionicScrollDelegate) {
-
 
       var usr = UserInfo.getUserInfo();
       var authUser = firebase.auth().currentUser;
@@ -1199,7 +1245,6 @@ angular.module('app.controllers', [])
               UserInfo.setUserInfo(x);
               usr = UserInfo.getUserInfo();
               refActivate();
-
             })
               .catch(function (error) {
                 console.log("Error:", error);
@@ -1210,7 +1255,6 @@ angular.module('app.controllers', [])
           ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
           refActivate();
         }
-
       });
 
       $scope.$on('$ionicView.afterEnter', function () { //after all loads
@@ -1223,9 +1267,7 @@ angular.module('app.controllers', [])
           var resultingDate;
           for (var i in splitted) {
             splitted[i].replace(/,/g, '')
-
           }
-
         }
       });
 
@@ -1421,6 +1463,7 @@ angular.module('app.controllers', [])
         document.getElementById("YourActionButton").className = "eoko-button-text eoko-text-button-nav";
         $scope.selection.tab = "notifications";
       };
+
 
       $scope.selectYourActionTab = function () {
         //change css class to udnerline the selected tab
@@ -1626,7 +1669,6 @@ angular.module('app.controllers', [])
         });
 
       });
-
 
       $scope.$on('$ionicView.afterEnter', function () //before anything runs
       {

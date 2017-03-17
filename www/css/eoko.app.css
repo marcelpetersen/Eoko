@@ -9946,7 +9946,7 @@ a.button {
   font-weight: 100;
   color: #FFFFFF; }
 
-.eoko-text-thin, .eoko-text-button-nav {
+.eoko-text-thin, .eoko-text-button-nav, .eoko-alert-pop-up .popup-sub-title {
   font-family: "San Francisco Display";
   font-weight: 200;
   color: #FFFFFF; }
@@ -10160,6 +10160,17 @@ input, textarea::-webkit-input-placeholder {
   position: absolute;
   right: 0; }
 
+.eoko-icon-send-message {
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  background-image: url("../img/send_message_icon.png");
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  float: left;
+  right: 0; }
+
 .profile-icon-on {
   background-repeat: no-repeat;
   background-position: center;
@@ -10346,6 +10357,19 @@ input, textarea::-webkit-input-placeholder {
   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
 
+.eoko-alert-pop-up .popup-container {
+  filter: blur(5px); }
+
+.eoko-alert-pop-up .popup {
+  background-color: #F57C00;
+  opacity: 0.3; }
+
+.eoko-alert-pop-up .popup-head {
+  display: none; }
+
+.eoko-alert-pop-up .popup-title {
+  display: none; }
+
 .eoko-horizontal-scroll {
   overflow: scroll;
   white-space: nowrap; }
@@ -10355,6 +10379,32 @@ input, textarea::-webkit-input-placeholder {
   width: 40%;
   padding: 8px;
   border-radius: 25px; }
+
+.eoko-horizontal-scroll-button {
+  border-color: #F57C00;
+  background: transparent;
+  border-radius: 25px;
+  border-width: 1px;
+  border-style: solid;
+  width: 100px;
+  padding: 8px;
+  margin-left: 1px;
+  margin-right: 1px;
+  font-size: 20px;
+  color: #F57C00; }
+
+.eoko-horizontal-scroll-button-selected {
+  border-color: #F57C00;
+  background: #F57C00;
+  border-radius: 25px;
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 1px;
+  margin-right: 1px;
+  width: 100px;
+  padding: 8px;
+  font-size: 20px;
+  color: white; }
 
 textarea,
 input[type="text"],
