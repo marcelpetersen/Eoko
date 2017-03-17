@@ -970,7 +970,7 @@ angular.module('app.controllers', [])
 
           },
           function (error) {
-            showAlert("Incorrect username and/or password.");
+            showAlert(error.message);
             console.log(error);
           });
       };
@@ -1012,10 +1012,10 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('getCodePageCtrl', ['$scope', '$stateParams', '$state', 'UserInfo',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('getCodePageCtrl', ['$scope', '$stateParams', '$state', 'UserInfo', '$ionicPopup',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $state, UserInfo) {
+    function ($scope, $stateParams, $state, UserInfo, $ionicPopup) {
 
       $scope.user = $stateParams.userinfo
       console.log($scope.user)
@@ -1062,16 +1062,35 @@ angular.module('app.controllers', [])
 
               },
               function (error) {
+                showAlert(error.message);
                 console.log(error);
               });
+            },
+            function(error){
+              showAlert(error.message);
           });
 
       }
 
+      $scope.blurry = {behind: "0px"};
+
+      //alert for wrong credential
+      function showAlert(message) {
+        $scope.blurry = {behind: "5px"};
+
+        var alertPopup = $ionicPopup.alert({
+          title: 'Login Error',
+          cssClass: 'eoko-alert-pop-up',
+          template: message
+        });
+        alertPopup.then(function(res) {
+          $scope.blurry = {behind: "0px"};
+        });
+      };
+
 
       $scope.signupUser = function ()  //goes here first
       {
-
         var ref = firebase.database().ref();
         var verified = false;
         ref.orderByKey().once("value").then(function (snapshot) {
@@ -1082,6 +1101,7 @@ angular.module('app.controllers', [])
             }
           }
           if (verified === false) {
+            showAlert("No building located");
             console.log("NO BUILDING LOCATED");
           }
           else {
@@ -1208,7 +1228,9 @@ angular.module('app.controllers', [])
 
 
 
-  .controller('settingPageCtrl', ['$scope', '$state', function($scope, $state){
+  .controller('settingPageCtrl', ['$scope', '$state', 'UserInfo', function($scope, $state, UserInfo){
+
+
 
     //signing out current users
     $scope.signoutUser = function(){
