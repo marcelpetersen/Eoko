@@ -1,5 +1,7 @@
 <ion-view title="Login" hide-nav-bar="true" id="page10">
-  <ion-content padding="true" style="background: url(img/main_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding">
+  <ion-content padding="true"
+               style="background: url(img/main_background.png) no-repeat center;background-size:cover; filter: blur({{blurry.behind}});"
+               class="manual-ios-statusbar-padding" scroll="false">
 
     <a ui-sref="home" class="eoko-button-clear ion-chevron-left"></a>
 
@@ -26,7 +28,8 @@
 
       <ion-input ng-click="loginUser ()" class="eoko-button-block">Log in</ion-input>
 
-      <a ui-sref="getNamePage" id="login-button6" style="color:#FFFFFF;" class="button button-block button-clear">Or create an account</a>
+      <a ui-sref="getNamePage" id="login-button6" style="color:#FFFFFF;" class="button button-block button-clear">Or
+        create an account</a>
     </form>
 
   </ion-content>

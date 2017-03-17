@@ -947,10 +947,10 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('loginCtrl', ['$scope', '$stateParams', '$state', 'UserInfo', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('loginCtrl', ['$scope', '$stateParams', '$state', 'UserInfo', '$ionicPopup',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $state, UserInfo) {
+    function ($scope, $stateParams, $state, UserInfo, $ionicPopup) {
 
 
       $scope.user = {email: "", password: ""};
@@ -970,8 +970,21 @@ angular.module('app.controllers', [])
 
           },
           function (error) {
+            showAlert("Incorrect username and/or password.");
             console.log(error);
           });
+      };
+
+      function showAlert(message) {
+        var alertPopup = $ionicPopup.alert({
+          title: 'Login Error',
+          cssClass: 'eoko-alert-pop-up',
+          template: message
+        });
+
+        alertPopup.then(function(res) {
+          console.log('Invalid username/password logging!');
+        });
       };
 
     }])
@@ -1186,6 +1199,24 @@ angular.module('app.controllers', [])
 
       };
     }])
+
+
+
+  .controller('settingPageCtrl', ['$scope', '$state', function($scope, $state){
+
+    //signing out current users
+    $scope.signoutUser = function(){
+      firebase.auth().signOut().then(function (resolve) {
+        console.log("Current user signout out!");
+        $state.go('home');
+      }),
+        function(error){
+          console.log("Signing out error: ");
+          console.log(error);
+        }
+    }
+
+  }])
 
 
   .controller('notificationPageCtrl', ['$scope', '$stateParams', 'UserInfo', '$firebaseObject', '$timeout', '$ionicScrollDelegate', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller

@@ -53,3 +53,44 @@
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
 }
+
+
+
+// Alert Pop Up
+// ------------------------
+
+.eoko-alert-pop-up{
+
+  .popup-container{
+    filter: blur(5px);
+  }
+
+  .popup{
+    background-color: $orange;
+    opacity: 0.3;
+  }
+
+  .popup-head{
+    display: none;
+  }
+
+  .popup-title{
+    display: none;
+  }
+
+  .popup-sub-title{
+    @extend .eoko-text-thin;
+  }
+
+  .popup-body{
+
+  }
+
+  .popup-buttons.row{
+
+  }
+
+  .popup-buttons .button{
+
+  }
+}

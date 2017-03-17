@@ -9946,7 +9946,7 @@ a.button {
   font-weight: 100;
   color: #FFFFFF; }
 
-.eoko-text-thin, .eoko-text-button-nav {
+.eoko-text-thin, .eoko-text-button-nav, .eoko-alert-pop-up .popup-sub-title {
   font-family: "San Francisco Display";
   font-weight: 200;
   color: #FFFFFF; }
@@ -10356,6 +10356,19 @@ input, textarea::-webkit-input-placeholder {
   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+
+.eoko-alert-pop-up .popup-container {
+  filter: blur(5px); }
+
+.eoko-alert-pop-up .popup {
+  background-color: #F57C00;
+  opacity: 0.3; }
+
+.eoko-alert-pop-up .popup-head {
+  display: none; }
+
+.eoko-alert-pop-up .popup-title {
+  display: none; }
 
 .eoko-horizontal-scroll {
   overflow: scroll;
