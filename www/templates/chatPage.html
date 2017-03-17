@@ -16,10 +16,21 @@
       <div ng-repeat="message in messages track by $index" ng-class="{other: message.userId == myId}" class="messages">
 
         <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}" style="height:auto;">
-          <span class="eoko-text-light" style="font-size: 17px; margin-bottom: 1px; margin-left: 120px;">
+
+          <!--other user's message-->
+          <span ng-if="message.userId != myId" class="eoko-text-light" style="font-size: 17px; margin-bottom: 1px; margin-right: 120px;">
             {{ message.text }}
           </span>
-          <div class="eoko-text-ultralight time" ng-class="{'slide-right': hideTime, '': !hideTime}"
+          <div ng-if="message.userId != myId" class="eoko-text-ultralight time" ng-class="{'slide-right': hideTime, '': !hideTime}"
+               style="margin-left: 10px; margin-bottom: 5px;">
+            {{message.time}}
+          </div>
+
+          <!--current user's message-->
+          <span ng-if="message.userId == myId" class="eoko-text-light" style="font-size: 17px; margin-bottom: 1px; margin-left: 120px;">
+            {{ message.text }}
+          </span>
+          <div ng-if="message.userId == myId" class="eoko-text-ultralight time" ng-class="{'slide-right': hideTime, '': !hideTime}"
                style="margin-right: 10px; margin-bottom: 5px;">
             {{message.time}}
           </div>
