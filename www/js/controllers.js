@@ -975,17 +975,23 @@ angular.module('app.controllers', [])
           });
       };
 
+      $scope.blurry = {behind: "0px"};
+
+      //alert for wrong credential
       function showAlert(message) {
+        $scope.blurry = {behind: "5px"};
+
         var alertPopup = $ionicPopup.alert({
           title: 'Login Error',
           cssClass: 'eoko-alert-pop-up',
           template: message
         });
-
         alertPopup.then(function(res) {
+          $scope.blurry = {behind: "0px"};
           console.log('Invalid username/password logging!');
         });
       };
+
 
     }])
 
