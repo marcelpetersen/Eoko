@@ -59,15 +59,18 @@
 // Alert Pop Up
 // ------------------------
 
+.backdrop{
+  background-color: transparent;
+}
+
+.popup-container{
+  bottom: calc(100% - 44em);
+}
+
 .eoko-alert-pop-up{
 
-  .popup-container{
-    filter: blur(5px);
-  }
-
   .popup{
-    background-color: $orange;
-    opacity: 0.3;
+    background-color: rgba(245, 124, 0, 0.4);
   }
 
   .popup-head{
@@ -78,19 +81,16 @@
     display: none;
   }
 
-  .popup-sub-title{
-    @extend .eoko-text-thin;
-  }
-
   .popup-body{
-
-  }
-
-  .popup-buttons.row{
-
+    @extend .eoko-text-thin;
+    text-align: center;
+    font-size: 17px;
+    color: $white;
+    border-bottom: 1px solid white;
   }
 
   .popup-buttons .button{
-
+    background-color: $white;
+    color: $orange;
   }
 }
