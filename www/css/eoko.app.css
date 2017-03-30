@@ -10360,9 +10360,6 @@ input, textarea::-webkit-input-placeholder {
 .backdrop {
   background-color: transparent; }
 
-.popup-container {
-  bottom: calc(100% - 44em); }
-
 .eoko-alert-pop-up .popup {
   background-color: rgba(245, 124, 0, 0.4); }
 
