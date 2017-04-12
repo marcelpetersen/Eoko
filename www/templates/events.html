@@ -27,19 +27,19 @@
     <!--filter-->
     <ion-scroll ng-if="selection.tab == 'event' " direction="x" class="eoko-horizontal-scroll" scrollbar-x="false"
                 scrollbar-y="false">
-      <button ng-click="selectFilter('fitnessFilter')" id="fitnessFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+      <button ng-click="selectFilter('fitness')" id="fitness" class="eoko-horizontal-scroll-button eoko-text-thin">
         Fitness
       </button>
-      <button ng-click="selectFilter('foodFilter')" id="foodFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+      <button ng-click="selectFilter('food')" id="food" class="eoko-horizontal-scroll-button eoko-text-thin">
         Food
       </button>
-      <button ng-click="selectFilter('meetupFilter')" id="meetupFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+      <button ng-click="selectFilter('meetup')" id="meetup" class="eoko-horizontal-scroll-button eoko-text-thin">
         Meet Up
       </button>
-      <button ng-click="selectFilter('gameFilter')" id="gameFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+      <button ng-click="selectFilter('game')" id="game" class="eoko-horizontal-scroll-button eoko-text-thin">
         Game
       </button>
-      <button ng-click="selectFilter('partyFilter')" id="partyFilter" class="eoko-horizontal-scroll-button eoko-text-thin">
+      <button ng-click="selectFilter('party')" id="party" class="eoko-horizontal-scroll-button eoko-text-thin">
         Party
       </button>
     </ion-scroll>
@@ -58,7 +58,7 @@
           display
         </div>
 
-        <ion-item ng-repeat="notify in notifications" class="item-thumbnail-left"
+        <ion-item ng-repeat="notify in notifications | filter: customEventFilter" class="item-thumbnail-left"
                   style="background-color:rgba(0,0,0,0);border-top:1px solid rgba(255,255,255,0.3);border-bottom:1px solid rgba(255,255,255,0.3);">
 
           <div class="eoko-notification-avatar" style="background-image: url({{notify.info.avatar}});"></div>
@@ -104,12 +104,32 @@
 
         <ion-list>
 
+              <!--filter-->
+          <ion-scroll direction="x" class="eoko-horizontal-scroll" scrollbar-x="false"
+                      scrollbar-y="false">
+            <button ng-click="selectCategory('fitness')" id="fitness" class="eoko-horizontal-scroll-button eoko-text-thin">
+              Fitness
+            </button>
+            <button ng-click="selectCategory('food')" id="food" class="eoko-horizontal-scroll-button eoko-text-thin">
+              Food
+            </button>
+            <button ng-click="selectCategory('meetup')" id="meetup" class="eoko-horizontal-scroll-button eoko-text-thin">
+              Meet Up
+            </button>
+            <button ng-click="selectCategory('game')" id="game" class="eoko-horizontal-scroll-button eoko-text-thin">
+              Game
+            </button>
+            <button ng-click="selectCategory('party')" id="party" class="eoko-horizontal-scroll-button eoko-text-thin">
+              Party
+            </button>
+          </ion-scroll>
+
           <!--Action Catagory-->
-          <label class="item item-input " name="eventCatagory">
+          <!-- <label class="item item-input " name="eventCatagory">
             <input id="ed_labelCatagory" type="text" placeholder="Catagory" style="font-size: 1.6em"
                    class="eoko-input eoko-text-thin" ng-model="event.catagory"
                    required="">
-          </label>
+          </label> -->
 
           <!--Action title-->
           <label class="item item-input" name="eventTitle">

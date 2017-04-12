@@ -63,3 +63,28 @@
 }
 
 
+.popupNameSearch {
+    position: absolute;
+    background-color: #f6f6f2;
+    width: 96vw;
+    border-radius: 33px;
+    border: 1px solid #9b7762;
+}
+
+.closebutton{
+      z-index: 4;
+    position: relative;
+    left: 78%;
+    top: 2px;
+    font-size: 33px;
+    color: #9d9d93;
+    text-align: center;
+    line-height: 46px;
+}
+
+.addFriendButton{
+      font-size: 33px;
+    color: white;
+    float: right;
+    padding: 3px;
+}

@@ -17,9 +17,9 @@ angular.module('app.services', [])
     };
 
     return {
-      setUserInfo: function (info,uid) {
+      setUserInfo: function (info) {
         userData = {
-          id: uid,
+          id: info.$id,
           name: info.name,
           email: info.email,
           birthday: info.birthday,
@@ -60,9 +60,9 @@ angular.module('app.services', [])
     };
 
     return {
-      setOtherInfo: function (info, uid) {
+      setOtherInfo: function (info) {
         userData = {
-           id: uid,
+           id: info.$id,
           name: info.name,
           email: info.email,
           birthday: info.birthday,

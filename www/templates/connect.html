@@ -9,7 +9,15 @@
 
     <div class="button-bar">
       <!--search icon -->
-      <a ui-sref="" class="eoko-button-clear eoko-icon-searchbar-left"></a>
+      <a ng-click="searchPerson()" class="eoko-button-clear eoko-icon-searchbar-left"></a>
+
+      <label ng-if="searchbarDisplay == 'true'" class="item item-input popupNameSearch" name="searchbar">
+            <input type="text" placeholder="Name" style="font-size: 1.6em;color:black;"
+                   class="eoko-input eoko-text-thin" ng-model="namequery.search" ng-change="displayResults()"
+                  >
+          </label>
+          <a ng-if="searchbarDisplay == 'true'" ng-click="closeSearchbar()" class="closebutton">x</a>
+
 
       <!--everyone button-->
       <a id="EveryoneButton" class="eoko-button-text-selected eoko-text-button-nav" ng-click="selectEveryoneTab()">Everyone</a>
@@ -21,10 +29,26 @@
 
 
     <ion-scroll style="height: calc(100% - 11em)" scrollbar-x="false" scrollbar-y="false">
-      <ion-list>
+
+      <ion-list ng-if="selection.tab == 'everyone'">
         <ion-item class="row" ng-repeat="rows in userList">
 
-          <figure ng-repeat="user in rows" ng-if="user.$id != owning.id" class="span4 eoko-connect-avatar">
+          <figure ng-repeat="user in rows" class="span4 eoko-connect-avatar">
+            <ion-item ng-click="openProfile(user,user.$id)" on-hold="openPopover($event,user)"
+                      style="background-image: url({{user.avatar}});margin:0px;"
+                      class="span4 eoko-connect-avatar"></ion-item>
+
+            <figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">{{user.name}}
+            </figcaption>
+          </figure>
+        </ion-item>
+      </ion-list>
+
+
+      <ion-list ng-if="selection.tab == 'friends'">
+        <ion-item class="row" ng-repeat="rows in friendlist">
+
+          <figure ng-repeat="user in rows" class="span4 eoko-connect-avatar">
             <ion-item ng-click="openProfile(user)" on-hold="openPopover($event,user)"
                       style="background-image: url({{user.avatar}});margin:0px;"
                       class="span4 eoko-connect-avatar"></ion-item>
@@ -34,13 +58,16 @@
           </figure>
         </ion-item>
       </ion-list>
+
     </ion-scroll>
-
-
     <script id="my-popover.html" type="text/ng-template">
       <ion-popover-view style="height:67px;background-color:rgba(255, 188, 0, 0.44);">
-        <button id="EveryoneButton" class="button button-light  button-block button-clear eoko-text-button-nav"
+        <button ng-if="friendornot == 'true'" id="EveryoneButton" class="button button-light  button-block button-clear eoko-text-button-nav"
                 ng-click="createMessage()" style="color:white;">Message
+        </button>
+
+        <button ng-if="friendornot == 'false'" id="EveryoneButton" class="button button-light  button-block button-clear eoko-text-button-nav"
+                ng-click="addFriend()" style="color:white;">Add Friend
         </button>
       </ion-popover-view>
     </script>

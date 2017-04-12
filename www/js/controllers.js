@@ -21,6 +21,20 @@ angular.module('app.controllers', [])
           console.log($scope.user);
           ProfilePress.setState(false);
           document.getElementById("profileScroll").style = "height: 100%;";
+        
+         selfUser = UserInfo.getUserInfo();
+            $scope.isFriend = false;
+            for (property in selfUser.friendlist) {
+                console.log(property, $scope.user.id)
+                if (property == $scope.user.id) {
+                    $scope.isFriend = true;
+                    $timeout(function() {
+                        $scope.$apply();
+                    });
+                    break;
+                }
+            }
+
         }
         else {
           $scope.alcick = false;
@@ -30,7 +44,7 @@ angular.module('app.controllers', [])
             console.log("undefined usr");
             firebase.auth().onAuthStateChanged(function (user) {
               usr = firebase.auth().currentUser;
-
+              $scope.isFriend = true;
               console.log(usr.displayName);
               var ref = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
               $scope.user = $firebaseObject(ref);
@@ -52,6 +66,7 @@ angular.module('app.controllers', [])
             });
           }
           else {
+            $scope.isFriend = true;
             console.log("userinfo: ", UserInfo.getUserInfo());
             $scope.user = UserInfo.getUserInfo();
             if ($scope.user.notifications) {
@@ -89,6 +104,7 @@ angular.module('app.controllers', [])
           });
         },
         init: function () {
+          $scope.ngInstafeedModel.data = [];
           ngInstafeed.get({
             get: 'user',
             userId: $scope.data.userId
@@ -105,6 +121,98 @@ angular.module('app.controllers', [])
       };
 
 
+      $scope.addFriend = function(info) {
+            var myself = UserInfo.getUserInfo();
+            usr = firebase.auth().currentUser;
+            console.log("adding friend", info);
+            var ress = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
+            ress.child('friendlist').child(info.id).set({
+                confirmed: false
+            });
+            var rsp = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + info.id);
+            rsp.child('notifications').push({
+                friendrequest: true,
+                person: myself
+            });
+            var u = $firebaseObject(ress);
+            u.$loaded().then(function(x) {
+                UserInfo.setUserInfo(u, usr.uid);
+                $scope.isFriend = true;
+            });
+            $timeout(function() {
+                        $scope.$apply();
+                    });
+        };
+
+        //upload new picture
+
+        function b64toBlob(b64Data, contentType, sliceSize) { //blobs galore
+            contentType = contentType || '';
+            sliceSize = sliceSize || 512;
+
+            var byteCharacters = atob(b64Data);
+            var byteArrays = [];
+
+            for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+                var byteNumbers = new Array(slice.length);
+                for (var i = 0; i < slice.length; i++) {
+                    byteNumbers[i] = slice.charCodeAt(i);
+                }
+
+                var byteArray = new Uint8Array(byteNumbers);
+
+                byteArrays.push(byteArray);
+            }
+
+            var blob = new Blob(byteArrays, {
+                type: contentType
+            });
+            return blob;
+        }
+
+
+        var randID = "";
+
+        $scope.uploadPic = function() {
+            console.log("upload picture");
+
+            var options = {
+                quality: 75,
+                destinationType: 0, //URL = 0, URI = 1;
+                sourceType: 0,
+                allowEdit: true,
+                encodingType: 0,
+                targetWidth: 500,
+                targetHeight: 500,
+                saveToPhotoAlbum: false
+            };
+
+            $cordovaCamera.getPicture(options).then(function(imageData) {
+                console.log(imageData);
+                var contentType = 'image/jpeg';
+                var blob = b64toBlob(imageData, contentType);
+                console.log("a new blob, ", blob);
+                console.log("blobs URL, ", $scope.user.image);
+
+                randID = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
+                firebase.storage().ref().child('profilePics/' + randID + ".jpg").put(blob).then(function(snapshot) {
+                    console.log('Uploaded a blob !');
+                    $scope.user.avatar = snapshot.downloadURL;
+                    var ress = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
+                    ress.set({
+                        avatar: snapshot.downloadURL
+                    });
+                    $timeout(function() {
+                        $scope.$apply();
+                    });
+                });
+
+
+            });
+        };
+
     }])
 
   .controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject', '$ionicPopover', '$timeout', '$state',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -117,7 +225,7 @@ angular.module('app.controllers', [])
       var eventdone = true;
 
       $scope.selection = {tab: "event", porb: "public", privstep: 1};
-      $scope.event = {title: "", location: "", date: "", time: "", description: ""};
+      $scope.event = {title: "", location: "", date: new Date(), time: "", description: "",category:[]};
       $scope.goingList = [];
       $scope.notifications = [];
 
@@ -160,7 +268,7 @@ angular.module('app.controllers', [])
         attend: ""
       };
 
-
+      /*$scope.searchEventFilter = [];
       //select filter
       $scope.selectFilter = function (elementId){
         var elementClass = document.getElementById(elementId).className;
@@ -169,7 +277,76 @@ angular.module('app.controllers', [])
         }else{
           document.getElementById(elementId).className = "eoko-horizontal-scroll-button eoko-text-thin";
         }
-      }
+
+
+      };*/
+
+
+      $scope.searchEventFilter = [];
+      //select filter
+      $scope.selectFilter = function (elementId){
+      var elementClass = document.getElementById(elementId).className;
+        if(elementClass == "eoko-horizontal-scroll-button eoko-text-thin activated"){
+          document.getElementById(elementId).className = "eoko-horizontal-scroll-button-selected eoko-text-thin";
+          $scope.searchEventFilter.push(elementId);
+        }else{
+          document.getElementById(elementId).className = "eoko-horizontal-scroll-button eoko-text-thin";
+          for(var i in $scope.searchEventFilter)
+          {
+            if($scope.searchEventFilter[i] == elementId)
+            {
+                  $scope.searchEventFilter.splice(i, 1);
+            }
+          }
+        }
+
+
+        if($scope.searchEventFilter == [])
+        {
+          $scope.searchEventFilter = null;
+        }
+        console.log("searching",$scope.searchEventFilter)
+      };
+
+
+
+        $scope.customEventFilter = function(item)
+        {
+          for(var i in $scope.searchEventFilter)
+          {
+            for (var j in item.info.category)
+            {
+              if(item.info.category[j] == $scope.searchEventFilter[i])
+              {
+                return item;
+              }
+            }
+            
+          }
+          if($scope.searchEventFilter.length == 0)
+          {
+            return item;
+          }
+        };
+
+
+      $scope.selectCategory = function (elementId){
+      var elementClass = document.getElementById(elementId).className;
+        if(elementClass == "eoko-horizontal-scroll-button eoko-text-thin activated"){
+          document.getElementById(elementId).className = "eoko-horizontal-scroll-button-selected eoko-text-thin";
+          $scope.event.category.push(elementId);
+        }else{
+          document.getElementById(elementId).className = "eoko-horizontal-scroll-button eoko-text-thin";
+          for(var i in $scope.event.category)
+          {
+            if($scope.event.category[i] == elementId)
+            {
+                  $scope.event.category.splice(i, 1);
+            }
+          }
+        }
+
+      };
 
 
       function checkUser(item) {
@@ -279,8 +456,8 @@ angular.module('app.controllers', [])
 
 
       //go to other profile from action detail popup
-      $scope.openProfile = function (clicked) {
-        OtherInfo.setOtherInfo(clicked);
+      $scope.openProfile = function (clicked,uid) {
+        OtherInfo.setOtherInfo(clicked,uid);
         $scope.closePopover();
         $state.go('tabsController.profile', {
           'avatarClicked': 'true'
@@ -471,6 +648,7 @@ angular.module('app.controllers', [])
         document.getElementById("EventButton").className = "eoko-button-text-selected eoko-text-button-nav";
         document.getElementById("CreateEventButton").className = "eoko-button-text eoko-text-button-nav";
         $scope.selection.tab = "event";
+        $scope.searchEventFilter = [];
       };
 
       $scope.selectCreateTab = function () {
@@ -659,7 +837,64 @@ angular.module('app.controllers', [])
       var usor = firebase.auth().currentUser;
       var ref;
 
-      $scope.selection = {tab: ""};
+      $scope.searchbarDisplay = false;
+      $scope.namequery = {search:""};
+
+      $scope.$on('$ionicView.beforeLeave', function(){
+        console.log("THIS IS THE FILTERED LIST:",$scope.filteredUserList);
+        $scope.searchbarDisplay = 'false';
+        $scope.namequery = {search:""};
+      });
+
+      $scope.displayResults = function()
+      {
+        var dataset;
+        if($scope.selection.tab == "everyone")
+        {
+          dataset = $scope.OrigUserList;
+        }
+        else
+        {
+          dataset = $scope.Origfriendlist;
+        }
+
+        var newUserList = [];
+        for(var i in dataset)
+        {
+          for(var j in dataset[i])
+          {
+            if(dataset[i][j].name != undefined && dataset[i][j].name.toLowerCase().includes($scope.namequery.search.toLowerCase()))
+            {
+              newUserList.push(dataset[i][j]);
+            }
+          }
+        }
+
+        if($scope.selection.tab == "everyone")
+        {
+          $scope.userList = chunk(newUserList, 3);
+        }
+        else
+        {
+          $scope.friendlist = chunk(newUserList, 3);
+        }
+        
+      };
+
+
+      $scope.closeSearchbar = function()
+      {
+        console.log("pressed");
+        $scope.searchbarDisplay = 'false';
+      };
+
+      $scope.searchPerson = function()
+      {
+        $scope.searchbarDisplay = 'true';
+      };
+   
+
+      $scope.selection = {tab: "everyone"};
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
         $ionicTabsDelegate.showBar(true);
@@ -679,6 +914,27 @@ angular.module('app.controllers', [])
               $scope.userList = $firebaseArray(ref);
               $scope.userList.$loaded().then(function (x) {
                 $scope.userList = chunk(x, 3);
+                $scope.OrigUserList = $scope.userList;
+
+                $scope.friendlist = [];
+                var tempfriendlist = [];
+                for (var i in Object.keys(usr.friendlist)) 
+                {
+                  console.log("getkey", Object.keys(usr.friendlist)[i]);
+                  for (var j = 0; j < x.length; j ++) 
+                  {
+                    if(Object.keys(usr.friendlist)[i] == x[j].$id)
+                    {
+                      console.log("found friend;",x[j]);
+                      tempfriendlist.push(x[j]);
+                    }
+                  }
+                }
+                $scope.friendlist = chunk(tempfriendlist, 3);
+                $scope.Origfriendlist = $scope.friendlist;
+                //console.log("friendlist",usr.friendlist);
+
+                console.log("userlist",$scope.OrigUserList);
               })
                 .catch(function (error) {
                   console.log("Error:", error);
@@ -687,7 +943,6 @@ angular.module('app.controllers', [])
 
               $scope.owning = {id: tempdata.$id};
               console.log($scope.owning);
-              console.log($scope.userList);
 
 
             })
@@ -697,18 +952,43 @@ angular.module('app.controllers', [])
           });
         }
         else {
+          usr = UserInfo.getUserInfo();
           ref = firebase.database().ref("Buildings").child(usor.displayName + "/Users");
           console.log(usr);
           $scope.userList = $firebaseArray(ref);
           $scope.userList.$loaded().then(function (x) {
             $scope.userList = chunk(x, 3);
+            $scope.OrigUserList = $scope.userList;
+            
+            $scope.friendlist = [];
+                var tempfriendlist = [];
+                for (var i in Object.keys(usr.friendlist)) 
+                {
+                  console.log("getkey", Object.keys(usr.friendlist)[i]);
+                  for (var j = 0; j < x.length; j ++) 
+                  {
+                    if(Object.keys(usr.friendlist)[i] == x[j].$id)
+                    {
+                      console.log("found friend;",x[j]);
+                      tempfriendlist.push(x[j]);
+                    }
+                  }
+                }
+                $scope.friendlist = chunk(tempfriendlist, 3);
+                $scope.Origfriendlist = $scope.friendlist;
+                //console.log("friendlist",usr.friendlist);
+
+                console.log("userlist",$scope.OrigUserList);
+
+
           })
             .catch(function (error) {
               console.log("Error:", error);
             });
 
-          $scope.owning = {avatar: usr.avatar};
+          $scope.owning = {id: usor.uid,avatar: usr.avatar};
           console.log($scope.owning);
+
         }
       });
 
@@ -730,9 +1010,19 @@ angular.module('app.controllers', [])
 
       function chunk(arr, size) {
         var newArr = [];
-        for (var i = 0; i < arr.length; i += size) {
+        for (var i = 0; i < arr.length; i ++) 
+        {
+          if(arr[i].$id == $scope.owning.id)
+            {
+              arr.splice(i,1);
+            }
+        }
+
+        for (var i = 0; i < arr.length; i += size) 
+        {
           newArr.push(arr.slice(i, i + size));
         }
+
         return newArr;
       }
 
@@ -808,10 +1098,47 @@ angular.module('app.controllers', [])
 
       };
 
+      $scope.addFriend = function() {
+            var myself = UserInfo.getUserInfo();
+            usr = firebase.auth().currentUser;
+            console.log("adding friend", messageUser);
+            var ress = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
+            ress.child('friendlist').child(messageUser.$id).set({
+                confirmed: false
+            });
+            var rsp = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + messageUser.$id);
+            rsp.child('notifications').push({
+                friendrequest: true,
+                person: myself
+            });
+            var u = $firebaseObject(ress);
+            u.$loaded().then(function(x) {
+                UserInfo.setUserInfo(u, usr.uid);
+                $scope.isFriend = true;
+            });
+        };
 
+      function isAFriend(messageUser)
+      {
+        for(var i in $scope.friendlist)
+        {
+          for(var j in $scope.friendlist[i])
+          {
+            //console.log("FRIENDSLIST", $scope.friendlist[i][j]);
+            if($scope.friendlist[i][j].$id == messageUser.$id)
+            {
+              return 'true';
+            }
+          }
+        }
+        return 'false';
+      }
+      
       $scope.openPopover = function ($event, notify) {
         $scope.blurry.behind = "5px";
         messageUser = notify;
+        $scope.friendornot = isAFriend(messageUser);
+          
         $scope.popover.show($event);
         makeblurry();
       };
@@ -820,6 +1147,7 @@ angular.module('app.controllers', [])
         $scope.blurry.behind = "0px";
         $scope.popover.hide();
         //$scope.popover.remove();
+        $scope.friendornot = " ";
       };
 
       //Cleanup the popover when we're done with it!
@@ -1199,9 +1527,7 @@ angular.module('app.controllers', [])
           firebase.storage().ref().child('profilePics/' + randID + ".jpg").put(blob).then(function (snapshot) {
             console.log('Uploaded a blob !');
             $scope.user.image = snapshot.downloadURL;
-            $timeout(function () {
-              $scope.$apply();
-            });
+            $timeout(function () {$scope.$apply();});
           });
 
 
