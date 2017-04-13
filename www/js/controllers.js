@@ -22,7 +22,7 @@ angular.module('app.controllers', [])
           ProfilePress.setState(false);
           document.getElementById("profileScroll").style = "height: 100%;";
         
-         selfUser = UserInfo.getUserInfo();
+         var selfUser = UserInfo.getUserInfo();
             $scope.isFriend = false;
             for (property in selfUser.friendlist) {
                 console.log(property, $scope.user.id)
@@ -123,6 +123,11 @@ angular.module('app.controllers', [])
 
       $scope.addFriend = function(info) {
             var myself = UserInfo.getUserInfo();
+            if(myself == undefined)
+            {
+              myself = usr;
+              console.log("I am me now?", myself);
+            }
             usr = firebase.auth().currentUser;
             console.log("adding friend", info);
             var ress = firebase.database().ref("Buildings").child(usr.displayName + "/Users/" + usr.uid);
@@ -139,6 +144,13 @@ angular.module('app.controllers', [])
                 UserInfo.setUserInfo(u, usr.uid);
                 $scope.isFriend = true;
             });
+
+            var curUser = firebase.auth().currentUser;
+            var ref = firebase.database().ref("Buildings").child(curUser.displayName + "/Users/" + curUser.uid);
+                      var usrInfo = $firebaseObject(ref);
+                      usrInfo.$loaded().then(function (x) {
+                        UserInfo.setUserInfo(usrInfo);
+                      });
             $timeout(function() {
                         $scope.$apply();
                     });
@@ -215,14 +227,16 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject', '$ionicPopover', '$timeout', '$state',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('eventsCtrl', ['$scope', '$stateParams', 'UserInfo', 'OtherInfo', '$firebaseArray', '$firebaseObject', '$ionicPopover', '$timeout', '$state','$ionicPopup',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject, $ionicPopover, $timeout, $state) {
+    function ($scope, $stateParams, UserInfo, OtherInfo, $firebaseArray, $firebaseObject, $ionicPopover, $timeout, $state,$ionicPopup) {
       var usr = UserInfo.getUserInfo();
       var authUser = firebase.auth().currentUser;
       var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/UserEvents");
       var eventdone = true;
+
+      ionic.keyboard.disable();
 
       $scope.selection = {tab: "event", porb: "public", privstep: 1};
       $scope.event = {title: "", location: "", date: new Date(), time: "", description: "",category:[]};
@@ -280,6 +294,55 @@ angular.module('app.controllers', [])
 
 
       };*/
+
+      $scope.getFriendList = function()
+      {
+        console.log("STARTING CUSTOM GET FRIENDS");
+        $scope.friendlist = [];
+        var tempfriendlist = [];
+
+        var ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Users");
+          console.log(usr);
+          $scope.userList = $firebaseArray(ref);
+          $scope.userList.$loaded().then(function (x) {
+
+        if(Object.keys(usr.friendlist).length > 0)
+        {
+          for (var i in Object.keys(usr.friendlist)) 
+          {
+            console.log("getkey", Object.keys(usr.friendlist)[i]);
+            for (var j = 0; j < x.length; j ++) 
+            {
+              if(Object.keys(usr.friendlist)[i] == x[j].$id)
+              {
+                console.log("found friend;",x[j]);
+                tempfriendlist.push(x[j]);
+              }
+            }
+          }
+        }
+         $scope.friendlist = chunk(tempfriendlist, 3);
+         console.log("DONE GETTING FRIENDS",$scope.friendlist);
+      });
+      };
+      
+      function chunk(arr, size) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i ++) 
+        {
+          if(arr[i].$id == $scope.owning.id)
+            {
+              arr.splice(i,1);
+            }
+        }
+
+        for (var i = 0; i < arr.length; i += size) 
+        {
+          newArr.push(arr.slice(i, i + size));
+        }
+
+        return newArr;
+      }
 
 
       $scope.searchEventFilter = [];
@@ -699,6 +762,19 @@ angular.module('app.controllers', [])
 
       };
 
+      function showAlert(message) {
+        //$scope.blurry = {behind: "5px"};
+
+        var alertPopup = $ionicPopup.alert({
+          title: 'Login Error',
+          cssClass: 'eoko-alert-pop-up',
+          template: message
+        });
+        alertPopup.then(function(res) {
+          //$scope.blurry = {behind: "0px"};
+        });
+      };
+
       $scope.createEvent = function (makeEventForm) {
         var rec = firebase.database().ref("Buildings").child(usr.buildcode + "/Users");
         var postedEvent = {
@@ -777,6 +853,13 @@ angular.module('app.controllers', [])
         }
 //if private
         else if ($scope.selection.porb == "private") {
+
+          if(!(Object.keys($scope.privateRoll).length > 0))
+          {
+            showAlert("You must select at least one person.");
+            return false;
+          }
+
           var eventpost = ref.push({
             'category': $scope.event.category,
             'title': postedEvent.title,
@@ -905,9 +988,9 @@ angular.module('app.controllers', [])
             ref = firebase.database().ref("Buildings").child(usor.displayName + "/Users");
 
             var tempdata = $firebaseObject(ref.child(usor.uid));
-            tempdata.$loaded().then(function (x) {
+            tempdata.$loaded().then(function (w) {
               UserInfo.setUserInfo(tempdata);
-              console.log(tempdata);
+              console.log("TempData",tempdata);
               usr = UserInfo.getUserInfo();
 
               console.log(usr);
@@ -916,17 +999,21 @@ angular.module('app.controllers', [])
                 $scope.userList = chunk(x, 3);
                 $scope.OrigUserList = $scope.userList;
 
+                console.log("usr import", usr);
                 $scope.friendlist = [];
                 var tempfriendlist = [];
-                for (var i in Object.keys(usr.friendlist)) 
+                if(Object.keys(usr.friendlist).length > 0)
                 {
-                  console.log("getkey", Object.keys(usr.friendlist)[i]);
-                  for (var j = 0; j < x.length; j ++) 
+                  for (var i in Object.keys(usr.friendlist)) 
                   {
-                    if(Object.keys(usr.friendlist)[i] == x[j].$id)
+                    console.log("getkey", Object.keys(usr.friendlist)[i]);
+                    for (var j = 0; j < x.length; j ++) 
                     {
-                      console.log("found friend;",x[j]);
-                      tempfriendlist.push(x[j]);
+                      if(Object.keys(usr.friendlist)[i] == x[j].$id)
+                      {
+                        console.log("found friend;",x[j]);
+                        tempfriendlist.push(x[j]);
+                      }
                     }
                   }
                 }
@@ -962,15 +1049,18 @@ angular.module('app.controllers', [])
             
             $scope.friendlist = [];
                 var tempfriendlist = [];
-                for (var i in Object.keys(usr.friendlist)) 
+                if(Object.keys(usr.friendlist).length > 0)
                 {
-                  console.log("getkey", Object.keys(usr.friendlist)[i]);
-                  for (var j = 0; j < x.length; j ++) 
+                  for (var i in Object.keys(usr.friendlist)) 
                   {
-                    if(Object.keys(usr.friendlist)[i] == x[j].$id)
+                    console.log("getkey", Object.keys(usr.friendlist)[i]);
+                    for (var j = 0; j < x.length; j ++) 
                     {
-                      console.log("found friend;",x[j]);
-                      tempfriendlist.push(x[j]);
+                      if(Object.keys(usr.friendlist)[i] == x[j].$id)
+                      {
+                        console.log("found friend;",x[j]);
+                        tempfriendlist.push(x[j]);
+                      }
                     }
                   }
                 }
@@ -1006,7 +1096,6 @@ angular.module('app.controllers', [])
         document.getElementById("FriendsButton").className = "eoko-button-text-selected eoko-text-button-nav";
         $scope.selection.tab = "friends";
       };
-
 
       function chunk(arr, size) {
         var newArr = [];
@@ -1116,6 +1205,13 @@ angular.module('app.controllers', [])
                 UserInfo.setUserInfo(u, usr.uid);
                 $scope.isFriend = true;
             });
+
+            var curUser = firebase.auth().currentUser;
+            var ref = firebase.database().ref("Buildings").child(curUser.displayName + "/Users/" + curUser.uid);
+                      var usrInfo = $firebaseObject(ref);
+                      usrInfo.$loaded().then(function (x) {
+                        UserInfo.setUserInfo(usrInfo);
+                      });
         };
 
       function isAFriend(messageUser)
@@ -1169,11 +1265,95 @@ angular.module('app.controllers', [])
     }])
 
 
-  .controller('buildingEventsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('buildingEventsCtrl', ['$scope', '$stateParams', 'UserInfo','$firebaseObject','$firebaseArray','$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams,UserInfo,$firebaseObject,$firebaseArray,$ionicPopup) {
+
+      var usr = UserInfo.getUserInfo();
+      var authUser = firebase.auth().currentUser;
+      var ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Admin/buildingEvents");
+
+      $scope.$on('$ionicView.beforeEnter', function () //before anything runs
+      {
+        usr = UserInfo.getUserInfo();
+        console.log("working?", UserInfo.getUserInfo());
+        if (authUser == undefined || usr.email == "") {
+          console.log("Why yes it is!");
+          firebase.auth().onAuthStateChanged(function (user) {
+            console.log("auth is in");
+            authUser = firebase.auth().currentUser;
+            console.log(authUser);
+            var rez = firebase.database().ref("Buildings").child(authUser.displayName + "/Users/" + authUser.uid);
+            var loadit = $firebaseObject(rez);
+            loadit.$loaded().then(function (x) {
+              console.log("loaded!");
+              UserInfo.setUserInfo(x);
+              usr = UserInfo.getUserInfo();
+              ref = firebase.database().ref("Buildings").child(usr.buildcode + "/Admin/buildingEvents");
+              $scope.buildingEventList = $firebaseArray(ref);
+              $scope.buildingEventList.$loaded().then(function(y)
+              {
+                //console.log("le done!",$scope.buildingEventList);
+                $scope.buildingEventList = categorySort(y);
+                console.log("newlist",$scope.buildingEventList);
+
+                var red = firebase.database().ref("Buildings").child(authUser.displayName + "/Users");
+                $scope.userData = $firebaseArray(red);
+                $scope.userData.$loaded().then(function(z)
+                {
+                  console.log("userdata", $scope.userData);                  
+                });
+
+              });
+
+            })
+              .catch(function (error) {
+                console.log("Error:", error);
+              });
+              
+          });
+        }
+        else
+        {
+          $scope.buildingEventList = $firebaseArray(ref);
+            $scope.buildingEventList.$loaded().then(function(y)
+            {
+              //console.log("le done!",$scope.buildingEventList);
+              $scope.buildingEventList = categorySort(y);
+              console.log("newlist",$scope.buildingEventList);
+
+              var red = firebase.database().ref("Buildings").child(authUser.displayName + "/Users");
+                $scope.userData = $firebaseArray(red);
+                $scope.userData.$loaded().then(function(z)
+                {
+                  console.log("userdata", $scope.userData);                  
+                });
+            });
+        }
+      });
+
+
+      function categorySort(list)
+      {
+        categoryList = {};
+        for(var i in list)
+        {
+          if(!(list[i].category in categoryList))
+          {
+            categoryList[list[i].category] = [];
+            categoryList[list[i].category].push(list[i]);
+          }
+          else
+          {
+            categoryList[list[i].category].push(list[i]);
+          }
+        }
+        delete categoryList['undefined'];
+
+        return categoryList;
+      }
 
       $scope.selection = {tab: "bevents"};
 
@@ -2049,7 +2229,11 @@ angular.module('app.controllers', [])
         d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
         console.log("message:", $scope.data.messageText);
         console.log("toadded: ", $scope.messages);
-
+        if($scope.data.messageText == "" || $scope.data.messageText == " ")
+        {
+          console.log("nothing was written, exiting");
+          return false;
+        }
         $scope.messages.$add({
           userId: authUser.uid,
           text: $scope.data.messageText,

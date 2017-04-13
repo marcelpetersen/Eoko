@@ -21,41 +21,71 @@
 
 
 
-    <ion-scroll ng-if="selection.tab == 'bevents' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
+    <ion-scroll ng-if="selection.tab == 'bevents' " style="height: calc(100% - 15.5em);" scrollbar-x="false"
+                scrollbar-y="false">
+
       <ion-list id="actionList">
-        <div ng-if="notifications.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Actions to
+        <div ng-if="buildingEventList.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Actions to
           display
         </div>
 
-        <ion-item ng-repeat="notify in notifications" class="item-thumbnail-left"
-                  style="background-color:rgba(0,0,0,0);border-top:1px solid white;border-bottom:1px solid white;">
+        <ion-item ng-click="showDetails = ! showDetails" ng-repeat="(key, dropdown) in buildingEventList" class="item-thumbnail-left"
+                      style="background-color:rgba(0,0,0,0);border-top:1px solid rgba(255,255,255,0.3);border-bottom:1px solid rgba(255,255,255,0.3);padding-left: 33px;">
+        <h2 class="eoko-text-thin" style="color: white;font-size: 25px;text-transform:capitalize;">{{key}}</h2>
 
-          <div class="eoko-notification-avatar" style="background-image: url({{notify.info.avatar}});"></div>
-          <h2 class="eoko-text-thin" style="color: white;font-size: 25px">{{notify.info.title}}</h2>
-          <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
-            {{notify.info.location}}
-            <br>{{notify.info.date}}
-            <br>{{notify.info.time}}
-          </p>
-          <button ng-click="openPopover($event, notify)" class="eoko-button-action-event-join eoko-text-thin">
-            {{notify.attend}}
-          </button>
+          <div  ng-show="showDetails" >
+            <ion-item ng-repeat="notify in dropdown" class="item-thumbnail-left"
+                      style="background-color:rgba(0,0,0,0);border-top:1px solid rgba(255,255,255,0.3);border-bottom:1px solid rgba(255,255,255,0.3);padding-left: 33px;">
 
+              <h2 class="eoko-text-thin" style="color: white;font-size: 25px">{{notify.title}}</h2>
+              <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+                {{notify.location}}
+                <br>{{notify.date}}
+                <br>{{notify.time}}
+              </p>
+              <button ng-click="openPopover($event, notify)" class="eoko-button-action-event-join eoko-text-thin">Attend
+              </button>
+
+            </ion-item>
+          </div>
         </ion-item>
+
       </ion-list>
     </ion-scroll>
 
 
-     <ion-scroll ng-if="selection.tab == 'feedback' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
+     <ion-scroll ng-if="selection.tab == 'feedback' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false" ng-model="feedbackSelector">
 
+       <ion-item ng-click="feedbackSelector.tab = 'survey'"  class="item-thumbnail-left"
+                        style="background-color:rgba(0,0,0,0);border-top:1px solid rgba(255,255,255,0.3);border-bottom:1px solid rgba(255,255,255,0.3);padding-left: 33px;">
+                        <h2 class="eoko-text-thin" style="color: white;font-size: 25px;text-transform:capitalize;">Surveys</h2>
+
+      </ion-item>
+
+      <div ng-if="feedbackSelector.tab == 'survey'" style="background-color:blue;height:100px;width:100px;"></div>
     </ion-scroll>
 
 
 
      <ion-scroll ng-if="selection.tab == 'ranking' " style="height: calc(100% - 10em);" scrollbar-x="false" scrollbar-y="false">
 
+     <div ng-if="userData.length == 0" class="eoko-text-button-nav" style="text-align:center;">No Users signed up!</div>
+
+     <ion-item ng-repeat="user in userData | orderBy : '-points' " class="item-thumbnail-left"
+                    style="background-color:rgba(0,0,0,0);border:1px solid #aaa3a8;border-radius:33px;margin:33px;">
+
+
+        <div class="eoko-notification-avatar" style="background-image: url({{user.avatar}});"></div>
+        <h2 class="eoko-text-thin" style="color: white;font-size: 25px">{{user.name}}</h2>
+        <p class="eoko-text-ultralight" style="color: white;display: inline; font-size: 15px;">
+          <br><span style="font-size: 18px;">Points: {{user.points}}</span>  
+        </p>
+      </ion-item>
+
     </ion-scroll>
 
+
+          
 
 
 
