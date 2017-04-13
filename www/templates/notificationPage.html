@@ -1,7 +1,8 @@
 <ion-view title="Notification Page" hide-nav-bar="true" hide-back-button="true" id="page16">
 
-  <ion-content padding="false" style="background: url(img/main_background.png) no-repeat center;background-size:cover;"
-               class="manual-ios-statusbar-padding" scroll="false">
+  <ion-content padding="false"
+               style="background: url(img/main_background.png) no-repeat center;background-size:cover;filter: blur({{blurry.behind}});"
+               class="manual-ios-statusbar-padding eoko-content" scroll="false">
 
     <div class="button-bar">
       <!--back button-->
@@ -89,6 +90,117 @@
         </ion-item>
       </ion-list>
     </ion-scroll>
+
+
+    <!--action detail pop up-->
+    <script id="eventFullView.html" type="text/ng-template">
+
+      <div ng-click="checkHit($event)" class="popup-container popup-showing active" ng-class="cssClass">
+
+        <div id="actionPopUp" class="eoko-action-popup">
+          <div class="item-body" style="text-align: center">
+
+            <!--action avatar-->
+            <div class="eoko-action-avatar"
+                 style="background-image: url({{modalOpen.info.avatar}}); margin-bottom: 0">
+            </div>
+
+            <!--action title-->
+            <h2 class="eoko-text-action-popup-title eoko-text-medium" style="margin-bottom: 0%">
+              {{modalOpen.info.title}}
+            </h2>
+
+
+            <div id="actionDetail" class="eoko-show">
+              <!--action hosted by-->
+              <div>
+                <h4 class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 0">Hosted by</h4>
+                <a ng-click="openProfile(modalOpen.info)" class="eoko-button-clear eoko-text-action-popup-title eoko-text-regular"
+                   style="margin-bottom: 0">{{modalOpen.info.name}}</a>
+              </div>
+
+              <!--action location-->
+              <div>
+                <a class="eoko-icon-location"></a>
+                <h4 class="eoko-text-action-popup-title eoko-text-thin" style="margin-bottom: 0">
+                  {{modalOpen.info.location}}
+                </h4>
+
+              </div>
+
+              <!--action date/time-->
+              <div>
+                <a class="eoko-icon-date-time"></a>
+                <a class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 0; font-size: 18px">
+                  {{modalOpen.info.date}}
+                </a>
+                <a class="eoko-text-action-popup-title2 eoko-text-thin" style="margin-bottom: 15px;">
+                  @ {{modalOpen.info.time}}
+                </a>
+              </div>
+
+              <!--action descriptions-->
+              <ion-scroll class="eoko-text-thin" style="min-height: 0; max-height: 100px; font-size: 20px;"
+                          scrollbar-x="false" scrollbar-y="false">
+                {{modalOpen.info.description}}
+              </ion-scroll>
+            </div>
+
+
+            <!--type of lists button-->
+            <div>
+              <a ng-click="showAttendants('goingButton')" id="goingButton"
+                 class="eoko-button-action-event-list eoko-text-thin" style="font-size:4vw;">
+                {{goingList.length}} <br/> Going
+              </a>
+              <a ng-click="showAttendants('maybeButton')" id="maybeButton"
+                 class="eoko-button-action-event-list eoko-text-thin" style="font-size:4vw;">
+                0 <br/> Maybe
+              </a>
+              <a ng-click="showAttendants('declinedButton')" id="declinedButton"
+                 class="eoko-button-action-event-list eoko-text-thin" style="padding-right: 0; padding-left: 0;font-size:4vw;">
+                0 <br/> Declined
+              </a>
+              <a ng-click="showAttendants('invitedButton')" id="invitedButton"
+                 class="eoko-button-action-event-list eoko-text-thin" style="font-size:4vw;">
+                {{modalOpen.rolenumber}} <br/> Invited
+              </a>
+
+            </div>
+
+            <!--show people who are going/maybe/declined/invited-->
+            <div id="attendants" class="eoko-hide">
+              <ion-scroll ng-model="goingList" class="eoko-display-action-attendents">
+                <div ng-if="goingList.length == 0" class="eoko-text-medium" style="font-size: 20px;">Nobody confirmed
+                  Yet!
+                </div>
+
+                <ion-list>
+                  <ion-item class="row">
+                    <figure ng-repeat="going in goingList" class="eoko-action-attendants-avatar">
+                      <ion-item ng-click="openProfile(going.info)" on-hold="openMessagePopover($event,going)"
+                                style="background-image: url({{going.info.avatar}}});margin:0px;"
+                                class="span4 eoko-connect-avatar"></ion-item>
+
+                      <figcaption class="eoko-text-ultralight" style="font-size: 1em;text-align:center;">
+                        {{going.info.name}}
+                      </figcaption>
+                    </figure>
+
+                  </ion-item>
+                </ion-list>
+              </ion-scroll>
+            </div>
+
+          </div>
+          <!--Join button-->
+          <button ng-click="joinEvent(modalOpen)" class="eoko-button-action-event-popup-join">
+            {{modalOpen.attend}}
+          </button>
+        </div>
+      </div>
+
+    </script>
 
   </ion-content>
 </ion-view>
