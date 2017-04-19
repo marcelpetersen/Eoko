@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0410c821-3d83-41a9-8369-8abe907e4630" name="Default" comment="" />
+    <list default="true" id="0410c821-3d83-41a9-8369-8abe907e4630" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/icon.png" afterPath="$PROJECT_DIR$/resources/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/splash.png" afterPath="$PROJECT_DIR$/resources/splash.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -90,8 +129,8 @@
               <file leaf-file-name="_eoko-popup.scss" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/scss/_eoko-popup.scss">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="300">
-                      <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+                    <state relative-caret-position="375">
+                      <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
                       <folding />
                     </state>
                   </provider>
@@ -692,13 +731,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155087000" />
+    <option name="totallyTimeSpent" value="155124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13385417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13385417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1128,8 +1168,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scss/_eoko-popup.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        <state relative-caret-position="375">
+          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
           <folding />
         </state>
       </provider>
