@@ -21,7 +21,7 @@ angular.module('app.controllers', [])
           console.log($scope.user);
           ProfilePress.setState(false);
           document.getElementById("profileScroll").style = "height: 100%;";
-        
+
          var selfUser = UserInfo.getUserInfo();
             $scope.isFriend = false;
             for (property in selfUser.friendlist) {
@@ -308,10 +308,10 @@ angular.module('app.controllers', [])
 
         if(Object.keys(usr.friendlist).length > 0)
         {
-          for (var i in Object.keys(usr.friendlist)) 
+          for (var i in Object.keys(usr.friendlist))
           {
             console.log("getkey", Object.keys(usr.friendlist)[i]);
-            for (var j = 0; j < x.length; j ++) 
+            for (var j = 0; j < x.length; j ++)
             {
               if(Object.keys(usr.friendlist)[i] == x[j].$id)
               {
@@ -325,10 +325,10 @@ angular.module('app.controllers', [])
          console.log("DONE GETTING FRIENDS",$scope.friendlist);
       });
       };
-      
+
       function chunk(arr, size) {
         var newArr = [];
-        for (var i = 0; i < arr.length; i ++) 
+        for (var i = 0; i < arr.length; i ++)
         {
           if(arr[i].$id == $scope.owning.id)
             {
@@ -336,7 +336,7 @@ angular.module('app.controllers', [])
             }
         }
 
-        for (var i = 0; i < arr.length; i += size) 
+        for (var i = 0; i < arr.length; i += size)
         {
           newArr.push(arr.slice(i, i + size));
         }
@@ -384,7 +384,7 @@ angular.module('app.controllers', [])
                 return item;
               }
             }
-            
+
           }
           if($scope.searchEventFilter.length == 0)
           {
@@ -969,7 +969,7 @@ angular.module('app.controllers', [])
         {
           $scope.friendlist = chunk(newUserList, 3);
         }
-        
+
       };
 
 
@@ -983,7 +983,7 @@ angular.module('app.controllers', [])
       {
         $scope.searchbarDisplay = 'true';
       };
-   
+
 
       $scope.selection = {tab: "everyone"};
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
@@ -1012,10 +1012,10 @@ angular.module('app.controllers', [])
                 var tempfriendlist = [];
                 if(Object.keys(usr.friendlist).length > 0)
                 {
-                  for (var i in Object.keys(usr.friendlist)) 
+                  for (var i in Object.keys(usr.friendlist))
                   {
                     console.log("getkey", Object.keys(usr.friendlist)[i]);
-                    for (var j = 0; j < x.length; j ++) 
+                    for (var j = 0; j < x.length; j ++)
                     {
                       if(Object.keys(usr.friendlist)[i] == x[j].$id)
                       {
@@ -1054,15 +1054,15 @@ angular.module('app.controllers', [])
           $scope.userList.$loaded().then(function (x) {
             $scope.userList = chunk(x, 3);
             $scope.OrigUserList = $scope.userList;
-            
+
             $scope.friendlist = [];
                 var tempfriendlist = [];
                 if(Object.keys(usr.friendlist).length > 0)
                 {
-                  for (var i in Object.keys(usr.friendlist)) 
+                  for (var i in Object.keys(usr.friendlist))
                   {
                     console.log("getkey", Object.keys(usr.friendlist)[i]);
-                    for (var j = 0; j < x.length; j ++) 
+                    for (var j = 0; j < x.length; j ++)
                     {
                       if(Object.keys(usr.friendlist)[i] == x[j].$id)
                       {
@@ -1107,7 +1107,7 @@ angular.module('app.controllers', [])
 
       function chunk(arr, size) {
         var newArr = [];
-        for (var i = 0; i < arr.length; i ++) 
+        for (var i = 0; i < arr.length; i ++)
         {
           if(arr[i].$id == $scope.owning.id)
             {
@@ -1115,7 +1115,7 @@ angular.module('app.controllers', [])
             }
         }
 
-        for (var i = 0; i < arr.length; i += size) 
+        for (var i = 0; i < arr.length; i += size)
         {
           newArr.push(arr.slice(i, i + size));
         }
@@ -1237,12 +1237,12 @@ angular.module('app.controllers', [])
         }
         return 'false';
       }
-      
+
       $scope.openPopover = function ($event, notify) {
         $scope.blurry.behind = "5px";
         messageUser = notify;
         $scope.friendornot = isAFriend(messageUser);
-          
+
         $scope.popover.show($event);
         makeblurry();
       };
@@ -1317,8 +1317,8 @@ angular.module('app.controllers', [])
                   $scope.surveyList.$loaded().then(function()
                   {
                     console.log("surveylist", $scope.surveyList);
-                                      
-                  });             
+
+                  });
                 });
 
               });
@@ -1327,7 +1327,7 @@ angular.module('app.controllers', [])
               .catch(function (error) {
                 console.log("Error:", error);
               });
-              
+
           });
         }
         else
@@ -1349,8 +1349,8 @@ angular.module('app.controllers', [])
                   $scope.surveyList.$loaded().then(function()
                   {
                     console.log("surveylist", $scope.surveyList);
-                                      
-                  });               
+
+                  });
                 });
             });
         }
@@ -1385,7 +1385,7 @@ angular.module('app.controllers', [])
           {
             $scope.surveyResults.answers[i].answer = answer;
           }
-        }         
+        }
           console.log("recorded answer", $scope.surveyResults);
       };
 
@@ -2495,7 +2495,7 @@ angular.module('app.controllers', [])
       $scope.$on('$ionicView.beforeEnter', function () //before anything runs
       {
         if (authUser == undefined) {
-          console.log('running once!')
+          console.log('running once!');
           firebase.auth().onAuthStateChanged(function (user) {
             authUser = firebase.auth().currentUser;
             ref = firebase.database().ref("Buildings").child(authUser.displayName + "/Chats");

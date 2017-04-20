@@ -2,51 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0410c821-3d83-41a9-8369-8abe907e4630" name="Default" comment="">
-<<<<<<< HEAD
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/icon.png" afterPath="$PROJECT_DIR$/resources/icon.png" />
-=======
->>>>>>> master
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" />
-<<<<<<< HEAD
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/splash.png" afterPath="$PROJECT_DIR$/resources/splash.png" />
-=======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
->>>>>>> master
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -111,20 +69,14 @@
               <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
                   <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
                     <state relative-caret-position="8160">
                       <caret line="544" column="0" lean-forward="false" selection-start-line="544" selection-start-column="0" selection-end-line="544" selection-end-column="0" />
                       <folding>
-                        <marker date="1492572326000" expanded="true" signature="68:1269" ph="[...]" />
-                        <marker date="1492572326000" expanded="true" signature="609:1269" ph="{...}" />
-                        <marker date="1492572326000" expanded="true" signature="737:1269" ph="{...}" />
-                        <marker date="1492572326000" expanded="true" signature="948:1269" ph="{...}" />
+                        <marker date="1492650414000" expanded="true" signature="68:1261" ph="[...]" />
+                        <marker date="1492650414000" expanded="true" signature="609:1261" ph="{...}" />
+                        <marker date="1492650414000" expanded="true" signature="737:1261" ph="{...}" />
+                        <marker date="1492650414000" expanded="true" signature="948:1261" ph="{...}" />
                       </folding>
-=======
-                    <state relative-caret-position="4545">
-                      <caret line="303" column="0" lean-forward="false" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
-                      <folding />
->>>>>>> master
                     </state>
                   </provider>
                 </entry>
@@ -139,16 +91,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="_eoko-popup.scss" pinned="false" current-in-tab="true">
+              <file leaf-file-name="_eoko-popup.scss" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/scss/_eoko-popup.scss">
                   <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-                    <state relative-caret-position="375">
-                      <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-=======
                     <state relative-caret-position="420">
-                      <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
->>>>>>> master
+                      <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
                       <folding />
                     </state>
                   </provider>
@@ -157,8 +104,18 @@
               <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/www/js/routes.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="2085">
-                      <caret line="139" column="32" lean-forward="false" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
+                    <state relative-caret-position="469">
+                      <caret line="188" column="17" lean-forward="true" selection-start-line="188" selection-start-column="17" selection-end-line="188" selection-end-column="17" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/config.xml">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="240">
+                      <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
                       <folding />
                     </state>
                   </provider>
@@ -181,13 +138,8 @@
               <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
                   <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-                    <state relative-caret-position="12318">
-                      <caret line="2222" column="21" lean-forward="false" selection-start-line="2222" selection-start-column="21" selection-end-line="2222" selection-end-column="21" />
-=======
-                    <state relative-caret-position="228">
-                      <caret line="1416" column="21" lean-forward="false" selection-start-line="1416" selection-start-column="21" selection-end-line="1416" selection-end-column="21" />
->>>>>>> master
+                    <state relative-caret-position="169">
+                      <caret line="2495" column="7" lean-forward="true" selection-start-line="2495" selection-start-column="7" selection-end-line="2495" selection-end-column="7" />
                       <folding />
                     </state>
                   </provider>
@@ -207,7 +159,7 @@
                   <folding>
                     <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                    <marker date="1492572326000" expanded="true" signature="3417:3474" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="3417:3474" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -216,32 +168,27 @@
           <file leaf-file-name="chatTab.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/templates/chatTab.html">
               <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
                 <state relative-caret-position="330">
-                  <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-=======
-                <state relative-caret-position="345">
-                  <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
->>>>>>> master
+                  <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
                   <folding>
                     <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                    <marker date="1492572326000" expanded="true" signature="1584:2968" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="1584:2987" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="1632:2950" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="1658:1778" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="1978:2930" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="2037:2077" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="2131:2159" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="2228:2254" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="2366:2491" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="2389:2435" ph="..." />
-                    <marker date="1492572326000" expanded="false" signature="2567:2613" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="2614:2667" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="2753:2913" ph="..." />
-                    <marker date="1492572326000" expanded="true" signature="2878:2908" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="1584:2968" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="1584:2987" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="1632:2950" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="1658:1778" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="1978:2930" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="2037:2077" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="2131:2159" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="2228:2254" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="2366:2491" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="2389:2435" ph="..." />
+                    <marker date="1492649413000" expanded="false" signature="2567:2613" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="2614:2667" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="2753:2913" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="2878:2908" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -251,11 +198,7 @@
             <entry file="file://$PROJECT_DIR$/www/templates/chatPage.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="165">
-<<<<<<< HEAD
                   <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-=======
-                  <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
->>>>>>> master
                   <folding>
                     <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -270,15 +213,11 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="405">
                   <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-<<<<<<< HEAD
                   <folding>
-                    <marker date="1492572326000" expanded="true" signature="59:375" ph="[...]" />
-                    <marker date="1492572326000" expanded="true" signature="72:375" ph="{...}" />
-                    <marker date="1492572326000" expanded="true" signature="340:375" ph="{...}" />
+                    <marker date="1492649413000" expanded="true" signature="59:375" ph="[...]" />
+                    <marker date="1492649413000" expanded="true" signature="72:375" ph="{...}" />
+                    <marker date="1492649413000" expanded="true" signature="340:375" ph="{...}" />
                   </folding>
-=======
-                  <folding />
->>>>>>> master
                 </state>
               </provider>
             </entry>
@@ -292,7 +231,7 @@
                     <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                    <marker date="1492572326000" expanded="true" signature="9225:13792" ph="..." />
+                    <marker date="1492649413000" expanded="true" signature="9225:13792" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -361,6 +300,7 @@
       <find>login</find>
       <find>event</find>
       <find>ng-if</find>
+      <find>chat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -414,9 +354,10 @@
         <option value="$PROJECT_DIR$/www/templates/setting.html" />
         <option value="$PROJECT_DIR$/www/templates/login.html" />
         <option value="$PROJECT_DIR$/www/templates/getCodePage.html" />
-        <option value="$PROJECT_DIR$/www/js/controllers.js" />
         <option value="$PROJECT_DIR$/www/templates/chatPage.html" />
         <option value="$PROJECT_DIR$/scss/_eoko-popup.scss" />
+        <option value="$PROJECT_DIR$/www/js/controllers.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
       </list>
     </option>
   </component>
@@ -453,7 +394,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -576,38 +516,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Eoko" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Eoko" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Eoko" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Eoko" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -628,6 +536,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -770,18 +679,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="155124000" />
-=======
-    <option name="totallyTimeSpent" value="155211000" />
->>>>>>> master
+    <option name="totallyTimeSpent" value="157448000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13385417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14010416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -796,17 +701,17 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13403694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13385417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912534" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -822,13 +727,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/bower/lib/node_modules/json-stringify-safe/test/stringify_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1890">
-          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/lib/ionic/scss/_form.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -954,15 +852,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-<<<<<<< HEAD
           <folding>
-            <marker date="1492572326000" expanded="true" signature="59:375" ph="[...]" />
-            <marker date="1492572326000" expanded="true" signature="72:375" ph="{...}" />
-            <marker date="1492572326000" expanded="true" signature="340:375" ph="{...}" />
+            <marker date="1492649413000" expanded="true" signature="59:375" ph="[...]" />
+            <marker date="1492649413000" expanded="true" signature="72:375" ph="{...}" />
+            <marker date="1492649413000" expanded="true" signature="340:375" ph="{...}" />
           </folding>
-=======
-          <folding />
->>>>>>> master
         </state>
       </provider>
     </entry>
@@ -1002,14 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2085">
-          <caret line="139" column="32" lean-forward="false" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/buildingEvents.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1021,7 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,48 +1007,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/www/templates/chatPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/chatTab.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <marker date="1492572326000" expanded="true" signature="1584:2968" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="1584:2987" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="1632:2950" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="1658:1778" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="1978:2930" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="2037:2077" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="2131:2159" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="2228:2254" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="2366:2491" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="2389:2435" ph="..." />
-            <marker date="1492572326000" expanded="false" signature="2567:2613" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="2614:2667" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="2753:2913" ph="..." />
-            <marker date="1492572326000" expanded="true" signature="2878:2908" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> master
     <entry file="file://$PROJECT_DIR$/www/templates/connect.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -1171,7 +1014,7 @@
           <folding>
             <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <marker date="1492572326000" expanded="true" signature="3417:3474" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="3417:3474" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1184,23 +1027,15 @@
             <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <marker date="1492572326000" expanded="true" signature="9225:13792" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="9225:13792" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4545">
-          <caret line="303" column="0" lean-forward="false" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scss/_eoko-popup.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+          <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1221,50 +1056,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/chatPage.html">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="8160">
-          <caret line="544" column="0" lean-forward="false" selection-start-line="544" selection-start-column="0" selection-end-line="544" selection-end-column="0" />
-          <folding>
-            <marker date="1492572326000" expanded="true" signature="68:1269" ph="[...]" />
-            <marker date="1492572326000" expanded="true" signature="609:1269" ph="{...}" />
-            <marker date="1492572326000" expanded="true" signature="737:1269" ph="{...}" />
-            <marker date="1492572326000" expanded="true" signature="948:1269" ph="{...}" />
-=======
         <state relative-caret-position="165">
-          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
->>>>>>> master
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/chatTab.html">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="375">
-          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding />
-=======
-        <state relative-caret-position="345">
-          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        <state relative-caret-position="330">
+          <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
           <folding>
             <element signature="n#style#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#ion-item#0;n#ion-list#0;n#ion-scroll#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <marker date="1492649413000" expanded="true" signature="1584:2968" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="1584:2987" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="1632:2950" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="1658:1778" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="1978:2930" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="2037:2077" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="2131:2159" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="2228:2254" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="2366:2491" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="2389:2435" ph="..." />
+            <marker date="1492649413000" expanded="false" signature="2567:2613" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="2614:2667" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="2753:2913" ph="..." />
+            <marker date="1492649413000" expanded="true" signature="2878:2908" ph="..." />
           </folding>
->>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="188" column="17" lean-forward="true" selection-start-line="188" selection-start-column="17" selection-end-line="188" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8160">
+          <caret line="544" column="0" lean-forward="false" selection-start-line="544" selection-start-column="0" selection-end-line="544" selection-end-column="0" />
+          <folding>
+            <marker date="1492650414000" expanded="true" signature="68:1261" ph="[...]" />
+            <marker date="1492650414000" expanded="true" signature="609:1261" ph="{...}" />
+            <marker date="1492650414000" expanded="true" signature="737:1261" ph="{...}" />
+            <marker date="1492650414000" expanded="true" signature="948:1261" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
